@@ -10,6 +10,6 @@ if(is_file("controlador/".$pagina.".php")){
     echo 'la cagaste en el index';
 }
 
-
+//hjhjhjhjh
 
 ?>
