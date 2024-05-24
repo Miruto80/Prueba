@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
+    
     <link rel="stylesheet" href="css/style_login.css">
-    <title>Login</title>
+    <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
+    <title>Iniciar sesion</title>
 </head>
 
 <body>
