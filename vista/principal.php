@@ -8,7 +8,7 @@
 <body> 
 <?php require_once('comunes/nav.php'); ?>
 <!-- Clase container todo debe ir dentro de contenedor -->
-<h1>Hola</h1>
+
 
 </body>
 </html>
