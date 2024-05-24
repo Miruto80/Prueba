@@ -4,13 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style-login.css">
-    <title>Iniciar sesión</title>
-    <link rel="shortcut icon" type="image/x-icon" href="img/logo taekyon.png">
+    <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
+    <link rel="stylesheet" href="style-login.css">
+    <title>Login</title>
 </head>
 
 <body>
-
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
