@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
-    <title>iniciar sesion</title>
+    <title>Iniciar sesion</title>
 </head>
 
 <body>
