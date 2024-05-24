@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
     <link rel="stylesheet" href="css/style_login.css">
     <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
     <title>Iniciar sesion</title>
@@ -23,7 +23,7 @@
                 <h1>Iniciar sesión</h1>
                 <input type="text" placeholder="Usuario">
                 <input type="password" placeholder="Contraseña">
-                <button class="ingresar-b">Ingresar</button>
+                <a class="boton" href="?pagina=principal">INGRESAR</a>
             </form>
         </div>
         <div class="toggle-container">

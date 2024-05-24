@@ -5,8 +5,4 @@ if(is_file("vista/".$pagina.".php")){
 }else{
     echo 'fallo el controlador login';
 }
-
-
-
-
 ?>
