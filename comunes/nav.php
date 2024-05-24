@@ -1,7 +1,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/nav.css">
   <title>TAEKYON</title>
 </head>
 <body>
@@ -23,7 +22,7 @@
             <li class="nav-item">
               <a class="nav-link" href=".">Registro</a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mas
               </a>
