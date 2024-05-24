@@ -10,6 +10,7 @@
 </head>
 
 <body>
+<form method="GET" action="?pagina=principal">
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
@@ -18,8 +19,9 @@
         </div>
         <div class="form-container sign-in">
             <form>
+                <img src="logo taekyon.png" alt="">
                 <h1>Iniciar sesión</h1>
-                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Usuario">
                 <input type="password" placeholder="Contraseña">
                 <button class="ingresar-b">Ingresar</button>
             </form>
@@ -27,9 +29,6 @@
         <div class="toggle-container">
             <div class="toggle">
                 <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
                 </div>
                 <div class="toggle-panel toggle-right">
                     <h1>¡Bienvenido al sistema de la Taekyon!</h1>
@@ -38,6 +37,7 @@
             </div>
         </div>
     </div>
+</form>
 </body>
 
 </html>
