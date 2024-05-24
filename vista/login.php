@@ -10,7 +10,7 @@
 </head>
 
 <body>
-<form method="GET" action="?pagina=principal">
+<form>
     <div class="container" id="container">
         <div class="form-container sign-up">
             <form>
@@ -19,10 +19,11 @@
         </div>
         <div class="form-container sign-in">
             <form>
+            <img src="img/logo taekyon.png" alt="" width="150px" height="150px" class="mx-auto d-block">
                 <img src="logo taekyon.png" alt="">
                 <h1>Iniciar sesión</h1>
-                <input type="text" placeholder="Usuario">
-                <input type="password" placeholder="Contraseña">
+                <input type="text" placeholder="Usuario" id="usuario" name="usuario">
+                <input type="password" placeholder="Contraseña" id="Contraseña" id="usuario">
                 <a class="boton" href="?pagina=principal">INGRESAR</a>
             </form>
         </div>
