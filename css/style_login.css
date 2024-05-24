@@ -44,13 +44,7 @@ body{
 }
 
 .container a{
-    color: #333;
-    font-size: 13px;
     text-decoration: none;
-    margin: 15px 0 10px;
-}
-
-.container button{
     background-color: #000000;
     color: rgb(244, 255, 194);
     font-size: 12px;
@@ -63,6 +57,21 @@ body{
     margin-top: 10px;
     cursor: pointer;
 }
+
+
+/* .container button{
+    background-color: #000000;
+    color: rgb(244, 255, 194);
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
+} */
 
 .container button.hidden{
     background-color: transparent;

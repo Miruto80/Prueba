@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
     <link rel="stylesheet" href="css/style_login.css">
     <title>Login</title>
 </head>
@@ -21,16 +20,11 @@
                 <h1>Iniciar sesión</h1>
                 <input type="email" placeholder="Email">
                 <input type="password" placeholder="Contraseña">
-                <button class="ingresar-b">Ingresar</button>
+                <a class="boton" href="?pagina=principal">INGRESAR</a>
             </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                    <h1>Welcome Back!</h1>
-                    <p>Enter your personal details to use all of site features</p>
-                    <button class="hidden" id="login">Sign In</button>
-                </div>
                 <div class="toggle-panel toggle-right">
                     <h1>¡Bienvenido al sistema de la Taekyon!</h1>
                     <p>Ingresa los respectivos datos para ingresar al sistema actual de nuestra academia.</p>
