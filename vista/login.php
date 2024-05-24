@@ -5,11 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style_login.css">
-    <title>Iniciar sesion</title>
+    <link rel="shorcut icon" type="image/x-icon" href="img/logo taekyon.png">
+    <title>iniciar sesion</title>
 </head>
-<?php
-require_once("comunes/framewor.php");
-?>
+
 <body>
     <div class="container" id="container">
         <div class="form-container sign-up">
