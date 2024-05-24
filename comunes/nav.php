@@ -4,7 +4,7 @@
   <div class=" container-fluid">
         <a class="navbar-brand" href=".">
           <img src="img/logo taekyon.png" alt="" width="40" height="auto" class="d-inline-block align-text-top">
-          <a class="navbar-brand" href="."> TAEKYON </a>
+          <a class="navbar-brand" href="?pagina=principal"> TAEKYON </a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
