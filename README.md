@@ -1,4 +1,4 @@
-# Para correr el proyecto usando Docker se debe usar los siguientes comandos.
+## Para correr el proyecto usando Docker se debe usar los siguientes comandos.
 
 Parase en la raiz del proyecto y ejecutar:
 
