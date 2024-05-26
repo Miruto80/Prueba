@@ -1,9 +1,25 @@
-
+*{
+    font-family: 'Montserrat', sans-serif;
+}
 .caja{
     background-color:black;
     border-radius: 150px 0 0 100px;
     color: white;
     
+}
+a{
+    text-decoration: none;
+    background-color: #000000;
+    color: rgb(244, 255, 194);
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    cursor: pointer;
 }
 
 
