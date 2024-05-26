@@ -1,6 +1,10 @@
 ## Para correr el proyecto usando Docker se debe usar los siguientes comandos.
 
-Parase en la raiz del proyecto y ejecutar:
+### Clonar el repositorio
+
+``` git@github.com:Miruto80/Prueba.git ```
+
+### Parase en la raiz del proyecto y ejecutar:
 
 ``` docker build -t mi_php_app .  ```
 
@@ -10,6 +14,6 @@ Parase en la raiz del proyecto y ejecutar:
 
 --------------------------------------------------------------------------
 
-## Para usar Docker Compose (Opcional)
+###  Para usar Docker Compose (Opcional)
 
 ``` docker-compose up -d ```
