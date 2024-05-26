@@ -6,7 +6,7 @@
 
 ### Pararse en la rama developer
 
-``` git checkout -b developer ```
+``` git checkout developer ```
 
 ### Parase en la raiz del proyecto y ejecutar:
 
