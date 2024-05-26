@@ -4,7 +4,7 @@
 .caja{
     background-color:black;
     border-radius: 150px 0 0 100px;
-    color: white;
+    color: rgb(244, 255, 194);
     
 }
 a{
@@ -20,6 +20,11 @@ a{
     text-transform: uppercase;
     margin-top: 10px;
     cursor: pointer;
+    transition: color 0.3s ease;
 }
+a:hover{
+    color: #ffd700;
+}
+
 
 
