@@ -4,6 +4,10 @@
 
 ``` git@github.com:Miruto80/Prueba.git ```
 
+### Pararse en la rama developer
+
+``` git checkout -b developer ```
+
 ### Parase en la raiz del proyecto y ejecutar:
 
 ``` docker build -t mi_php_app .  ```
