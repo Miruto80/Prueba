@@ -1,10 +1,10 @@
 # Para correr el proyecto usando Docker se debe usar los siguientes comandos.
 
-Parase en la reiz del proyecto y ejecutar:
+Parase en la raiz del proyecto y ejecutar:
 
-<sup>docker build -t mi_php_app . </sup>
+''' docker build -t mi_php_app .  '''
 
-<sup>docker run -d -p 8080:80 --name mi_php_contenedor mi_php_app</sup>
+'''docker run -d -p 8080:80 --name mi_php_contenedor mi_php_app'''
 
-<sup>localhost:8080</sup>
+'''localhost:8080'''
 
