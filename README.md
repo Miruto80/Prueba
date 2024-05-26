@@ -8,3 +8,8 @@ Parase en la raiz del proyecto y ejecutar:
 
 ```localhost:8080```
 
+--------------------------------------------------------------------------
+
+## Para usar Docker Compose (Opcional)
+
+``` docker-compose up -d ```
