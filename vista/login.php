@@ -27,11 +27,9 @@
                 <a class="boton" href="?pagina=principal">INGRESAR</a>
             </form>
         </div>
-        <div class="toggle-container">
-            <div class="toggle">
-                <div class="toggle-panel toggle-left">
-                </div>
-                <div class="toggle-panel toggle-right">
+        <div class="toggle_panel">
+            <div class="container_C">
+                <div class="tog">
                     <h1>¡Bienvenido al sistema de la Taekyon!</h1>
                     <p>Ingresa los respectivos datos para ingresar al sistema actual de nuestra academia.</p>
                 </div>
