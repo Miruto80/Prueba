@@ -14,6 +14,5 @@ $pagina = "login";
     echo "PAGINA EN CONSTRUCCIÓN";
  }
 
- <h1>hola</h1>
- <h2>2323</h2>
+
 ?> 
