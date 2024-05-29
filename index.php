@@ -15,4 +15,5 @@ $pagina = "login";
  }
 
  <h1>hola</h1>
+ <h2>2323</h2>
 ?> 
