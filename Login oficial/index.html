@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="img/logo taekyon.png" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sistema Taekyon</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
+  <style>
+    body {
+      background-image: url('img/fondo.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100vh;
+    }
+
+    .login-container {
+      max-width: 25rem;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      background-color: rgba(255, 255, 255, 0.9);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
+      margin-right: 2rem; /* Espacio entre el formulario y la sección 2 */
+    }
+
+    .input-group-text {
+      background-color: #e9ecef;
+      border: none;
+    }
+
+    .form-control {
+      border-left: none;
+    }
+
+    .form-control:focus {
+      box-shadow: none;
+    }
+
+    .btn-outline-warning {
+      border-color: #ffc107;
+      color: #ffc107;
+    }
+
+    .btn-outline-warning:hover {
+      background-color: #ffc107;
+      color: #fff;
+    }
+
+    .form-check-label {
+      font-size: 0.9rem;
+    }
+
+    .text-center a {
+      font-size: 0.9rem;
+    }
+
+    .seccion2 {
+      max-width: 25rem;
+      padding: 2rem;
+      border-radius: 0.5rem;
+      background-color: rgba(0, 0, 0, 0.8); /* Fondo negro con opacidad */
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3); /* Sombras modernas */
+    }
+  </style>
+</head>
+
+<body>
+  <div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="login-container text-secondary">
+      <div class="text-center mb-4 ">
+        <img src="img/logo taekyon.png" alt="login-icon" style="height: 10rem" />
+      </div>
+      <div class="text-center h1 text-dark fw-bold">Iniciar Sesión</div>
+      
+      <form>
+        <div class="input-group mt-4">
+          <div class="input-group-text bg-dark-subtle">
+            <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
+          </div>
+          <input class="form-control" type="text" placeholder="Username" required />
+        </div>
+
+        <div class="input-group mt-3">
+          <div class="input-group-text bg-dark-subtle">
+            <img src="img/password.svg" alt="password-icon" style="height: 1rem" />
+          </div>
+          <input class="form-control" type="password" placeholder="Password" required />
+        </div>
+        
+        <div class="form-check my-3 d-flex justify-content-center">
+          <input class="form-check-input" type="checkbox" id="connected" />
+          <label class="form-check-label ms-2" for="connected">Mantener sesión</label>
+        </div>
+
+        <div class="text-center">
+          <button type="submit" class="btn btn-outline-warning">Ingresar</button>
+        </div>
+        <div class="text-center mt-3">
+          <a href="#" class="text-success-emphasis fw-semibold fst-italic">¿Olvidaste tu contraseña?</a>
+        </div>
+
+      </form>
+    </div>
+    <!-- <div class="seccion2 text-center text-warning">
+      <div>
+        <h1>¡Bienvenido al sistema de la Taekyon!</h1>
+        <p>Ingresa los respectivos datos para ingresar al sistema actual de nuestra academia.</p>
+      </div>
+    </div> -->
+  </div>
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

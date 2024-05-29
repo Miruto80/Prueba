@@ -13,4 +13,6 @@ $pagina = "login";
  else{
     echo "PAGINA EN CONSTRUCCIÓN";
  }
+
+ <h1>hola</h1>
 ?> 
