@@ -18,6 +18,7 @@
     }
 
     .login-container {
+      border: 3px solid  #ffd700;
       margin: 0;
       max-width: 50rem;
       padding: 2rem;
@@ -84,6 +85,7 @@
     }
 
     .seccion2 {
+      border: 3px solid  #ffd700;
       margin: 0;
       border-radius: 100px 0 0 100px;
       margin-left: 25px;
