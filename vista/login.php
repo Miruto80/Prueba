@@ -92,7 +92,8 @@
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
                     </div>
-                    <input class="form-control" type="text" placeholder="Usuario" required />
+                    <input class="form-control" type="text" placeholder="Usuario" id="Usuario" name="Usuario" required />
+                    <span id="sUsuario"></span>
                   </div>
 
                   <br/>
@@ -101,7 +102,8 @@
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/password.svg" alt="password-icon" style="height: 1rem" />
                     </div>
-                    <input class="form-control" type="password" placeholder="Contraseña" required />
+                    <input class="form-control" type="password" placeholder="Contraseña" id="Clave" name="Clave" required />
+                    <span id="sClave"></span>
                   </div>
 
                       <div class="form-check my-2 d-flex justify-content-center">
@@ -119,5 +121,6 @@
   
         </div>
       </div>
+      <script type="text/javascript" src="js/login.js"></script>
 </body>
 </html>
