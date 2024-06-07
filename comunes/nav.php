@@ -31,7 +31,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="?pagina=schedules">Horario</a>
+              <a class="nav-link" href="?pagina=schedules">Horarios</a>
             </li>
 
             <li class="nav-item">
