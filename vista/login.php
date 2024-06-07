@@ -80,7 +80,7 @@
       <!--------------------------- Left Box ----------------------------->
   
          <div class="seccion2 text-warning col-md-6 d-flex justify-content-center align-items-center flex-column left-box">
-          <p class="texto fs-5 text-center mt-3";">¡Bienvenido al sistema de la Taekyon!</p>
+          <p class="texto fs-5 text-center mt-3">¡Bienvenido al sistema de la Taekyon!</p>
              
              <small class="text-wrap text-center mb-3" style="width: 17rem;">Ingresa los respectivos datos para ingresar al sistema actual de nuestra academia..</small>
          </div> 
