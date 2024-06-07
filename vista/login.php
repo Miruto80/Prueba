@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="icon" type="image/x-icon" href="img/logo taekyon.png" />
     <title>Taekyon</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
@@ -58,6 +57,13 @@
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
           padding: 0;
         }
+
+        .boton {
+          background-color: rgba(0, 0, 0, 0.8);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        
 
       </style>
 </head>
@@ -114,7 +120,7 @@
                   </div>
 
                   <div class="input-group mb-2 text-center d-grid gap-2 col-6 mx-auto">
-                    <a class="boton btn btn-lg btn-outline-warning" href="?pagina=principal" role="button">INGRESAR</a>
+                    <a class="boton btn btn-lg btn-outline-warning text-warning border-warning " href="?pagina=principal" role="button">INGRESAR</a>
                   </div>
             </div>
          </div> 
