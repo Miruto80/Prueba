@@ -17,15 +17,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href=".">Inicio</a>
+              <a class="nav-link active" aria-current="page" href="?pagina=principal">Inicio</a>
             </li>
 
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=athletes">Atletas</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=trainers">Entrenadores</a>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Registro
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="?pagina=athletes">Atletas</a></li>
+                <li><a class="dropdown-item" href="?pagina=trainers">Entrenadores</a></li>
+              </ul>
             </li>
 
             <li class="nav-item">
@@ -39,21 +41,21 @@
             <li class="nav-item">
               <a class="nav-link" href="?pagina=records">Records</a>
             </li>
-
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Mas
               </a>
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href=".">Opcional 1</a></li>
-                <li><a class="dropdown-item" href="#">Opcional 2</a></li>
+                <li><a class="dropdown-item" href=".">Opcional 2</a></li>
                 <li><hr class="dropdown-divider"></li>
                 <li><a class="dropdown-item" href="#">Opcional 3</a></li>
               </ul>
             </li>
           </ul>
+          
           <form class="d-flex" role="search">
-            <input class="form-control me-2" type="search" placeholder="I" aria-label="Search">
+            <input class="form-control me-2" type="search" aria-label="Search">
             <button class="btn btn-outline-warning" type="submit">Buscar</button>
           </form>
         </div>
