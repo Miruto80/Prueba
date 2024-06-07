@@ -94,6 +94,7 @@
                </div>
               <div class="header-text  text-center h1 text-white fw-bold"> Iniciar Sesión</div>
 
+              <form action="index.php?pagina=login" method="post">
                   <div class="input-group mt-3 mb-2">
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
@@ -102,7 +103,6 @@
                     <span id="sUsuario"></span>
                   </div>
 
-                  <br/>
 
                   <div class="input-group mt-1 ">
                     <div class="input-group-text bg-dark-subtle">
@@ -120,8 +120,9 @@
                   </div>
 
                   <div class="input-group mb-2 text-center d-grid gap-2 col-6 mx-auto">
-                    <a class="boton btn btn-lg btn-outline-warning text-warning border-warning " href="?pagina=principal" role="button">INGRESAR</a>
+                    <button class="boton btn btn-outline-warning text-white border-warning" type="submit">Ingresar</button>
                   </div>
+                  </form>
             </div>
          </div> 
   
