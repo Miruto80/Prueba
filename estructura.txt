@@ -19,13 +19,23 @@
 	/img
         fondo.png
 		logo taekyon.png
+		password.svg
+		user.svg
 	/modelo
-        index.php
+        (sin carpetas ni archivos aun)
 	/vista
-        index.php
+        athletes.php
+		login.php
+		payments.php
+		principal.php
+		records.php
+		schedules.php
+		trainers.php
+		principal.php
 	(bootstrap 5)
     /css
         .....
 	/js
         ....
 		
+	index.php
