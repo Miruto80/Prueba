@@ -1,0 +1,31 @@
+/Proyecto
+    /comunes
+            framework.php
+			nav.php
+    /controlador
+        athletes.php
+		login.php
+		payments.php
+		principal.php
+		records.php
+		schedules.php
+		trainers.php
+	/datatables
+		/DataTables-1.13.2
+      datatables.css
+	  datatables.js
+	  datatables.min.css
+	  datatables.min.js
+	/img
+        fondo.png
+		logo taekyon.png
+	/modelo
+        index.php
+	/vista
+        index.php
+	(bootstrap 5)
+    /css
+        .....
+	/js
+        ....
+		
