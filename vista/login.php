@@ -121,6 +121,7 @@
 
                   <div class="input-group mb-2 text-center d-grid gap-2 col-6 mx-auto">
                     <button class="boton btn btn-outline-warning text-white border-warning" type="submit">Ingresar</button>
+                    <a href="?pagina=principal">Boton auxiliar</a>
                   </div>
                   </form>
             </div>
