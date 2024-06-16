@@ -231,7 +231,7 @@ function validarenvio(){
 		return false;	
 	}
 	else {
-		var f1 = new Date(1950,01,01);
+		var f1 = new Date(1950,01,01 );
 		var f2 = new Date($("#fechadenacimiento").val());
 		
 		if(f2 < f1){
