@@ -84,20 +84,20 @@ $(document).ready(function(){
 	});
 	
 	$("#Direccion").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
+		validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC\-]*$/,e);
 	});
 	
 	$("#Direccion").on("keyup",function(){
-		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$(this),$("#sDireccion"),"Solo letras  entre 3 y 30 caracteres");
+		validarkeyup(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC\-]{3,30}$/,
+		$(this),$("#sDireccion"),"Solo letras y numeros entre 3 y 30 caracteres");
 	});
 	$("#Correo").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
+		validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]*$/, e);
 	});
 	
 	$("#Correo").on("keyup",function(){
-		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$(this),$("#sComidafav"),"Solo letras  entre 3 y 30 caracteres");
+		validarkeyu(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]{3,30}$/,
+		$(this),$("#sCorreo"),"Solo letras y numeros entre 3 y 30 caracteres");
 	});
 	$("#Telefono").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
@@ -215,9 +215,9 @@ function validarenvio(){
 		muestraMensaje("Fecha de Nacimiento <br/>Ingrese una fecha valida");
 		return false;	
 	}
-	else if(validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$("#Direccion"),$("#sDireccion"),"Solo letras  entre 3 y 30 caracteres")==0){
-		muestraMensaje("Direccion <br/>Solo letras  entre 3 y 30 caracteres");
+	else if(validarkeyup(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC\-]{3,30}$/,
+		$("#Direccion"),$("#sDireccion"),"Solo letras y numeros entre 3 y 30 caracteres")==0){
+		muestraMensaje("Direccion <br/>Solo letras y numeros entre 3 y 30 caracteres");
 		return false;
 	}
 	else if(validarkeyup(/^[0-9]{10,11}$/,$("#Telefono"),
@@ -316,7 +316,7 @@ function pone(pos,accion){
 	$("#Direccion").val($(linea).find("td:eq(7)").text());
 	$("#Correo").val($(linea).find("td:eq(8)").text());
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
-	$("#Telefono").val($(linea).find("td:eq(10)").text());
+	$("#Idclub").val($(linea).find("td:eq(10)").text());
 	$("#modal1").modal("show");
 }
 
