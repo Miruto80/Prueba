@@ -306,7 +306,7 @@ class  athletes extends datos{
 		}
 		return $r;
 	}
-	
+		
 	
 	private function existe($cedula){
 		$co = $this->conecta();

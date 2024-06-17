@@ -2,15 +2,18 @@
 <html lang="es">
 
 <head>
+
   <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="img/logo taekyon.png" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sistema Taekyon</title>
   <link rel="stylesheet" href="css/bootstrap.min.css" />
+
   <style>
+
     body {
-      background-image: url('img/fondo.jpg');
+      background-image: url('');
       background-size: cover;
       background-repeat: no-repeat;
       height: 100vh;
@@ -99,44 +102,43 @@
       align-items: center;
     }
   </style>
-</head>
 
-<body>
-  <div class="d-flex justify-content-center align-items-center vh-100">
-    <div class="login-container text-secondary">
-      <div>
-        <div class="text-center mb-1">
-          <img src="img/logo taekyon.png" alt="login-icon" style="height: 10rem" />
-        </div>
-        <div class="text-center h1 text-dark fw-bold">Iniciar Sesión</div>
-        <form>
-          <div class="input-group mt-3">
-            <div class="input-group-text bg-dark-subtle">
-              <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
-            </div>
-            <input class="form-control" type="text" placeholder="Usuario" required />
-          </div>
-          <div class="input-group mt-3">
-            <div class="input-group-text bg-dark-subtle">
-              <img src="img/password.svg" alt="password-icon" style="height: 1rem" />
-            </div>
-            <input class="form-control" type="password" placeholder="Contraseña" required />
-          </div>
-          <div class="text-center mt-4">
-            <a class="boton" href="?pagina=principal">INGRESAR</a>
-          </div>
-          <div class="text-center mt-4">
-          </div>
-        </form>
-      </div>
-      <div class="seccion2 text-center text-warning">
-        <div>
-          <h2>¡Bienvenido al sistema de la Taekyon!</h2>
-          <p>Ingresa los respectivos datos para ingresar al sistema actual de nuestra academia.</p>
-        </div>
-      </div>
-    </div>
+
+</head>
+<div class="card text-bg-dark mb-3 text-center" style="max-width: 100%;">
+  <div class="card-header"></div>
+  <div class="card-body">
+    <h5 class="card-title">Entrenadores</h5>
+    <p class="card-text"></p>
   </div>
+</div>
+<body>
+
+<div class="container">
+	   <div class="table-responsive">
+		<table class="table table-striped table-hover" id="tablapersona">
+			<thead>
+			  <tr>
+				<th>Acciones</th>
+				<th>Cedula</th>
+				<th>Apellidos</th>
+				<th>Nombres</th>
+				<th>Participacion</th>
+				<th>Direccion</th>
+				<th>Correo</th>
+				<th>Telefono</th>
+			  </tr>
+			</thead>
+			<tbody id="">
+			  
+			  
+			</tbody>
+	   </table>
+	  </div>
+  </div>
+
+  <a class="btn btn-dark text-center" aria-current="page" href="?pagina=principal">Inicio</a>
+  
   <script src="js/bootstrap.bundle.min.js"></script>
 </body>
 

@@ -3,7 +3,7 @@
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<div class="container text-center h2 text-primary">
+<div class="container text-center h2 text-dark">
 Registro de atletas
 <hr/>
 </div>
@@ -11,11 +11,11 @@ Registro de atletas
 	<div class="container">
 		<div class="row mt-3 justify-content-center">
 		    <div class="col-md-2">
-			   <button type="button" class="btn btn-primary" id="incluir" >INCLUIR</button>
+			   <button type="button" class="btn btn-dark" id="incluir" >INCLUIR</button>
 			</div>
 					
 			<div class="col-md-2">	
-			    <a href="." class="btn btn-primary">REGRESAR</a>
+			    <a href="." class="btn btn-dark">REGRESAR</a>
 			</div>
 		</div>
 	</div>
