@@ -34,7 +34,7 @@ Registro de atletas
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<th>Id del club</th>
+				<th>Num accion</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
@@ -127,9 +127,9 @@ Registro de atletas
 				
 				<div class="row">
 					<div class="col">
-					<div class="col-md-4">
-					   <label for="Idclub">Id del club</label>
-					   <input class="form-control" placeholder="Si es socio poner su id" type="text" id="Idclub" name="Idclub"/>
+					<div class="col-md-7">
+					   <label for="Idclub">Numero de accion</label>
+					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Idclub" name="Idclub"/>
 					   <span id="sIdclub"></span>
 					</div>
 

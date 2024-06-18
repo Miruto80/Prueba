@@ -219,11 +219,7 @@ function validarenvio(){
 		$("#Direccion"),$("#sDireccion"),"Solo letras y numeros entre 3 y 30 caracteres")==0){
 		muestraMensaje("Direccion <br/>Solo letras y numeros entre 3 y 30 caracteres");
 		return false;
-	}else if ($("#Correo").val().length > 0 &&validarkeyup(/^[A-Za-z_\u00f1\u00d1\u00E0-\u00FC-]{3,15}[@]{1}[A-Za-z0-9]{3,8}[.]{1}[A-Za-z]{2,3}$/,
-	$("Correo"),$("#sCorreo"),"El formato debe ser alguien@servidor.com")==0){
-	muestraMensaje("Correo <br/>El formato debe ser alguien@servidor.com");
-	 return false;
-    }
+	}
 	else if(validarkeyup(/^[0-9]{10,11}$/,$("#Telefono"),
 	$("#Telefono"),"El formato debe ser de 10 a 11")==0){
 	muestraMensaje("El telefono debe coincidir con el formato <br/>"+ 
