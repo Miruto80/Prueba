@@ -108,6 +108,15 @@ $(document).ready(function(){
 		$("#sTelefono"),"El formato debe ser de 10 a 11");
 	});
 	
+	$("#Idclub").on("keypress",function(e){
+		validarkeypress(/^[0-9-\b]*$/,e);
+	});
+	
+	$("#Idclub").on("keyup",function(){
+		validarkeyup(/^[0-9]{1,8}$/,$(this),
+		$("#sIdclub"),"El formato debe ser de 1 a 8");
+	});
+	
 	
 	
 	
