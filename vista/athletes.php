@@ -117,7 +117,7 @@ Registro de atletas
 						</label>
 					</div>
 					<div class="col-md-9">
-					   <label for="Participacion">Participacion en artes marciales</label>
+					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
 					   <select class="form-control" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
 							<option value="No">No</option>
