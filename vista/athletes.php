@@ -11,11 +11,11 @@ Registro de atletas
 	<div class="container">
 		<div class="row mt-3 justify-content-center">
 		    <div class="col-md-2">
-			   <button type="button" class="btn btn-primary" id="incluir" >INCLUIR</button>
+			   <button type="button" class="btn btn-primary" id="incluir" >Inscribir</button>
 			</div>
 					
 			<div class="col-md-2">	
-			    <a href="." class="btn btn-primary">REGRESAR</a>
+			    <a href="." class="btn btn-primary">Volver</a>
 			</div>
 		</div>
 	</div>
@@ -51,7 +51,7 @@ Registro de atletas
 <div class="modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-header text-light bg-info">
-        <h5 class="modal-title">Formulario de Personas</h5>
+        <h5 class="modal-title">Formulario de Inscripcion</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
           <span aria-hidden="true">&times;</span>
         </button>
