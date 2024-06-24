@@ -1,9 +1,9 @@
 <?php
 class datos{
 	private $ip = "localhost";
-    private $bd = "Tablaatletas";
+    private $bd = "clase13";
     private $usuario = "root";
-    private $contrasena = "";
+    private $contrasena = "root_password";
    
     
     
