@@ -64,7 +64,7 @@
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-header text-warning bg-dark justify-content-center">
         <h3 class="modal-title">Formulario</h3>
-        <button type="button" class="btn-close  btn-light"" aria-label="Close"></button>
+        <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
     </div>
     <div class="modal-content">
 		<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
