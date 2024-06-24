@@ -28,7 +28,7 @@ SET time_zone = "+00:00";
 -- Estructura de tabla para la tabla `personas`
 --
 
-CREATE TABLE `personas` (
+CREATE TABLE `tatletas` (
   `id` int(11) NOT NULL,
   `cedula` varchar(15) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
@@ -39,7 +39,7 @@ CREATE TABLE `personas` (
   `Direccion` varchar(30) NOT NULL,
   `Correo` varchar(30) NOT NULL,
   `Telefono` varchar(30) NOT NULL,
-  `Idclub` varchar(30) NOT NULL
+  `Numerodeaccion` varchar(30) NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,8 +47,8 @@ CREATE TABLE `personas` (
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `personas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Idclub`) VALUES
-(1, '10846157', 'Jimenez Mendoza', 'Juan Jose', '1972-04-04', 'M', 'Si','Urb tierra del sol','Mftt@gmail.com','04125889171','95');
+INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Numerodeaccion`) VALUES
+(1, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si','La mata','Mftt@gmail.com','04125889171','95');
 
 
 --
@@ -58,7 +58,7 @@ INSERT INTO `personas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimien
 --
 -- Indices de la tabla `personas`
 --
-ALTER TABLE `personas`
+ALTER TABLE `tatletas`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `cedula` (`cedula`);
 
@@ -69,10 +69,47 @@ ALTER TABLE `personas`
 --
 -- AUTO_INCREMENT de la tabla `personas`
 --
-ALTER TABLE `personas`
+ALTER TABLE `tatletas`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+CREATE TABLE `tpagos`( 
+    Comprobantedepago int PRIMARY KEY, 
+    id1 int, 
+    Monto float not Null, 
+    fechadepago date NOT NULL,
+    FOREIGN KEY (id1) REFERENCES tatletas(id) 
+    )ENGINE=INNODB;
+
+INSERT INTO `tpagos` (`Comprobantedepago`, `id1`, `Monto`,`fechadepago`) VALUES 
+(22,1,12.2,'2024/02/24');
+
+CREATE TABLE tHorarios( 
+    Tipodehorario varchar(30) PRIMARY KEY, 
+    id2 int, 
+    Edad int not Null, 
+    FOREIGN KEY (id2) REFERENCES tatletas(id) 
+    )ENGINE=INNODB;
+
+INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `Edad`)  VALUES
+('Juvenil',1,23);
+
+CREATE TABLE `tEntrenadores`( 
+    CedulaE int PRIMARY key, 
+    Nombre varchar(30) NOT NULL, 
+    Apellido varchar(30) NOT NULL, 
+    Telefono int NOT NULL, 
+    Jerarquiadecinturon Varchar(30) 
+     
+ )ENGINE=INNODB;
+
+INSERT INTO `tEntrenadores` (`CedulaE`, `Nombre`, `Apellido`, `Telefono`, `Jerarquiadecinturon`) VALUES
+(14523692,'Joaquin','Mendoza',0412578963,'Negro');
+
+
+/*Insert into tEntrenadores values(14523692,'Joaquin','Mendoza',0412578963,'Negro');*/;
+

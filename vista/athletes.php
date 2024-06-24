@@ -138,9 +138,9 @@
 				<div class="row">
 					<div class="col">
 					<div class="col-md-7">
-					   <label for="Idclub">Numero de accion</label>
-					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Idclub" name="Idclub"/>
-					   <span id="sIdclub"></span>
+					   <label for="Numerodeaccion">Numero de accion</label>
+					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Numerodeaccion" name="Numerodeaccion"/>
+					   <span id="sNumerodeaccion"></span>
 					</div>
 
 					</div>

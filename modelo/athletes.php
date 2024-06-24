@@ -27,7 +27,7 @@ class  athletes extends datos
 	private $Direccion;
 	private $Correo;
 	private $Telefono;
-	private $Idclub;
+	private $Numerodeaccion;
 
 	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
 	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
@@ -81,9 +81,9 @@ class  athletes extends datos
 	{
 		$this->Telefono = $valor;
 	}
-	function set_Idclub($valor)
+	function set_Numerodeaccion($valor)
 	{
-		$this->Idclub = $valor;
+		$this->Numerodeaccion = $valor;
 	}
 
 	//ahora la misma cosa pero para leer, es decir get
@@ -132,9 +132,9 @@ class  athletes extends datos
 	{
 		return $this->Telefono;
 	}
-	function get_Idclub()
+	function get_Numerodeaccion()
 	{
-		return $this->Idclub;
+		return $this->Numerodeaccion;
 	}
 
 
@@ -157,7 +157,7 @@ class  athletes extends datos
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//2 Se ejecuta el sql
 			try {
-				$co->query("Insert into personas(
+				$co->query("Insert into tatletas(
 						cedula,
 						apellidos,
 						nombres,
@@ -167,7 +167,7 @@ class  athletes extends datos
 						Direccion,
 						Correo,
 						Telefono,
-						Idclub
+						Numerodeaccion
 						)
 						Values(
 						'$this->cedula',
@@ -179,7 +179,7 @@ class  athletes extends datos
 						'$this->Direccion',
 						'$this->Correo',
 						'$this->Telefono',
-						'$this->Idclub'
+						'$this->Numerodeaccion'
 
 						)");
 				$r['resultado'] = 'incluir';
@@ -205,7 +205,7 @@ class  athletes extends datos
 		$r = array();
 		if ($this->existe($this->cedula)) {
 			try {
-				$co->query("Update personas set 
+				$co->query("Update tatletas set 
 					    cedula = '$this->cedula',
 						apellidos = '$this->apellidos',
 						nombres = '$this->nombres',
@@ -215,7 +215,7 @@ class  athletes extends datos
 						Direccion = '$this->Direccion',
 						Correo = '$this->Correo',
 						Telefono = '$this->Telefono',
-						Idclub = '$this->Idclub'
+						Numerodeaccion = '$this->Numerodeaccion'
 						where
 						cedula = '$this->cedula'
 						");
@@ -239,7 +239,7 @@ class  athletes extends datos
 		$r = array();
 		if ($this->existe($this->cedula)) {
 			try {
-				$co->query("delete from personas 
+				$co->query("delete from tatletas 
 						where
 						cedula = '$this->cedula'
 						");
@@ -264,7 +264,7 @@ class  athletes extends datos
 		$r = array();
 		try {
 
-			$resultado = $co->query("Select * from personas");
+			$resultado = $co->query("Select * from tatletas");
 
 			if ($resultado) {
 
@@ -309,7 +309,7 @@ class  athletes extends datos
 					$respuesta = $respuesta . $r['Telefono'];
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Idclub'];
+					$respuesta = $respuesta . $r['Numerodeaccion'];
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "</tr>";
 				}
@@ -334,7 +334,7 @@ class  athletes extends datos
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try {
 
-			$resultado = $co->query("Select * from personas where cedula='$cedula'");
+			$resultado = $co->query("Select * from tatletas where cedula='$cedula'");
 
 
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
