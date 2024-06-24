@@ -111,5 +111,19 @@ INSERT INTO `tEntrenadores` (`CedulaE`, `Nombre`, `Apellido`, `Telefono`, `Jerar
 (14523692,'Joaquin','Mendoza',0412578963,'Negro');
 
 
+
+
 /*Insert into tEntrenadores values(14523692,'Joaquin','Mendoza',0412578963,'Negro');*/;
 
+CREATE TABLE tEventos( 
+    Codevento int PRIMARY KEY, 
+    id3 int, 
+    NombreEvento varchar(30) not Null, 
+    Logroobtenido varchar(30) not Null, 
+    FOREIGN KEY (id3) REFERENCES tatletas(id) 
+    )ENGINE=INNODB;
+
+INSERT INTO `tEventos` (`Codevento`, `id3`, `NombreEvento`,`Logroobtenido`)  VALUES
+(1,1,'Torneo Marcial','1er lugar');
+
+/*Insert into tEventos values(1,1,'Torneo Marcial','1er lugar');*/;
