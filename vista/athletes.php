@@ -4,7 +4,6 @@
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<<<<<<< HEAD
 <div class="container text-center h2 text-dark">
 Registro de atletas
 <hr/>
@@ -18,32 +17,6 @@ Registro de atletas
 					
 			<div class="col-md-2">	
 			    <a href="." class="btn btn-dark">REGRESAR</a>
-=======
-<style>
-		body {
-			background-image: url('img/fondo.jpg');
-          background-size: cover;
-          background-repeat: no-repeat;
-		}
-
-		.tablita {
-			color: white;
-		}
-	</style>
-<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
-
-</div>
-<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
-	<div class="container">
-		<div class="row mt-4 justify-content-center">
-
-		    <div class="col-md-4">
-			   <button type="button" class="btn btn-warning" id="incluir" >Inscribir</button>
-			</div>
-					
-			<div class="col-md-1">	
-			    <a href="." class="btn btn-warning">Volver</a>
->>>>>>> bb7abf2277776282ada16aa31c451a671442676a
 			</div>
 		</div>
 	</div>
