@@ -1,8 +1,10 @@
 <html> 
+	
 <?php require_once("comunes/framework.php"); ?>
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
+<<<<<<< HEAD
 <div class="container text-center h2 text-dark">
 Registro de atletas
 <hr/>
@@ -16,12 +18,38 @@ Registro de atletas
 					
 			<div class="col-md-2">	
 			    <a href="." class="btn btn-dark">REGRESAR</a>
+=======
+<style>
+		body {
+			background-image: url('img/fondo.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+		}
+
+		.tablita {
+			color: white;
+		}
+	</style>
+<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
+
+</div>
+<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
+	<div class="container">
+		<div class="row mt-4 justify-content-center">
+
+		    <div class="col-md-4">
+			   <button type="button" class="btn btn-warning" id="incluir" >Inscribir</button>
+			</div>
+					
+			<div class="col-md-1">	
+			    <a href="." class="btn btn-warning">Volver</a>
+>>>>>>> bb7abf2277776282ada16aa31c451a671442676a
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="tablita container">
 	   <div class="table-responsive">
-		<table class="table table-striped table-hover" id="tablapersona">
+		<table class="table table-striped table-dark table-hover" id="tablapersona">
 			<thead>
 			  <tr>
 				<th>Acciones</th>
@@ -48,13 +76,11 @@ Registro de atletas
 
 
 <!-- seccion del modal -->
-<div class="modal fade" tabindex="-1" role="dialog"  id="modal1">
+<div class="tabla modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-header text-light bg-info">
-        <h5 class="modal-title">Formulario de Inscripcion</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal-header text-warning bg-dark justify-content-center">
+        <h3 class="modal-title">Formulario</h3>
+        <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
     </div>
     <div class="modal-content">
 		<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
@@ -128,9 +154,9 @@ Registro de atletas
 				<div class="row">
 					<div class="col">
 					<div class="col-md-7">
-					   <label for="Idclub">Numero de accion</label>
-					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Idclub" name="Idclub"/>
-					   <span id="sIdclub"></span>
+					   <label for="Numerodeaccion">Numero de accion</label>
+					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Numerodeaccion" name="Numerodeaccion"/>
+					   <span id="sNumerodeaccion"></span>
 					</div>
 
 					</div>
@@ -155,9 +181,6 @@ Registro de atletas
 		<!--
 		
 		-->
-    </div>
-	<div class="modal-footer bg-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
     </div>
   </div>
 </div>

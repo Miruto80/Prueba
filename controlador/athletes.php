@@ -53,7 +53,7 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_Direccion($_POST['Direccion']);
 			  $o->set_Correo($_POST['Correo']);
 			  $o->set_Telefono($_POST['Telefono']);
-			  $o->set_Idclub($_POST['Idclub']);
+			  $o->set_Numerodeaccion($_POST['Numerodeaccion']);
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }

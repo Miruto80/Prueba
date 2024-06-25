@@ -108,13 +108,13 @@ $(document).ready(function(){
 		$("#sTelefono"),"El formato debe ser de 10 a 11");
 	});
 	
-	$("#Idclub").on("keypress",function(e){
+	$("#Numerodeaccion").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
 	});
 	
-	$("#Idclub").on("keyup",function(){
+	$("#Numerodeaccion").on("keyup",function(){
 		validarkeyup(/^[0-9]{1,8}$/,$(this),
-		$("#sIdclub"),"El formato debe ser de 1 a 8");
+		$("#sNumerodeaccion"),"El formato debe ser de 1 a 8");
 	});
 	
 	
@@ -139,7 +139,7 @@ $("#proceso").on("click",function(){
 			datos.append('Direccion',$("#Direccion").val());
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Idclub',$("#Idclub").val());
+			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -162,7 +162,7 @@ $("#proceso").on("click",function(){
 			datos.append('Direccion',$("#Direccion").val());
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Idclub',$("#Idclub").val());
+			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -240,7 +240,7 @@ function validarenvio(){
 		return false;	
 	}
 	else {
-		var f1 = new Date(1950,01,01 );
+		var f1 = new Date(1950,1,1 );
 		var f2 = new Date($("#fechadenacimiento").val());
 		
 		if(f2 < f1){
@@ -325,7 +325,7 @@ function pone(pos,accion){
 	$("#Direccion").val($(linea).find("td:eq(7)").text());
 	$("#Correo").val($(linea).find("td:eq(8)").text());
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
-	$("#Idclub").val($(linea).find("td:eq(10)").text());
+	$("#Numerodeaccion").val($(linea).find("td:eq(10)").text());
 	$("#modal1").modal("show");
 }
 
@@ -414,5 +414,5 @@ function limpia(){
 	$("#Direccion").val("");
 	$("#Correo").val("");
 	$("#Telefono").val("");
-	$("#Idclub").val("");
+	$("#Numerodeaccion").val("");
 }

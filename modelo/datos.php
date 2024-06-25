@@ -1,7 +1,7 @@
 <?php
 class datos{
 	private $ip = "localhost";
-    private $bd = "Tablaatletas";
+    private $bd = "taekyon";
     private $usuario = "root";
     private $contrasena = "";
    
