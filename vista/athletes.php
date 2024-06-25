@@ -4,19 +4,30 @@
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<div class="container text-center h2 text-dark">
-Registro de atletas
-<hr/>
+<style>
+		body {
+			background-image: url('img/fondo.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+		}
+
+		.tablita {
+			color: white;
+		}
+	</style>
+<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
+
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
 	<div class="container">
-		<div class="row mt-3 justify-content-center">
-		    <div class="col-md-2">
-			   <button type="button" class="btn btn-dark" id="incluir" >INCLUIR</button>
+		<div class="row mt-4 justify-content-center">
+
+		    <div class="col-md-4">
+			   <button type="button" class="btn btn-warning" id="incluir" >Inscribir</button>
 			</div>
 					
-			<div class="col-md-2">	
-			    <a href="." class="btn btn-dark">REGRESAR</a>
+			<div class="col-md-1">	
+			    <a href="." class="btn btn-warning">Volver</a>
 			</div>
 		</div>
 	</div>
@@ -42,7 +53,7 @@ Registro de atletas
 			  
 			  
 			</tbody>
-	     </table>
+	   </table>
 	  </div>
   </div>
 </div> <!-- fin de container -->
