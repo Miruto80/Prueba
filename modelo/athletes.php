@@ -326,16 +326,13 @@ class  athletes extends datos
 		}
 		return $r;
 	}
-<<<<<<< HEAD
 		
 	
 	private function existe($cedula){
-=======
 
 
 	private function existe($cedula)
 	{
->>>>>>> bb7abf2277776282ada16aa31c451a671442676a
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try {
