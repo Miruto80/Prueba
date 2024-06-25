@@ -34,7 +34,7 @@ Registro de atletas
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<th>Id del club</th>
+				<th>Num accion</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
@@ -51,7 +51,7 @@ Registro de atletas
 <div class="modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-header text-light bg-info">
-        <h5 class="modal-title">Formulario de Personas</h5>
+        <h5 class="modal-title">Formulario de Inscripcion</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -64,12 +64,12 @@ Registro de atletas
 				<div class="row mb-3">
 					<div class="col-md-4">
 					   <label for="cedula">Cedula</label>
-					   <input class="form-control" type="text" id="cedula" />
+					   <input class="form-control" type="text" id="cedula" name="cedula" />
 					   <span id="scedula"></span>
 					</div>
 					<div class="col-md-8">
 					   <label for="apellidos">Apellidos</label>
-					   <input class="form-control" type="text" id="apellidos" />
+					   <input class="form-control" type="text" id="apellidos" name="apellidos" />
 					   <span id="sapellidos"></span>
 					</div>
 				</div>
@@ -77,7 +77,7 @@ Registro de atletas
 				<div class="row mb-3">
 					<div class="col-md-8">
 					   <label for="nombres">Nombres</label>
-					   <input class="form-control" type="text" id="nombres"  />
+					   <input class="form-control" type="text" id="nombres" name="nombres"  />
 					   <span id="snombres"></span>
 					</div>
 					<div class="col-md-4">
@@ -89,17 +89,17 @@ Registro de atletas
 				<div class="row mb-3">
 					<div class="col-md-4">
 					   <label for="Direccion">Direccion</label>
-					   <input class="form-control" type="text" id="Direccion"  />
+					   <input class="form-control" type="text" id="Direccion" name="Direccion"  />
 					   <span id="sDireccion"></span>
 					</div>
 					<div class="col-md-4">
 					   <label for="Correo">Correo</label>
-					   <input class="form-control" type="text" id="Correo"  />
+					   <input class="form-control" type="text" id="Correo" name="Correo"  />
 					   <span id="sCorreo"></span>
 					</div>
 					<div class="col-md-4">
 					   <label for="Telefono">Telefono</label>
-					   <input class="form-control" type="text" id="Telefono"  />
+					   <input class="form-control" type="text" id="Telefono" name="Telefono" />
 					   <span id="sTelefono"></span>
 					</div>
 					
@@ -117,8 +117,8 @@ Registro de atletas
 						</label>
 					</div>
 					<div class="col-md-9">
-					   <label for="Participacion">Participacion en artes marciales</label>
-					   <select class="form-control" id="Participacion">
+					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
+					   <select class="form-control" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
 							<option value="No">No</option>
 					   </select>
@@ -127,9 +127,9 @@ Registro de atletas
 				
 				<div class="row">
 					<div class="col">
-					<div class="col-md-4">
-					   <label for="Idclub">Id del club</label>
-					   <input class="form-control" type="text" id="Idclub"  />
+					<div class="col-md-7">
+					   <label for="Idclub">Numero de accion</label>
+					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Idclub" name="Idclub"/>
 					   <span id="sIdclub"></span>
 					</div>
 

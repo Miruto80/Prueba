@@ -92,12 +92,12 @@ $(document).ready(function(){
 		$(this),$("#sDireccion"),"Solo letras y numeros entre 3 y 30 caracteres");
 	});
 	$("#Correo").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]*$/, e);
+		validarkeypress(/^[A-Za-z@_.0-9\b\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
 	});
 	
 	$("#Correo").on("keyup",function(){
-		validarkeyu(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]{3,30}$/,
-		$(this),$("#sCorreo"),"Solo letras y numeros entre 3 y 30 caracteres");
+		validarkeyup(/^[A-Za-z_0-9\u00f1\u00d1\u00E0-\u00FC-]{3,15}[@]{1}[A-Za-z0-9]{3,8}[.]{1}[A-Za-z]{2,3}$/,
+		$(this),$("#sCorreo"),"El formato debe ser alguien@servidor.com");
 	});
 	$("#Telefono").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
@@ -106,6 +106,15 @@ $(document).ready(function(){
 	$("#Telefono").on("keyup",function(){
 		validarkeyup(/^[0-9]{10,11}$/,$(this),
 		$("#sTelefono"),"El formato debe ser de 10 a 11");
+	});
+	
+	$("#Idclub").on("keypress",function(e){
+		validarkeypress(/^[0-9-\b]*$/,e);
+	});
+	
+	$("#Idclub").on("keyup",function(){
+		validarkeyup(/^[0-9]{1,8}$/,$(this),
+		$("#sIdclub"),"El formato debe ser de 1 a 8");
 	});
 	
 	
