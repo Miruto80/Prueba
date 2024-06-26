@@ -67,7 +67,7 @@
         <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
     </div>
     <div class="modal-content">
-		<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
+		<div class="container"> 
 		   <form method="post" id="f" autocomplete="off">
 			<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 			<div class="container">	
@@ -169,7 +169,7 @@
   </div>
 </div>
 <!--fin de seccion modal-->
-<!--Llamada a archivo modal.php, dentro de el hay una sección modal-->
+
 <?php require_once("comunes/modal.php"); ?>
 <script type="text/javascript" src="js/athletes.js"></script>
 
