@@ -155,7 +155,7 @@
 
 				<div class="row mt-3 justify-content-center">
 					<div class="col-md-2">
-						   <button type="button" class="btn btn-primary" 
+						   <button type="button" class="btn btn-warning" 
 						   id="proceso" ></button>
 					</div>
 				</div>
