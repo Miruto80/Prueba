@@ -47,7 +47,7 @@ CREATE TABLE `tatletas` (
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Numerodeaccion`) VALUES
+INSERT INTO `tatletas` (`id`, `cedula`, `nombres`, `apellidos`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Numerodeaccion`) VALUES
 (1, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si','La mata','Mftt@gmail.com','04125889171','95');
 
 

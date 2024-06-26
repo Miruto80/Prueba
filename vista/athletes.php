@@ -63,7 +63,7 @@
 <div class="tabla modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
     <div class="modal-header text-warning bg-dark justify-content-center">
-        <h3 class="modal-title">Formulario</h3>
+        <h3 class="modal-title">Formulario de atletas</h3>
         <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
     </div>
     <div class="modal-content">
