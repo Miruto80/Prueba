@@ -27,7 +27,7 @@
 			</div>
 					
 			<div class="col-md-1">	
-			    <a href="." class="btn btn-warning">Volver</a>
+			    <a href="." class="btn btn-warning">Salir</a>
 			</div>
 		</div>
 	</div>
