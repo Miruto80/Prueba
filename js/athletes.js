@@ -92,12 +92,12 @@ $(document).ready(function(){
 		$(this),$("#sDireccion"),"Solo letras y numeros entre 3 y 30 caracteres");
 	});
 	$("#Correo").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]*$/, e);
+		validarkeypress(/^[A-Za-z@_.0-9\b\u00f1\u00d1\u00E0-\u00FC-]*$/,e);
 	});
 	
 	$("#Correo").on("keyup",function(){
-		validarkeyu(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC@.]{3,30}$/,
-		$(this),$("#sCorreo"),"Solo letras y numeros entre 3 y 30 caracteres");
+		validarkeyup(/^[A-Za-z_0-9\u00f1\u00d1\u00E0-\u00FC-]{3,15}[@]{1}[A-Za-z0-9]{3,8}[.]{1}[A-Za-z]{2,3}$/,
+		$(this),$("#sCorreo"),"El formato debe ser alguien@servidor.com");
 	});
 	$("#Telefono").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
@@ -106,6 +106,15 @@ $(document).ready(function(){
 	$("#Telefono").on("keyup",function(){
 		validarkeyup(/^[0-9]{10,11}$/,$(this),
 		$("#sTelefono"),"El formato debe ser de 10 a 11");
+	});
+	
+	$("#Numerodeaccion").on("keypress",function(e){
+		validarkeypress(/^[0-9-\b]*$/,e);
+	});
+	
+	$("#Numerodeaccion").on("keyup",function(){
+		validarkeyup(/^[0-9]{1,8}$/,$(this),
+		$("#sNumerodeaccion"),"El formato debe ser de 1 a 8");
 	});
 	
 	
@@ -130,7 +139,7 @@ $("#proceso").on("click",function(){
 			datos.append('Direccion',$("#Direccion").val());
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Idclub',$("#Idclub").val());
+			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -153,7 +162,7 @@ $("#proceso").on("click",function(){
 			datos.append('Direccion',$("#Direccion").val());
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Idclub',$("#Idclub").val());
+			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -231,7 +240,7 @@ function validarenvio(){
 		return false;	
 	}
 	else {
-		var f1 = new Date(1950,01,01 );
+		var f1 = new Date(1950,1,1 );
 		var f2 = new Date($("#fechadenacimiento").val());
 		
 		if(f2 < f1){
@@ -316,7 +325,7 @@ function pone(pos,accion){
 	$("#Direccion").val($(linea).find("td:eq(7)").text());
 	$("#Correo").val($(linea).find("td:eq(8)").text());
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
-	$("#Idclub").val($(linea).find("td:eq(10)").text());
+	$("#Numerodeaccion").val($(linea).find("td:eq(10)").text());
 	$("#modal1").modal("show");
 }
 
@@ -405,5 +414,5 @@ function limpia(){
 	$("#Direccion").val("");
 	$("#Correo").val("");
 	$("#Telefono").val("");
-	$("#Idclub").val("");
+	$("#Numerodeaccion").val("");
 }

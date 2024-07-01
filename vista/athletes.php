@@ -1,27 +1,39 @@
 <html> 
+	
 <?php require_once("comunes/framework.php"); ?>
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<div class="container text-center h2 text-primary">
-Registro de atletas
-<hr/>
+<style>
+		body {
+			background-image: url('img/fondo.jpg');
+          background-size: cover;
+          background-repeat: no-repeat;
+		}
+
+		.tablita {
+			color: white;
+		}
+	</style>
+<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
+
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
 	<div class="container">
-		<div class="row mt-3 justify-content-center">
-		    <div class="col-md-2">
-			   <button type="button" class="btn btn-primary" id="incluir" >INCLUIR</button>
+		<div class="row mt-4 justify-content-center">
+
+		    <div class="col-md-4">
+			   <button type="button" class="btn btn-warning" id="incluir" >Inscribir</button>
 			</div>
 					
-			<div class="col-md-2">	
-			    <a href="." class="btn btn-primary">REGRESAR</a>
+			<div class="col-md-1">	
+			    <a href="." class="btn btn-warning">Salir</a>
 			</div>
 		</div>
 	</div>
-	<div class="container">
+	<div class="tablita container">
 	   <div class="table-responsive">
-		<table class="table table-striped table-hover" id="tablapersona">
+		<table class="table table-striped table-dark table-hover" id="tablapersona">
 			<thead>
 			  <tr>
 				<th>Acciones</th>
@@ -34,7 +46,7 @@ Registro de atletas
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<th>Id del club</th>
+				<th>Num accion</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
@@ -48,28 +60,26 @@ Registro de atletas
 
 
 <!-- seccion del modal -->
-<div class="modal fade" tabindex="-1" role="dialog"  id="modal1">
+<div class="tabla modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-header text-light bg-info">
-        <h5 class="modal-title">Formulario de Personas</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+    <div class="modal-header text-warning bg-dark justify-content-center">
+        <h3 class="modal-title">Formulario de atletas</h3>
+        <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
     </div>
     <div class="modal-content">
-		<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
+		<div class="container"> 
 		   <form method="post" id="f" autocomplete="off">
 			<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 			<div class="container">	
 				<div class="row mb-3">
 					<div class="col-md-4">
 					   <label for="cedula">Cedula</label>
-					   <input class="form-control" type="text" id="cedula" />
+					   <input class="form-control" type="text" id="cedula" name="cedula" />
 					   <span id="scedula"></span>
 					</div>
 					<div class="col-md-8">
 					   <label for="apellidos">Apellidos</label>
-					   <input class="form-control" type="text" id="apellidos" />
+					   <input class="form-control" type="text" id="apellidos" name="apellidos" />
 					   <span id="sapellidos"></span>
 					</div>
 				</div>
@@ -77,7 +87,7 @@ Registro de atletas
 				<div class="row mb-3">
 					<div class="col-md-8">
 					   <label for="nombres">Nombres</label>
-					   <input class="form-control" type="text" id="nombres"  />
+					   <input class="form-control" type="text" id="nombres" name="nombres"  />
 					   <span id="snombres"></span>
 					</div>
 					<div class="col-md-4">
@@ -89,17 +99,17 @@ Registro de atletas
 				<div class="row mb-3">
 					<div class="col-md-4">
 					   <label for="Direccion">Direccion</label>
-					   <input class="form-control" type="text" id="Direccion"  />
+					   <input class="form-control" type="text" id="Direccion" name="Direccion"  />
 					   <span id="sDireccion"></span>
 					</div>
 					<div class="col-md-4">
 					   <label for="Correo">Correo</label>
-					   <input class="form-control" type="text" id="Correo"  />
+					   <input class="form-control" type="text" id="Correo" name="Correo"  />
 					   <span id="sCorreo"></span>
 					</div>
 					<div class="col-md-4">
 					   <label for="Telefono">Telefono</label>
-					   <input class="form-control" type="text" id="Telefono"  />
+					   <input class="form-control" type="text" id="Telefono" name="Telefono" />
 					   <span id="sTelefono"></span>
 					</div>
 					
@@ -117,8 +127,8 @@ Registro de atletas
 						</label>
 					</div>
 					<div class="col-md-9">
-					   <label for="Participacion">Participacion en artes marciales</label>
-					   <select class="form-control" id="Participacion">
+					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
+					   <select class="form-control" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
 							<option value="No">No</option>
 					   </select>
@@ -127,10 +137,10 @@ Registro de atletas
 				
 				<div class="row">
 					<div class="col">
-					<div class="col-md-4">
-					   <label for="Idclub">Id del club</label>
-					   <input class="form-control" type="text" id="Idclub"  />
-					   <span id="sIdclub"></span>
+					<div class="col-md-7">
+					   <label for="Numerodeaccion">Numero de accion</label>
+					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Numerodeaccion" name="Numerodeaccion"/>
+					   <span id="sNumerodeaccion"></span>
 					</div>
 
 					</div>
@@ -145,7 +155,7 @@ Registro de atletas
 
 				<div class="row mt-3 justify-content-center">
 					<div class="col-md-2">
-						   <button type="button" class="btn btn-primary" 
+						   <button type="button" class="btn btn-warning" 
 						   id="proceso" ></button>
 					</div>
 				</div>
@@ -156,13 +166,10 @@ Registro de atletas
 		
 		-->
     </div>
-	<div class="modal-footer bg-light">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-    </div>
   </div>
 </div>
 <!--fin de seccion modal-->
-<!--Llamada a archivo modal.php, dentro de el hay una sección modal-->
+
 <?php require_once("comunes/modal.php"); ?>
 <script type="text/javascript" src="js/athletes.js"></script>
 

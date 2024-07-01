@@ -5,19 +5,15 @@
 require_once('modelo/datos.php');
 
 //declaracion de la clase usuarios que hereda de la clase datos
-//la herencia se declara con la palabra extends y no es mas 
-//que decirle a esta clase que puede usar los mismos metodos
-//que estan en la clase de dodne hereda (La padre) como sir fueran de el
 
-class  athletes extends datos{
+class  athletes extends datos
+{
 	//el primer paso dentro de la clase
 	//sera declarar los atributos (variables) que describen la clase
 	//para nostros no es mas que colcoar los inputs (controles) de
-	//la vista como variables aca
-	//cada atributo debe ser privado, es decir, ser visible solo dentro de la
-	//misma clase, la forma de colcoarlo privado es usando la palabra private
 	
-	private $cedula; //recuerden que en php, las variables no tienen tipo predefinido
+
+	private $cedula; 
 	private $apellidos;
 	private $nombres;
 	private $fechadenacimiento;
@@ -26,108 +22,124 @@ class  athletes extends datos{
 	private $Direccion;
 	private $Correo;
 	private $Telefono;
-	private $Idclub;
-	
+	private $Numerodeaccion;
+
 	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
 	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
 	//valores en ello, esto es  muy mal llamado geters y seters por si alguien se los pregunta
-	
-	function set_cedula($valor){
-		$this->cedula = $valor; //fijencen como se accede a los elementos dentro de una clase
-		//this que singnifica esto es decir esta clase luego -> simbolo que indica que apunte
-		//a un elemento de this, es decir esta clase
-		//luego el nombre del elemento sin el $
+
+	function set_cedula($valor)
+	{
+		$this->cedula = $valor; 
 	}
-	//lo mismo que se hizo para cedula se hace para usuario y clave
 	
-	function set_apellidos($valor){
+	function set_apellidos($valor)
+	{
 		$this->apellidos = $valor;
 	}
-	
-	function set_nombres($valor){
+
+	function set_nombres($valor)
+	{
 		$this->nombres = $valor;
 	}
-	
-	function set_fechadenacimiento($valor){
+
+	function set_fechadenacimiento($valor)
+	{
 		$this->fechadenacimiento = $valor;
 	}
-	
-	function set_sexo($valor){
+
+	function set_sexo($valor)
+	{
 		$this->sexo = $valor;
 	}
-	
-	function set_Participacion($valor){
+
+	function set_Participacion($valor)
+	{
 		$this->Participacion = $valor;
 	}
 
-	function set_Direccion($valor){
+	function set_Direccion($valor)
+	{
 		$this->Direccion = $valor;
 	}
 
-	function set_Correo($valor){
+	function set_Correo($valor)
+	{
 		$this->Correo = $valor;
 	}
-	
-	function set_Telefono($valor){
+
+	function set_Telefono($valor)
+	{
 		$this->Telefono = $valor;
 	}
-	function set_Idclub($valor){
-		$this->Idclub = $valor;
+	function set_Numerodeaccion($valor)
+	{
+		$this->Numerodeaccion = $valor;
 	}
-	
-	//ahora la misma cosa pero para leer, es decir get
-	
-	function get_cedula(){
+
+
+	function get_cedula()
+	{
 		return $this->cedula;
 	}
-	
-	function get_apellidos(){
+
+	function get_apellidos()
+	{
 		return $this->apellidos;
 	}
-	
-	function get_nombres(){
+
+	function get_nombres()
+	{
 		return $this->nombres;
 	}
-	
-	function get_fechadenacimiento(){
-		return $this->fechanacimiento;
+
+	function get_fechadenacimiento()
+	{
+		return $this->fechadenacimiento;
 	}
-	
-	function get_sexo(){
+
+	function get_sexo()
+	{
 		return $this->sexo;
 	}
-	
-	function get_Participacion(){
+
+	function get_Participacion()
+	{
 		return $this->Participacion;
 	}
 
-	function get_Direccion(){
+	function get_Direccion()
+	{
 		return $this->Direccion;
 	}
 
-	function get_Correo(){
+	function get_Correo()
+	{
 		return $this->Correo;
 	}
 
-	function get_Telefono(){
+	function get_Telefono()
+	{
 		return $this->Telefono;
 	}
-	function get_Idclub(){
-		return $this->Idclub;
+	function get_Numerodeaccion()
+	{
+		return $this->Numerodeaccion;
 	}
-	
-	
+
+
 	//Lo siguiente que demos hacer es crear los metodos para incluir, consultar y eliminar
-	
-	function incluir(){
+
+	function incluir()
+	{
 		//Ok ya tenemos la base de datos y la funcion conecta dentro de la clase
 		//datos, ahora debemos ejecutar las operaciones para realizar las consultas 
-		
+
 		//Lo primero que debemos hacer es consultar por el campo clave
 		//en este caso la cedula, para ello se creo la funcion existe
 		//que retorna true en caso de exitir el registro
 		$r = array();
-		if(!$this->existe($this->cedula)){
+		if (!$this->existe($this->cedula)) {
 			//si estamos aca es porque la cedula no existe es decir se puede incluir
 			//los pasos a seguir son
 			//1 Se llama a la funcion conecta 
@@ -135,7 +147,7 @@ class  athletes extends datos{
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//2 Se ejecuta el sql
 			try {
-					$co->query("Insert into personas(
+				$co->query("Insert into tatletas(
 						cedula,
 						apellidos,
 						nombres,
@@ -145,7 +157,7 @@ class  athletes extends datos{
 						Direccion,
 						Correo,
 						Telefono,
-						Idclub
+						Numerodeaccion
 						)
 						Values(
 						'$this->cedula',
@@ -157,17 +169,16 @@ class  athletes extends datos{
 						'$this->Direccion',
 						'$this->Correo',
 						'$this->Telefono',
-						'$this->Idclub'
+						'$this->Numerodeaccion'
 
 						)");
-						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Registro Inluido';
-			} catch(Exception $e) {
+				$r['resultado'] = 'incluir';
+				$r['mensaje'] =  'Registro Inluido';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'incluir';
 			$r['mensaje'] =  'Ya existe la cedula';
 		}
@@ -176,14 +187,15 @@ class  athletes extends datos{
 		//incluir, modificar y eliminar
 		//solo cambia para buscar 
 	}
-	
-	function modificar(){
+
+	function modificar()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->cedula)){
+		if ($this->existe($this->cedula)) {
 			try {
-					$co->query("Update personas set 
+				$co->query("Update tatletas set 
 					    cedula = '$this->cedula',
 						apellidos = '$this->apellidos',
 						nombres = '$this->nombres',
@@ -193,161 +205,154 @@ class  athletes extends datos{
 						Direccion = '$this->Direccion',
 						Correo = '$this->Correo',
 						Telefono = '$this->Telefono',
-						Idclub = '$this->Idclub'
+						Numerodeaccion = '$this->Numerodeaccion'
 						where
 						cedula = '$this->cedula'
 						");
-						$r['resultado'] = 'modificar';
-			            $r['mensaje'] =  'Registro Modificado';
-			} catch(Exception $e) {
+				$r['resultado'] = 'modificar';
+				$r['mensaje'] =  'Registro Modificado';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'modificar';
 			$r['mensaje'] =  'Cedula no registrada';
 		}
 		return $r;
 	}
-	
-	function eliminar(){
+
+	function eliminar()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->cedula)){
+		if ($this->existe($this->cedula)) {
 			try {
-					$co->query("delete from personas 
+				$co->query("delete from tatletas 
 						where
 						cedula = '$this->cedula'
 						");
-						$r['resultado'] = 'eliminar';
-			            $r['mensaje'] =  'Registro Eliminado';
-			} catch(Exception $e) {
+				$r['resultado'] = 'eliminar';
+				$r['mensaje'] =  'Registro Eliminado';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'eliminar';
 			$r['mensaje'] =  'No existe la cedula';
 		}
 		return $r;
 	}
-	
-	
-	function consultar(){
+
+
+	function consultar()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try{
-			
-			$resultado = $co->query("Select * from personas");
-			
-			if($resultado){
-				
+		try {
+
+			$resultado = $co->query("Select * from tatletas");
+
+			if ($resultado) {
+
 				$respuesta = '';
-				foreach($resultado as $r){
-					$respuesta = $respuesta."<tr>";
-					    $respuesta = $respuesta."<td>";
-							$respuesta = $respuesta."<button type='button'
-							class='btn btn-primary w-100 small-width mb-3' 
+				foreach ($resultado as $r) {
+					$respuesta = $respuesta . "<tr>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . "<button type='button'
+					class='btn btn-warning w-100 small-width' 
 							onclick='pone(this,0)'
 						    >Modificar</button><br/>";
-							$respuesta = $respuesta."<button type='button'
-							class='btn btn-primary w-100 small-width mt-2' 
+					$respuesta = $respuesta . "<button type='button'
+							class='btn btn-warning w-100 small-width mt-2' 
 							onclick='pone(this,1)'
 						    >Eliminar</button><br/>";
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['cedula'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['apellidos'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['nombres'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['fechadenacimiento'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['sexo'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['Participacion'];
-						$respuesta = $respuesta."</td>";
-					$respuesta = $respuesta."<td>";
-					        $respuesta = $respuesta.$r['Direccion'];
-						  $respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-						    $respuesta = $respuesta.$r['Correo'];
-						  $respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-						    $respuesta = $respuesta.$r['Telefono'];
-						  $respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-						$respuesta = $respuesta.$r['Idclub'];
-						  $respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."</tr>";
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['cedula'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['apellidos'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['nombres'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['fechadenacimiento'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['sexo'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Participacion'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Direccion'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Correo'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Telefono'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Numerodeaccion'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "</tr>";
 				}
-				
-			    $r['resultado'] = 'consultar';
+
+				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  $respuesta;
-			}
-			else{
+			} else {
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  '';
 			}
-			
-		}catch(Exception $e){
+		} catch (Exception $e) {
 			$r['resultado'] = 'error';
 			$r['mensaje'] =  $e->getMessage();
 		}
 		return $r;
 	}
-	
+		
 	
 	private function existe($cedula){
+
+	
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		try{
-			
-			$resultado = $co->query("Select * from personas where cedula='$cedula'");
-			
-			
+		try {
+
+			$resultado = $co->query("Select * from tatletas where cedula='$cedula'");
+
+
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
-			if($fila){
+			if ($fila) {
 
 				return true;
-			    
-			}
-			else{
-				
+			} else {
+
 				return false;;
 			}
-			
-		}catch(Exception $e){
+		} catch (Exception $e) {
 			return false;
 		}
 	}
-	
-	
-	
-	function obtienefecha(){
+
+
+
+	function obtienefecha()
+	{
 		$r = array();
-		
-			  $f = date('Y-m-d');
-		      $f1 = strtotime ('-18 year' , strtotime($f)); 
-		      $f1 = date ('Y-m-d',$f1);
-			  $r['resultado'] = 'obtienefecha';
-			  $r['mensaje'] =  $f1;
-		
+
+		$f = date('Y-m-d');
+		$f1 = strtotime('-18 year', strtotime($f));
+		$f1 = date('Y-m-d', $f1);
+		$r['resultado'] = 'obtienefecha';
+		$r['mensaje'] =  $f1;
+
 		return $r;
 	}
-
-	
-	
-	
 }
-?>

@@ -1,22 +1,18 @@
 <?php
   
-//llamada al archivo que contiene la clase
-//usuarios, en ella estara el codigo que me //permitirá
-//guardar, consultar y modificar dentro de mi base //de datos
+
 
 
 //lo primero que se debe hacer es verificar al //igual que en la vista que exista el archivo
 if (!is_file("modelo/".$pagina.".php")){
-	//alli pregunte que si no es archivo se niega //con !
-	//si no existe envio mensaje y me salgo
+	
 	echo "Falta definir la clase ".$pagina;
 	exit;
 }  
 require_once("modelo/".$pagina.".php");  
   if(is_file("vista/".$pagina.".php")){
 	  
-	  //bien si estamos aca es porque existe la //vista y la clase
-	  //por lo que lo primero que debemos hace es //realizar una instancia de la clase
+	  //realizar una instancia de la clase
 	  //instanciar es crear una variable local, //que contiene los metodos de la clase
 	  //para poderlos usar
 	  
@@ -53,7 +49,7 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_Direccion($_POST['Direccion']);
 			  $o->set_Correo($_POST['Correo']);
 			  $o->set_Telefono($_POST['Telefono']);
-			  $o->set_Idclub($_POST['Idclub']);
+			  $o->set_Numerodeaccion($_POST['Numerodeaccion']);
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }
