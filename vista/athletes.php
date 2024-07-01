@@ -116,7 +116,7 @@
 				</div>
 				
 				<div class="row mb-3">
-					<div class="col-md-3">
+					<div class="col-md-5">
 						<label  for="masculino">
 						   Masculino	
 						   <input class="" type="radio" value="M" id="masculino" name="sexo" />
@@ -126,7 +126,8 @@
 						   <input class="" type="radio" value="F" id="femenino" name="sexo" />
 						</label>
 					</div>
-					<div class="col-md-9">
+					
+					<div class="col-md-7">
 					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
 					   <select class="form-control" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
@@ -146,26 +147,20 @@
 					</div>
 				</div>
 				
-				
-				<div class="row">
-					<div class="col-md-12">
-						<hr/>
-					</div>
-				</div>
-
 				<div class="row mt-3 justify-content-center">
 					<div class="col-md-2">
-						   <button type="button" class="btn btn-warning" 
+						   <button type="button" class="btn btn-dark" 
 						   id="proceso" ></button>
-					</div>
+				
+				
 				</div>
 			</div>	
 			</form>
 		</div> <!-- fin de container -->
-		<!--
-		
-		-->
     </div>
+	<div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+      </div>
   </div>
 </div>
 <!--fin de seccion modal-->
