@@ -111,7 +111,7 @@ CREATE TABLE `tentrenadores` (
 
 
 INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, `Jerarquiadecinturon`) VALUES
-(1, '30560144', 'Mendoza', 'Joaquin', '0414-5446656', 'VIII DAN');
+(1, '30560144', 'Mendoza', 'Joaquin', '0414-5446656', 'VIII DAN'),
 (2, '30678912', 'Ramirez', 'Carlos', '0414-1234567', 'VII DAN'),
 (3, '30765498', 'Perez', 'Ana', '0416-2345678', 'VI DAN'),
 (4, '30876543', 'Gomez', 'Luis', '0412-3456789', 'V DAN'),
@@ -120,7 +120,7 @@ INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, 
 (7, '31123456', 'Fernandez', 'Lucia', '0416-6789012', 'II DAN'),
 (8, '31234567', 'Sanchez', 'Miguel', '0412-7890123', 'I DAN'),
 (9, '31345678', 'Martinez', 'Isabel', '0414-8901234', 'IX DAN'),
-(10, '31456789', 'Gonzalez', 'Roberto', '0414-9012345', 'VIII DAN');
+(10, '31456789', 'Gonzalez', 'Roberto', '0414-9012345', 'VIII DAN'),
 (11, '31567890', 'Torres', 'Rafael', '0416-1234561', 'VII DAN'),
 (12, '31678901', 'Suarez', 'Elena', '0416-2345672', 'VI DAN'),
 (13, '31789012', 'Ortega', 'Juan', '0416-3456783', 'V DAN'),
