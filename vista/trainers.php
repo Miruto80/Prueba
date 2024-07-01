@@ -115,7 +115,7 @@ Registro de entrenadores
 
 				<div class="row mt-5 justify-content-center">
 					<div class="col-md-2">
-						   <button type="button" class="btn btn-warning" 
+						   <button type="button" class="btn btn-dark" 
 						   id="proceso" ></button>
 					</div>
 				</div>

@@ -1,23 +1,17 @@
-<div class="container">	  
-<div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
-   <div class="modal-dialog">
-     <div class="modal-content">
-     <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="modalcerrar">&times;</button>
-            <div id="cabezerademodal">
-			</div>
-     </div>
-     <div class="modal-body">
-            <h4>Resultado</h4>
-            <div id="contenidodemodal">
-			</div>    
-     </div>
-     <div class="modal-footer">
-        <a href="#" data-dismiss="modal" class="btn btn-warning">
-		<span class="glyphicon glyphicon-home"></span>
-		Cerrar</a>
-     </div>
+<div class="modal" id="mostrarmodal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Resultado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div id="contenidodemodal">
+		</div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+      </div>
     </div>
-   </div>
-</div>
+  </div>
 </div>
