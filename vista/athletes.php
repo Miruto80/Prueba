@@ -151,8 +151,6 @@
 					<div class="col-md-2">
 						   <button type="button" class="btn btn-dark" 
 						   id="proceso" ></button>
-				
-				
 				</div>
 			</div>	
 			</form>
@@ -163,6 +161,7 @@
       </div>
   </div>
 </div>
+	</div>
 <!--fin de seccion modal-->
 
 <?php require_once("comunes/modal.php"); ?>
