@@ -265,11 +265,11 @@ class  athletes extends datos
 					$respuesta = $respuesta . "<button type='button'
 					class='btn btn-warning w-100 small-width' 
 							onclick='pone(this,0)'
-						    >Modificar</button><br/>";
+						    ><i class='fa-solid fa-pen-to-square'></i></button><br/>";
 					$respuesta = $respuesta . "<button type='button'
 							class='btn btn-warning w-100 small-width mt-2' 
 							onclick='pone(this,1)'
-						    >Eliminar</button><br/>";
+						    ><i class='fa-solid fa-trash'></i></button><br/>";
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['cedula'];
