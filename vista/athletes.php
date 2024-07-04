@@ -18,7 +18,7 @@
 			margin:2px;
 		}
 	</style>
-<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
+<div class="container mt-3 text-center h2 text-warning">Inscripción de Atletas<hr/>
 
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
