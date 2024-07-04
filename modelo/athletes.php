@@ -263,11 +263,11 @@ class  athletes extends datos
 					$respuesta = $respuesta . "<tr>";
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . "<button type='button'
-					class='btn btn-warning w-100 small-width' 
+					class='btn btn-warning small-width' 
 							onclick='pone(this,0)'
-						    ><i class='fa-solid fa-pen-to-square'></i></button><br/>";
+						    ><i class='fa-solid fa-pen-to-square'></i></button>";
 					$respuesta = $respuesta . "<button type='button'
-							class='btn btn-warning w-100 small-width mt-2' 
+							class='btn btn-warning small-width' 
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
 					$respuesta = $respuesta . "</td>";

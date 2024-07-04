@@ -14,6 +14,9 @@
 		.tablita {
 			color: white;
 		}
+		button{
+			margin:2px;
+		}
 	</style>
 <div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
 
@@ -42,7 +45,7 @@
 				<th>Nombres</th>
 				<th>Fecha Nac</th>
 				<th>Sexo</th>
-				<th>Participacion</th>
+				<th>Part</th>
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
