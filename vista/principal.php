@@ -8,7 +8,6 @@
 <body> 
 <?php require_once('comunes/nav.php'); ?>
 <!-- Clase container todo debe ir dentro de contenedor -->
-<title>Bienvenido</title>
 <style>
         body {
             background-image: url('img/fondo.jpg');

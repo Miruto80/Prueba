@@ -4,13 +4,16 @@
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<style>
-		body {
-		  background-image: url('img/fondo.jpg');
-          background-size: cover;
-          background-repeat: no-repeat;
-		}
-
+    <style>
+		html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 		.tablita {
 			color: white;
 		}
