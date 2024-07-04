@@ -6,7 +6,7 @@
 <?php require_once('comunes/nav.php'); ?>
 <style>
 		body {
-			background-image: url('img/fondo.jpg');
+		  background-image: url('img/fondo.jpg');
           background-size: cover;
           background-repeat: no-repeat;
 		}
