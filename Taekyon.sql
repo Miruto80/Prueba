@@ -85,8 +85,9 @@ CREATE TABLE `tpagos`(
     FOREIGN KEY (id1) REFERENCES tatletas(id) 
     )ENGINE=INNODB;
 
-INSERT INTO `tpagos` (`Comprobantedepago`, `id1`, `Monto`,`fechadepago`) VALUES 
-(22,1,12.2,'2024/02/24');
+INSERT INTO `tpagos` (`Comprobantedepago`, `id1`, `Monto`,`fechadepago`) 
+
+VALUES (22,1,12.2,'2024/02/24');
 
 CREATE TABLE tHorarios( 
     Tipodehorario varchar(30) PRIMARY KEY, 

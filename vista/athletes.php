@@ -14,6 +14,8 @@
 		.tablita {
 			color: white;
 		}
+		
+		
 	</style>
 <div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
 
@@ -50,8 +52,6 @@
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
-			  
-			  
 			</tbody>
 	   </table>
 	  </div>
