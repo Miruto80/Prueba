@@ -11,7 +11,7 @@
 
 <style>  
 		body {
-			background-image: url('img/fondo.jpg');
+		  background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
           background-size: cover;
           background-repeat: no-repeat;
           
