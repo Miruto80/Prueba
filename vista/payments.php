@@ -10,15 +10,17 @@
 <?php require_once('comunes/nav.php'); ?>
 
 <style>  
-		body {
+		html, body {
+            height: 100%;
+            margin: 0;
+        }
+		
+		body{
 		  background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
           background-size: cover;
           background-repeat: no-repeat;
           
-		/* }
-    .blur {
-  filter: blur(10px); Puedes ajustar el valor para cambiar el nivel de desenfoque */
-}
+		}
 
 		.tablita {
 			color: white;
