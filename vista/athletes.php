@@ -4,20 +4,26 @@
 <body>
 
 <?php require_once('comunes/nav.php'); ?>
-<style>
-		body {
-			background-image: url('img/fondo.jpg');
-          background-size: cover;
-          background-repeat: no-repeat;
-		}
-
+    <style>
+		html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
 		.tablita {
 			color: white;
+		}
+		button{
+			margin:2px;
 		}
 		
 		
 	</style>
-<div class="container mt-3 text-center h2 text-warning">Inscripcion de Atletas<hr/>
+<div class="container mt-3 text-center h2 text-warning">Inscripción de Atletas<hr/>
 
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
@@ -44,7 +50,7 @@
 				<th>Nombres</th>
 				<th>Fecha Nac</th>
 				<th>Sexo</th>
-				<th>Participacion</th>
+				<th>Part</th>
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
@@ -116,7 +122,7 @@
 				</div>
 				
 				<div class="row mb-3">
-					<div class="col-md-3">
+					<div class="col-md-5">
 						<label  for="masculino">
 						   Masculino	
 						   <input class="" type="radio" value="M" id="masculino" name="sexo" />
@@ -126,7 +132,8 @@
 						   <input class="" type="radio" value="F" id="femenino" name="sexo" />
 						</label>
 					</div>
-					<div class="col-md-9">
+					
+					<div class="col-md-7">
 					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
 					   <select class="form-control" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
@@ -146,28 +153,21 @@
 					</div>
 				</div>
 				
-				
-				<div class="row">
-					<div class="col-md-12">
-						<hr/>
-					</div>
-				</div>
-
 				<div class="row mt-3 justify-content-center">
 					<div class="col-md-2">
-						   <button type="button" class="btn btn-warning" 
+						   <button type="button" class="btn btn-dark" 
 						   id="proceso" ></button>
-					</div>
 				</div>
 			</div>	
 			</form>
 		</div> <!-- fin de container -->
-		<!--
-		
-		-->
     </div>
+	<div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+      </div>
   </div>
 </div>
+	</div>
 <!--fin de seccion modal-->
 
 <?php require_once("comunes/modal.php"); ?>

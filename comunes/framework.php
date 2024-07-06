@@ -10,4 +10,5 @@
  <script type="text/javascript" src="datatables/datatables.min.js"></script>
  <!--linea para enlazar con las fuentes-->
  <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css">
+ <script src="https://kit.fontawesome.com/a994ffc8cf.js" crossorigin="anonymous"></script>
 </head>
