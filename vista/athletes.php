@@ -20,6 +20,8 @@
 		button{
 			margin:2px;
 		}
+		
+		
 	</style>
 <div class="container mt-3 text-center h2 text-warning">Inscripción de Atletas<hr/>
 
@@ -56,8 +58,6 @@
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
-			  
-			  
 			</tbody>
 	   </table>
 	  </div>

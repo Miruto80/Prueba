@@ -338,7 +338,7 @@ function enviaAjax(datos) {
     type: "POST",
     contentType: false,
     data: datos,
-    processData: false,
+    processData: false, 
     cache: false,
     beforeSend: function () {},
     timeout: 10000, //tiempo maximo de espera por la respuesta del servidor

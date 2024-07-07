@@ -298,6 +298,7 @@ class  athletes extends datos
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Telefono'];
 					$respuesta = $respuesta . "</td>";
+					
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Numerodeaccion'];
 					$respuesta = $respuesta . "</td>";
