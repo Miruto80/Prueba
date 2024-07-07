@@ -182,56 +182,38 @@ class trainers extends datos{
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
 		try{
-			
-			$resultado = $co->query("Select * from tentrenadores");
-			
+			$resultado = $co->query("SELECT * FROM tentrenadores");
 			if($resultado){
-				
 				$respuesta = '';
-				foreach($resultado as $r){
-					$respuesta = $respuesta."<tr>";
-					    $respuesta = $respuesta."<td>";
-							$respuesta = $respuesta."<button type='button'
-							class='btn btn-warning w-100 small-width mb-3' 
-							onclick='pone(this,0)'
-						    >Modificar</button><br/>";
-							$respuesta = $respuesta."<button type='button'
-							class='btn btn-warning w-100 small-width mt-2' 
-							onclick='pone(this,1)'
-						    >Eliminar</button><br/>";
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['CedulaE'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['Apellido'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['Nombre'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-						$respuesta = $respuesta.$r['Telefono'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['Jerarquiadecinturon'];
-						$respuesta = $respuesta."</td>";
-					$respuesta = $respuesta."</tr>";
+				foreach($resultado as $row){
+					$respuesta .= "<tr>";
+					$respuesta .= "<td class='text-center action-column'>";
+					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
+								   <i class='fa-solid fa-pen-to-square'></i></button>";
+					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
+								   <i class='fa-solid fa-trash'></i></button>";
+					$respuesta .= "</td>";
+					$respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Telefono']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Jerarquiadecinturon']}</td>";
+					$respuesta .= "</tr>";
 				}
-				
-			    $r['resultado'] = 'consultar';
+				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  $respuesta;
-			}
-			else{
+			} else {
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  '';
 			}
-			
-		}catch(Exception $e){
+		} catch(Exception $e){
 			$r['resultado'] = 'error';
-			$r['mensaje'] =  $e->getMessage();
+			$r['mensaje'] = $e->getMessage();
 		}
 		return $r;
 	}
+	
+	
 	
 	
 	private function existe($CedulaE){

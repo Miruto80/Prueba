@@ -55,7 +55,6 @@
 				<th>Correo</th>
 				<th>Telefono</th>
 				<th>Nº accion</th>
-				<th>Cinturon</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
@@ -144,40 +143,14 @@
 				</div>
 				
 				<div class="row">
-					
-					<div class="col-md-6">
+					<div class="col">
+					<div class="col-md-7">
 					   <label for="Numerodeaccion">Numero de accion</label>
 					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Numerodeaccion" name="Numerodeaccion"/>
 					   <span id="sNumerodeaccion"></span>
 					</div>
 
-					<div class="col-md-6">
-					   <label for="Cinturon">Cinturon</label>
-					   <select class="form-control" id="Cinturon" name="Cinturon">
-							<option value="Blanco">Blanco</option>
-							<option value="Amarillo">Amarillo</option>
-							<option value="Naranja">Naranja</option>
-							<option value="Verde">Verde</option>
-							<option value="Azul celeste">Azul celeste</option>
-							<option value="Azul Oscuro">Azul Oscuro</option>
-							<option value="Marron">Marron</option>
-							<option value="Rojo">Rojo</option>
-							<option value="Rojo 1er Punta">Rojo Primera Punta</option>
-							<option value="Rojo 2da Punta">Rojo Segunda Punta</option>
-							<option value="BODAN">BODAN</option>
-							<option value="Negro I DAN">Negro I DAN</option>
-							<option value="Negro II DAN">Negro II DAN </option>
-							<option value="Negro III DAN">Negro III DAN</option>
-							<option value="Negro IV DAN">Negro IV DAN</option>
-							<option value="Negro V DAN">Negro V DAN</option>
-							<option value="Negro VI DAN">Negro VI DAN</option>
-							<option value="Negro VII DAN">Negro VII DAN</option>
-							<option value="Negro VIII DAN">Negro VIII DAN</option>
-							<option value="Negro IX DAN">Negro IX DAN</option>
-					   </select>
 					</div>
-
-					
 				</div>
 				
 				<div class="row mt-3 justify-content-center">

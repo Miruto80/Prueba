@@ -50,7 +50,6 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_Correo($_POST['Correo']);
 			  $o->set_Telefono($_POST['Telefono']);
 			  $o->set_Numerodeaccion($_POST['Numerodeaccion']);
-			  $o->set_Cinturon($_POST['Cinturon']);
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }
