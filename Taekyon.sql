@@ -89,16 +89,6 @@ CREATE TABLE `tpagos`(
 INSERT INTO `tpagos` (`Comprobantedepago`, `id1`, `Monto`,`fechadepago`) VALUES 
 (22,1,12.2,'2024/02/24');
 
-CREATE TABLE tHorarios( 
-    Tipodehorario varchar(30) PRIMARY KEY, 
-    id2 int, 
-    Edad int not Null, 
-    FOREIGN KEY (id2) REFERENCES tatletas(id) 
-    )ENGINE=INNODB;
-
-INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `Edad`)  VALUES
-('Juvenil',1,23);
-
 
 CREATE TABLE `tentrenadores` (
   `id` int(11) NOT NULL,
@@ -172,6 +162,17 @@ INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, 
 (59, '36345678', 'Mora', 'Eduardo', '0416-9012349', 'IV DAN'),
 (60, '36456789', 'Santana', 'Claudia', '0416-0123450', 'III DAN');
 
+CREATE TABLE tHorarios( 
+    Tipodehorario varchar(30) PRIMARY KEY, 
+    id2 int, 
+    CedulaE2 int,
+    Edad int not Null, 
+    FOREIGN KEY (id2) REFERENCES tatletas(id),
+    FOREIGN KEY (CedulaE2) REFERENCES tentrenadores(CedulaE)  
+    )ENGINE=INNODB;
+
+INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `CedulaE2` , `Edad`)  VALUES
+('Juvenil',1,'30560144',23);
 
 CREATE TABLE tEventos( 
     Codevento int PRIMARY KEY, 

@@ -52,7 +52,7 @@
 				<th>Direccion</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<th>Num accion</th>
+				<th>Nº accion</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
