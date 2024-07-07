@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `clase13`
+--
 --
 
 -- --------------------------------------------------------
@@ -39,7 +39,8 @@ CREATE TABLE `tatletas` (
   `Direccion` varchar(30) NOT NULL,
   `Correo` varchar(30) NOT NULL,
   `Telefono` varchar(30) NOT NULL,
-  `Numerodeaccion` varchar(30) NOT NULL
+  `Numerodeaccion` varchar(30) NOT NULL,
+  `Cinturon` varchar(30) NOT NULL
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -47,8 +48,8 @@ CREATE TABLE `tatletas` (
 -- Volcado de datos para la tabla `personas`
 --
 
-INSERT INTO `tatletas` (`id`, `cedula`, `nombres`, `apellidos`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Numerodeaccion`) VALUES
-(1, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si','La mata','Mftt@gmail.com','04125889171','95');
+INSERT INTO `tatletas` (`id`, `cedula`, `nombres`, `apellidos`, `fechadenacimiento`, `sexo`, `Participacion`,`Direccion`, `Correo`,`Telefono`,`Numerodeaccion`,`Cinturon`) VALUES
+(1, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si','La mata','Mftt@gmail.com','04125889171','95','Blanco');
 
 
 

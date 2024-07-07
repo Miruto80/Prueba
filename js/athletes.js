@@ -140,6 +140,7 @@ $("#proceso").on("click",function(){
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
 			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
+			datos.append('Cinturon',$("#Cinturon").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -163,6 +164,7 @@ $("#proceso").on("click",function(){
 			datos.append('Correo',$("#Correo").val());
 			datos.append('Telefono',$("#Telefono").val());
 			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
+			datos.append('Cinturon',$("#Cinturon").val());
 			if($("#masculino").is(":checked")){
 				datos.append('sexo','M');
 			}
@@ -326,6 +328,7 @@ function pone(pos,accion){
 	$("#Correo").val($(linea).find("td:eq(8)").text());
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
 	$("#Numerodeaccion").val($(linea).find("td:eq(10)").text());
+	$("#Cinturon").val($(linea).find("td:eq(11)").text());
 	$("#modal1").modal("show");
 }
 
@@ -415,4 +418,5 @@ function limpia(){
 	$("#Correo").val("");
 	$("#Telefono").val("");
 	$("#Numerodeaccion").val("");
+	$("#Cinturon").val("");
 }

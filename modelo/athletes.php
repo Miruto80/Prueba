@@ -23,6 +23,7 @@ class  athletes extends datos
 	private $Correo;
 	private $Telefono;
 	private $Numerodeaccion;
+	private $Cinturon;
 
 	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
 	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
@@ -76,6 +77,10 @@ class  athletes extends datos
 	{
 		$this->Numerodeaccion = $valor;
 	}
+	function set_Cinturon($valor)
+	{
+		$this->Cinturon = $valor;
+	}
 
 
 	function get_cedula()
@@ -126,6 +131,10 @@ class  athletes extends datos
 	{
 		return $this->Numerodeaccion;
 	}
+	function get_Cinturon()
+	{
+		return $this->Cinturon;
+	}
 
 
 	//Lo siguiente que demos hacer es crear los metodos para incluir, consultar y eliminar
@@ -157,7 +166,8 @@ class  athletes extends datos
 						Direccion,
 						Correo,
 						Telefono,
-						Numerodeaccion
+						Numerodeaccion,
+						Cinturon
 						)
 						Values(
 						'$this->cedula',
@@ -169,7 +179,8 @@ class  athletes extends datos
 						'$this->Direccion',
 						'$this->Correo',
 						'$this->Telefono',
-						'$this->Numerodeaccion'
+						'$this->Numerodeaccion',
+						'$this->Cinturon'
 
 						)");
 				$r['resultado'] = 'incluir';
@@ -205,7 +216,8 @@ class  athletes extends datos
 						Direccion = '$this->Direccion',
 						Correo = '$this->Correo',
 						Telefono = '$this->Telefono',
-						Numerodeaccion = '$this->Numerodeaccion'
+						Numerodeaccion = '$this->Numerodeaccion',
+						Cinturon = '$this->Cinturon'
 						where
 						cedula = '$this->cedula'
 						");
@@ -298,9 +310,11 @@ class  athletes extends datos
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Telefono'];
 					$respuesta = $respuesta . "</td>";
-					
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Numerodeaccion'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['Cinturon'];
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "</tr>";
 				}

@@ -14,28 +14,44 @@
             background-size: cover;
             background-repeat: no-repeat;
         }
+		.table {
+			border-collapse: separate;
+			/* Para asegurarse de que se vean los bordes */
+			border-spacing: 0;
+			/* Elimina el espacio entre las celdas */
+		}
+
+		.table th,
+		.table td {
+			border: 1px solid white;
+			/* Bordes blancos y gruesos */
+		}
+
+		.action-column {
+            width: 5rem; /* Ajusta el ancho de la columna de acciones */
+        }
 		.tablita {
 			color: white;
 		}
 		button{
-			margin:2px;
+			margin: 3px;
 		}
 		
 		
+		
 	</style>
-<div class="container mt-3 text-center h2 text-warning">Inscripción de Atletas<hr/>
+<div class="container text-center h2 text-warning mt-3">Inscripción de Atletas<hr/>
 
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
 	<div class="container">
-		<div class="row mt-4 justify-content-center">
-
-		    <div class="col-md-4">
-			   <button type="button" class="btn btn-warning" id="incluir" >Inscribir</button>
-			</div>
-					
-			<div class="col-md-1">	
-			    <a href="." class="btn btn-warning">Salir</a>
+	<div class="row mt-4 justify-content-center">
+        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
+            <button type="button" class="btn btn-warning btn-block" id="incluir">INSCRIBIR</button>
+        </div>
+        <div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
+            <a href="." class="btn btn-warning btn-block">SALIR</a>
+        </div>
 			</div>
 		</div>
 	</div>
@@ -55,6 +71,7 @@
 				<th>Correo</th>
 				<th>Telefono</th>
 				<th>Nº accion</th>
+				<th>Cinturon</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
@@ -135,7 +152,7 @@
 					
 					<div class="col-md-7">
 					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
-					   <select class="form-control" id="Participacion" name="Participacion">
+					   <select class="form-select" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>
 							<option value="No">No</option>
 					   </select>
@@ -143,14 +160,40 @@
 				</div>
 				
 				<div class="row">
-					<div class="col">
-					<div class="col-md-7">
+					
+					<div class="col-md-6">
 					   <label for="Numerodeaccion">Numero de accion</label>
 					   <input class="form-control" placeholder="Si es socio poner su num de accion" type="text" id="Numerodeaccion" name="Numerodeaccion"/>
 					   <span id="sNumerodeaccion"></span>
 					</div>
 
+					<div class="col-md-6">
+					   <label for="Cinturon">Cinturon</label>
+					   <select class="form-select" id="Cinturon" name="Cinturon">
+							<option value="Blanco">Blanco</option>
+							<option value="Amarillo">Amarillo</option>
+							<option value="Naranja">Naranja</option>
+							<option value="Verde">Verde</option>
+							<option value="Azul celeste">Azul celeste</option>
+							<option value="Azul Oscuro">Azul Oscuro</option>
+							<option value="Marron">Marron</option>
+							<option value="Rojo">Rojo</option>
+							<option value="Rojo 1er Punta">Rojo Primera Punta</option>
+							<option value="Rojo 2da Punta">Rojo Segunda Punta</option>
+							<option value="BODAN">BODAN</option>
+							<option value="Negro I DAN">Negro I DAN</option>
+							<option value="Negro II DAN">Negro II DAN </option>
+							<option value="Negro III DAN">Negro III DAN</option>
+							<option value="Negro IV DAN">Negro IV DAN</option>
+							<option value="Negro V DAN">Negro V DAN</option>
+							<option value="Negro VI DAN">Negro VI DAN</option>
+							<option value="Negro VII DAN">Negro VII DAN</option>
+							<option value="Negro VIII DAN">Negro VIII DAN</option>
+							<option value="Negro IX DAN">Negro IX DAN</option>
+					   </select>
 					</div>
+
+					
 				</div>
 				
 				<div class="row mt-3 justify-content-center">
