@@ -23,7 +23,7 @@
 
 		.table th,
 		.table td {
-			border: 1px solid white;
+			border: 1px solid #E7B00A;
 			/* Bordes blancos y gruesos */
 		}
 
