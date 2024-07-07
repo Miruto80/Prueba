@@ -162,8 +162,8 @@
 							<option value="Azul Oscuro">Azul Oscuro</option>
 							<option value="Marron">Marron</option>
 							<option value="Rojo">Rojo</option>
-							<option value="Rojo Primera Punta">Rojo Primera Punta</option>
-							<option value="Rojo Segunda Punta">Rojo Segunda Punta</option>
+							<option value="Rojo 1er Punta">Rojo Primera Punta</option>
+							<option value="Rojo 2da Punta">Rojo Segunda Punta</option>
 							<option value="BODAN">BODAN</option>
 							<option value="Negro I DAN">Negro I DAN</option>
 							<option value="Negro II DAN">Negro II DAN </option>
