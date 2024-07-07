@@ -158,12 +158,12 @@
 							<option value="Amarillo">Amarillo</option>
 							<option value="Naranja">Naranja</option>
 							<option value="Verde">Verde</option>
-							<option value="Azul_celeste">Azul celeste</option>
-							<option value="Azul_Oscuro">Azul Oscuro</option>
+							<option value="Azul celeste">Azul celeste</option>
+							<option value="Azul Oscuro">Azul Oscuro</option>
 							<option value="Marron">Marron</option>
 							<option value="Rojo">Rojo</option>
-							<option value="Rojo_Primera_Punta">Rojo Primera Punta</option>
-							<option value="Rojo_Segunda_Punta">Rojo Segunda Punta</option>
+							<option value="Rojo Primera Punta">Rojo Primera Punta</option>
+							<option value="Rojo Segunda Punta">Rojo Segunda Punta</option>
 							<option value="BODAN">BODAN</option>
 							<option value="Negro I DAN">Negro I DAN</option>
 							<option value="Negro II DAN">Negro II DAN </option>
