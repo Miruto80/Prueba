@@ -25,7 +25,7 @@
 
 		.table th,
 		.table td {
-			border: 1px solid white;
+			border: 1px solid #E7B00A;
 			/* Bordes blancos y gruesos */
 		}
 
@@ -88,6 +88,7 @@
 										<input class="form-control" type="text" id="CedulaE" />
 										<span id="sCedulaE"></span>
 									</div>
+									
 									<div class="col-md-4">
 										<label for="Apellido">Apellido</label>
 										<input class="form-control" type="text" id="Apellido" />
