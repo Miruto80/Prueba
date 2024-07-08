@@ -79,17 +79,17 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 
-CREATE TABLE `tpagos`( 
-    Comprobantedepago int PRIMARY KEY, 
-    id1 int, 
-    Monto float not Null, 
-    fechadepago date NOT NULL,
-    FOREIGN KEY (id1) REFERENCES tatletas(id) 
-    )ENGINE=INNODB;
 
-INSERT INTO `tpagos` (`Comprobantedepago`, `id1`, `Monto`,`fechadepago`) 
+CREATE TABLE `tpagos`(
+    `cedula` VARCHAR int(15),
+    `fechadepago` date NOT NULL,
+    `Monto` float not Null,
+    `Comprobantedepago` int (11) PRIMARY KEY
+    )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-VALUES (22,1,12.2,'2024/02/24');
+INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
+
+VALUES (22,122,'2024/02/24',24351625);
 
 
 CREATE TABLE `tentrenadores` (
