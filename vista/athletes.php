@@ -145,7 +145,7 @@
 				</div>
 				
 				<div class="row mb-3">
-					<div class="col-md-3">
+					<div class="col-md-3 ">
 						<label class="" for="masculino">
 						   Masculino	
 						   <input class="form-check-input" type="radio" value="M" id="masculino" name="sexo" />
