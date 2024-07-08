@@ -81,15 +81,15 @@ COMMIT;
 
 
 CREATE TABLE `tpagos`(
-    `cedula` VARCHAR int(15),
+    `cedula`int(15),
     `fechadepago` date NOT NULL,
-    `Monto` float not Null,
+    `Monto` float NOT Null,
     `Comprobantedepago` int (11) PRIMARY KEY
     )ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
 
-VALUES (22,122,'2024/02/24',24351625);
+VALUES (22,12.2,'2024/02/24',24351625);
 
 
 CREATE TABLE `tentrenadores` (

@@ -265,7 +265,7 @@ function enviaAjax(datos) {
         }
 		else if (lee.resultado == "incluir") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='pago Inluido'){
+		   if(lee.mensaje=='pago Incluido'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
