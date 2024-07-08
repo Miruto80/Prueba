@@ -44,7 +44,7 @@
             <button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
         </div>
         <div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
-            <a href="." class="btn btn-warning btn-block">SALIR</a>
+            <a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>
         </div>
     </div>
 </div>
