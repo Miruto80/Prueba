@@ -71,7 +71,7 @@ $(document).ready(function(){
 	});
 	
 	$("#Telefono").on("keyup",function(){
-	    validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$(this),$("#sTelefono"),"El formato debe ser 9999-9999999");
+	    validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$(this),$("#sTelefono"),"El formato debe ser 04x4-XXXXXXX");
 	});
 	
 
@@ -154,7 +154,7 @@ function validarenvio(){
 		return false;
 	}
 	else if(validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$("#Telefono"),
-		 $("#sTelefono"),"El formato debe ser 9999-9999999")==0){
+		 $("#sTelefono"),"El formato debe ser 04x4-XXXXXXX")==0){
 		 muestraMensaje("Telefono <br/>Verifique el Telefono");
 	     return false;
 	}
