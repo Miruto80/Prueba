@@ -36,6 +36,12 @@
 		button{
 			margin: 3px;
 		}
+		.form-check-input{
+			width:30px;
+			height:30px;
+			border: 1px solid #E7B00A;
+			display:block;
+		}
 		
 		
 		
@@ -139,18 +145,18 @@
 				</div>
 				
 				<div class="row mb-3">
-					<div class="col-md-5">
-						<label  for="masculino">
+					<div class="col-md-3">
+						<label class="" for="masculino">
 						   Masculino	
-						   <input class="" type="radio" value="M" id="masculino" name="sexo" />
+						   <input class="form-check-input" type="radio" value="M" id="masculino" name="sexo" />
 						</label>
-						<label  for="femenino">
+						<label class="" for="femenino">
 						   Femenino	
-						   <input class="" type="radio" value="F" id="femenino" name="sexo" />
+						   <input class="form-check-input" type="radio" value="F" id="femenino" name="sexo" />
 						</label>
 					</div>
 					
-					<div class="col-md-7">
+					<div class="col-md-9">
 					   <label for="Participacion">Participacion en artes marciales anteriormente</label>
 					   <select class="form-select" id="Participacion" name="Participacion">
 							<option value="Si">Si</option>

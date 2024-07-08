@@ -418,5 +418,5 @@ function limpia(){
 	$("#Correo").val("");
 	$("#Telefono").val("");
 	$("#Numerodeaccion").val("");
-	$("#Cinturon").val("");
+	$("#Cinturon").prop("selectedIndex",0);
 }
