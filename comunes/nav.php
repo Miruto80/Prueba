@@ -41,17 +41,6 @@
             <li class="nav-item">
               <a class="nav-link" href="?pagina=records">Records</a>
             </li>
-            <li class="nav-item dropdown ">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Mas
-              </a>
-              <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href=".">Opcional 1</a></li>
-                <li><a class="dropdown-item" href=".">Opcional 2</a></li>
-                <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="#">Opcional 3</a></li>
-              </ul>
-            </li>
           </ul>
           
           <form class="d-flex" role="search">
