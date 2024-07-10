@@ -24,7 +24,7 @@
 		.table th,
 		.table td {
 			border: 1px solid #E7B00A;
-			/* Bordes blancos y gruesos */
+			/* Bordes */
 		}
 
 		.action-column {
@@ -33,9 +33,7 @@
 		.tablita {
 			color: white;
 		}
-		button{
-			margin: 3px;
-		}
+		
 		.form-check-input{
 			width:30px;
 			height:30px;
