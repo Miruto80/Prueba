@@ -127,8 +127,6 @@
 									</div>
 								</div>
 
-
-
 								<div class="row mt-5 justify-content-center">
 									<div class="col-md-2">
 										<button type="button" class="btn btn-dark" id="proceso"></button>
