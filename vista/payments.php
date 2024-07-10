@@ -23,6 +23,19 @@
         background-repeat: no-repeat;
 
     }
+    
+		.table {
+			border-collapse: separate;
+			/* Para asegurarse de que se vean los bordes */
+			border-spacing: 0;
+			/* Elimina el espacio entre las celdas */
+		}
+
+		.table th,
+		.table td {
+			border: 1px solid #E7B00A;
+			/* Bordes blancos y gruesos */
+		}
 
     .tablita {
         color: white;
