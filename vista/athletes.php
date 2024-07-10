@@ -61,7 +61,7 @@
 	</div>
 	<div class="tablita container">
 	   <div class="table-responsive">
-		<table class="table table-striped table-dark table-hover" id="tablapersona">
+		<table class="table table-striped table-dark table-hover text-center" id="tablapersona">
 			<thead>
 			  <tr>
 				<th>Acciones</th>
