@@ -7,7 +7,7 @@
   <header>
     <nav class="navbar navbar-expand-lg bg-dark border-bottom border-body" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href=".">
+        <a class="navbar-brand" href="?pagina=principal">
           <img src="img/logo taekyon.png" alt="" width="45" height="auto" class="d-inline-block align-text-top">
         </a>
         <a class="navbar-brand" href="?pagina=principal"> TAEKYON </a>

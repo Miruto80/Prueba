@@ -91,17 +91,19 @@ INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, 
 (4, '30876543', 'Gomez', 'Luis', '0412-3456789', 'V DAN'),
 (5, '30987654', 'Diaz', 'Maria', '0412-4567890', 'IV DAN');
 
-CREATE TABLE `tHorarios`( 
-    `Tipodehorario` varchar(30) PRIMARY KEY, 
+CREATE TABLE `tHorarios`(
+    `Tipodehorario` varchar(30), 
     `id2` int, 
     `CedulaE2` int,
     `Edad` int NOT NULL,
-    FOREIGN KEY (`id2`) REFERENCES `tatletas`(`id`) ON DELETE CASCADE ON UPDATE CASCADE,
-    FOREIGN KEY (`CedulaE2`) REFERENCES `tentrenadores`(`CedulaE`) ON DELETE CASCADE ON UPDATE CASCADE
+    PRIMARY KEY (`id2`, `CedulaE2`)
 ) ENGINE=InnoDB;
 
 INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `CedulaE2`, `Edad`) VALUES
-('Juvenil', 1, 30560144, 23);
+('Juvenil', 1, 30560144, 23),
+('Juvenil', 2, 30560145, 24),
+('Adulto', 3, 30560146, 30);
+
 
 CREATE TABLE `tEventos`( 
     `Codevento` int PRIMARY KEY, 
