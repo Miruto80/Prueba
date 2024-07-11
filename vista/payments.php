@@ -79,7 +79,7 @@
                             <th>Fecha de pago</th>
                             <th>Monto</th>
                             <th>comprobante</th>
-                            <th>Metodo de pago</th>
+                            <th>Socio</th>
 
 
                         </tr>
@@ -139,11 +139,10 @@
                             </div>
                             <!-- en proceso de creacion -->
                             <div class="col-md-12">
-                                <label for="tipopago">Metodo de pago</label>
+                                <label for="tipopago">Socio</label>
                                 <select class="form-control" id="tipopago" name="tipopago">
-                                    <option value="tranferencia">tranferencia</option>
-                                    <option value="Efectivo">Efectivo</option>
-                                    <option value="Otro">Otro</option>
+                                    <option value="si">si</option>
+                                    <option value="no">no</option>
                                 </select>
                             </div>
                             <!-- en proceso de creacion -->
