@@ -69,11 +69,11 @@ $(document).ready(function(){
 	});
 	
 	$("#Monto").on("keypress",function(e){
-		validarkeypress(/^[0-5-\b]*$/,e);
+		validarkeypress(/^[0-9-\b]*$/,e);
 	});
 	
 	$("#Monto").on("keyup",function(){
-		validarkeyup(/^[0-5]{5}$/,$(this),
+		validarkeyup(/^[0-9]{5}$/,$(this),
 		$("#sMonto"),"El formato debe ser de 05");
 	});
 	
@@ -157,10 +157,10 @@ function validarenvio(){
 		muestraMensaje("Ingrese una fecha valida");
 		return false;
 	}
-	else if(validarkeyup(/^[0-5]{5}$/,$("#Monto"),
+	else if(validarkeyup(/^[0-9]{5}$/,$("#Monto"),
 	$("#Monto"),"El formato debe ser de 05")==0){
 	muestraMensaje("El Monto debe coincidir con el formato <br/>"+ 
-					"de 05");	
+					"de 99999");	
 	return false;					
 	}
 	else {
