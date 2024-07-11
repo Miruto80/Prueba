@@ -104,6 +104,7 @@ $("#proceso").on("click",function(){
 			datos.append('fechadepago',$("#fechadepago").val());
 			datos.append('Monto',$("#Monto").val());
 			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
+			datos.append('tipopago',$("#tipopago").val());
             
 			enviaAjax(datos);
 		}
@@ -116,6 +117,7 @@ $("#proceso").on("click",function(){
 			datos.append('fechadepago',$("#fechadepago").val());
 			datos.append('Monto',$("#Monto").val());
 			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
+			datos.append('tipopago',$("#tipopago").val());
 			enviaAjax(datos);
 		}
 	}
@@ -235,6 +237,7 @@ function pone(pos,accion){
 	$("#fechadepago").val($(linea).find("td:eq(2)").text());
 	$("#Monto").val($(linea).find("td:eq(3)").text());
 	$("#Comprobantedepago").val($(linea).find("td:eq(4)").text());
+	$("#tipopago").val($(linea).find("td:eq(5)").text());
 	$("#modal1").modal("show");
 }
 
@@ -312,4 +315,5 @@ function limpia(){
 	$("#fechadepago").val("");
 	$("#Monto").val("");
 	$("#Comprobantedepago").val("");
+	$("#tipopago").prop("selectedIndex",0);
 }
