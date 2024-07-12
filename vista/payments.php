@@ -24,12 +24,6 @@
 
     }
 
-    .table {
-        border-collapse: separate;
-        /* Para asegurarse de que se vean los bordes */
-        border-spacing: 0;
-        /* Elimina el espacio entre las celdas */
-    }
 
     .table th,
     .table td {
@@ -46,10 +40,17 @@
         bottom: 20px;
         margin: 1px;
     }
+    .container1
+    {
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0.384);
+
+    }
+    
     </style>
 
     <div class="container mt-3 text-center h2 text-warning">Gestion de Pagos
-        <hr/>
+        <hr />
     </div>
 
 
@@ -67,9 +68,9 @@
                     <a href="." class="btn btn-warning">Salir</a>
                 </div>
             </div>
-            <hr/>
+            <hr />
         </div>
-        <div class="tablita container">
+        <div class="tablita container1">
             <div class="table-responsive">
                 <table class="table table-striped table-dark table-hover" id="tablapersona1">
                     <thead>
@@ -80,7 +81,8 @@
                             <th>Fecha de pago</th>
                             <th>Monto</th>
                             <th>Comprobante</th>
-                            <th>Socio</th>
+                            <th>Metodo de Pago</th>
+                            <th>Nro de Accion</th>
 
 
                         </tr>
@@ -122,15 +124,15 @@
                             </div>
 
                             <div class="row mb-3">
-                                <div class="col-md-8">
+                                <div class="col-md-4">
                                     <label for="Monto">Monto</label>
                                     <input class="form-control" type="text" id="Monto" name="Monto" />
                                     <span id="sMonto"></span>
                                 </div>
 
 
-                                <div class="col-md-4">
-                                    <label for="Comprobantedepago">Comprobantedepago</label>
+                                <div class="col-md-8">
+                                    <label for="Comprobantedepago">Comprobante de Pago</label>
                                     <input class="form-control" type="text" id="Comprobantedepago"
                                         name="Comprobantedepago" />
                                     <span id="sComprobantedepago"></span>
@@ -139,12 +141,20 @@
 
                             </div>
                             <!-- en proceso de creacion -->
-                            <div class="col-md-12">
-                                <label for="tipopago">Socio</label>
-                                <select class="form-control" id="tipopago" name="tipopago">
-                                    <option value="si">si</option>
-                                    <option value="no">no</option>
-                                </select>
+                            <div class="row mb-3">
+                                <div class="col-md-8">
+                                    <label for="tipopago">Tipo de Pago</label>
+                                    <select class="form-control" id="tipopago" name="tipopago">
+                                        <option value="Pago movil">Pago movil</option>
+                                        <option value="tranferencia">Tranferencia</option>
+                                        <option value="Efectipo">Efectivo</option>
+                                    </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="numeroaccion">Numero de Accion</label>
+                                        <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
+                                        <span id="snumeroaccion"></span>
+                                    </div>
                             </div>
                             <!-- en proceso de creacion -->
                             <div class="col-md-12">

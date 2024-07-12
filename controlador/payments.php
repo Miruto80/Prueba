@@ -36,6 +36,7 @@ $o->set_fechadepago($_POST['fechadepago']);
 $o->set_Monto($_POST['Monto']);
 $o->set_Comprobantedepago($_POST['Comprobantedepago']);
 $o->set_tipopago($_POST['tipopago']);
+$o->set_numeroaccion($_POST['numeroaccion']);
 if($accion=='incluir'){
 echo json_encode($o->incluir());
 }
