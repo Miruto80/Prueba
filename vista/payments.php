@@ -40,16 +40,17 @@
         bottom: 20px;
         margin: 1px;
     }
-    .container1
-    {
+
+    .container1 {
         border-radius: 20px;
         background-color: rgba(0, 0, 0, 0.384);
 
     }
-    
     </style>
+    <hr />
+    <div class="container1">
+        <div class="h1 text-center h2 text-warning">Gestion de Pagos</div>
 
-    <div class="container mt-3 text-center h2 text-warning">Gestion de Pagos
         <hr />
     </div>
 
@@ -110,6 +111,7 @@
                         <input autocomplete="off" type="text" class="form-control" name="accion" id="accion"
                             style="display: none;">
                         <div class="container">
+                            <br>
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="cedula">Cedula</label>
@@ -149,12 +151,12 @@
                                         <option value="tranferencia">Tranferencia</option>
                                         <option value="Efectipo">Efectivo</option>
                                     </select>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <label for="numeroaccion">Numero de Accion</label>
-                                        <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
-                                        <span id="snumeroaccion"></span>
-                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <label for="numeroaccion">Numero de Accion</label>
+                                    <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
+                                    <span id="snumeroaccion"></span>
+                                </div>
                             </div>
                             <!-- en proceso de creacion -->
                             <div class="col-md-12">
@@ -178,13 +180,12 @@
 
 
                         </div>
-
-
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-2">
                                 <button type="button" class="btn btn-dark" id="proceso"></button>
                             </div>
                         </div>
+                        <br />
                     </form>
                 </div> <!-- fin de container -->
             </div>
