@@ -25,17 +25,35 @@
                 opacity: 1;
             }
         }
+
+        .row {
+            background-color: rgba(0, 0, 0, 0.384);
+            border-radius: 25px;
+        }
+
+        .figure img {
+            width: 40%;
+            height: auto;
+        }
     </style>
     </head>
 
-<body>
-    
-<div class="container text-center">
-        <div class="row">
-            <div class="col-md contenido text-center">
-                <h1>***Bienvenido***</h1>
+    <body>
+
+        <div class="container">
+            <div class="row justify-content-center mt-5">
+                <div class="col-md-8">
+                    <div class="text-center">
+                        <h1 class="display-4 mt-2">Bienvenido</h1>
+                        <figure class="figure">
+                            <img src="img/logo.png" alt="Logo">
+                        </figure>
+                        <h3 class="text-warning"><b>"FORMANDO CAMPEONES PARA LA VIDA"</b></h3>
+                        <h5 class="text-warning"><b>Fundado en 1983.</b></h5>
+                    </div>
+                </div>
             </div>
-    </div>
+        </div>
 
     </body>
 
