@@ -7,8 +7,7 @@ if (!is_file("modelo/".$pagina.".php")){
 	exit;
 }  
 require_once("modelo/".$pagina.".php");  
-
-if(is_file("vista/".$pagina.".php")){
+  if(is_file("vista/".$pagina.".php")){
 
 	  //realizar una instancia de la clase
 	  //instanciar es crear una variable local, //que contiene los metodos de la clase
