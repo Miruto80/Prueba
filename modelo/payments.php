@@ -17,6 +17,7 @@ class  payments extends datos
 	private $fechadepago;
 	private $Monto;
 	private $Comprobantedepago;
+	private $tipopago;
 
 	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
 	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
@@ -42,6 +43,10 @@ class  payments extends datos
 		$this->Comprobantedepago = $valor;
 	}
     
+	function set_tipopago($valor)
+	{
+		$this->tipopago = $valor;
+	}
 
 
 	function get_cedula()
@@ -58,9 +63,14 @@ class  payments extends datos
 	{
 		return $this->Monto;
 	}
-	function get_Comprobantedepago()
+		function get_Comprobantedepago()
 	{
 		return $this->Comprobantedepago;
+	}
+	
+	function get_tipopago()
+	{
+		return $this->tipopago;
 	}
 
 
@@ -87,13 +97,15 @@ class  payments extends datos
 						cedula,
 						fechadepago,
 						Monto,
-						Comprobantedepago
+						Comprobantedepago,
+						tipopago
 						)
 						Values(
 						'$this->cedula',
 						'$this->fechadepago',
 						'$this->Monto',
-						'$this->Comprobantedepago'
+						'$this->Comprobantedepago',
+						'$this->tipopago'
 
 						)");
 				$r['resultado'] = 'incluir';
@@ -123,7 +135,8 @@ class  payments extends datos
 					    cedula = '$this->cedula',
 						fechadepago = '$this->fechadepago',
 						Monto = '$this->Monto',
-						Comprobantedepago = '$this->Comprobantedepago'
+						Comprobantedepago = '$this->Comprobantedepago',
+						tipopago = '$this->tipopago'
 						where
 						cedula = '$this->cedula'
 						");
@@ -200,6 +213,9 @@ class  payments extends datos
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Comprobantedepago'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['tipopago'];
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "</tr>";
 				}

@@ -8,8 +8,8 @@
 	<style>
 		body {
 			background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
-            background-size: cover;
-            background-repeat: no-repeat;
+			background-size: cover;
+			background-repeat: no-repeat;
 		}
 
 		.tablita {
@@ -30,24 +30,26 @@
 		}
 
 		.action-column {
-            width: 5rem; /* Ajusta el ancho de la columna de acciones */
-        }
+			width: 5rem;
+			/* Ajusta el ancho de la columna de acciones */
+		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
 		Registro de entrenadores
 		<hr />
 	</div>
 	<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
-	<div class="container">
-    	<div class="row mt-4 justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
-            <button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
-        </div>
-        <div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
-            <a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>
-        </div>
-    </div>
-</div>
+		<div class="container">
+			<div class="row mt-4 justify-content-center">
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<button type="button" class="btn btn-warning" id="incluir"><b>REGISTRAR</b></button>
+				</div>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<a href="?pagina=principal" class="btn btn-warning"><b>SALIR</b></a>
+				</div>
+			</div>
+		</div>
+
 		<div class="tablita container">
 			<div class="table-responsive">
 				<table class="table table-striped table-dark table-hover" id="tablapersona">
@@ -88,7 +90,7 @@
 										<input class="form-control" type="text" id="CedulaE" />
 										<span id="sCedulaE"></span>
 									</div>
-									
+
 									<div class="col-md-4">
 										<label for="Apellido">Apellido</label>
 										<input class="form-control" type="text" id="Apellido" />

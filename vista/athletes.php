@@ -24,7 +24,7 @@
 		.table th,
 		.table td {
 			border: 1px solid #E7B00A;
-			/* Bordes blancos y gruesos */
+			/* Bordes */
 		}
 
 		.action-column {
@@ -33,9 +33,7 @@
 		.tablita {
 			color: white;
 		}
-		button{
-			margin: 3px;
-		}
+		
 		.form-check-input{
 			width:30px;
 			height:30px;
@@ -63,7 +61,7 @@
 	</div>
 	<div class="tablita container">
 	   <div class="table-responsive">
-		<table class="table table-striped table-dark table-hover" id="tablapersona">
+		<table class="table table-striped table-dark table-hover text-center" id="tablapersona">
 			<thead>
 			  <tr>
 				<th>Acciones</th>

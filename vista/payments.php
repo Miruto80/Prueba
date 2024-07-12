@@ -73,11 +73,15 @@
                 <table class="table table-striped table-dark table-hover" id="tablapersona1">
                     <thead>
                         <tr>
+
                             <th>Acciones</th>
                             <th>Cedula</th>
                             <th>Fecha de pago</th>
                             <th>Monto</th>
                             <th>comprobante</th>
+                            <th>Socio</th>
+
+
                         </tr>
                     </thead>
                     <tbody id="resultadoconsulta">
@@ -135,29 +139,27 @@
                             </div>
                             <!-- en proceso de creacion -->
                             <div class="col-md-12">
-                                <label for="tipopago">Metodo de pago</label>
+                                <label for="tipopago">Socio</label>
                                 <select class="form-control" id="tipopago" name="tipopago">
-                                    <option value="">tranferencia</option>
-                                    <option value="">Efectivo</option>
-                                    <option value="">Otro</option>
-
+                                    <option value="si">si</option>
+                                    <option value="no">no</option>
                                 </select>
                             </div>
                             <!-- en proceso de creacion -->
                             <div class="col-md-12">
                                 <label for="mes">Mes</label>
                                 <select class="form-control" id="mes" name="mes">
-                                    <option value="">enero</option>
-                                    <option value="">febrero</option>
-                                    <option value="">marzo</option>
-                                    <option value="">abril</option>
-                                    <option value="">mayo</option>
-                                    <option value="">junio</option>
-                                    <option value="">julio</option>
-                                    <option value="">agosto</option>
-                                    <option value="">septiembre</option>
-                                    <option value="">octubre</option>
-                                    <option value="">noviembre</option>
+                                    <option value="">Enero</option>
+                                    <option value="">Febrero</option>
+                                    <option value="">Marzo</option>
+                                    <option value="">Abril</option>
+                                    <option value="">Mayo</option>
+                                    <option value="">Junio</option>
+                                    <option value="">Julio</option>
+                                    <option value="">Agosto</option>
+                                    <option value="">Septiembre</option>
+                                    <option value="">Octubre</option>
+                                    <option value="">Noviembre</option>
                                     <option value="">Diciembre</option>
 
                                 </select>
