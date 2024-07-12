@@ -38,7 +38,7 @@
 		Registro de Horarios
 		<hr />
 	</div>
-	<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
+	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
@@ -58,6 +58,7 @@
 							<th class="text-center">Cedula</th>
 							<th class="text-center">Edad</th>
 							<th class="text-center">Tipo de Horario</th>
+							<th class="text-center">Entrenador</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -101,6 +102,14 @@
 											<option value="ADULTO">ADULTO</option>
 										</select>
 									</div>
+									<div class="col">
+									<label for="EntrenadorH">Entrenador</label>
+										<select class="form-select" id="EntrenadorH">
+											<option value="Entrenador Infantil. Antonio Sabino">Entrenador Infantil. Antonio Sabino</option>
+											<option value="Entrenador Juvenil. Elias Hoss">Entrenador Juvenil. Elias Hoss</option>
+											<option value="Entrenador Adulto. George Kahakajian">Entrenador Adulto. George Kahakajian</option>
+										</select>
+							    </div>
 								</div>
 							</div>
 
