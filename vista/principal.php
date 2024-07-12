@@ -44,7 +44,7 @@
             <div class="row justify-content-center mt-5">
                 <div class="col-md-8">
                     <div class="text-center">
-                        <h1 class="display-4 mt-2">Bienvenido</h1>
+                        <h1 class="display-4 mt-2 text-warning">Bienvenido</h1>
                         <figure class="figure">
                             <img src="img/logo.png" alt="Logo">
                         </figure>
