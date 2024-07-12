@@ -77,6 +77,7 @@ $("#proceso").on("click",function(){
 			datos.append('CedulaE2',$("#CedulaE2").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
+			datos.append('EntrenadorH',$("#EntrenadorH").val());
 	
 			enviaAjax(datos);
 		}
@@ -88,6 +89,7 @@ $("#proceso").on("click",function(){
 			datos.append('CedulaE2',$("#CedulaE2").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
+			datos.append('EntrenadorH',$("#EntrenadorH").val());
 			enviaAjax(datos);
 		}
 	}
@@ -193,6 +195,7 @@ function pone(pos,accion){
 	$("#CedulaE2").val($(linea).find("td:eq(1)").text());
 	$("#Edad").val($(linea).find("td:eq(2)").text());
 	$("#Tipodehorario").val($(linea).find("td:eq(3)").text());
+	$("#EntrenadorH").val($(linea).find("td:eq(4)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -266,5 +269,7 @@ function enviaAjax(datos) {
 function limpia(){
 	$("#CedulaE2").val("");
 	$("#Edad").val("");
+	$("#EntrenadorH").val("");
 	$("#Tipodehorario").prop("selectedIndex",0);
+
 }

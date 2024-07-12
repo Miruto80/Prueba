@@ -42,6 +42,7 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_CedulaE2($_POST['CedulaE2']);
 			  $o->set_Edad($_POST['Edad']);
 			  $o->set_Tipodehorario($_POST['Tipodehorario']);
+			  $o->set_EntrenadorH($_POST['EntrenadorH']);
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }

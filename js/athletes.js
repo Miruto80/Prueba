@@ -12,13 +12,13 @@ function consultar(){
 	enviaAjax(datos);	
 }
 function destruyeDT(){
-	//1 se destruye el datatablet
+	//Se destruye el datatablet
 	if ($.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable().destroy();
     }
 }
 function crearDT(){
-	//se crea nuevamente
+	//Se crea nuevamente
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable({
               language: {
@@ -400,7 +400,7 @@ function enviaAjax(datos) {
     complete: function () {},
   });
 }
-
+//Limpia los inputs despues de usarlos 
 function limpia(){
 	pone_fecha();
 	if($("#masculino").is(":checked")){

@@ -20,6 +20,7 @@ class schedules extends datos{
 	private $CedulaE2; //recuerden que en php, las variables no tienen tipo predefinido
 	private $Edad;
 	private $Tipodehorario;
+	private $EntrenadorH;
 	
 	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
 	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
@@ -33,14 +34,16 @@ class schedules extends datos{
 	}
 	//lo mismo que se hizo para CedulaE2 se hace para usuario y clave
 	
-	
 	function set_Edad($valor){
 		$this->Edad = $valor;
 	}
 	
-	
 	function set_Tipodehorario($valor){
 		$this->Tipodehorario = $valor;
+	}
+
+	function set_EntrenadorH($valor){
+		$this->EntrenadorH = $valor;
 	}
 	
 	//ahora la misma cosa pero para leer, es decir get
@@ -59,6 +62,11 @@ class schedules extends datos{
 	function get_Tipodehorario(){
 		return $this->Tipodehorario;
 	}
+
+	function get_EntrenadorH(){
+		return $this->EntrenadorH;
+	}
+	
 	
 	//Lo siguiente que demos hacer es crear los metodos para incluir, consultar y eliminar
 	
@@ -81,12 +89,14 @@ class schedules extends datos{
 					$co->query("Insert into thorarios(
 						CedulaE2,
 						Edad,
-						Tipodehorario
+						Tipodehorario,
+						EntrenadorH
 						)
 						Values(
 						'$this->CedulaE2',
 						'$this->Edad',
-						'$this->Tipodehorario'
+						'$this->Tipodehorario',
+						'$this->EntrenadorH'
 						)");
 						$r['resultado'] = 'incluir';
 			            $r['mensaje'] =  'Registro Inluido';
@@ -114,7 +124,8 @@ class schedules extends datos{
 					$co->query("Update thorarios set 
 					    CedulaE2 = '$this->CedulaE2',
 						Edad = '$this->Edad',
-						Tipodehorario = '$this->Tipodehorario'
+						Tipodehorario = '$this->Tipodehorario',
+						EntrenadorH = '$this->EntrenadorH'
 						where
 						CedulaE2 = '$this->CedulaE2'
 						");
@@ -176,6 +187,7 @@ class schedules extends datos{
 					$respuesta .= "<td class='text-center'>{$row['CedulaE2']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Edad']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Tipodehorario']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['EntrenadorH']}</td>";
 					$respuesta .= "</tr>";
 				}
 				$r['resultado'] = 'consultar';

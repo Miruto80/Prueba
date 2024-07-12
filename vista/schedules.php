@@ -6,6 +6,10 @@
 
 	<?php require_once('comunes/nav.php'); ?>
 	<style>
+		html, body {
+            height: 100%;
+            margin: 0;
+        }
 		body {
 			background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
 			background-size: cover;
@@ -38,7 +42,7 @@
 		Registro de Horarios
 		<hr />
 	</div>
-	<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
+	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
@@ -58,6 +62,7 @@
 							<th class="text-center">Cedula</th>
 							<th class="text-center">Edad</th>
 							<th class="text-center">Tipo de Horario</th>
+							<th class="text-center">Entrenador</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -96,11 +101,19 @@
 									<div class="col-md-6">
 										<label for="Tipodehorario">Tipo de Horario</label>
 										<select class="form-select" id="Tipodehorario">
-											<option value="INFANTIL">INFANTIL</option>
-											<option value="JUVENIL">JUVENIL</option>
-											<option value="ADULTO">ADULTO</option>
+										    <option value="INFANTIL de 5:00 PM a 6:00 PM">INFANTIL de 5:00 PM a 6:00 PM</option>
+											<option value="JUVENIL de 6:00 PM a 7:00 PM">JUVENIL de 6:00 PM a 7:00 PM</option>
+											<option value="ADULTO de 7:00 PM a 8:30 PM">ADULTO de 7:00 PM a 8:30 PM</option>
 										</select>
 									</div>
+									<div class="col">
+									<label for="EntrenadorH">Entrenador</label>
+										<select class="form-select" id="EntrenadorH">
+											<option value="Entrenador Infantil. Antonio Sabino">Entrenador Infantil. Antonio Sabino</option>
+											<option value="Entrenador Juvenil. Elias Hoss">Entrenador Juvenil. Elias Hoss</option>
+											<option value="Entrenador Adulto. George Kahakajian">Entrenador Adulto. George Kahakajian</option>
+										</select>
+							    </div>
 								</div>
 							</div>
 
