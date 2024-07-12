@@ -46,6 +46,7 @@
         background-color: rgba(0, 0, 0, 0.384);
 
     }
+    
     </style>
     <hr />
     <div class="container1">
