@@ -61,13 +61,13 @@
         <div class="container">
             <div class="row mt-4 justify-content-center">
 
-                <div class="col-md-4">
-                    <button type="button" class="btn btn-warning" id="incluir">Incluir un Pago</button>
+                <div class="col-6 col-md-4 d-flex justify-content-center mb-2" >
+                    <button type="button" class="btn btn-warning btn-block" id="incluir"><b>Incluir un Pago</b></button>
                 </div>
 
-                <div class="col-md-1">
-                    <a href="." class="btn btn-warning">Salir</a>
-                </div>
+                <div class="col-6 col-md-4 d-flex justify-content-center mb-2">
+            <a href="?pagina=principal" class="btn btn-warning btn-block"><b>SALIR</b></a>
+        </div>
             </div>
             <hr />
         </div>
