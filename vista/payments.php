@@ -49,7 +49,7 @@
     </style>
 
     <div class="container mt-3 text-center h2 text-warning">Gestion de Pagos
-        <hr />
+        <hr/>
     </div>
 
 
@@ -67,6 +67,7 @@
                     <a href="." class="btn btn-warning">Salir</a>
                 </div>
             </div>
+            <hr/>
         </div>
         <div class="tablita container">
             <div class="table-responsive">
@@ -78,7 +79,7 @@
                             <th>Cedula</th>
                             <th>Fecha de pago</th>
                             <th>Monto</th>
-                            <th>comprobante</th>
+                            <th>Comprobante</th>
                             <th>Socio</th>
 
 

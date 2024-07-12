@@ -189,16 +189,16 @@ class  payments extends datos
 
 			if ($resultado) {
 
-				$respuesta =  '';
+				$respuesta = '';
 				foreach ($resultado as $r) {
 					$respuesta = $respuesta . "<tr>";
-					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . "<td class='text-center action-row'>";
 					$respuesta = $respuesta . "<button type='button'
-					class='btn btn-warning small-width' 
+					class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,0)'
 						    ><i class='fa-solid fa-pen-to-square'></i></button>";
 					$respuesta = $respuesta . "<button type='button'
-							class='btn btn-warning small-width' 
+							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
 					$respuesta = $respuesta . "</td>";
