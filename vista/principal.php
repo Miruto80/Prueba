@@ -49,7 +49,7 @@
                             <img src="img/logo.png" alt="Logo">
                         </figure>
                         <h3 class="text-warning"><b>"FORMANDO CAMPEONES PARA LA VIDA"</b></h3>
-                        <h5 class="text-warning"><b>Fundado en 1983.</b></h5>
+                        <h5 class="text-warning"><b>Fundado en 1987.</b></h5>
                     </div>
                 </div>
             </div>
