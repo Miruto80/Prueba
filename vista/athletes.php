@@ -24,7 +24,7 @@
 		.table th,
 		.table td {
 			border: 1px solid #E7B00A;
-			/* Bordes */
+			/* Bordes solido y con color */
 		}
 
 		.action-column {
@@ -34,8 +34,8 @@
 			color: white;
 		}
 		
-		.form-check-input{
-			width:30px;
+		.form-check-input{ 
+			width:30px; /*Para los radios*/ 
 			height:30px;
 			border: 1px solid #E7B00A;
 			display:block;

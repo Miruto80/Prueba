@@ -3,7 +3,7 @@
 
 
 
-//lo primero que se debe hacer es verificar al //igual que en la vista que exista el archivo
+//Verifica si existe el modelo con el mismo nombre 
 if (!is_file("modelo/".$pagina.".php")){
 	
 	echo "Falta definir la clase ".$pagina;
@@ -12,19 +12,20 @@ if (!is_file("modelo/".$pagina.".php")){
 require_once("modelo/".$pagina.".php");  
   if(is_file("vista/".$pagina.".php")){
 	  
-	  //realizar una instancia de la clase
-	  //instanciar es crear una variable local, //que contiene los metodos de la clase
+	  
+	  //instanciar es crear una variable local que contiene los metodos de la clase
 	  //para poderlos usar
 	  
 	  
-	  
+
 	  
 	  
 	  if(!empty($_POST)){
-		$o = new athletes();   
-		  //como ya sabemos si estamos aca es //porque se recibio alguna informacion
-		  //de la vista, por lo que lo primero que //debemos hacer ahora que tenemos una 
-		  //clase es guardar esos valores en ella //con los metodos set
+		$o = new athletes();   //instancia de clase athletes
+
+		  //Si estamos aca es es porque se recibio alguna informacion
+		  //de la vista por lo que lo primero que debemos hacer ahora que tenemos una 
+		  //clase es guardar esos valores en ella con los metodos set
 		  $accion = $_POST['accion'];
 		  
 		  if($accion=='consultar'){
@@ -42,9 +43,7 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_apellidos($_POST['apellidos']);
 			  $o->set_nombres($_POST['nombres']);
 			  $o->set_fechadenacimiento($_POST['fechadenacimiento']);
-			//  if(!empty($_POST['sexo'])){
 			  $o->set_sexo($_POST['sexo']);
-			//  }
 			  $o->set_Participacion($_POST['Participacion']);
 			  $o->set_Direccion($_POST['Direccion']);
 			  $o->set_Correo($_POST['Correo']);

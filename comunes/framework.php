@@ -8,6 +8,6 @@
  <!--Lineas para usar el DataTblet-->
  <link rel="stylesheet" type="text/css" href="datatables/datatables.css"/> 
  <script type="text/javascript" src="datatables/datatables.min.js"></script>
- <!--linea para enlazar con las fuentes-->
+ <!--linea para enlazar con los iconos de forma local-->
  <link href="css/fontawesome-free-6.5.2-web/css/all.css" rel="stylesheet">
 </head>
