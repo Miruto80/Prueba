@@ -101,9 +101,9 @@
 									<div class="col-md-6">
 										<label for="Tipodehorario">Tipo de Horario</label>
 										<select class="form-select" id="Tipodehorario">
-											<option value="INFANTIL">INFANTIL</option>
-											<option value="JUVENIL">JUVENIL</option>
-											<option value="ADULTO">ADULTO</option>
+										    <option value="INFANTIL de 5PM a 6PM">INFANTIL de 5PM a 6PM</option>
+											<option value="JUVENIL de 6PM a 7PM">JUVENIL de 6PM a 7PM</option>
+											<option value="ADULTO de 7PM a 8:30PM">ADULTO de 7PM a 8:30PM</option>
 										</select>
 									</div>
 									<div class="col">
