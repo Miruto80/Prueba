@@ -28,16 +28,25 @@
                 opacity: 1;
             }
         }
+        .row{
+            background-color: rgba(0, 0, 0, 0.384);
+            border-radius: 25px;
+        }
+        
     </style>
 </head>
 
 <body>
-    
-<div class="container text-center">
-        <div class="row">
-            <div class="col-md contenido text-center">
-                <h1>***Bienvenido***</h1>
+
+    <div class="container">
+        <div class="row justify-content-center mt-3">
+            <div class="col-md-70">
+                <div class="text-center">
+                    <h1 class="display-4">Bienvenido</h1>
+                    <p class="font-weight-bold" class="lead">Gracias por visitarnos.</p>
+                </div>
             </div>
+        </div>
     </div>
 
 </body>
