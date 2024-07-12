@@ -73,7 +73,7 @@ $(document).ready(function(){
 	});
 	
 	$("#Monto").on("keyup",function(){
-		validarkeyup(/^[0-9]{5}$/,$(this),
+		validarkeyup(/^[0-9]{2}$/,$(this),
 		$("#sMonto"),"El formato debe ser de 05");
 	});
 	
@@ -157,7 +157,7 @@ function validarenvio(){
 		muestraMensaje("Ingrese una fecha valida");
 		return false;
 	}
-	else if(validarkeyup(/^[0-9]{5}$/,$("#Monto"),
+	else if(validarkeyup(/^[0-9]{2}$/,$("#Monto"),
 	$("#Monto"),"El formato debe ser de 05")==0){
 	muestraMensaje("El Monto debe coincidir con el formato <br/>"+ 
 					"de 99999");	
