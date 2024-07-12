@@ -50,10 +50,10 @@
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
 	<div class="container">
 	<div class="row mt-4 justify-content-center">
-        <div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
+        <div class="col-12 col-md-4 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-block" id="incluir"><b>INSCRIBIR</b></button>
         </div>
-        <div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
+        <div class="col-12 col-md-4 d-flex justify-content-center mb-2">
             <a href="?pagina=principal" class="btn btn-warning btn-block"><b>SALIR</b></a>
         </div>
 			</div>
