@@ -24,7 +24,7 @@ require_once("modelo/".$pagina.".php");
 		$o = new athletes();   //instancia de clase athletes
 
 		  //Si estamos aca es es porque se recibio alguna informacion
-		  //de la vista por lo que lo primero que debemos hacer ahora que tenemos una 
+		  //de la vista de atletas por lo que lo primero que debemos hacer ahora que tenemos una 
 		  //clase es guardar esos valores en ella con los metodos set
 		  $accion = $_POST['accion'];
 		  
