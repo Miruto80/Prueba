@@ -224,21 +224,21 @@ function enviaAjax(datos) {
         }
 		else if (lee.resultado == "incluir") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='Registro Inluido'){
+		   if(lee.mensaje=='Asignacion exitosa'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
         }
 		else if (lee.resultado == "modificar") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='Registro Modificado'){
+		   if(lee.mensaje=='Modificacion exitosa'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
         }
 		else if (lee.resultado == "eliminar") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='Registro Eliminado'){
+		   if(lee.mensaje=='Eliminado exitosamente'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
