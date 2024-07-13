@@ -123,14 +123,6 @@
 </div>
 	</div>
 					</form>
-				</div>
-			</div>
-			<div class="modal-footer bg-dark">
-					<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-				</div>
-		</div>
-	</div>
-	</div>
 
 <!--fin de seccion modal-->
 
