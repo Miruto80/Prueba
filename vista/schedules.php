@@ -39,14 +39,14 @@
 		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
-		Registro de Horarios
+		Asignacion de Horarios
 		<hr />
 	</div>
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
-					<button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
+					<button type="button" class="btn btn-warning btn-block" id="incluir">ASIGNAR</button>
 				</div>
 				<div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
 					<a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>

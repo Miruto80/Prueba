@@ -99,7 +99,7 @@ class schedules extends datos{
 						'$this->EntrenadorH'
 						)");
 						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Registro Inluido';
+			            $r['mensaje'] =  'Asignacion exitosa';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -130,7 +130,7 @@ class schedules extends datos{
 						CedulaE2 = '$this->CedulaE2'
 						");
 						$r['resultado'] = 'modificar';
-			            $r['mensaje'] =  'Registro Modificado';
+			            $r['mensaje'] =  'Modificacion exitosa';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -154,7 +154,7 @@ class schedules extends datos{
 						CedulaE2 = '$this->CedulaE2'
 						");
 						$r['resultado'] = 'eliminar';
-			            $r['mensaje'] =  'Registro Eliminado';
+			            $r['mensaje'] =  'Eliminado exitosamente';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
