@@ -95,26 +95,16 @@ INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `CedulaE2`, `Edad`, `Entrenador
 ('Infantil', 3, 30560146, 30, 'Antonio Sabino');
 
 
-CREATE TABLE `tEventos`( 
-    `Codevento` int PRIMARY KEY,
-    `NombreEvento` varchar(30) NOT NULL,
-    `Logroobtenido` varchar(30) NOT NULL,
-    FOREIGN KEY (`id3`) REFERENCES `tatletas`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB;
-
-
-CREATE TABLE `tEventos` (
-    `Cod_evento` INT NOT NULL,
-    `Fecha_del_evento` DATE NOT NULL,
+CREATE TABLE `tlogros` (
+    `Cod_evento` INT NOT NULL AUTO_INCREMENT,
     `Nombre_de_evento` VARCHAR(30) NOT NULL,
+    `Fecha_del_evento` DATE NOT NULL,
     `Logro_obtenido` VARCHAR(30) NOT NULL,
     `categoria` VARCHAR(30) NOT NULL,
     `id3` INT NOT NULL,
-    PRIMARY KEY (`Cod_evento`),
-    FOREIGN KEY (`id3`) REFERENCES `tatletas`(`id`)
-        ON DELETE CASCADE
-        ON UPDATE CASCADE
+    PRIMARY KEY (`Cod_evento`)
 ) ENGINE=InnoDB;
+
 
 
 INSERT INTO `tEventos` (`Codevento`, `id3`, `NombreEvento`, `Logroobtenido`) VALUES

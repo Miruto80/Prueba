@@ -1,25 +1,23 @@
 function consultar(){
 	var datos = new FormData();
 	datos.append('accion','consultar');
-
 	enviaAjax(datos);	
 }
 function destruyeDT(){
-	
+	//1 se destruye el datatablet
 	if ($.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable().destroy();
     }
 }
-
 function crearDT(){
-	
+	//se crea nuevamente
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable({
               language: {
                 lengthMenu: "Mostrar _MENU_ por página",
-                zeroRecords: "No se encontraron eventos",
+                zeroRecords: "No se encontraron entrenadores",
                 info: "Mostrando página _PAGE_ de _PAGES_",
-                infoEmpty: "No hay eventos registradas",
+                infoEmpty: "No hay entrenadores registradas",
                 infoFiltered: "(filtrado de _MAX_ registros totales)",
                 search: "Buscar:",
                 paginate: {
@@ -36,40 +34,38 @@ function crearDT(){
 }
 $(document).ready(function(){
 	
+	//ejecuta una consulta a la base de datos para llenar la tabla
 	consultar();
 	
-	$("#NombreEvento").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
-	});
-	
-	$("#NombreEvento").on("keyup",function(){
-		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$(this),$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres");
-	});
-	
-	
-	$("#Logroobtenido").on("keypress",function(e){
-		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
-	});
-	
-	$("#Logroobtenido").on("keyup",function(){
-		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$(this),$("#sLogroobtenido"),"Solo letras  entre 3 y 30 caracteres");
-	});
+//VALIDACION DE DATOS	
+$("#Nombre_de_evento").on("keypress", function(e){
+    validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC]*$/, e);
+});
 
-	$("#fechaevento").on("keyup",function(){
-		validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
-		$(this),$("#sfechaevento"),"Ingrese una fecha valida");
-	});
+$("#Nombre_de_evento").on("keyup", function(){
+    validarkeyup(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+    $(this), $("#sNombre"), "Solo letras y números entre 3 y 30 caracteres");
+});
+	
+	
 
+	
+
+//FIN DE VALIDACION DE DATOS
+
+
+
+//CONTROL DE BOTONES
 $("#proceso").on("click",function(){
 	if($(this).text()=="INCLUIR"){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','incluir');
-			datos.append('NombreEvento',$("#NombreEvento").val());
-			datos.append('Logroobtenido',$("#Logroobtenido").val());
-			datos.append('fechaevento',$("#fechaevento").val());
+			datos.append('Nombre_de_evento',$("#Nombre_de_evento").val());
+			datos.append('Fecha_del_evento',$("#Fecha_del_evento").val());
+			datos.append('Logro_obtenido',$("#Logro_obtenido").val());
+			datos.append('categoria',$("#categoria").val());
+	
 			enviaAjax(datos);
 		}
 	}
@@ -77,23 +73,22 @@ $("#proceso").on("click",function(){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','modificar');
-			datos.append('NombreEvento',$("#NombreEvento").val());
-			datos.append('Logroobtenido',$("#Logroobtenido").val());
-			datos.append('fechaevento',$("#fechaevento").val());
+			datos.append('Nombre_de_evento',$("#Nombre_de_evento").val());
+			datos.append('Fecha_del_evento',$("#Fecha_del_evento").val());
+			datos.append('Logro_obtenido',$("#Logro_obtenido").val());
+			datos.append('categoria',$("#categoria").val());
 			enviaAjax(datos);
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarkeypress (/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-			$(this),$ ("#NombreEvento"),
-		$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres")==0){
-	    muestraMensaje("El nombre debe coincidir con el formato <br/>"+ "3 y 30 caracteres");	
-		
-	    }
+		if(validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#Nombre_de_evento"), $("#sNombre_de_evento"), "El formato debe ser solo letras entre 3 y 30 caracteres") == 0){
+			muestraMensaje("El nombre del evento debe contener solo letras entre 3 y 30 caracteres");
+			return false;
+		}
 		else{
 			var datos = new FormData();
 			datos.append('accion','eliminar');
-			datos.append('NombreEvento',$("#NombreEvento").val());
+			datos.append('Nombre_de_evento',$("#Nombre_de_evento").val());
 			enviaAjax(datos);
 		}
 	}
@@ -103,31 +98,24 @@ $("#incluir").on("click",function(){
 	$("#proceso").text("INCLUIR");
 	$("#modal1").modal("show");
 });
+
+
 	
 });
 
-
+//Validación de todos los campos antes del envio
 function validarenvio(){
-	if(validarkeypress (/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$(this),$ ("#NombreEvento"),
-	$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres")==0){
-	muestraMensaje("El nombre debe coincidir con el formato <br/>"+ "3 y 30 caracteres");
-	return false;					
-	}
-	else if(validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
-		$("#Logroobtenido"),$("#sLogroobtenido"),"Solo letras  entre 3 y 30 caracteres")==0){
-		muestraMensaje("Logroobtenido <br/>Solo letras  entre 3 y 30 caracteres");
+	if(validarkeyup(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#Nombre_de_evento"), $("#sNombre_de_evento"), "El formato debe ser solo letras entre 3 y 30 caracteres") == 0){
+		muestraMensaje("El nombre del evento debe contener solo letras entre 3 y 30 caracteres");
 		return false;
 	}
-	else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
-		$("#fechaevento"),$("#sfechaevento"),"Ingrese una fecha valida")==0){
-		muestraMensaje("Fecha del Evento <br/>Ingrese una fecha valida");
-		return false;
-	}
+
+	
+	return true;
 }
 
 
-
+//Funcion que muestra el modal con un mensaje
 function muestraMensaje(mensaje){
 	
 	$("#contenidodemodal").html(mensaje);
@@ -138,7 +126,7 @@ function muestraMensaje(mensaje){
 }
 
 
-
+//Función para validar por Keypress
 function validarkeypress(er,e){
 	
 	key = e.keyCode;
@@ -156,7 +144,7 @@ function validarkeypress(er,e){
 	
     
 }
-
+//Función para validar por keyup
 function validarkeyup(er,etiqueta,etiquetamensaje,
 mensaje){
 	a = er.test(etiqueta.val());
@@ -170,7 +158,7 @@ mensaje){
 	}
 }
 
-
+//funcion para pasar de la lista a el formulario
 function pone(pos,accion){
 	
 	linea=$(pos).closest('tr');
@@ -182,15 +170,16 @@ function pone(pos,accion){
 	else{
 		$("#proceso").text("ELIMINAR");
 	}
-	$("#NombreEvento").val($(linea).find("td:eq(1)").text());
-	$("#Logroobtenido").val($(linea).find("td:eq(2)").text());
-	$("#fechaevento").val($(linea).find("td:eq(3)").text());
+	$("#Nombre_de_evento").val($(linea).find("td:eq(1)").text());
+	$("#Fecha_del_evento").val($(linea).find("td:eq(2)").text());
+	$("#Logro_obtenido").val($(linea).find("td:eq(3)").text());
+	$("#categoria").val($(linea).find("td:eq(4)").text());
 	
 	$("#modal1").modal("show");
 }
 
 
-
+//funcion que envia y recibe datos por AJAX
 function enviaAjax(datos) {
   $.ajax({
     async: true,
@@ -201,9 +190,9 @@ function enviaAjax(datos) {
     processData: false,
     cache: false,
     beforeSend: function () {},
-    timeout: 10000, 
+    timeout: 10000, //tiempo maximo de espera por la respuesta del servidor
     success: function (respuesta) {
-    
+    // console.log(respuesta);
       try {
         var lee = JSON.parse(respuesta);
 		if (lee.resultado == "consultar") {
@@ -240,12 +229,14 @@ function enviaAjax(datos) {
       }
     },
     error: function (request, status, err) {
-      
+      // si ocurrio un error en la trasmicion
+      // o recepcion via ajax entra aca
+      // y se muestran los mensaje del error
       if (status == "timeout") {
-        
+        //pasa cuando superan los 10000 10 segundos de timeout
         muestraMensaje("Servidor ocupado, intente de nuevo");
       } else {
-        
+        //cuando ocurre otro error con ajax
         muestraMensaje("ERROR: <br/>" + request + status + err);
       }
     },
@@ -254,7 +245,9 @@ function enviaAjax(datos) {
 }
 
 function limpia(){
-	$("#NombreEvento").val("");
-	$("#Logroobtenido").val("");
-	$("#fechaevento").val("");
+	$("#Nombre_de_evento").val("");
+	$("#Fecha_del_evento").val("");
+	$("#Logro_obtenido").prop("selectedIndex",0);
+	$("#categoria").val("selectedIndex",0);
+
 }

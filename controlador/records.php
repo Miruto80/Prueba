@@ -1,29 +1,48 @@
-<?php 
+<?php
+  
+//llamada al archivo que contiene la clase
+//usuarios, en ella estara el codigo que me //permitirá
+//guardar, consultar y modificar dentro de mi base //de datos
 
+
+//lo primero que se debe hacer es verificar al //igual que en la vista que exista el archivo
 if (!is_file("modelo/".$pagina.".php")){
-	
+	//alli pregunte que si no es archivo se niega //con !
+	//si no existe envio mensaje y me salgo
 	echo "Falta definir la clase ".$pagina;
 	exit;
 }  
 require_once("modelo/".$pagina.".php");  
   if(is_file("vista/".$pagina.".php")){
-	
-    if(!empty($_POST)){
-    $o = new records();
-
-        $accion = $_POST['accion'];
+	  
+	  //bien si estamos aca es porque existe la //vista y la clase
+	  //por lo que lo primero que debemos hace es //realizar una instancia de la clase
+	  //instanciar es crear una variable local, //que contiene los metodos de la clase
+	  //para poderlos usar
+	  
+	  
+	  
+	  
+	  
+	  if(!empty($_POST)){
+		$o = new records();   
+		  //como ya sabemos si estamos aca es //porque se recibio alguna informacion
+		  //de la vista, por lo que lo primero que //debemos hacer ahora que tenemos una 
+		  //clase es guardar esos valores en ella //con los metodos set
+		  $accion = $_POST['accion'];
 		  
 		  if($accion=='consultar'){
 			 echo  json_encode($o->consultar());  
 		  }
 		  elseif($accion=='eliminar'){
-			 $o->set_NombreEvento($_POST['NombreEvento']);
+			 $o->set_Nombre_de_evento($_POST['Nombre_de_evento']);
 			 echo  json_encode($o->eliminar());
 		  }
 		  else{		  
-			  $o->set_NombreEvento($_POST['NombreEvento']);
-			  $o->set_logroobtenido($_POST['Logroobtenido']);
-			  $o->set_fechaevento($_POST['fechaevento']);
+			  $o->set_Nombre_de_evento($_POST['Nombre_de_evento']);
+			  $o->set_Fecha_del_evento($_POST['Fecha_del_evento']);
+			  $o->set_Logro_obtenido($_POST['Logro_obtenido']);
+			  $o->set_categoria($_POST['categoria']);
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }
@@ -33,10 +52,11 @@ require_once("modelo/".$pagina.".php");
 		  }
 		  exit;
 	  }
-
-      require_once("vista/".$pagina.".php"); 
-    }
+	  
+	  
+	  require_once("vista/".$pagina.".php"); 
+  }
   else{
 	  echo "pagina en construccion";
-    }
+  }
 ?>
