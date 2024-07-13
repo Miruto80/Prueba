@@ -41,15 +41,10 @@
         margin: 1px;
     }
 
-    .container1 {
-        border-radius: 20px;
-        background-color: rgba(0, 0, 0, 0.384);
-
-    }
     
     </style>
     <hr />
-    <div class="container1">
+    <div class="container">
         <div class="h1 text-center h2 text-warning">Gestion de Pagos</div>
 
         <hr/>
@@ -72,7 +67,7 @@
             </div>
             <hr />
         </div>
-        <div class="tablita container1">
+        <div class="tablita container">
             <div class="table-responsive">
                 <table class="table table-striped table-dark table-hover" id="tablapersona">
                     <thead>
@@ -83,7 +78,7 @@
                             <th>Fecha de pago</th>
                             <th>Monto</th>
                             <th>Comprobante</th>
-                            <th>Metodo de Pago</th>
+                            <th>Tipo de Pago</th>
                             <th>Nro de Accion</th>
 
 
@@ -159,10 +154,11 @@
                                     <span id="snumeroaccion"></span>
                                 </div>
                             </div>
-                            <!-- en proceso de creacion -->
+                            <!-- en proceso de creacion
                             <div class="col-md-12">
                                 <label for="mes">Mes</label>
                                 <select class="form-control" id="mes" name="mes">
+
                                     <option value="">Enero</option>
                                     <option value="">Febrero</option>
                                     <option value="">Marzo</option>
@@ -177,7 +173,7 @@
                                     <option value="">Diciembre</option>
 
                                 </select>
-                            </div>
+                            </div> -->
 
 
                         </div>

@@ -70,7 +70,7 @@ $("#Monto").on("keypress",function(e){
 
 $("#Monto").on("keyup",function(){
 	validarkeyup(/^[0-9]{2}$/,$(this),
-	$("#sMonto"),"El formato debe ser de 05");
+	$("#sMonto"),"El formato debe ser de 99");
 });
 
 $("#Comprobantedepago").on("keypress",function(e){
@@ -160,9 +160,9 @@ function validarenvio(){
 		return false;
 	}
 	else if(validarkeyup(/^[0-9]{2}$/,$("#Monto"),
-	$("#Monto"),"El formato debe ser de 05")==0){
+	$("#Monto"),"El formato debe ser de 99")==0){
 	muestraMensaje("El Monto debe coincidir con el formato <br/>"+ 
-					"de 99999");	
+					"de 99");	
 	return false;					
 	}
 	
