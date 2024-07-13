@@ -78,7 +78,7 @@
                             <th>Fecha de pago</th>
                             <th>Monto</th>
                             <th>Comprobante</th>
-                            <th>Metodo de Pago</th>
+                            <th>Tipo de Pago</th>
                             <th>Nro de Accion</th>
 
 
@@ -154,10 +154,11 @@
                                     <span id="snumeroaccion"></span>
                                 </div>
                             </div>
-                            <!-- en proceso de creacion -->
+                            <!-- en proceso de creacion
                             <div class="col-md-12">
                                 <label for="mes">Mes</label>
                                 <select class="form-control" id="mes" name="mes">
+
                                     <option value="">Enero</option>
                                     <option value="">Febrero</option>
                                     <option value="">Marzo</option>
@@ -172,7 +173,7 @@
                                     <option value="">Diciembre</option>
 
                                 </select>
-                            </div>
+                            </div> -->
 
 
                         </div>
