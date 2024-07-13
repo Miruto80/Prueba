@@ -96,12 +96,26 @@ INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `CedulaE2`, `Edad`, `Entrenador
 
 
 CREATE TABLE `tEventos`( 
-    `Codevento` int PRIMARY KEY, 
-    `id3` int, 
-    `NombreEvento` varchar(30) NOT NULL, 
-    `Logroobtenido` varchar(30) NOT NULL, 
+    `Codevento` int PRIMARY KEY,
+    `NombreEvento` varchar(30) NOT NULL,
+    `Logroobtenido` varchar(30) NOT NULL,
     FOREIGN KEY (`id3`) REFERENCES `tatletas`(`id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB;
+
+
+CREATE TABLE `tEventos` (
+    `Cod_evento` INT NOT NULL,
+    `Fecha_del_evento` DATE NOT NULL,
+    `Nombre_de_evento` VARCHAR(30) NOT NULL,
+    `Logro_obtenido` VARCHAR(30) NOT NULL,
+    `categoria` VARCHAR(30) NOT NULL,
+    `id3` INT NOT NULL,
+    PRIMARY KEY (`Cod_evento`),
+    FOREIGN KEY (`id3`) REFERENCES `tatletas`(`id`)
+        ON DELETE CASCADE
+        ON UPDATE CASCADE
+) ENGINE=InnoDB;
+
 
 INSERT INTO `tEventos` (`Codevento`, `id3`, `NombreEvento`, `Logroobtenido`) VALUES
 (1, 1, 'Torneo Marcial', '1er lugar');
