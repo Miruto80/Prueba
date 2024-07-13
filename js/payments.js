@@ -2,7 +2,7 @@ function pone_fecha(){
 	
 	
 	var datos = new FormData();
-	datos.append('accion','obtienefecha23');
+	datos.append('accion','obtienefecha');
 	enviaAjax(datos);	
 	
 }
@@ -12,16 +12,16 @@ function consultar(){
 	enviaAjax(datos);	
 }
 function destruyeDT(){
-	//1 se destruye el datatablet
-	if ($.fn.DataTable.isDataTable("#tablapersona1")) {
-            $("#tablapersona1").DataTable().destroy();
+	//Se destruye el datatablet
+	if ($.fn.DataTable.isDataTable("#tablapersona")) {
+            $("#tablapersona").DataTable().destroy();
     }
 }
 function crearDT(){
-	//se crea nuevamente
-    if (!$.fn.DataTable.isDataTable("#tablapersona1")) {
-            $("#tablapersona1").DataTable({
-                language: {
+	//Se crea nuevamente
+    if (!$.fn.DataTable.isDataTable("#tablapersona")) {
+            $("#tablapersona").DataTable({
+              language: {
                 lengthMenu: "Mostrar _MENU_ por página",
                 zeroRecords: "No se encontraron personas",
                 info: "Mostrando página _PAGE_ de _PAGES_",
@@ -29,67 +29,60 @@ function crearDT(){
                 infoFiltered: "(filtrado de _MAX_ registros totales)",
                 search: "Buscar:",
                 paginate: {
-                first: "Primera",
-                last: "Última",
-                next: "Siguiente",
-                previous: "Anterior",
+                  first: "Primera",
+                  last: "Última",
+                  next: "Siguiente",
+                  previous: "Anterior",
                 },
-            },
-            autoWidth: false,
-            order: [[1, "asc"]],
+              },
+              autoWidth: false,
+              order: [[1, "asc"]],
             });
     }         
 }
 $(document).ready(function(){
-	//para obtener la fecha del servidor y calcular la 
-	//edad de nacimiento que debe ser mayor a 18 
 	pone_fecha();
-	//fin de colocar fecha en input fecha de nacimiento
-	
-	//ejecuta una consulta a la base de datos para llenar la tabla
+
 	consultar();
 	
 //VALIDACION DE DATOS	
-	$("#cedula").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
-	});
-	
-	$("#cedula").on("keyup",function(){
-		validarkeyup(/^[0-9]{7,8}$/,$(this),
-		$("#scedula"),"El formato debe ser 9999999 ");
-	});
-	
-	$("#fechadepago").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
-	});
-	
-	$("#fechadepago").on("keyup",function(){
-		validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
-		$(this),$("#sfechadepago"),"Ingrese una fecha validaaa");
-	});
-	
-	$("#Monto").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
-	});
-	
-	$("#Monto").on("keyup",function(){
-		validarkeyup(/^[0-9]{2}$/,$(this),
-		$("#sMonto"),"El formato debe ser de 05");
-	});
-	
-	$("#Comprobantedepago").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
-	});
-	
-	$("#Comprobantedepago").on("keyup",function(){
-		validarkeyup(/^[0-9]{1,8}$/,$(this),
-		$("#sComprobantedepago"),"El formato debe ser de 1 a 8");
-	});
-	
-	
-	
-	
-	
+$("#cedula").on("keypress",function(e){
+	validarkeypress(/^[0-9-\b]*$/,e);
+});
+
+$("#cedula").on("keyup",function(){
+	validarkeyup(/^[0-9]{7,8}$/,$(this),
+	$("#scedula"),"El formato debe ser 9999999 ");
+});
+
+$("#fechadepago").on("keypress",function(e){
+	validarkeypress(/^[0-9-\b]*$/,e);
+});
+
+$("#fechadepago").on("keyup",function(){
+	validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+	$(this),$("#sfechadepago"),"Ingrese una fecha validaaa");
+});
+
+$("#Monto").on("keypress",function(e){
+	validarkeypress(/^[0-9-\b]*$/,e);
+});
+
+$("#Monto").on("keyup",function(){
+	validarkeyup(/^[0-9]{2}$/,$(this),
+	$("#sMonto"),"El formato debe ser de 05");
+});
+
+$("#Comprobantedepago").on("keypress",function(e){
+	validarkeypress(/^[0-9-\b]*$/,e);
+});
+
+$("#Comprobantedepago").on("keyup",function(){
+	validarkeyup(/^[0-9]{1,8}$/,$(this),
+	$("#sComprobantedepago"),"El formato debe ser de 1 a 8");
+});
+
+		
 //FIN DE VALIDACION DE DATOS
 
 
@@ -120,6 +113,7 @@ $("#proceso").on("click",function(){
 			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
 			datos.append('tipopago',$("#tipopago").val());
 			datos.append('numeroaccion',$("#numeroaccion").val());
+			
 			enviaAjax(datos);
 		}
 	}
@@ -144,6 +138,12 @@ $("#incluir").on("click",function(){
 	$("#modal1").modal("show");
 });
 
+
+
+
+
+	
+	
 });
 
 //Validación de todos los campos antes del envio
@@ -165,12 +165,13 @@ function validarenvio(){
 					"de 99999");	
 	return false;					
 	}
+	
 	else {
-		var f1 = new Date(11,1,1956 );
-		var f2 = new Date($("#fechadepago").val());
+		var f1 = new Date(1950,1,1 );
+		var f2 = new Date($("#fechadenacimiento").val());
 		
 		if(f2 < f1){
-			muestraMensaje("Fecha del pago <br/> La fecha debe ser valida");
+			muestraMensaje("Fecha de Nacimiento <br/>La fecha debe ser mayor o igual a 01/01/1950");
 			return false;
 		}
 		
@@ -241,6 +242,7 @@ function pone(pos,accion){
 	$("#Comprobantedepago").val($(linea).find("td:eq(4)").text());
 	$("#tipopago").val($(linea).find("td:eq(5)").text());
 	$("#numeroaccion").val($(linea).find("td:eq(6)").text());
+	
 	$("#modal1").modal("show");
 }
 
@@ -261,8 +263,8 @@ function enviaAjax(datos) {
     console.log(respuesta);
       try {
         var lee = JSON.parse(respuesta);
-        if (lee.resultado == "obtienefecha23") {
-          $("#fechadepago").val(lee.mensaje);
+        if (lee.resultado == "obtienefecha") {
+          $("#fechadenacimiento").val(lee.mensaje);
         }
 		else if (lee.resultado == "consultar") {
 		   destruyeDT();	
@@ -271,21 +273,21 @@ function enviaAjax(datos) {
         }
 		else if (lee.resultado == "incluir") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='pago Incluido'){
+		   if(lee.mensaje=='Registro Inluido'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
         }
 		else if (lee.resultado == "modificar") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='pago Modificado'){
+		   if(lee.mensaje=='Registro Modificado'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
         }
 		else if (lee.resultado == "eliminar") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='pago Eliminado'){
+		   if(lee.mensaje=='Registro Eliminado'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
@@ -312,12 +314,12 @@ function enviaAjax(datos) {
     complete: function () {},
   });
 }
-
+//Limpia los inputs despues de usarlos 
 function limpia(){
 	$("#cedula").val("");
 	$("#fechadepago").val("");
 	$("#Monto").val("");
 	$("#Comprobantedepago").val("");
 	$("#tipopago").prop("selectedIndex",0);
-	$("#numeroaccion").val("");
+	$("#numeroaccion").val("");	
 }
