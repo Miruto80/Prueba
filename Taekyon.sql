@@ -12,19 +12,28 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `tatletas` (
-  `id` int(11) NOT NULL,
-  `cedula` varchar(15) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
-  `nombres` varchar(50) NOT NULL,
-  `fechadenacimiento` date NOT NULL,
-  `sexo` varchar(1) NOT NULL,
-  `Participacion` varchar(30) NOT NULL,
-  `Direccion` varchar(30) NOT NULL,
-  `Correo` varchar(30) NOT NULL,
-  `Telefono` varchar(30) NOT NULL,
-  `Numerodeaccion` varchar(30) NOT NULL,
-  `Cinturon` varchar(30) NOT NULL
+  `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
+  `cedula` VARCHAR(15) NOT NULL,
+  `apellidos` VARCHAR(50) NOT NULL,
+  `nombres` VARCHAR(50) NOT NULL,
+  `fechadenacimiento` DATE NOT NULL,
+  `sexo` VARCHAR(1) NOT NULL,
+  `Participacion` VARCHAR(30) NOT NULL,
+  `Direccion` VARCHAR(30) NOT NULL,
+  `Correo` VARCHAR(30) NOT NULL,
+  `Telefono` VARCHAR(30) NOT NULL,
+  `Numerodeaccion` VARCHAR(30) NOT NULL,
+  `Cinturon` VARCHAR(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tatletas`
+--
+
+INSERT INTO `tatletas` (`id`, `cedula`, `nombres`, `apellidos`, `fechadenacimiento`, `sexo`, `Participacion`, `Direccion`, `Correo`, `Telefono`, `Numerodeaccion`, `Cinturon`) VALUES
+(1, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si', 'La mata', 'Mftt@gmail.com', '04125889171', '95', 'Blanco'),
+(2, '29418245', 'Daisa', 'Perez', '1976-09-14', 'F', 'Si', 'Cabudare', 'dail@gmail.com', '04242580141', '36', 'Rojo');
+
 
 --
 -- Volcado de datos para la tabla `tatletas`
@@ -65,13 +74,13 @@ INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
 VALUES (22,12.2,'2024/02/24',24351625);
 
 CREATE TABLE `tentrenadores` (
-  `id` int(11) NOT NULL,
-  `CedulaE` int PRIMARY key,
+  `CedulaE` int PRIMARY key AUTO_INCREMEN,
   `Apellido` varchar(30) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
   `Telefono` varchar(15) NOT NULL,
   `Jerarquiadecinturon` varchar(30) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+    PRIMARY KEY (`CedulaE`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, `Jerarquiadecinturon`) VALUES
 (1, '30560144', 'Mendoza', 'Joaquin', '0414-5446656', 'VIII DAN'),
