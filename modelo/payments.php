@@ -1,18 +1,15 @@
 <?php
 //llamda al archivo que contiene la clase
-//datos, en ella posteriormente se colcora el codigo
-//para enlazar a su base de datos
+//datos
 require_once('modelo/datos.php');
 
-//declaracion de la clase usuarios que hereda de la clase datos
+//declaracion de la clase payments que hereda de la clase datos
 
 class  payments extends datos
 {
-	//el primer paso dentro de la clase
-	//sera declarar los atributos (variables) que describen la clase
-	//para nostros no es mas que colcoar los inputs (controles) de
 	
-
+	//Declararacion de los atributos
+	
 	private $cedula; 
 	private $fechadepago;
 	private $Monto;
@@ -20,10 +17,7 @@ class  payments extends datos
 	private $tipopago;
 	
 	private $numeroaccion;
-
-	//Ok ya tenemos los atributos, pero como son privados no podemos acceder a ellos desde fueran
-	//por lo que debemos colcoar metodos (funciones) que me permitan leer (get) y colocar (set)
-	//valores en ello, esto es  muy mal llamado geters y seters por si alguien se los pregunta
+	//Metodos para leer: get metodos para colocar: set 
 
 	function set_cedula($valor)
 	{
@@ -48,6 +42,7 @@ class  payments extends datos
 	function set_tipopago($valor)
 	{
 		$this->tipopago = $valor;
+
 	}
 	function set_numeroaccion($valor)
 	{
@@ -78,27 +73,30 @@ class  payments extends datos
 	{
 		return $this->numeroaccion;
 	}
+	function get_tipopago()
+	{
+		return $this->tipopago;
+	}
 
 
-
-	//Lo siguiente que demos hacer es crear los metodos para incluir, consultar y eliminar
+	//Metodos para incluir, consultar y eliminar
 
 	function incluir()
 	{
 		//Ok ya tenemos la base de datos y la funcion conecta dentro de la clase
 		//datos, ahora debemos ejecutar las operaciones para realizar las consultas 
 
-		//Lo primero que debemos hacer es consultar por el campo clave
-		//en este caso la cedula, para ello se creo la funcion existe
+		//primeramente consultar que debemos consultar el campo clave
+		//en el caso de los atletas la cedula, para ello se creo la funcion existe
 		//que retorna true en caso de exitir el registro
 		$r = array();
 		if (!$this->existe($this->cedula)) {
-			//si estamos aca es porque la cedula no existe es decir se puede incluir
-			//los pasos a seguir son
-			//1 Se llama a la funcion conecta 
+			//Si estamos aca es porque la cedula no existe es decir se puede incluir
+			
+			//Se llama a la funcion conecta 
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			//2 Se ejecuta el sql
+			//y Se ejecuta el sql
 			try {
 				$co->query("Insert into tpagos(
 						cedula,
@@ -115,7 +113,6 @@ class  payments extends datos
 						'$this->Comprobantedepago',
 						'$this->tipopago',
 						'$this->numeroaccion'
-
 						)");
 				$r['resultado'] = 'incluir';
 				$r['mensaje'] =  'Registro Inluido';
@@ -128,9 +125,7 @@ class  payments extends datos
 			$r['mensaje'] =  'Ya existe la cedula';
 		}
 		return $r;
-		//Listo eso es todo y es igual para el resto de las operaciones
-		//incluir, modificar y eliminar
-		//solo cambia para buscar 
+
 	}
 
 	function modificar()
@@ -211,27 +206,27 @@ class  payments extends datos
 							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['cedula'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['fechadepago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Monto'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Comprobantedepago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['tipopago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['numeroaccion'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "</tr>";
-				}
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['cedula'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['fechadepago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['Monto'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['Comprobantedepago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['tipopago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['numeroaccion'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "</tr>";
+						}
 
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  $respuesta;
@@ -272,14 +267,14 @@ class  payments extends datos
 
 
 
-	function obtienefecha23()
+	function obtienefecha()
 	{
 		$r = array();
 
 		$f = date('Y-m-d');
 		$f1 = strtotime('-18 year', strtotime($f));
 		$f1 = date('Y-m-d', $f1);
-		$r['resultado'] = 'obtienefecha23';
+		$r['resultado'] = 'obtienefecha';
 		$r['mensaje'] =  $f1;
 
 		return $r;
