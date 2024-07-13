@@ -41,15 +41,10 @@
         margin: 1px;
     }
 
-    .container1 {
-        border-radius: 20px;
-        background-color: rgba(0, 0, 0, 0.384);
-
-    }
     
     </style>
     <hr />
-    <div class="container1">
+    <div class="container">
         <div class="h1 text-center h2 text-warning">Gestion de Pagos</div>
 
         <hr/>
@@ -72,7 +67,7 @@
             </div>
             <hr />
         </div>
-        <div class="tablita container1">
+        <div class="tablita container">
             <div class="table-responsive">
                 <table class="table table-striped table-dark table-hover" id="tablapersona">
                     <thead>
