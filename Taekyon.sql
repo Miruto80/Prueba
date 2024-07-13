@@ -105,9 +105,10 @@ CREATE TABLE `tlogros` (
     PRIMARY KEY (`Cod_evento`)
 ) ENGINE=InnoDB;
 
+INSERT INTO `tlogros` (Nombre_de_evento, Fecha_del_evento, Logro_obtenido, categoria, id3) VALUES
+('Taekwondo Championship', '2024-05-15', '1ER LUGAR', 'POOMSAE', 1),
+('Copa PAL LI', '2024-06-20', '2DO LUGAR', 'KYORUGUI', 2),
+('Copa UFT', '2024-07-10', '3ER LUGAR', 'AMBAS', 3);
 
-
-INSERT INTO `tEventos` (`Codevento`, `id3`, `NombreEvento`, `Logroobtenido`) VALUES
-(1, 1, 'Torneo Marcial', '1er lugar');
 
 COMMIT;

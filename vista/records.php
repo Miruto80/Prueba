@@ -104,7 +104,7 @@
 										<select class="form-select" id="Logro_obtenido">
 											<option value="1ER LUGAR">1ER LUGAR</option>
 											<option value="2DO LUGAR">2DO LUGAR</option>
-											<option value="3RO LUGAR">3RO LUGAR</option>
+											<option value="3RO LUGAR">3ER LUGAR</option>
 										</select>
 									</div>
 									<div class="col-md-6">
