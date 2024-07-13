@@ -11,16 +11,6 @@ class  records extends datos
 	private $Logroobtenido;
 
 
-	function set_Codevento($valor)
-	{
-		$this->Codevento = $valor; 
-	}
-	
-	function set_id3($valor)
-	{
-		$this->id3 = $valor; 
-	}
-
 	function set_NombreEvento($valor)
 	{
 		$this->NombreEvento = $valor; 
@@ -30,17 +20,13 @@ class  records extends datos
 	{
 		$this->Logroobtenido = $valor; 
 	}
-
-
-	function get_Codevento()
+    
+	function set_fechaevento($valor)
 	{
-		return $this->Codevento;
+		$this->fechaevento = $valor;
 	}
 
-	function get_id3()
-	{
-		return $this->id3;
-	}
+     
 
 	function get_NombreEvento()
 	{
@@ -51,6 +37,12 @@ class  records extends datos
 	{
 		return $this->Logroobtenido;
 	}
+
+	function get_fechadenacimiento()
+	{
+		return $this->fechaevento;
+	}
+
 
 	function incluir()
 	{
@@ -63,16 +55,14 @@ class  records extends datos
 
 			try {
 				$co->query("Insert into teventos(
-						Codevento,
-						id3,
 						NombreEvento,
-						Logroobtenido
+						Logroobtenido,
+						fechaevento
 						)
 						Values(
-						'$this->Codevento',
-						'$this->id3',
 						'$this->NombreEvento',
-						'$this->Logroobtenido'
+						'$this->Logroobtenido',
+						'$this->fechaevento'
 						
 						
 					   )");
@@ -99,12 +89,11 @@ class  records extends datos
 		if ($this->existe($this->Codevento)) {
 			try {
 				$co->query("Update teventos set 
-					    Codevento = '$this->Codevento',
-						id3 = '$this->id3',
 						NombreEvento = '$this->NombreEvento',
 						Logroobtenido = '$this->Logroobtenido',
+						fechaevento = '$this->fechaevento'
 						where
-						Codevento = '$this->Codevento'
+						NombreEvento = '$this->NombreEvento'
 						");
 
 				$r['resultado'] = 'modificar';
@@ -115,7 +104,7 @@ class  records extends datos
 			}
 		} else {
 			$r['resultado'] = 'modificar';
-			$r['mensaje'] =  'Cedula no registrada';
+			$r['mensaje'] =  'evento no registrada';
 		}
 		return $r;
 	}
@@ -125,11 +114,11 @@ class  records extends datos
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->Codevento)) {
+		if ($this->existe($this->NombreEvento)) {
 			try {
 				$co->query("delete from teventos
 						where
-						Codevento = '$this->Codevento'
+						NombreEvento = '$this->NombreEvento'
 						");
 				$r['resultado'] = 'eliminar';
 				$r['mensaje'] =  'Registro Eliminado';
@@ -139,7 +128,7 @@ class  records extends datos
 			}
 		} else {
 			$r['resultado'] = 'eliminar';
-			$r['mensaje'] =  'No existe la cedula';
+			$r['mensaje'] =  'No existe el evento';
 		}
 		return $r;
 	}
@@ -169,17 +158,15 @@ class  records extends datos
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Codevento'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['id3'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['NombreEvento'];
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['Logroobtenido'];
 					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['fechaevento'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "</tr>";
 				
 				}
 

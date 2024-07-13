@@ -38,23 +38,28 @@ $(document).ready(function(){
 	
 	consultar();
 	
-	$("#Codevento").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
+	$("#NombreEvento").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
 	});
 	
-	$("#Codevento").on("keyup",function(){
-		validarkeyup(/^[0-9]{4}$/,$(this),
-		$("#sCodevento"),"El formato debe ser 9999 ");
+	$("#NombreEvento").on("keyup",function(){
+		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$(this),$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres");
 	});
 	
 	
-	$("#id3").on("keypress", function(e) {
-		validarkeypress(/^[0-9\b]*$/, e); 
+	$("#Logroobtenido").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
 	});
 	
-	$("#id3").on("keyup",function(){
-		validarkeyup(/^[0-9]{2}$/,$(this),
-		$("#sid3"),"El formato debe ser 99 ");
+	$("#Logroobtenido").on("keyup",function(){
+		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$(this),$("#sLogroobtenido"),"Solo letras  entre 3 y 30 caracteres");
+	});
+
+	$("#fechaevento").on("keyup",function(){
+		validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+		$(this),$("#sfechaevento"),"Ingrese una fecha valida");
 	});
 
 $("#proceso").on("click",function(){
@@ -62,10 +67,9 @@ $("#proceso").on("click",function(){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','incluir');
-			datos.append('Codevento',$("#Codevento").val());
-			datos.append('id3',$("#id3").val());
 			datos.append('NombreEvento',$("#NombreEvento").val());
 			datos.append('Logroobtenido',$("#Logroobtenido").val());
+			datos.append('fechaevento',$("#fechaevento").val());
 			enviaAjax(datos);
 		}
 	}
@@ -73,23 +77,23 @@ $("#proceso").on("click",function(){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','modificar');
-			datos.append('Codevento',$("#Codevento").val());
-			datos.append('id3',$("#id3").val());
 			datos.append('NombreEvento',$("#NombreEvento").val());
 			datos.append('Logroobtenido',$("#Logroobtenido").val());
+			datos.append('fechaevento',$("#fechaevento").val());
 			enviaAjax(datos);
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarkeyup(/^[0-9]{4}$/,$("#Codevento"),
-		$("#sCodevento"),"El formato debe ser 9999")==0){
-	    muestraMensaje("La Codevento debe coincidir con el formato <br/>"+ "9999");	
+		if(validarkeypress (/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+			$(this),$ ("#NombreEvento"),
+		$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres")==0){
+	    muestraMensaje("El nombre debe coincidir con el formato <br/>"+ "3 y 30 caracteres");	
 		
 	    }
 		else{
 			var datos = new FormData();
 			datos.append('accion','eliminar');
-			datos.append('Codevento',$("#Codevento").val());
+			datos.append('NombreEvento',$("#NombreEvento").val());
 			enviaAjax(datos);
 		}
 	}
@@ -104,21 +108,22 @@ $("#incluir").on("click",function(){
 
 
 function validarenvio(){
-	if(validarkeyup(/^[0-9]{4}$/,$("#Codevento"),
-		$("#sCodevento"),"El formato debe ser 9999")==0){
-	    muestraMensaje("El Codevento debe coincidir con el formato <br/>"+ 
-						"9999");	
-		return false;					
-	}	
-
-	else if (!validarkeyup(/^[0-9]{4}$/, $("#id3"), $("#sid3"), 
-    $("#sid3"),"El formato debe ser 9999")==0){
-	    muestraMensaje("El id3 debe coincidir con el formato <br/>"+ 
-					"9999");	
-    return false;
-}
-	
-	return true;
+	if(validarkeypress (/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$(this),$ ("#NombreEvento"),
+	$("#sNombreEvento"),"Solo letras  entre 3 y 30 caracteres")==0){
+	muestraMensaje("El nombre debe coincidir con el formato <br/>"+ "3 y 30 caracteres");
+	return false;					
+	}
+	else if(validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$("#Logroobtenido"),$("#sLogroobtenido"),"Solo letras  entre 3 y 30 caracteres")==0){
+		muestraMensaje("Logroobtenido <br/>Solo letras  entre 3 y 30 caracteres");
+		return false;
+	}
+	else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+		$("#fechaevento"),$("#sfechaevento"),"Ingrese una fecha valida")==0){
+		muestraMensaje("Fecha del Evento <br/>Ingrese una fecha valida");
+		return false;
+	}
 }
 
 
@@ -177,10 +182,9 @@ function pone(pos,accion){
 	else{
 		$("#proceso").text("ELIMINAR");
 	}
-	$("#Codevento").val($(linea).find("td:eq(1)").text());
-	$("#id3").val($(linea).find("td:eq(2)").text());
-	$("#NombreEvento").val($(linea).find("td:eq(3)").text());
-	$("#Logroobtenido").val($(linea).find("td:eq(4)").text());
+	$("#NombreEvento").val($(linea).find("td:eq(1)").text());
+	$("#Logroobtenido").val($(linea).find("td:eq(2)").text());
+	$("#fechaevento").val($(linea).find("td:eq(3)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -250,8 +254,7 @@ function enviaAjax(datos) {
 }
 
 function limpia(){
-	$("#Codevento").val("");
-	$("#id3").val("");
 	$("#NombreEvento").val("");
 	$("#Logroobtenido").val("");
+	$("#fechaevento").val("");
 }
