@@ -52,7 +52,7 @@
     <div class="container1">
         <div class="h1 text-center h2 text-warning">Gestion de Pagos</div>
 
-        <hr />
+        <hr/>
     </div>
 
 
@@ -74,7 +74,7 @@
         </div>
         <div class="tablita container1">
             <div class="table-responsive">
-                <table class="table table-striped table-dark table-hover" id="tablapersona1">
+                <table class="table table-striped table-dark table-hover" id="tablapersona">
                     <thead>
                         <tr>
 
