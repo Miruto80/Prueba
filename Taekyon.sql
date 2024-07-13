@@ -65,12 +65,12 @@ INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
 VALUES (22,12.2,'2024/02/24',24351625);
 
 CREATE TABLE `tentrenadores` (
-  `CedulaE` int PRIMARY key AUTO_INCREMEN,
-  `Apellido` varchar(30) NOT NULL,
-  `Nombre` varchar(30) NOT NULL,
-  `Telefono` varchar(15) NOT NULL,
-  `Jerarquiadecinturon` varchar(30) NOT NULL
-    PRIMARY KEY (`CedulaE`)
+  `id` INT(11) NOT NULL,
+  `CedulaE` INT PRIMARY KEY AUTO_INCREMENT,
+  `Apellido` VARCHAR(30) NOT NULL,
+  `Nombre` VARCHAR(30) NOT NULL,
+  `Telefono` VARCHAR(15) NOT NULL,
+  `Jerarquiadecinturon` VARCHAR(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, `Jerarquiadecinturon`) VALUES
