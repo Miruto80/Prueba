@@ -28,19 +28,13 @@
     .table th,
     .table td {
         border: 1px solid #E7B00A;
+        
         /* Bordes blancos y gruesos */
     }
 
     .tablita {
         color: white;
     }
-
-    .floating-btn {
-        position: fixed;
-        bottom: 20px;
-        margin: 1px;
-    }
-
     
     </style>
     <hr />
@@ -69,7 +63,7 @@
         </div>
         <div class="tablita container">
             <div class="table-responsive">
-                <table class="table table-striped table-dark table-hover" id="tablapersona">
+                <table class="table table-striped table-dark table-hover text-center" id="tablapersona">
                     <thead>
                         <tr>
 
@@ -84,7 +78,7 @@
 
                         </tr>
                     </thead>
-                    <tbody id="resultadoconsulta">
+                    <tbody class="" id="resultadoconsulta">
 
                     </tbody>
                 </table>
@@ -145,7 +139,7 @@
                                     <select class="form-control" id="tipopago" name="tipopago">
                                         <option value="Pago movil">Pago movil</option>
                                         <option value="tranferencia">Tranferencia</option>
-                                        <option value="Efectipo">Efectivo</option>
+                                        <option value="Efectivo">Efectivo</option>
                                     </select>
                                 </div>
                                 <div class="col-md-4">
