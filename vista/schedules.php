@@ -42,7 +42,8 @@
 		Asignacion de Horarios
 		<hr />
 	</div>
-	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
+	
+	<div class="container"> 
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
 				<div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
@@ -70,10 +71,10 @@
 				</table>
 			</div>
 		</div>
-	</div> <!-- fin de container -->
+	</div> 
 
 
-	<!-- seccion del modal -->
+	
 	<div class="modal" tabindex="-1" id="modal1">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
@@ -82,7 +83,8 @@
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
-					<div class="container mt-4"> <!-- todo el contenido ira dentro de esta etiqueta-->
+
+					<div class="container mt-4"> <!-- todo el contenido del formulario-->
 						<form method="post" id="f" autocomplete="off">
 							<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 							<div class="container">
@@ -134,8 +136,6 @@
 	</div>
 
 
-	<!--fin de seccion modal-->
-	<!--Llamada a archivo modal.php, dentro de el hay una sección modal-->
 	<?php require_once("comunes/modal.php"); ?>
 	<script type="text/javascript" src="js/schedules.js"></script>
 

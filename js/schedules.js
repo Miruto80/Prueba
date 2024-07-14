@@ -37,7 +37,7 @@ $(document).ready(function(){
 	//ejecuta una consulta a la base de datos para llenar la tabla
 	consultar();
 	
-//VALIDACION DE DATOS	
+    //validaciones 	
 	$("#CedulaE2").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
 	});
@@ -49,7 +49,7 @@ $(document).ready(function(){
 	
 	
 	$("#Edad").on("keypress", function(e) {
-		validarkeypress(/^[0-9\b]*$/, e); // Solo permitir números y la tecla de retroceso
+		validarkeypress(/^[0-9\b]*$/, e); 
 	});
 	
 	$("#Edad").on("keyup", function() {
@@ -63,10 +63,6 @@ $(document).ready(function(){
 	});
 
 	
-
-//FIN DE VALIDACION DE DATOS
-
-
 
 //CONTROL DE BOTONES
 $("#proceso").on("click",function(){
@@ -265,7 +261,7 @@ function enviaAjax(datos) {
     complete: function () {},
   });
 }
-
+// muestra los imputs limpios a la hora de asignar
 function limpia(){
 	$("#CedulaE2").val("");
 	$("#Edad").val("");
