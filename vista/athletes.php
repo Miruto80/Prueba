@@ -64,18 +64,18 @@
 		<table class="table table-striped table-dark table-hover text-center" id="tablapersona">
 			<thead>
 			  <tr>
-				<th>Acciones</th>
-				<th>Cedula</th>
-				<th>Apellidos</th>
-				<th>Nombres</th>
-				<th>Fecha Nac</th>
-				<th>Sexo</th>
-				<th>Part</th>
-				<th>Direccion</th>
-				<th>Correo</th>
-				<th>Telefono</th>
-				<th>Nº accion</th>
-				<th>Cinturon</th>
+				<th class="text-center">Acciones</th>
+				<th class="text-center">Cedula</th>
+				<th class="text-center">Apellidos</th>
+				<th class="text-center">Nombres</th>
+				<th class="text-center">Fecha Nac</th>
+				<th class="text-center">Sexo</th>
+				<th class="text-center">Part</th>
+				<th class="text-center">Direccion</th>
+				<th class="text-center">Correo</th>
+				<th class="text-center">Telefono</th>
+				<th class="text-center">Nº accion</th>
+				<th class="text-center">Cinturon</th>
 			  </tr>
 			</thead>
 			<tbody id="resultadoconsulta">
