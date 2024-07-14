@@ -265,7 +265,7 @@ function enviaAjax(datos) {
 function limpia(){
 	$("#CedulaE2").val("");
 	$("#Edad").val("");
-	$("#EntrenadorH").val("");
+	$("#EntrenadorH").prop("selectedIndex",0);
 	$("#Tipodehorario").prop("selectedIndex",0);
 
 }
