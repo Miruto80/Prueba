@@ -22,20 +22,20 @@
 
 		.table {
 			border-collapse: separate;
-			/* Para asegurarse de que se vean los bordes */
+			
 			border-spacing: 0;
-			/* Elimina el espacio entre las celdas */
+			
 		}
 
 		.table th,
 		.table td {
 			border: 1px solid #E7B00A;
-			/* Bordes blancos y gruesos */
+			
 		}
 
 		.action-column {
 			width: 5rem;
-			/* Ajusta el ancho de la columna de acciones */
+			
 		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
@@ -60,7 +60,7 @@
 						<tr>
 							<th class="text-center action-column">Acciones</th>
 							<th class="text-center">Nombre de evento</th>
-							<th class="text-center">Fecha_del_evento</th>
+							<th class="text-center">Fecha del evento</th>
 							<th class="text-center">Logro del evento</th>
 							<th class="text-center">Categoria</th>
 						</tr>

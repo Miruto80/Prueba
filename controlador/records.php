@@ -1,9 +1,8 @@
 <?php
   
-//Verifica si existe el modelo con el mismo nombre 
+ 
 if (!is_file("modelo/".$pagina.".php")){
-	//alli pregunte que si no es archivo se niega //con !
-	//si no existe envio mensaje y me salgo
+	
 	echo "Falta definir la clase ".$pagina;
 	exit;
 }  
@@ -14,9 +13,7 @@ require_once("modelo/".$pagina.".php");
 	
 	
 	
-	//realizar una instancia de la clase
-	  //instanciar es crear una variable local, //que contiene los metodos de la clase
-	  //para poderlos usar
+	
 	  
 	  
 	  
@@ -24,9 +21,7 @@ require_once("modelo/".$pagina.".php");
 	  
 	  if(!empty($_POST)){
 		$o = new records();   
-		  //como ya sabemos si estamos aca es //porque se recibio alguna informacion
-		  //de la vista, por lo que lo primero que //debemos hacer ahora que tenemos una 
-		  //clase es guardar esos valores en ella //con los metodos set
+	
 		  $accion = $_POST['accion'];
 		  
 		  if($accion=='consultar'){
