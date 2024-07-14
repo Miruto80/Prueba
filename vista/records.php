@@ -78,7 +78,7 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-dark text-warning" data-bs-theme="dark">
-					<h5 class="modal-title">Formulario de eventos</h5>
+					<h5 class="modal-title">Formulario de logros</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
