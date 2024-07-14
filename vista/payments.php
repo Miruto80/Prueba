@@ -67,13 +67,13 @@
                     <thead>
                         <tr>
 
-                            <th>Acciones</th>
-                            <th>Cedula</th>
-                            <th>Fecha de pago</th>
-                            <th>Monto</th>
-                            <th>Comprobante</th>
-                            <th>Tipo de Pago</th>
-                            <th>Nro de Accion</th>
+                            <th class="text-center">Acciones</th>
+                            <th class="text-center">Cedula</th>
+                            <th class="text-center">Fecha de pago</th>
+                            <th class="text-center">Monto</th>
+                            <th class="text-center">Comprobante</th>
+                            <th class="text-center">Tipo de Pago</th>
+                            <th class="text-center">Nro de Accion</th>
 
 
                         </tr>
