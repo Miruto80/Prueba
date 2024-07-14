@@ -94,6 +94,7 @@ $("#proceso").on("click",function(){
 			enviaAjax(datos);
 		}
 	}
+
 	else if($(this).text()=="MODIFICAR"){
 		if(validarenvio()){
 			var datos = new FormData();
@@ -223,7 +224,6 @@ function pone(pos,accion){
 	$("#Nombre").val($(linea).find("td:eq(3)").text());
 	$("#Telefono").val($(linea).find("td:eq(4)").text());
 	$("#Jerarquiadecinturon").val($(linea).find("td:eq(5)").text());
-	
 	$("#modal1").modal("show");
 }
 
