@@ -39,7 +39,7 @@
             </li>
 
             <li class="nav-item">
-              <a class="nav-link" href="?pagina=records">Records</a>
+              <a class="nav-link" href="?pagina=records">Logros</a>
             </li>
           </ul>
           
