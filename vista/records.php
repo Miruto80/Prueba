@@ -39,7 +39,7 @@
 		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
-		Registro de Logros
+		Registrar Logros
 		<hr />
 	</div>
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->

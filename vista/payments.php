@@ -39,7 +39,7 @@
     </style>
     <hr />
     <div class="container">
-        <div class="h1 text-center h2 text-warning">Gestion de Pagos</div>
+        <div class="h1 text-center h2 text-warning">Gestionar Pagos</div>
 
         <hr/>
     </div>

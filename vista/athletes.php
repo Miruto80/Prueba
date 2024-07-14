@@ -44,7 +44,7 @@
 		
 		
 	</style>
-<div class="container text-center h2 text-warning mt-3">Inscripción de Atletas<hr/>
+<div class="container text-center h2 text-warning mt-3">Inscribir Atletas<hr/>
 
 </div>
 <div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
