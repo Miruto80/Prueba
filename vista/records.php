@@ -39,7 +39,7 @@
 		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
-		Registro de Horarios
+		Registro de Eventos
 		<hr />
 	</div>
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
@@ -78,7 +78,7 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-dark text-warning" data-bs-theme="dark">
-					<h5 class="modal-title">Formulario de Horarios</h5>
+					<h5 class="modal-title">Formulario de eventos</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
