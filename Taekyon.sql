@@ -51,7 +51,6 @@ ALTER TABLE `tatletas`
 COMMIT;
 
 
-
 CREATE TABLE `tpagos`(
     `cedula` int(15) NOT NULL PRIMARY KEY,
     `fechadepago` date NOT NULL,
@@ -61,8 +60,6 @@ CREATE TABLE `tpagos`(
     `numeroaccion` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
-VALUES (22,12.2,'2024/02/24',24351625);
 
 CREATE TABLE `tentrenadores` (
   `id` INT(11) NOT NULL,
