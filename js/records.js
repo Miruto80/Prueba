@@ -4,13 +4,13 @@ function consultar(){
 	enviaAjax(datos);	
 }
 function destruyeDT(){
-	//1 se destruye el datatablet
+	
 	if ($.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable().destroy();
     }
 }
 function crearDT(){
-	//se crea nuevamente
+
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable({
               language: {
@@ -34,10 +34,10 @@ function crearDT(){
 }
 $(document).ready(function(){
 	
-	//ejecuta una consulta a la base de datos para llenar la tabla
+	
 	consultar();
 	
-//VALIDACION DE DATOS	
+	
 $("#Nombre_de_evento").on("keypress", function(e){
     validarkeypress(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC]*$/, e);
 });
@@ -51,11 +51,11 @@ $("#Nombre_de_evento").on("keyup", function(){
 
 	
 
-//FIN DE VALIDACION DE DATOS
 
 
 
-//CONTROL DE BOTONES
+
+
 $("#proceso").on("click",function(){
 	if($(this).text()=="INCLUIR"){
 		if(validarenvio()){
@@ -103,7 +103,7 @@ $("#incluir").on("click",function(){
 	
 });
 
-//Validación de todos los campos antes del envio
+
 function validarenvio(){
 	if(validarkeyup(/^[A-Za-z0-9\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#Nombre_de_evento"), $("#sNombre_de_evento"), "El formato debe ser solo letras entre 3 y 30 caracteres") == 0){
 		muestraMensaje("El nombre del evento debe contener solo letras entre 3 y 30 caracteres");
@@ -115,7 +115,7 @@ function validarenvio(){
 }
 
 
-//Funcion que muestra el modal con un mensaje
+
 function muestraMensaje(mensaje){
 	
 	$("#contenidodemodal").html(mensaje);
@@ -126,7 +126,7 @@ function muestraMensaje(mensaje){
 }
 
 
-//Función para validar por Keypress
+
 function validarkeypress(er,e){
 	
 	key = e.keyCode;
@@ -144,7 +144,7 @@ function validarkeypress(er,e){
 	
     
 }
-//Función para validar por keyup
+
 function validarkeyup(er,etiqueta,etiquetamensaje,
 mensaje){
 	a = er.test(etiqueta.val());
@@ -158,7 +158,7 @@ mensaje){
 	}
 }
 
-//funcion para pasar de la lista a el formulario
+
 function pone(pos,accion){
 	
 	linea=$(pos).closest('tr');
@@ -179,7 +179,7 @@ function pone(pos,accion){
 }
 
 
-//funcion que envia y recibe datos por AJAX
+
 function enviaAjax(datos) {
   $.ajax({
     async: true,
@@ -190,9 +190,9 @@ function enviaAjax(datos) {
     processData: false,
     cache: false,
     beforeSend: function () {},
-    timeout: 10000, //tiempo maximo de espera por la respuesta del servidor
+    timeout: 10000,
     success: function (respuesta) {
-    // console.log(respuesta);
+   
       try {
         var lee = JSON.parse(respuesta);
 		if (lee.resultado == "consultar") {
@@ -229,14 +229,12 @@ function enviaAjax(datos) {
       }
     },
     error: function (request, status, err) {
-      // si ocurrio un error en la trasmicion
-      // o recepcion via ajax entra aca
-      // y se muestran los mensaje del error
+
       if (status == "timeout") {
-        //pasa cuando superan los 10000 10 segundos de timeout
+        
         muestraMensaje("Servidor ocupado, intente de nuevo");
       } else {
-        //cuando ocurre otro error con ajax
+        
         muestraMensaje("ERROR: <br/>" + request + status + err);
       }
     },
