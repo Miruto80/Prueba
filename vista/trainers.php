@@ -40,7 +40,7 @@
 		}
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
-		Registrar entrenadores
+		Gestionar entrenadores
 		<hr />
 	</div>
 	<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
