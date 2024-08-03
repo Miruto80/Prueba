@@ -241,6 +241,11 @@ function validarenvio(){
 		muestraMensaje("Sexo <br/>Debe seleccionar el sexo");
 		return false;	
 	}
+	else if(validarkeyup(/^[A-Za-z_0-9\u00f1\u00d1\u00E0-\u00FC-]{3,20}[@]{1}[A-Za-z0-9]{3,8}[.]{1}[A-Za-z]{3}$/,
+		$("#Correo"),$("#sCorreo"),"El formato debe ser alguien@servidor.com")==0){
+		muestraMensaje("Correo <br/>El formato debe ser alguien@servidor.com");
+		return false;
+	}
 	else {
 		var f1 = new Date(1950,1,1 );
 		var f2 = new Date($("#fechadenacimiento").val());
