@@ -62,10 +62,10 @@
 						<tr>
 							<th class="text-center action-column">Acciones</th>
 							<th class="text-center">Cedula</th>
-							<th class="text-center">NombreU</th>
+							<th class="text-center">Nombre</th>
 							<th class="text-center">Usuario</th>
 							<th class="text-center">Cargo</th>
-							<th class="text-center">Contrasena</th>
+							<th class="text-center">Contraseña</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -122,7 +122,7 @@
 									</div>
 
 									<div class="col-md-8">
-									<label for="Contrasena">Contrasena</label>
+									<label for="Contrasena">Contraseña</label>
 										<input class="form-control" type="text" id="Contrasena" />
 										<span id="sContrasena"></span>
 									</div>
