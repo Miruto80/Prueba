@@ -41,6 +41,10 @@
             <li class="nav-item">
               <a class="nav-link" href="?pagina=records">Logros</a>
             </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="?pagina=Users">Usuarios</a>
+            </li>
           </ul>
           
           <form class="d-flex" role="search">
