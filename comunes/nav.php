@@ -19,27 +19,24 @@
             <li class="nav-item">
               <a class="nav-link active" aria-current="page" href="?pagina=principal">Inicio</a>
             </li>
+             
+            <li class="nav-item">
+              <a class="nav-link" href="?pagina=athletes">Inscribir Atletas</a>
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="?pagina=trainers">Registrar Entrenadores</a>
+            </li>
 
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Registro
+                Gestionar
               </a>
               <ul class="dropdown-menu">
-                <li><a class="dropdown-item" href="?pagina=athletes">Atletas</a></li>
-                <li><a class="dropdown-item" href="?pagina=trainers">Entrenadores</a></li>
+                <li><a class="dropdown-item" href="?pagina=schedules">Horarios</a></li>
+                <li><a class="dropdown-item" href="?pagina=payments">Pagos</a></li>
+                <li><a class="dropdown-item" href="?pagina=records">Logros</a></li>
               </ul>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=schedules">Horarios</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=payments">Pagos</a>
-            </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=records">Logros</a>
             </li>
 
             <li class="nav-item">
