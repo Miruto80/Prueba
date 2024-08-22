@@ -20,14 +20,17 @@
               <a class="nav-link active" aria-current="page" href="?pagina=principal">Inicio</a>
             </li>
              
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=athletes">Inscribir Atletas</a>
+            <li class="nav-item dropdown ">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Registrar datos
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="?pagina=athletes">Inscribir Atletas</a></li>
+                <li><a class="dropdown-item" href="?pagina=trainers">Incluir Entrenadores</a></li>
+                
+              </ul>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=trainers">Registrar Entrenadores</a>
-            </li>
-
+           
             <li class="nav-item dropdown ">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Gestionar
