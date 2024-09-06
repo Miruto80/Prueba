@@ -7,6 +7,7 @@
     <link rel="icon" type="image/x-icon" href="img/logo taekyon.png" />
     <title>Taekyon</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <link href="css/fontawesome-free-6.5.2-web/css/all.css" rel="stylesheet">
     <style>
         body {
           background-image: url('img/fondo.jpg');
@@ -63,7 +64,18 @@
           box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 6px 6px rgba(0, 0, 0, 0.3);
         }
 
-        
+        .ojo{
+          cursor: pointer;
+          position: absolute;
+          right:10px;
+          top:50%;
+          transform: translateY(-50%);
+          z-index: 10;
+        }
+
+        .input-group {
+          position: relative;
+        }
 
       </style>
 </head>
@@ -94,7 +106,7 @@
                </div>
               <div class="header-text  text-center h1 text-white fw-bold"> Iniciar Sesión</div>
 
-              <form action="index.php?pagina=login" method="post">
+              <form action="" method="post">
                   <div class="input-group mt-3 mb-2">
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
@@ -109,6 +121,7 @@
                       <img src="img/password.svg" alt="password-icon" style="height: 1rem" />
                     </div>
                     <input class="form-control" type="password" placeholder="Contraseña" id="Clave" name="Clave" required />
+                    <i class="fa-solid fa-eye-slash ojo"></i>
                     <span id="sClave"></span>
                   </div>
 
@@ -120,7 +133,7 @@
                   </div>
 
                   <div class="input-group mb-2 text-center d-grid gap-2 col-6 mx-auto">
-                    <button class="boton btn btn-outline-warning text-white border-warning" type="submit">Ingresar</button>
+                    <button class="boton btn btn-outline-warning text-white border-warning" type="submit" name="btningresar">Ingresar</button>
                     <a href="?pagina=principal">Boton auxiliar</a>
                   </div>
                   </form>
