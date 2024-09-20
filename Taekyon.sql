@@ -111,4 +111,14 @@ INSERT INTO `tlogros` (Nombre_de_evento, Fecha_del_evento, Logro_obtenido, categ
 ('Copa UFT', '2024-07-10', '3ER LUGAR', 'AMBAS', 3);
 
 
+CREATE TABLE `tusuarios`(
+`CedulaU` int PRIMARY KEY,
+`NombreU` varchar(30) NOT NULL,
+`Usuario`  varchar(30) NOT NULL,
+`Cargo`  varchar(30) NOT NULL,
+`Contrasena`  varchar(30) NOT NULL
+)ENGINE=InnoDB;
+
+INSERT INTO `tusuarios`(`CedulaU`, `NombreU`, `Usuario`, `Cargo`,`Contrasena`) VALUES
+(31298123,'George kakajakian','GeorgeK','Gerente','123456789');
 COMMIT;
