@@ -201,6 +201,7 @@ CREATE TABLE `tpagos` (
 INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`) VALUES
 (26532154, '2024-09-21', 20, 'tranferencia', 0, 0, 6254);
 
+-- Estructura de tabla para la tabla `tusuarios`
 
 CREATE TABLE `tusuarios`(
 `CedulaU` int PRIMARY KEY,
