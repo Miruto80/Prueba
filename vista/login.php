@@ -8,6 +8,7 @@
     <title>Taekyon</title>
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link href="css/fontawesome-free-6.5.2-web/css/all.css" rel="stylesheet">
+    <?php require_once("comunes/framework.php"); ?>
     <style>
         body {
           background-image: url('img/fondo.jpg');
@@ -76,11 +77,21 @@
         .input-group {
           position: relative;
         }
+        span{
+          color:white;
+        }
 
       </style>
 </head>
 <body>
-
+<?php require_once("comunes/modal.php"); ?>
+<div id="mensajes" style="display:none">
+<?php
+	if(!empty($mensaje)){
+		echo $mensaje;
+	}
+?>	
+</div>
     <!----------------------- Main Container -------------------------->
 
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
@@ -106,13 +117,15 @@
                </div>
               <div class="header-text  text-center h1 text-white fw-bold"> Iniciar Sesión</div>
 
-              <form action="" method="post">
+              <form action="" method="post" id="f">
+              <input type="text" name="accion" id="accion" style="display:none"/>
                   <div class="input-group mt-3 mb-2">
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/user.svg" alt="username-icon" style="height: 1rem" />
                     </div>
-                    <input class="form-control" type="text" placeholder="Usuario" id="Usuario" name="Usuario" required />
-                    <span id="sUsuario"></span>
+                    <input class="form-control" type="text" placeholder="Ingrese su cedula" id="CedulaU" name="CedulaU" required />
+                    <br>
+                    <span id="sCedulaU"></span>
                   </div>
 
 
@@ -120,9 +133,9 @@
                     <div class="input-group-text bg-dark-subtle">
                       <img src="img/password.svg" alt="password-icon" style="height: 1rem" />
                     </div>
-                    <input class="form-control" type="password" placeholder="Contraseña" id="Clave" name="Clave" required />
+                    <input class="form-control" type="password" placeholder="Contraseña" id="Contrasena" name="Contrasena" required />
                     <i class="fa-solid fa-eye-slash ojo"></i>
-                    <span id="sClave"></span>
+                    <span id="sContrasena"></span>
                   </div>
 
                       <div class="form-check my-2 d-flex justify-content-center">
@@ -133,8 +146,7 @@
                   </div>
 
                   <div class="input-group mb-2 text-center d-grid gap-2 col-6 mx-auto">
-                    <button class="boton btn btn-outline-warning text-white border-warning" type="submit" name="btningresar">Ingresar</button>
-                    <a href="?pagina=principal">Boton auxiliar</a>
+                    <button class="boton btn btn-outline-warning text-white border-warning" type="button" name="entrar" id="entrar">Ingresar</button>
                   </div>
                   </form>
             </div>
