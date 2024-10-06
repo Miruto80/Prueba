@@ -45,7 +45,19 @@
             <li class="nav-item">
               <a class="nav-link" href="?pagina=Users">Usuarios</a>
             </li>
+
+            <li class="nav-item">
+            <?php
+		        
+            if(!empty($nivel) and $nivel!=""){
+         ?>
+              <a href="?pagina=salida" class="btn btn-outline-warning my-2 my-sm-0">Salir</a>
+         <?php	
+            }
+            ?>
+            </li>
           </ul>
+          
           
           <form class="d-flex" role="search">
             <input class="form-control me-2" type="search" aria-label="Search">
