@@ -45,22 +45,18 @@
 
           <!-- Botones alineados a la derecha -->
           <ul class="navbar-nav ms-auto">
-            <li class="nav-item">
-              <a class="nav-link" href="?pagina=Users">
-              <img src="img/iconob.png" alt="Icono Usuario" width="30" height="30" class="d-inline-block align-text-top">
+            <li class="nav-item me-2"> <!-- Margen derecho para el primer botón -->
+              <a class="btn btn-outline-secondary" href="?pagina=Users">
+                <img src="img/iconob.png" alt="Icono Usuario" width="30" height="30" class="d-inline-block align-text-top">
               </a>
             </li>
 
-            <li class="nav-item">
-              <?php
-              if (isset($nivel) && !empty($nivel)) {
-              ?>
-                <a href="?pagina=salida" class="btn btn-outline-light my-2 my-sm-0">
-                <img src="img/salirb.svg" alt="Icono Salir" width="30" height="auto" class="d-inline-block align-text-top">
+            <li class="nav-item"> <!-- Sin margen en el segundo botón -->
+              <?php if (isset($nivel) && !empty($nivel)) { ?>
+                <a href="?pagina=salida" class="btn btn-outline-secondary my-2 my-sm-0">
+                  <img src="img/salirb.svg" alt="Icono Salir" width="30" height="auto" class="d-inline-block align-text-top">
                 </a>
-              <?php
-              }
-              ?>
+              <?php } ?>
             </li>
           </ul>
         </div>
