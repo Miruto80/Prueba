@@ -9,6 +9,7 @@ $("#listadodeclientes").on("click",function(){
 
 function colocacliente(linea){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
+	$("#modalclientes").modal("hide");
 }
 
 function pone_fecha(){
