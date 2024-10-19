@@ -106,6 +106,7 @@
                                 <div class="col-md-4">
                                     <label for="cedula">Cedula</label>
                                     <input class="form-control" type="text" id="cedula" name="cedula" />
+                                    <button type="button" class="btn btn-primary" id="listadodeclientes" name="listadodeclientes">LISTADO DE Atletas</button>
                                     <span id="scedula"></span>
                                 </div>
                                 <div class="col-md-8">
@@ -187,6 +188,43 @@
     </div>
     </div>
     <!--fin de seccion modal-->
+
+    <div class="modal fade" tabindex="-1" role="dialog"  id="modalclientes">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-header text-light bg-info">
+        <h5 class="modal-title">Listado de clientes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-content">
+		<table class="table table-striped table-hover">
+		<thead>
+		  <tr>
+		    <th style="display:none">Id</th>
+			<th class="text-center">Cedula</th>
+				<th class="text-center">Apellidos</th>
+				<th class="text-center">Nombres</th>
+				<th class="text-center">Fecha Nac</th>
+				<th class="text-center">Sexo</th>
+				<th class="text-center">Part</th>
+				<th class="text-center">Direccion</th>
+				<th class="text-center">Correo</th>
+				<th class="text-center">Telefono</th>
+				<th class="text-center">Nº accion</th>
+				<th class="text-center">Cinturon</th>
+		  </tr>
+		</thead>
+		<tbody id="tablaclientes">
+		  
+		</tbody>
+		</table>
+    </div>
+	<div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
 
     <?php require_once("comunes/modal.php"); ?>
     <script type="text/javascript" src="js/payments.js"></script>

@@ -266,6 +266,74 @@ class  payments extends datos
 	}
 
 
+	function listadodeclientes(){
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r = array();
+		try{
+			
+			$resultado = $co->query("Select * from tatletas");
+			
+			if($resultado){
+				
+				$respuesta = '';
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
+						$respuesta = $respuesta."<td style='display:none'>";
+							$respuesta = $respuesta.$r['id'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['apellidos'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['nombres'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['fechadenacimiento'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['sexo'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Participacion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Direccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Correo'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Telefono'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Numerodeaccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Cinturon'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
+				}
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  $respuesta;
+			    
+			}
+			else{
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  '';
+			}
+			
+		}catch(Exception $e){
+			$r['resultado'] = 'error';
+			$r['mensaje'] =  $e->getMessage();
+		}
+		return $r;
+	}
+
+
 
 	function obtienefecha()
 	{

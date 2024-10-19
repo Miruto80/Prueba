@@ -34,7 +34,10 @@ require_once("modelo/".$pagina.".php");
 		  elseif($accion=='eliminar'){
 			 $o->set_cedula($_POST['cedula']);
 			 echo  json_encode($o->eliminar());
-		  }
+		    }
+			else if($accion == 'modalclientes'){
+			echo  json_encode($o->listadodeclientes());
+		 }
 		  else{	
 			$o->set_cedula($_POST['cedula']);
 $o->set_fechadepago($_POST['fechadepago']);

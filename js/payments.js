@@ -1,3 +1,16 @@
+var datos = new FormData();
+datos.append('accion','modalclientes');
+enviaAjax(datos);
+
+$("#listadodeclientes").on("click",function(){
+	$("#modalclientes").modal("show");
+	
+});
+
+function colocacliente(linea){
+	$("#cedula").val($(linea).find("td:eq(1)").text());
+}
+
 function pone_fecha(){
 	
 	
@@ -291,7 +304,10 @@ function enviaAjax(datos) {
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
-        }
+        }else if (lee.resultado == "modalclientes") {
+			$("#tablaclientes").html(lee.mensaje);
+			
+		 }
 		else if (lee.resultado == "error") {
            muestraMensaje(lee.mensaje);
         }
