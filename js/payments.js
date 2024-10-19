@@ -9,6 +9,8 @@ $("#listadodeclientes").on("click",function(){
 
 function colocacliente(linea){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
+	$("#modalclientes").modal("hide")
+
 }
 
 function pone_fecha(){
@@ -304,7 +306,9 @@ function enviaAjax(datos) {
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }
-        }else if (lee.resultado == "modalclientes") {
+        }
+		
+		else if (lee.resultado == "modalclientes") {
 			$("#tablaclientes").html(lee.mensaje);
 			
 		 }
