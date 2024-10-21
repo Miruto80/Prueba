@@ -75,7 +75,7 @@
 
 
 	
-	<div class="modal" tabindex="-1" id="modal1">
+	<div class="modal" tabindex="-1" role="dialog" id="modal1">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-dark text-warning" data-bs-theme="dark">
@@ -90,9 +90,10 @@
 							<div class="container">
 								<div class="row mb-3">
 									<div class="col-md-3">
-										<label for="CedulaE2">Cedula</label>
-										<input class="form-control" type="text" id="CedulaE2" />
-										<span id="sCedulaE2"></span>
+										<label for="cedula">Cedula</label>
+										<input class="form-control" type="text" id="cedula" name="cedula" />
+										<button type="button" class="btn btn-primary" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
+										<span id="scedula"></span>
 									</div>
 
 									<div class="col-md-3">
@@ -135,6 +136,42 @@
 	</div>
 	</div>
 
+	<div class="modal fade" tabindex="-1" role="dialog"  id="modalclientes">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-header text-light bg-info">
+        <h5 class="modal-title">Listado de clientes</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-content">
+		<table class="table table-striped table-hover">
+		<thead>
+		  <tr>
+		    <th style="display:none">Id</th>
+			<th class="text-center">Cedula</th>
+				<th class="text-center">Apellidos</th>
+				<th class="text-center">Nombres</th>
+				<th class="text-center">Fecha Nac</th>
+				<th class="text-center">Sexo</th>
+				<th class="text-center">Part</th>
+				<th class="text-center">Direccion</th>
+				<th class="text-center">Correo</th>
+				<th class="text-center">Telefono</th>
+				<th class="text-center">Nº accion</th>
+				<th class="text-center">Cinturon</th>
+		  </tr>
+		</thead>
+		<tbody id="tablaclientes">
+		  
+		</tbody>
+		</table>
+    </div>
+	<div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
 
 	<?php require_once("comunes/modal.php"); ?>
 	<script type="text/javascript" src="js/schedules.js"></script>

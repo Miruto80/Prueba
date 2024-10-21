@@ -7,16 +7,16 @@ require_once('modelo/datos.php');
 class schedules extends datos{
 	
 // se declaran los atributos o variables en privado
-	private $CedulaE2; 
+	private $cedula; 
 	private $Edad;
 	private $Tipodehorario;
 	private $EntrenadorH;
 	
 	
-	// se colocan e los atrivutos en funciones set para colocarles valores y manipularlos 
+	// se colocan los atrivutos en funciones set para colocarles valores y manipularlos 
 	// con get se leen
-	function set_CedulaE2($valor){
-		$this->CedulaE2 = $valor; 
+	function set_cedula($valor){
+		$this->cedula = $valor; 
 	}
 	
 	function set_Edad($valor){
@@ -33,8 +33,8 @@ class schedules extends datos{
 	
 
 	
-	function get_CedulaE2(){
-		return $this->CedulaE2;
+	function get_cedula(){
+		return $this->cedula;
 	}
 	
 	function get_Edad(){
@@ -55,21 +55,21 @@ class schedules extends datos{
 	function incluir(){
 		
 		$r = array();
-		if(!$this->existe($this->CedulaE2)){
-			//si CedulaE2 no existe 
+		if(!$this->existe($this->cedula)){
+			//si cedula no existe 
 			//1 Se llama a la funcion conecta 
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//2 Se ejecuta el sql
 			try {
 					$co->query("Insert into thorarios(
-						CedulaE2,
+						cedula,
 						Edad,
 						Tipodehorario,
 						EntrenadorH
 						)
 						Values(
-						'$this->CedulaE2',
+						'$this->cedula',
 						'$this->Edad',
 						'$this->Tipodehorario',
 						'$this->EntrenadorH'
@@ -83,7 +83,7 @@ class schedules extends datos{
 		}
 		else{
 			$r['resultado'] = 'incluir';
-			$r['mensaje'] =  'Ya existe la CedulaE2';
+			$r['mensaje'] =  'Ya existe la cedula';
 		}
 		return $r;
 	}
@@ -92,15 +92,15 @@ class schedules extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->CedulaE2)){
+		if($this->existe($this->cedula)){
 			try {
 					$co->query("Update thorarios set 
-					    CedulaE2 = '$this->CedulaE2',
+					    cedula = '$this->cedula',
 						Edad = '$this->Edad',
 						Tipodehorario = '$this->Tipodehorario',
 						EntrenadorH = '$this->EntrenadorH'
 						where
-						CedulaE2 = '$this->CedulaE2'
+						cedula = '$this->cedula'
 						");
 						$r['resultado'] = 'modificar';
 			            $r['mensaje'] =  'Modificacion exitosa';
@@ -111,7 +111,7 @@ class schedules extends datos{
 		}
 		else{
 			$r['resultado'] = 'modificar';
-			$r['mensaje'] =  'CedulaE2 no registrada';
+			$r['mensaje'] =  'cedula no registrada';
 		}
 		return $r;
 	}
@@ -120,11 +120,11 @@ class schedules extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->CedulaE2)){
+		if($this->existe($this->cedula)){
 			try {
 					$co->query("delete from thorarios 
 						where
-						CedulaE2 = '$this->CedulaE2'
+						cedula = '$this->cedula'
 						");
 						$r['resultado'] = 'eliminar';
 			            $r['mensaje'] =  'Eliminado exitosamente';
@@ -135,7 +135,7 @@ class schedules extends datos{
 		}
 		else{
 			$r['resultado'] = 'eliminar';
-			$r['mensaje'] =  'No existe la CedulaE2';
+			$r['mensaje'] =  'No existe la cedula';
 		}
 		return $r;
 	}
@@ -146,7 +146,8 @@ class schedules extends datos{
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
 		try{
-			$resultado = $co->query("SELECT * FROM thorarios");
+
+			$resultado = $co->query("select * from thorarios");
 			if($resultado){
 				$respuesta = '';
 				foreach($resultado as $row){
@@ -157,7 +158,7 @@ class schedules extends datos{
 					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
 								   <i class='fa-solid fa-trash'></i></button>";
 					$respuesta .= "</td>";
-					$respuesta .= "<td class='text-center'>{$row['CedulaE2']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Edad']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Tipodehorario']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['EntrenadorH']}</td>";
@@ -179,12 +180,12 @@ class schedules extends datos{
 	
 	
 	
-	private function existe($CedulaE2){
+	private function existe($cedula){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try{
 			
-			$resultado = $co->query("Select * from thorarios where CedulaE2='$CedulaE2'");
+			$resultado = $co->query("Select * from thorarios where cedula='$cedula'");
 			
 			
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
@@ -203,7 +204,85 @@ class schedules extends datos{
 		}
 	}
 	
+	function listadodeclientes(){
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r = array();
+		try{
+			
+			$resultado = $co->query("Select * from tatletas");
+			
+			if($resultado){
+				
+				$respuesta = '';
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
+						$respuesta = $respuesta."<td style='display:none'>";
+							$respuesta = $respuesta.$r['id'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['apellidos'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['nombres'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['fechadenacimiento'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['sexo'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Participacion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Direccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Correo'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Telefono'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Numerodeaccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Cinturon'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
+				}
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  $respuesta;
+			    
+			}
+			else{
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  '';
+			}
+			
+		}catch(Exception $e){
+			$r['resultado'] = 'error';
+			$r['mensaje'] =  $e->getMessage();
+		}
+		return $r;
+	}
 	
+	function obtienefecha()
+	{
+		$r = array();
+
+		$f = date('Y-m-d');
+		$f1 = strtotime('-18 year', strtotime($f));
+		$f1 = date('Y-m-d', $f1);
+		$r['resultado'] = 'obtienefecha';
+		$r['mensaje'] =  $f1;
+
+		return $r;
+	}
 	
 }
 ?>

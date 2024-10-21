@@ -24,15 +24,22 @@ require_once("modelo/".$pagina.".php");
 		  if($accion=='consultar'){
 			 echo  json_encode($o->consultar());  
 		  }
-		  elseif($accion=='eliminar'){
-			 $o->set_CedulaE2($_POST['CedulaE2']);
+		  else if($accion=='obtienefecha'){
+			echo json_encode($o->obtienefecha());
+		 }
+		  else if($accion=='eliminar'){
+			 $o->set_cedula($_POST['cedula']);
 			 echo  json_encode($o->eliminar());
 		  }
+		  else if($accion == 'modalclientes'){
+			echo  json_encode($o->listadodeclientes());
+		 }
 		  else{		  
-			  $o->set_CedulaE2($_POST['CedulaE2']);
+			  $o->set_cedula($_POST['cedula']);
 			  $o->set_Edad($_POST['Edad']);
 			  $o->set_Tipodehorario($_POST['Tipodehorario']);
 			  $o->set_EntrenadorH($_POST['EntrenadorH']);
+
 			  if($accion=='incluir'){
 				echo  json_encode($o->incluir());
 			  }
