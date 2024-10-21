@@ -6,37 +6,30 @@
 
 	<?php require_once('comunes/nav.php'); ?>
 	<style>
-		html, body {
+        html,
+        body {
             height: 100%;
             margin: 0;
         }
-		body {
-			background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
-			background-size: cover;
-			background-repeat: no-repeat;
-		}
 
-		.tablita {
-			color: white;
-		}
+        body {
+            background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
 
-		.table {
-			border-collapse: separate;
-			/* Para asegurarse de que se vean los bordes */
-			border-spacing: 0;
-			/* Elimina el espacio entre las celdas */
-		}
+        }
 
-		.table th,
-		.table td {
-			border: 1px solid #E7B00A;
-			/* Bordes blancos y gruesos */
-		}
 
-		.action-column {
-			width: 5rem;
-			/* Ajusta el ancho de la columna de acciones */
-		}
+        .table th,
+        .table td {
+            border: 1px solid #E7B00A;
+
+            /* Bordes blancos y gruesos */
+        }
+
+        .tablita {
+            color: white;
+        }
 	</style>
 	<div class="container text-center h2 text-warning mt-3">
 		Asignar Horarios
@@ -75,27 +68,28 @@
 
 
 	
-	<div class="modal" tabindex="-1" role="dialog" id="modal1">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header bg-dark text-warning" data-bs-theme="dark">
-					<h5 class="modal-title">Formulario de Horarios</h5>
-					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-				</div>
-				<div class="modal-body">
-
-					<div class="container mt-4"> <!-- todo el contenido del formulario-->
-						<form method="post" id="f" autocomplete="off">
-							<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
-							<div class="container">
-								<div class="row mb-3">
-									<div class="col-md-3">
-										<label for="cedula">Cedula</label>
-										<input class="form-control" type="text" id="cedula" name="cedula" />
-										<button type="button" class="btn btn-primary" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
-										<span id="scedula"></span>
-									</div>
-
+    <div class="tabla modal fade" tabindex="-1" role="dialog" id="modal1">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-header text-warning bg-dark justify-content-center">
+                <h3 class="modal-title">Formulario de Horarios</h3>
+                <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
+            </div>
+            <div class="modal-content">
+                <div class="container">
+                    <form method="post" id="f" autocomplete="off">
+                        <input autocomplete="off" type="text" class="form-control" name="accion" id="accion"
+                            style="display: none;">
+                        <div class="container">
+                            <br>
+                            <div class="row mb-3">
+                                <div class="col-md-3">
+                                    <label for="cedula">Cedula</label>
+                                    <input class="form-control" type="text" id="cedula" name="cedula" />
+									<br>
+                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
+                                    <span id="scedula"></span>
+                                </div>
+								
 									<div class="col-md-3">
 										<label for="Edad">Edad</label>
 										<input class="form-control" type="text" id="Edad" />
@@ -109,7 +103,9 @@
 											<option value="ADULTO de 7:00 PM a 8:30 PM">ADULTO de 7:00 PM a 8:30 PM</option>
 										</select>
 									</div>
-									<div class="col">
+									
+									<div class="col-md">
+									<br>
 									<label for="EntrenadorH">Entrenador</label>
 										<select class="form-select" id="EntrenadorH">
 											<option value="Entrenador Infantil. Antonio Sabino">Entrenador Infantil. Antonio Sabino</option>
@@ -120,30 +116,30 @@
 								</div>
 							</div>
 
-							<div class="row mt-5 justify-content-center">
-								<div class="col-md-2">
-									<button type="button" class="btn btn-dark" id="proceso"></button>
-								</div>
-							</div>
-					</div>
-					</form>
-				</div>
-			</div>
-			<div class="modal-footer bg-dark">
-					<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
-				</div>
-		</div>
-	</div>
-	</div>
-
-	<div class="modal fade" tabindex="-1" role="dialog"  id="modalclientes">
-  <div class="modal-dialog modal-lg" role="document">
-    <div class="modal-header text-light bg-info">
-        <h5 class="modal-title">Listado de clientes</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar">
-          <span aria-hidden="true">&times;</span>
-        </button>
+							<div class="row mt-3 justify-content-center">
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-dark" id="proceso"></button>
+                            </div>
+                        </div>
+                        <br />
+                    </form>
+                </div> 
+            </div>
+            <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
     </div>
+    </div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-header text-warning bg-dark justify-content-center">
+                <h5 class="modal-title">Listado de Atletas</h5>
+                <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
     <div class="modal-content">
 		<table class="table table-striped table-hover">
 		<thead>
@@ -154,10 +150,6 @@
 				<th class="text-center">Nombres</th>
 				<th class="text-center">Fecha Nac</th>
 				<th class="text-center">Sexo</th>
-				<th class="text-center">Part</th>
-				<th class="text-center">Direccion</th>
-				<th class="text-center">Correo</th>
-				<th class="text-center">Telefono</th>
 				<th class="text-center">Nº accion</th>
 				<th class="text-center">Cinturon</th>
 		  </tr>
