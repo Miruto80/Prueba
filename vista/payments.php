@@ -204,14 +204,7 @@
                             <th class="text-center">Cedula</th>
                             <th class="text-center">Apellidos</th>
                             <th class="text-center">Nombres</th>
-                            <th class="text-center">Fecha Nac</th>
-                            <th class="text-center">Sexo</th>
-                            <th class="text-center">Part</th>
-                            <th class="text-center">Direccion</th>
-                            <th class="text-center">Correo</th>
-                            <th class="text-center">Telefono</th>
-                            <th class="text-center">Nº accion</th>
-                            <th class="text-center">Cinturon</th>
+                            <th class="text-center">Numero de Accion</th>
                         </tr>
                     </thead>
                     <tbody id="tablaclientes">
