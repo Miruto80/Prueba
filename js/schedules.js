@@ -1,3 +1,27 @@
+var datos = new FormData();
+datos.append('accion','modalclientes');
+enviaAjax(datos);
+
+$("#listadodeclientes").on("click",function(){
+	$("#modalclientes").modal("show");
+	
+});
+
+function colocacliente(linea){
+	$("#cedula").val($(linea).find("td:eq(1)").text());
+	$("#modalclientes").modal("hide");
+}
+
+function pone_fecha(){
+	
+	
+	var datos = new FormData();
+	datos.append('accion','obtienefecha');
+	enviaAjax(datos);	
+	
+}
+
+
 function consultar(){
 	var datos = new FormData();
 	datos.append('accion','consultar');
@@ -33,18 +57,20 @@ function crearDT(){
     }         
 }
 $(document).ready(function(){
+
+	pone_fecha();
 	
 	//ejecuta una consulta a la base de datos para llenar la tabla
 	consultar();
 	
     //validaciones 	
-	$("#CedulaE2").on("keypress",function(e){
+	$("#cedula").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
 	});
 	
-	$("#CedulaE2").on("keyup",function(){
+	$("#cedula").on("keyup",function(){
 		validarkeyup(/^[0-9]{7,8}$/,$(this),
-		$("#sCedulaE2"),"El formato debe ser 9999999 ");
+		$("#scedula"),"El formato debe ser 9999999 ");
 	});
 	
 	
@@ -70,7 +96,7 @@ $("#proceso").on("click",function(){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','incluir');
-			datos.append('CedulaE2',$("#CedulaE2").val());
+			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
 			datos.append('EntrenadorH',$("#EntrenadorH").val());
@@ -82,7 +108,7 @@ $("#proceso").on("click",function(){
 		if(validarenvio()){
 			var datos = new FormData();
 			datos.append('accion','modificar');
-			datos.append('CedulaE2',$("#CedulaE2").val());
+			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
 			datos.append('EntrenadorH',$("#EntrenadorH").val());
@@ -90,16 +116,16 @@ $("#proceso").on("click",function(){
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarkeyup(/^[0-9]{7,8}$/,$("#CedulaE2"),
-		$("#sCedulaE2"),"El formato debe ser 9999999")==0){
-	    muestraMensaje("La CedulaE2 debe coincidir con el formato <br/>"+ 
+		if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
+		$("#scedula"),"El formato debe ser 9999999")==0){
+	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		
 	    }
 		else{
 			var datos = new FormData();
 			datos.append('accion','eliminar');
-			datos.append('CedulaE2',$("#CedulaE2").val());
+			datos.append('cedula',$("#cedula").val());
 			enviaAjax(datos);
 		}
 	}
@@ -116,9 +142,9 @@ $("#incluir").on("click",function(){
 
 //Validación de todos los campos antes del envio
 function validarenvio(){
-	if(validarkeyup(/^[0-9]{7,8}$/,$("#CedulaE2"),
-		$("#sCedulaE2"),"El formato debe ser 9999999")==0){
-	    muestraMensaje("La CedulaE2 debe coincidir con el formato <br/>"+ 
+	if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
+		$("#scedula"),"El formato debe ser 9999999")==0){
+	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		return false;					
 	}	
@@ -127,8 +153,18 @@ function validarenvio(){
          parseInt($("#Edad").val(), 10) < 1 || parseInt($("#Edad").val(), 10) > 120) {
     muestraMensaje("Edad debe ser un número entre 1 y 120");
     return false;
-}
+    }
+
+    else {
+		var f1 = new Date(1950,1,1 );
+	    var f2 = new Date($("#fechadenacimiento").val());
 	
+	    if(f2 < f1){
+			muestraMensaje("Fecha de Nacimiento <br/>La fecha debe ser mayor o igual a 01/01/1950");
+		    return false;
+	    }
+	
+    }
 	return true;
 }
 
@@ -188,7 +224,7 @@ function pone(pos,accion){
 	else{
 		$("#proceso").text("ELIMINAR");
 	}
-	$("#CedulaE2").val($(linea).find("td:eq(1)").text());
+	$("#cedula").val($(linea).find("td:eq(1)").text());
 	$("#Edad").val($(linea).find("td:eq(2)").text());
 	$("#Tipodehorario").val($(linea).find("td:eq(3)").text());
 	$("#EntrenadorH").val($(linea).find("td:eq(4)").text());
@@ -213,7 +249,10 @@ function enviaAjax(datos) {
     // console.log(respuesta);
       try {
         var lee = JSON.parse(respuesta);
-		if (lee.resultado == "consultar") {
+		if (lee.resultado == "obtienefecha") {
+			$("#fechadenacimiento").val(lee.mensaje);
+		  }
+		else if (lee.resultado == "consultar") {
 		   destruyeDT();	
            $("#resultadoconsulta").html(lee.mensaje);
 		   crearDT();
@@ -239,6 +278,10 @@ function enviaAjax(datos) {
 			   consultar();
 		   }
         }
+		else if (lee.resultado == "modalclientes") {
+			$("#tablaclientes").html(lee.mensaje);
+			
+		 }
 		else if (lee.resultado == "error") {
            muestraMensaje(lee.mensaje);
         }
@@ -263,7 +306,7 @@ function enviaAjax(datos) {
 }
 // muestra los imputs limpios a la hora de asignar
 function limpia(){
-	$("#CedulaE2").val("");
+	$("#cedula").val("");
 	$("#Edad").val("");
 	$("#EntrenadorH").prop("selectedIndex",0);
 	$("#Tipodehorario").prop("selectedIndex",0);
