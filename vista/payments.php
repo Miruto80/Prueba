@@ -105,7 +105,7 @@
                                 <div class="col-md-4">
                                     <label for="cedula">Cedula</label>
                                     <input class="form-control" type="text" id="cedula" name="cedula" />
-                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">LISTADO DE Atletas</button>
+                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
                                     <span id="scedula"></span>
                                 </div>
                                 <div class="col-md-8">
