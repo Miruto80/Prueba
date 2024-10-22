@@ -9,7 +9,7 @@ $("#listadodeclientes").on("click",function(){
 
 function colocacliente(linea){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#Numerodeaccion").val($(linea).find("td:eq(5)").text());
+	$("#numeroaccion").val($(linea).find("td:eq(4)").text());
 	$("#modalclientes").modal("hide")
 }
 
