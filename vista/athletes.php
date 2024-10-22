@@ -26,7 +26,7 @@
 			border: 1px solid #E7B00A;
 			/* Bordes solido y con color */
 		}
-
+        
 		.action-column {
             width: 5rem; /* Ajusta el ancho de la columna de acciones */
         }
@@ -41,6 +41,10 @@
 			display:block;
 		}
 		
+		#imagen2{
+			width:300px;
+			height:300px;
+		}
 		
 		
 	</style>
@@ -85,7 +89,6 @@
   </div>
 </div> <!-- fin de container -->
 
-
 <!-- seccion del modal -->
 <div class="tabla modal fade" tabindex="-1" role="dialog"  id="modal1">
   <div class="modal-dialog modal-lg" role="document">
@@ -95,7 +98,7 @@
     </div>
     <div class="modal-content">
 		<div class="container"> 
-		   <form method="post" id="f" autocomplete="off">
+		   <form method="post" id="f" autocomplete="off" enctype='multipart/form-data'>
 			<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 			<div class="container">	
 				<div class="row mb-3">
@@ -196,11 +199,29 @@
 							<option value="Negro IX DAN">Negro IX DAN</option>
 					   </select>
 					</div>
-
 					
+					
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<center>
+					<label for="archivo"  style="cursor:pointer">
+						   
+						   <img src="img/usuarios/logo.png" id="imagen" 
+							class="img-fluid rounded-circle w-25 mb-3 centered"
+							style="object-fit:scale-down">
+						   Click aqui para subir foto	
+					   </label>
+					<input id="archivo"  type="file"
+					style="display:none" 
+						accept=".png,.jpg,.jpeg"
+						name="imagenarchivo" />
+						</center>
+					</div>
 				</div>
 				
 				<div class="row mt-3 justify-content-center">
+					
 					<div class="col-md-2">
 						   <button type="button" class="btn btn-dark" 
 						   id="proceso" ></button>
@@ -216,7 +237,30 @@
 </div>
 	</div>
 <!--fin de seccion modal-->
-
+<div class="tabla modal fade" tabindex="-1" role="dialog"  id="modal2">
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-header text-warning bg-dark justify-content-center">
+        <h3 class="modal-title">Atleta</h3>
+        <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
+    </div>
+    <div class="modal-content">
+		<div class="container justify-content-center"> 
+		   <form method="post" id="f" autocomplete="off" enctype='multipart/form-data'>
+		                 <center>
+						   <img src="img/usuarios/logo.png" id="imagen2" 
+							class="img-fluid w-25 mb-3 centered"
+							style="object-fit:scale-down">
+							</center> 
+					
+			</form>
+		</div> <!-- fin de container -->
+    </div>
+	<div class="modal-footer bg-dark">
+        <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+      </div>
+  </div>
+</div>
+	</div>
 <?php require_once("comunes/modal.php"); ?>
 <script type="text/javascript" src="js/athletes.js"></script>
 

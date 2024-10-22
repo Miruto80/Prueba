@@ -1,3 +1,4 @@
+
 function pone_fecha(){
 	
 	
@@ -41,6 +42,7 @@ function crearDT(){
     }         
 }
 $(document).ready(function(){
+	
 	//para obtener la fecha del servidor y calcular la 
 	//edad de nacimiento que debe ser mayor a 18 
 	pone_fecha();
@@ -129,64 +131,20 @@ $(document).ready(function(){
 $("#proceso").on("click",function(){
 	if($(this).text()=="INCLUIR"){
 		if(validarenvio()){
-			var datos = new FormData();
+			var datos = new FormData($('#f')[0]);
 			datos.append('accion','incluir');
-			datos.append('cedula',$("#cedula").val());
-			datos.append('apellidos',$("#apellidos").val());
-			datos.append('nombres',$("#nombres").val());
-			datos.append('fechadenacimiento',$("#fechadenacimiento").val());
-			datos.append('Participacion',$("#Participacion").val());
-			datos.append('Direccion',$("#Direccion").val());
-			datos.append('Correo',$("#Correo").val());
-			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
-			datos.append('Cinturon',$("#Cinturon").val());
-			if($("#masculino").is(":checked")){
-				datos.append('sexo','M');
-			}
-			else{
-				datos.append('sexo','F');
-			}
-
 			enviaAjax(datos);
 		}
 	}
 	else if($(this).text()=="MODIFICAR"){
-		if(validarenvio()){
-			var datos = new FormData();
-			datos.append('accion','modificar');
-			datos.append('cedula',$("#cedula").val());
-			datos.append('apellidos',$("#apellidos").val());
-			datos.append('nombres',$("#nombres").val());
-			datos.append('fechadenacimiento',$("#fechadenacimiento").val());
-			datos.append('Participacion',$("#Participacion").val());
-			datos.append('Direccion',$("#Direccion").val());
-			datos.append('Correo',$("#Correo").val());
-			datos.append('Telefono',$("#Telefono").val());
-			datos.append('Numerodeaccion',$("#Numerodeaccion").val());
-			datos.append('Cinturon',$("#Cinturon").val());
-			if($("#masculino").is(":checked")){
-				datos.append('sexo','M');
-			}
-			else{
-				datos.append('sexo','F');
-			}
-			enviaAjax(datos);
-		}
+		var datos = new FormData($('#f')[0]);
+		  datos.append('accion','modificar');
+		  enviaAjax(datos);
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
-		$("#scedula"),"El formato debe ser 9999999")==0){
-	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
-						"99999999");	
-		
-	    }
-		else{
-			var datos = new FormData();
-			datos.append('accion','eliminar');
-			datos.append('cedula',$("#cedula").val());
-			enviaAjax(datos);
-		}
+		var datos = new FormData($('#f')[0]);
+		datos.append('accion','eliminar');
+		enviaAjax(datos);
 	}
 });
 $("#incluir").on("click",function(){
@@ -329,6 +287,7 @@ function pone(pos,accion){
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
 	$("#Numerodeaccion").val($(linea).find("td:eq(10)").text());
 	$("#Cinturon").val($(linea).find("td:eq(11)").text());
+	$("#imagen").prop("src","img/usuarios/"+$(linea).find("td:eq(1)").text()+".png");
 	$("#modal1").modal("show");
 }
 
@@ -384,6 +343,7 @@ function enviaAjax(datos) {
       } catch (e) {
         alert("Error en JSON " + e.name);
       }
+	  
     },
     error: function (request, status, err) {
       // si ocurrio un error en la trasmicion
@@ -419,4 +379,61 @@ function limpia(){
 	$("#Telefono").val("");
 	$("#Numerodeaccion").val("");
 	$("#Cinturon").prop("selectedIndex",0);
+	$('#imagen').prop("src","img/usuarios/logo.png");
+}
+
+$("#archivo").on("change",function(){
+	
+	mostrarImagen(this);
+});
+//			
+
+$("#imagen").on("error",function(){
+  $(this).prop("src","img/logo.png");
+});
+
+$("#imagen2").on("error",function(){
+	$(this).prop("src","img/logo.png");
+  });
+
+  function mostrarImagen(f) {
+	
+	var tamano = f.files[0].size;
+     var megas = parseInt(tamano / 1024);
+     
+     if(megas > 1024){
+		 muestraMensaje("La imagen debe ser igual o menor a 1024 K");
+         $(f).val('');
+     }
+     else{	
+		 if (f.files && f.files[0]) {
+		  var reader = new FileReader();
+		  reader.onload = function (e) {
+		   $('#imagen').attr('src', e.target.result);
+		  }
+		  reader.readAsDataURL(f.files[0]);
+		 }
+	 }
+}
+function mostrarImagen2(f) {
+	$('#imagen2').attr('src', 'img/usuarios/'+f+'.png');
+	$("#modal2").modal("show");
+	/*var tamano = f.files[0].size;
+     var megas = parseInt(tamano / 1024);
+     
+     if(megas > 1024){
+		 muestraMensaje("La imagen debe ser igual o menor a 1024 K");
+         $(f).val('');
+     }
+     else{	
+		 if (f.files && f.files[0]) {
+		  var reader = new FileReader();
+		  reader.onload = function (e) {
+			
+		   $('#imagen').attr('src', e.target.result);
+		  }
+		  reader.readAsDataURL(f.files[0]);
+		 }
+	 }
+	 */
 }
