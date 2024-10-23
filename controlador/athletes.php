@@ -51,10 +51,40 @@ require_once("modelo/".$pagina.".php");
 			  $o->set_Numerodeaccion($_POST['Numerodeaccion']);
 			  $o->set_Cinturon($_POST['Cinturon']);
 			  if($accion=='incluir'){
-				echo  json_encode($o->incluir());
+				
+				$mensaje = $o->incluir();
+				   
+				if($mensaje['resultado'] == 'incluir'){
+				    
+					if(isset($_FILES['imagenarchivo'])){	
+						 
+					   
+						if (($_FILES['imagenarchivo']['size'] / 1024) < 1024) {
+							
+							  move_uploaded_file($_FILES['imagenarchivo']['tmp_name'], 
+							  'img/usuarios/'.$_POST['cedula'].'.png');
+							  
+						} 
+					}
+				}
+				echo json_encode($mensaje);
+				
 			  }
 			  elseif($accion=='modificar'){
-				echo  json_encode($o->modificar());
+				$mensaje = $o->modificar();
+				   if($mensaje['resultado'] == 'modificar'){
+				   
+					  if(isset($_FILES['imagenarchivo'])){	
+					     
+						  if (($_FILES['imagenarchivo']['size'] / 1024) < 1024) {
+							  
+								move_uploaded_file($_FILES['imagenarchivo']['tmp_name'], 
+								'img/usuarios/'.$_POST['cedula'].'.png');
+								
+						  } 
+					  }
+				  }
+				 echo json_encode($mensaje);	
 			  }
 		  }
 		  exit;

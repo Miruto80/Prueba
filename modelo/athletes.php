@@ -276,6 +276,10 @@ class  athletes extends datos
 							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
+				    $respuesta = $respuesta . "<button type='button'
+							class='btn btn-warning btn-sm mx-1 my-1' 
+							onclick='mostrarImagen2(".$r['cedula'].")'
+						    ><i class='fa-solid fa-camera'></i></button><br/>";	
 					$respuesta = $respuesta . "</td>";
 					$respuesta = $respuesta . "<td>";
 					$respuesta = $respuesta . $r['cedula'];
