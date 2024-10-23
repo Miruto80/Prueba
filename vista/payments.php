@@ -191,10 +191,8 @@
     <div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-header text-warning bg-dark justify-content-center">
-                <h5 class="modal-title">Listado de clientes</h5>
-                <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
-                    <span aria-hidden="true">&times;</span>
-                </button>
+                <h5 class="modal-title">Listado de Atletas</h5>
+               
             </div>
             <div class="modal-content">
                 <table class="table table-striped table-hover">
