@@ -27,13 +27,17 @@ if (is_file("vista/" . $pagina . ".php")) {
 
 		if ($accion == 'consultar') {
 			echo  json_encode($o->consultar());
+
 		} else if ($accion == 'obtienefecha') {
 			echo json_encode($o->obtienefecha());
+			
 		} elseif ($accion == 'eliminar') {
-			$o->set_cedula($_POST['cedula']);
+			$o->set_Comprobantedepago($_POST['Comprobantedepago']);
 			echo  json_encode($o->eliminar());
+
 		} else if ($accion == 'modalclientes') {
 			echo  json_encode($o->listadodeclientes());
+
 		} else {
 			$o->set_cedula($_POST['cedula']);
 			$o->set_fechadepago($_POST['fechadepago']);
@@ -44,6 +48,7 @@ if (is_file("vista/" . $pagina . ".php")) {
 
 			if ($accion == 'incluir') {
 				echo  json_encode($o->incluir());
+				
 			} elseif ($accion == 'modificar') {
 				echo  json_encode($o->modificar());
 			}

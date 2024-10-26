@@ -90,7 +90,7 @@ class  payments extends datos
 		//en el caso de los atletas la cedula, para ello se creo la funcion existe
 		//que retorna true en caso de exitir el registro
 		$r = array();
-		if (!$this->existe($this->cedula)) {
+		if (!$this->existe($this->Comprobantedepago)) {
 			//Si estamos aca es porque la cedula no existe es decir se puede incluir
 			
 			//Se llama a la funcion conecta 
@@ -122,7 +122,7 @@ class  payments extends datos
 			}
 		} else {
 			$r['resultado'] = 'incluir';
-			$r['mensaje'] =  'Ya existe la cedula';
+			$r['mensaje'] =  'Ya existe el pago';
 		}
 		return $r;
 
@@ -133,7 +133,7 @@ class  payments extends datos
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if ($this->existe($this->Comprobantedepago)) {
 			try {
 				$co->query("Update tpagos set 
 					    cedula = '$this->cedula',
@@ -157,17 +157,16 @@ class  payments extends datos
 		}
 		return $r;
 	}
-
-	function eliminar()
+function eliminar()
 	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if ($this->existe($this->Comprobantedepago)) {
 			try {
 				$co->query("delete from tpagos 
 						where
-						cedula = '$this->cedula'
+						Comprobantedepago = '$this->Comprobantedepago'
 						");
 				$r['resultado'] = 'eliminar';
 				$r['mensaje'] =  'Registro Eliminado';
@@ -242,14 +241,14 @@ class  payments extends datos
 	}
 		
 	
-	private function existe($cedula){
+	private function existe($Comprobantedepago){
 
 	
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try {
 
-			$resultado = $co->query("Select * from tpagos where cedula='$cedula'");
+			$resultado = $co->query("Select * from tpagos where Comprobantedepago='$Comprobantedepago'");
 
 
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);

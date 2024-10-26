@@ -17,11 +17,11 @@
             margin: 0;
         }
 
+        
         body {
             background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
             background-size: cover;
             background-repeat: no-repeat;
-
         }
 
 
@@ -35,6 +35,14 @@
         .tablita {
             color: white;
         }
+
+        .tablaprincipal {
+            background-color: #E7B00A;
+            /* Color de fondo */
+            color: #fff;
+            /* Color de texto (opcional) */
+        }
+
     </style>
     <hr />
     <div class="container">
@@ -104,8 +112,9 @@
                             <div class="row mb-3">
                                 <div class="col-md-4">
                                     <label for="cedula">Cedula</label>
-                                    <input class="form-control" type="text" id="cedula" name="cedula" />
-                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
+                                    <input class="form-control" type="text" id="cedula" name="cedula" disabled />
+                                    <br>
+                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
                                     <span id="scedula"></span>
                                 </div>
                                 <div class="col-md-8">
@@ -136,7 +145,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-8">
                                     <label for="tipopago">Tipo de Pago</label>
-                                    <select class="form-control" id="tipopago" name="tipopago">
+                                    <select class="form-select" class="form-control" id="tipopago" name="tipopago">
                                         <option value="Pago movil">Pago movil</option>
                                         <option value="tranferencia">Tranferencia</option>
                                         <option value="Efectivo">Efectivo</option>
@@ -144,32 +153,10 @@
                                 </div>
                                 <div class="col-md-4">
                                     <label for="numeroaccion">Numero de Accion</label>
-                                    <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
+                                    <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
                                     <span id="snumeroaccion"></span>
                                 </div>
                             </div>
-                            <!-- en proceso de creacion
-                            <div class="col-md-12">
-                                <label for="mes">Mes</label>
-                                <select class="form-control" id="mes" name="mes">
-
-                                    <option value="">Enero</option>
-                                    <option value="">Febrero</option>
-                                    <option value="">Marzo</option>
-                                    <option value="">Abril</option>
-                                    <option value="">Mayo</option>
-                                    <option value="">Junio</option>
-                                    <option value="">Julio</option>
-                                    <option value="">Agosto</option>
-                                    <option value="">Septiembre</option>
-                                    <option value="">Octubre</option>
-                                    <option value="">Noviembre</option>
-                                    <option value="">Diciembre</option>
-
-                                </select>
-                            </div> -->
-
-
                         </div>
                         <div class="row mt-3 justify-content-center">
                             <div class="col-md-2">
@@ -186,36 +173,41 @@
         </div>
     </div>
     </div>
+
     <!--fin de seccion modal-->
+    <!--inicio de seccion modal-->
 
     <div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-header text-warning bg-dark justify-content-center">
-                <h5 class="modal-title">Listado de Atletas</h5>
-               
-            </div>
-            <div class="modal-content">
-                <table class="table table-striped table-hover">
-                    <thead>
-                        <tr>
-                            <th style="display:none">Id</th>
-                            <th class="text-center">Cedula</th>
-                            <th class="text-center">Apellidos</th>
-                            <th class="text-center">Nombres</th>
-                            <th class="text-center">Numero de Accion</th>
-                        </tr>
-                    </thead>
-                    <tbody id="tablaclientes">
+        <div class="modal-dialog modal-lg modal-dialog-scrollable">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-header text-warning bg-dark justify-content-center">
+                    <h5 class="modal-title">Listado de Atletas</h5>
 
-                    </tbody>
-                </table>
-            </div>
-            <div class="modal-footer bg-light">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+                <div class="modal-content">
+                    <table class="table table-striped-columns table-hover">
+                        <thead>
+                            <tr>
+                                <th style="display:none">Id</th>
+                                <th class="text-center">Cedula</th>
+                                <th class="text-center">Apellidos</th>
+                                <th class="text-center">Nombres</th>
+                                <th class="text-center">Numero de Accion</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaclientes">
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
     </div>
 
+    <!--fin de seccion modal-->
     <?php require_once("comunes/modal.php"); ?>
     <script type="text/javascript" src="js/payments.js"></script>
 
