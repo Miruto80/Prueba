@@ -137,14 +137,18 @@ $("#proceso").on("click",function(){
 		}
 	}
 	else if($(this).text()=="MODIFICAR"){
+		if(validarenvio()){
 		var datos = new FormData($('#f')[0]);
 		  datos.append('accion','modificar');
 		  enviaAjax(datos);
+		}
 	}
 	if($(this).text()=="ELIMINAR"){
+		if(validarenvio()){
 		var datos = new FormData($('#f')[0]);
 		datos.append('accion','eliminar');
 		enviaAjax(datos);
+		}
 	}
 });
 $("#incluir").on("click",function(){
