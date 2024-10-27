@@ -218,7 +218,7 @@
 									<center>
 										<label for="archivo" style="cursor:pointer">
 
-											<img src="img/usuarios/logo.png" id="imagen"
+											<img src="img/Atletas/logo.png" id="imagen"
 												class="img-fluid rounded-circle w-25 mb-3 centered"
 												style="object-fit:scale-down">
 											Click aqui para subir foto
@@ -259,7 +259,7 @@
 				<div class="container justify-content-center">
 					<form method="post" id="f" autocomplete="off" enctype='multipart/form-data'>
 						<center>
-							<img src="img/usuarios/logo.png" id="imagen2"
+							<img src="img/Atletas/logo.png" id="imagen2"
 								class="img-fluid w-25 mb-3 centered"
 								style="object-fit:scale-down">
 						</center>
