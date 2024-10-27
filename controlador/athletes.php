@@ -76,7 +76,7 @@ require_once("modelo/".$pagina.".php");
 						if (($_FILES['imagenarchivo']['size'] / 1024) < 1024) {
 							
 							  move_uploaded_file($_FILES['imagenarchivo']['tmp_name'], 
-							  'img/usuarios/'.$_POST['cedula'].'.png');
+							  'img/Atletas/'.$_POST['cedula'].'.png');
 							  
 						} 
 					}
@@ -93,7 +93,7 @@ require_once("modelo/".$pagina.".php");
 						  if (($_FILES['imagenarchivo']['size'] / 1024) < 1024) {
 							  
 								move_uploaded_file($_FILES['imagenarchivo']['tmp_name'], 
-								'img/usuarios/'.$_POST['cedula'].'.png');
+								'img/Atletas/'.$_POST['cedula'].'.png');
 								
 						  } 
 					  }

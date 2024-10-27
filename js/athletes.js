@@ -137,14 +137,18 @@ $("#proceso").on("click",function(){
 		}
 	}
 	else if($(this).text()=="MODIFICAR"){
+		if(validarenvio()){
 		var datos = new FormData($('#f')[0]);
 		  datos.append('accion','modificar');
 		  enviaAjax(datos);
+		}
 	}
 	if($(this).text()=="ELIMINAR"){
+		if(validarenvio()){
 		var datos = new FormData($('#f')[0]);
 		datos.append('accion','eliminar');
 		enviaAjax(datos);
+		}
 	}
 });
 $("#incluir").on("click",function(){
@@ -287,7 +291,7 @@ function pone(pos,accion){
 	$("#Telefono").val($(linea).find("td:eq(9)").text());
 	$("#Numerodeaccion").val($(linea).find("td:eq(10)").text());
 	$("#Cinturon").val($(linea).find("td:eq(11)").text());
-	$("#imagen").prop("src","img/usuarios/"+$(linea).find("td:eq(1)").text()+".png");
+	$("#imagen").prop("src","img/Atletas/"+$(linea).find("td:eq(1)").text()+".png");
 	$("#modal1").modal("show");
 }
 
@@ -379,7 +383,7 @@ function limpia(){
 	$("#Telefono").val("");
 	$("#Numerodeaccion").val("");
 	$("#Cinturon").prop("selectedIndex",0);
-	$('#imagen').prop("src","img/usuarios/logo.png");
+	$('#imagen').prop("src","img/Atletas/logo.png");
 }
 
 $("#archivo").on("change",function(){
@@ -416,7 +420,7 @@ $("#imagen2").on("error",function(){
 	 }
 }
 function mostrarImagen2(f) {
-	$('#imagen2').attr('src', 'img/usuarios/'+f+'.png');
+	$('#imagen2').attr('src', 'img/Atletas/'+f+'.png');
 	$("#modal2").modal("show");
 	/*var tamano = f.files[0].size;
      var megas = parseInt(tamano / 1024);
