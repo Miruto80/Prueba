@@ -175,41 +175,50 @@ class trainers extends datos
 
 
 	function consultar()
-	{
-		$co = $this->conecta();
-		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$r = array();
-		try {
-			$resultado = $co->query("SELECT * FROM tentrenadores");
-			if ($resultado) {
-				$respuesta = '';
-				foreach ($resultado as $row) {
-					$respuesta .= "<tr>";
-					$respuesta .= "<td class='text-center action-column'>";
-					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
-								   <i class='fa-solid fa-pen-to-square'></i></button>";
-					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
-								   <i class='fa-solid fa-trash'></i></button>";
-					$respuesta .= "</td>";
-					$respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['Telefono']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['Jerarquiadecinturon']}</td>";
-					$respuesta .= "</tr>";
-				}
-				$r['resultado'] = 'consultar';
-				$r['mensaje'] =  $respuesta;
-			} else {
-				$r['resultado'] = 'consultar';
-				$r['mensaje'] =  '';
-			}
-		} catch (Exception $e) {
-			$r['resultado'] = 'error';
-			$r['mensaje'] = $e->getMessage();
-		}
-		return $r;
-	}
+{
+    $co = $this->conecta();
+    $co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $r = array();
+    try {
+        $resultado = $co->query("SELECT * FROM tentrenadores");
+        if ($resultado) {
+            $respuesta = '';
+            foreach ($resultado as $row) {
+                $respuesta .= "<tr>";
+                $respuesta .= "<td class='text-center action-column'>";
+                
+                // Botones de editar y eliminar
+                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
+                               <i class='fa-solid fa-pen-to-square'></i></button>";
+                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
+                               <i class='fa-solid fa-trash'></i></button>";
+                
+                // Botón para mostrar imagen
+                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' 
+                               onclick='mostrarImagen2({$row['CedulaE']})'>
+                               <i class='fa-solid fa-camera'></i></button><br/>";
+                
+                $respuesta .= "</td>";
+                $respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
+                $respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
+                $respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
+                $respuesta .= "<td class='text-center'>{$row['Telefono']}</td>";
+                $respuesta .= "<td class='text-center'>{$row['Jerarquiadecinturon']}</td>";
+                $respuesta .= "</tr>";
+            }
+            $r['resultado'] = 'consultar';
+            $r['mensaje'] =  $respuesta;
+        } else {
+            $r['resultado'] = 'consultar';
+            $r['mensaje'] =  '';
+        }
+    } catch (Exception $e) {
+        $r['resultado'] = 'error';
+        $r['mensaje'] = $e->getMessage();
+    }
+    return $r;
+}
+
 
 
 
