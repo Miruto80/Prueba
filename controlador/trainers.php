@@ -21,7 +21,16 @@ require_once("modelo/".$pagina.".php");
 	  //para poderlos usar
 	  
 	  
-	  
+	  $o = new trainers();   
+		if(isset($_POST['generar'])){
+			$o = new trainers();
+			$o->set_CedulaE($_POST['CedulaE']);
+			$o->set_Nombre($_POST['Nombre']);
+			$o->set_Apellido($_POST['Apellido']);
+			$o->set_Telefono($_POST['Telefono']);
+			$o->set_Jerarquiadecinturon($_POST['Jerarquiadecinturon']);
+			$o->generarPDF();
+		}
 	  
 	  
 	  if(!empty($_POST)){

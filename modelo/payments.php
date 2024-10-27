@@ -1,4 +1,8 @@
 <?php
+require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones de la 
+//libreria DOMPDF
+// lo siguiente es hacer rerencia al espacio de trabajo
+use Dompdf\Dompdf;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -15,8 +19,8 @@ class  payments extends datos
 	private $Monto;
 	private $Comprobantedepago;
 	private $tipopago;
-	
 	private $numeroaccion;
+	
 	//Metodos para leer: get metodos para colocar: set 
 
 	function set_cedula($valor)
@@ -90,7 +94,7 @@ class  payments extends datos
 		//en el caso de los atletas la cedula, para ello se creo la funcion existe
 		//que retorna true en caso de exitir el registro
 		$r = array();
-		if (!$this->existe($this->cedula)) {
+		if (!$this->existe($this->Comprobantedepago)) {
 			//Si estamos aca es porque la cedula no existe es decir se puede incluir
 			
 			//Se llama a la funcion conecta 
@@ -122,7 +126,7 @@ class  payments extends datos
 			}
 		} else {
 			$r['resultado'] = 'incluir';
-			$r['mensaje'] =  'Ya existe la cedula';
+			$r['mensaje'] =  'Ya existe el pago';
 		}
 		return $r;
 
@@ -133,7 +137,7 @@ class  payments extends datos
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if ($this->existe($this->Comprobantedepago)) {
 			try {
 				$co->query("Update tpagos set 
 					    cedula = '$this->cedula',
@@ -157,17 +161,16 @@ class  payments extends datos
 		}
 		return $r;
 	}
-
-	function eliminar()
+function eliminar()
 	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if ($this->existe($this->Comprobantedepago)) {
 			try {
 				$co->query("delete from tpagos 
 						where
-						cedula = '$this->cedula'
+						Comprobantedepago = '$this->Comprobantedepago'
 						");
 				$r['resultado'] = 'eliminar';
 				$r['mensaje'] =  'Registro Eliminado';
@@ -242,14 +245,14 @@ class  payments extends datos
 	}
 		
 	
-	private function existe($cedula){
+	private function existe($Comprobantedepago){
 
 	
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try {
 
-			$resultado = $co->query("Select * from tpagos where cedula='$cedula'");
+			$resultado = $co->query("Select * from tpagos where Comprobantedepago='$Comprobantedepago'");
 
 
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
@@ -326,4 +329,92 @@ class  payments extends datos
 
 		return $r;
 	}
+
+	function generarPDF() {
+		// Conexión a la base de datos y configuración de errores
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	
+		try {
+			// Preparación de la consulta SQL
+			$resultado = $co->prepare("SELECT * FROM tpagos WHERE cedula LIKE :cedula AND fechadepago LIKE :fechadepago 
+			AND Monto LIKE :Monto AND Comprobantedepago LIKE :Comprobantedepago 
+			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion");
+			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
+			$resultado->bindValue(':fechadepago', '%' . $this->fechadepago . '%');
+			$resultado->bindValue(':Monto', '%' . $this->Monto . '%');
+			$resultado->bindValue(':Comprobantedepago', '%' . $this->Comprobantedepago . '%');
+			$resultado->bindValue(':tipopago', '%' . $this->tipopago . '%');
+			$resultado->bindValue(':numeroaccion', '%' . $this->numeroaccion . '%');
+			$resultado->execute();
+			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
+	
+			// Construcción del contenido HTML para el PDF
+			$html = "
+				<html>
+				<head>
+					<style>
+						body { font-family: Arial, sans-serif; }
+						table { width: 100%; border-collapse: collapse; }
+						th, td { border: 1px solid #000; padding: 8px; text-align: center; }
+						th { background-color: #FFD700; color: #000; } /* Dorado en encabezado */
+						td { background-color: #FFF; }
+						h2 { text-align: center; color: #000; }
+					</style>
+				</head>
+				<body>
+					<h2>Reporte de Pagos</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Cedula</th>
+								<th>Fecha de Pago</th>
+								<th>Monto</th>
+								<th>Comprobante de Pago</th>
+								<th>Tipo de Pago</th>
+								<th>Numero de Accion</th>
+							</tr>
+						</thead>
+						<tbody>";
+	
+			// Añadiendo filas al HTML
+			if ($fila) {
+				foreach ($fila as $f) {
+					$html .= "
+						<tr>
+							<td>{$f['cedula']}</td>
+							<td>{$f['fechadepago']}</td>
+							<td>{$f['Monto']}</td>
+							<td>{$f['Comprobantedepago']}</td>
+							<td>{$f['tipopago']}</td>
+							<td>{$f['numeroaccion']}</td>
+						</tr>";
+				}
+			} else {
+				$html .= "
+						<tr>
+							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+						</tr>";
+			}
+	
+			// Finalización del HTML
+			$html .= "
+						</tbody>
+					</table>
+				</body>
+				</html>";
+		} catch (Exception $e) {
+			// Manejo de errores
+			echo "Error: " . $e->getMessage();
+			exit;
+		}
+	
+		// Generación del PDF
+		$pdf = new DOMPDF();
+		$pdf->set_paper("A4", "portrait");
+		$pdf->load_html(utf8_decode($html));
+		$pdf->render();
+		$pdf->stream('ReportePagos.pdf', array("Attachment" => false));
+	}
+	
 }

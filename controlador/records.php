@@ -11,7 +11,15 @@ require_once("modelo/".$pagina.".php");
 	   
 	
 	
-	
+	$o = new records();
+
+	if (isset($_POST['generar'])) {
+		$o->set_Nombre_de_evento($_POST['Nombre_de_evento']);
+		$o->set_Fecha_del_evento($_POST['Fecha_del_evento']);
+		$o->set_Logro_obtenido($_POST['Logro_obtenido']);
+		$o->set_categoria($_POST['categoria']);
+		$o->generarPDF();
+	}
 	
 	
 	  

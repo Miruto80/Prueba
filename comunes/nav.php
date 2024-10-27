@@ -39,6 +39,7 @@
                 <li><a class="dropdown-item" href="?pagina=schedules">Gestionar Horarios</a></li>
                 <li><a class="dropdown-item" href="?pagina=payments">Gestionar Pagos</a></li>
                 <li><a class="dropdown-item" href="?pagina=records">Gestionar Logros</a></li>
+                <li><a class="dropdown-item" href="?pagina=report">Reportes</a></li>
               </ul>
             </li>
           </ul>

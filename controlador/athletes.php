@@ -16,9 +16,23 @@ require_once("modelo/".$pagina.".php");
 	  //instanciar es crear una variable local que contiene los metodos de la clase
 	  //para poderlos usar
 	  
-	  
+	  $o = new athletes();   
+		if(isset($_POST['generar'])){
+			$o = new athletes();
+			$o->set_cedula($_POST['cedula']);
+			$o->set_nombres($_POST['nombres']);
+			$o->set_apellidos($_POST['apellidos']);
+			$o->set_Telefono($_POST['Telefono']);
+			$o->set_sexo($_POST['sexo']);
+			$o->set_fechadenacimiento($_POST['fechadenacimiento']);
+			$o->set_Participacion($_POST['Participacion']);
+			$o->set_Direccion($_POST['Direccion']);
+			$o->set_Correo($_POST['Correo']);
+			$o->set_Numerodeaccion($_POST['Numerodeaccion']);
+			$o->set_Cinturon($_POST['Cinturon']);
+			$o->generarPDF();
+		}
 
-	  
 	  
 	  if(!empty($_POST)){
 		$o = new athletes();   //instancia de clase athletes

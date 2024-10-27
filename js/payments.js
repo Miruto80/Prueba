@@ -32,11 +32,11 @@ function destruyeDT(){
             $("#tablapersona").DataTable().destroy();
     }
 }
-function crearDT(){
-	//Se crea nuevamente
+function crearDT() {
+    // Se crea nuevamente
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
-            $("#tablapersona").DataTable({
-              language: {
+        $("#tablapersona").addClass("tablaprincipal").DataTable({
+            language: {
                 lengthMenu: "Mostrar _MENU_ por página",
                 zeroRecords: "No se encontraron personas",
                 info: "Mostrando página _PAGE_ de _PAGES_",
@@ -44,17 +44,20 @@ function crearDT(){
                 infoFiltered: "(filtrado de _MAX_ registros totales)",
                 search: "Buscar:",
                 paginate: {
-                  first: "Primera",
-                  last: "Última",
-                  next: "Siguiente",
-                  previous: "Anterior",
+                    first: "Primera",
+                    last: "Última",
+                    next: "Siguiente",
+                    previous: "Anterior",
                 },
-              },
-              autoWidth: false,
-              order: [[1, "asc"]],
-            });
-    }         
+            },
+            autoWidth: false,
+            order: [[1, "asc"]],
+
+            pagingType: "full"
+        });
+    }
 }
+
 $(document).ready(function(){
 	pone_fecha();
 
@@ -67,7 +70,7 @@ $("#cedula").on("keypress",function(e){
 
 $("#cedula").on("keyup",function(){
 	validarkeyup(/^[0-9]{7,8}$/,$(this),
-	$("#scedula"),"El formato debe ser 9999999 ");
+	$("#scedula"),"");
 });
 
 $("#fechadepago").on("keypress",function(e){
@@ -78,15 +81,15 @@ $("#fechadepago").on("keyup",function(){
 	validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
 	$(this),$("#sfechadepago"),"Ingrese una fecha validaaa");
 });
-
-$("#Monto").on("keypress",function(e){
-	validarkeypress(/^[0-9-\b]*$/,e);
+/*
+$("#Monto").on("keypress", function(e) {
+    validarkeypress(/^[0-9,]*$/, e);
 });
 
-$("#Monto").on("keyup",function(){
-	validarkeyup(/^[0-9]{2}$/,$(this),
-	$("#sMonto"),"El formato debe ser de 99");
+$("#Monto").on("keyup", function() {
+    validarkeyup(/^(0[0-9]|[1-9][0-9]),[0-9]{2}$/, $(this), $("#sMonto"), "El formato debe ser de 00,00 a 99,99");
 });
+*/
 
 $("#Comprobantedepago").on("keypress",function(e){
 	validarkeypress(/^[0-9-\b]*$/,e);
@@ -133,8 +136,8 @@ $("#proceso").on("click",function(){
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
-		$("#scedula"),"El formato debe ser 9999999")==0){
+		if((/^[0-9]{1,8}$/,$(this),
+		$("#sComprobantedepago"),"El formato debe ser de 1 a 8")==0){
 	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		
@@ -142,7 +145,7 @@ $("#proceso").on("click",function(){
 		else{
 			var datos = new FormData();
 			datos.append('accion','eliminar');
-			datos.append('cedula',$("#cedula").val());
+			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
 			enviaAjax(datos);
 		}
 	}
@@ -154,10 +157,6 @@ $("#incluir").on("click",function(){
 });
 
 
-
-
-
-	
 	
 });
 
@@ -173,13 +172,13 @@ function validarenvio(){
 		$("#fechadepago"),$("#sfechadepago"),"Ingrese una fecha valida")==0){
 		muestraMensaje("Ingrese una fecha valida");
 		return false;
-	}
-	else if(validarkeyup(/^[0-9]{2}$/,$("#Monto"),
-	$("#Monto"),"El formato debe ser de 99")==0){
+	}/*
+	else if(validarkeyup(/^^(0[0-9]|[1-9][0-9]),[0-9]{2}$/,$("#Monto"),
+	$("#Monto"),"El formato debe ser de 99,99")==0){
 	muestraMensaje("El Monto debe coincidir con el formato <br/>"+ 
-					"de 99");	
+					"de 99,99");	
 	return false;					
-	}
+	}*/
 	
 	else {
 		var f1 = new Date(1950,1,1 );

@@ -1,5 +1,8 @@
 <?php
-
+require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones de la 
+//libreria DOMPDF
+// lo siguiente es hacer rerencia al espacio de trabajo
+use Dompdf\Dompdf;
 require_once('modelo/datos.php');
 
 
@@ -204,6 +207,86 @@ class records extends datos{
 		}catch(Exception $e){
 			return false;
 		}
+	}
+
+
+	function generarPDF() {
+		// Conexión a la base de datos y configuración de errores
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+	
+		try {
+			// Preparación de la consulta SQL
+			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria");
+			$resultado->bindValue(':Nombre_de_evento', '%' . $this->Nombre_de_evento . '%');
+			$resultado->bindValue(':Fecha_del_evento', '%' . $this->Fecha_del_evento . '%');
+			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');
+			$resultado->bindValue(':categoria', '%' . $this->categoria . '%');
+			$resultado->execute();
+			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
+	
+			// Construcción del contenido HTML para el PDF
+			$html = "
+				<html>
+				<head>
+					<style>
+						body { font-family: Arial, sans-serif; }
+						table { width: 100%; border-collapse: collapse; }
+						th, td { border: 1px solid #000; padding: 8px; text-align: center; }
+						th { background-color: #FFD700; color: #000; } /* Dorado en encabezado */
+						td { background-color: #FFF; }
+						h2 { text-align: center; color: #000; }
+					</style>
+				</head>
+				<body>
+					<h2>Reporte de Logros</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Nombre del Evento</th>
+								<th>Fecha del Evento</th>
+								<th>Logro Obtenido</th>
+								<th>Categoria</th>
+							</tr>
+						</thead>
+						<tbody>";
+	
+			// Añadiendo filas al HTML
+			if ($fila) {
+				foreach ($fila as $f) {
+					$html .= "
+						<tr>
+							<td>{$f['Nombre_de_evento']}</td>
+							<td>{$f['Fecha_del_evento']}</td>
+							<td>{$f['Logro_obtenido']}</td>
+							<td>{$f['categoria']}</td>
+						</tr>";
+				}
+			} else {
+				$html .= "
+						<tr>
+							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+						</tr>";
+			}
+	
+			// Finalización del HTML
+			$html .= "
+						</tbody>
+					</table>
+				</body>
+				</html>";
+		} catch (Exception $e) {
+			// Manejo de errores
+			echo "Error: " . $e->getMessage();
+			exit;
+		}
+	
+		// Generación del PDF
+		$pdf = new DOMPDF();
+		$pdf->set_paper("A4", "portrait");
+		$pdf->load_html(utf8_decode($html));
+		$pdf->render();
+		$pdf->stream('ReportePagos.pdf', array("Attachment" => false));
 	}
 	
 	

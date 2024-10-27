@@ -45,10 +45,16 @@
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
-				<div class="col-12 col-md-6 col-lg-4 d-flex justify-content-center mb-2">
+				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
 				</div>
-				<div class="col-12 col-md-6 col-lg-2 d-flex justify-content-center mb-2">
+
+				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
+					<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">
+						<b>REPORTE</b>
+					</button>
+				</div>
+				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
 					<a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>
 				</div>
 			</div>
@@ -134,6 +140,59 @@
 	</div>
 	</div>
 
+	<!-- Sección del modal 2 -->
+    <div class="modal fade" tabindex="-1" id="modal2" aria-labelledby="modal2Label" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header bg-dark text-warning">
+                    <h5 class="modal-title" id="modal2Label">Modal 2</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+				<form method="post" id="f" autocomplete="off" target="_blank">
+						<div class="row">
+							<div class="col">
+								<label for="Nombre_de_evento">Nombre del Evento</label>
+								<input class="form-control" type="text" id="Nombre_de_evento" name="Nombre_de_evento" />
+								<span id="sNombre_de_evento" class="form-text text-muted"></span>
+							</div>
+							<div class="col">
+								<label for="Fecha_del_evento">Fecha del evento</label>
+								<input class="form-control" type="text" id="Fecha_del_evento" name="Fecha_del_evento" />
+								<span id="sFecha_del_evento" class="form-text text-muted"></span>
+							</div>
+
+							<div class="col">
+								<label for="Logro_obtenido">Logro Obtenido </label>
+								<input class="form-control" type="text" id="Logro_obtenido" name="Logro_obtenido" />
+								<span id="sLogro_obtenido" class="form-text text-muted"></span>
+							</div>
+
+							<div class="col">
+								<label for="categoria">Categoria</label>
+								<input class="form-control" type="text" id="categoria" name="categoria" />
+								<span id="scategoria" class="form-text text-muted"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col">
+								<hr />
+							</div>
+						</div>
+						<div class="row">
+							<div class="col text-center">
+								<button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>
+							</div>
+						</div>
+					</form>
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Fin de sección modal 2 -->
 
 	<!--fin de seccion modal-->
 	<!--Llamada a archivo modal.php, dentro de el hay una sección modal-->

@@ -1,4 +1,8 @@
 <?php
+require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones de la 
+//libreria DOMPDF
+// lo siguiente es hacer rerencia al espacio de trabajo
+use Dompdf\Dompdf;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -368,4 +372,96 @@ class  athletes extends datos
 
 		return $r;
 	}
+
+	function generarPDF() {
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		try {
+			$resultado = $co->prepare("SELECT * FROM tatletas WHERE 
+										cedula LIKE :cedula AND 
+										nombres LIKE :nombres AND 
+										apellidos LIKE :apellidos AND 
+										Telefono LIKE :Telefono AND 
+										sexo LIKE :sexo AND 
+										fechadenacimiento LIKE :fechadenacimiento AND 
+										Participacion LIKE :Participacion AND 
+										Direccion LIKE :Direccion AND 
+										Correo LIKE :Correo AND 
+										Numerodeaccion LIKE :Numerodeaccion AND 
+										Cinturon LIKE :Cinturon");
+			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
+			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
+			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
+			$resultado->bindValue(':Telefono', '%' . $this->Telefono . '%');
+			$resultado->bindValue(':sexo', '%' . $this->sexo . '%');
+			$resultado->bindValue(':fechadenacimiento', '%' . $this->fechadenacimiento . '%');
+			$resultado->bindValue(':Participacion', '%' . $this->Participacion . '%');
+			$resultado->bindValue(':Direccion', '%' . $this->Direccion . '%');
+			$resultado->bindValue(':Correo', '%' . $this->Correo . '%');
+			$resultado->bindValue(':Numerodeaccion', '%' . $this->Numerodeaccion . '%');
+			$resultado->bindValue(':Cinturon', '%' . $this->Cinturon . '%');
+	
+			$resultado->execute();
+			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
+	
+			$html = "<html><head>
+						<style>
+							body { font-family: Arial, sans-serif; font-size: 10px; }
+							table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+							th, td { border: 1px solid #000; padding: 4px; text-align: center; word-wrap: break-word; }
+							th { background-color: #FFD700; color: #000; }
+							td { background-color: #FFF; }
+							h1 { text-align: center; font-size: 16px; }
+						</style>
+					 </head><body>";
+	
+			$html .= "<h1>LISTA DE ATLETAS</h1>";
+			$html .= "<table>";
+			$html .= "<thead><tr>";
+			$html .= "<th style='width:10%'>Cedula</th>";
+			$html .= "<th style='width:12%'>Nombre</th>";
+			$html .= "<th style='width:12%'>Apellido</th>";
+			$html .= "<th style='width:10%'>Telefono</th>";
+			$html .= "<th style='width:6%'>Sexo</th>";
+			$html .= "<th style='width:12%'>Fecha de Nacimiento</th>";
+			$html .= "<th style='width:12%'>Participacion</th>";
+			$html .= "<th style='width:16%'>Direccion</th>";
+			$html .= "<th style='width:10%'>Correo</th>";
+			$html .= "<th style='width:10%'>Numero de Accion</th>";
+			$html .= "<th style='width:10%'>Cinturon</th>";
+			$html .= "</tr></thead>";
+			$html .= "<tbody>";
+	
+			if ($fila) {
+				foreach ($fila as $f) {
+					$html .= "<tr>";
+					$html .= "<td>" . htmlspecialchars($f['cedula']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['nombres']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['apellidos']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Telefono']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['sexo']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['fechadenacimiento']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Participacion']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Direccion']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Correo']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Numerodeaccion']) . "</td>";
+					$html .= "<td>" . htmlspecialchars($f['Cinturon']) . "</td>";
+					$html .= "</tr>";
+				}
+			} else {
+				$html .= "<tr><td colspan='9'>No se encontraron registros.</td></tr>";
+			}
+	
+			$html .= "</tbody></table></body></html>";
+		} catch (Exception $e) {
+			return "Error al generar el PDF: " . $e->getMessage();
+		}
+	
+		$pdf = new DOMPDF();
+		$pdf->set_paper("A4", "landscape");  // Cambia a horizontal si hay problemas de espacio
+		$pdf->load_html(utf8_decode($html));
+		$pdf->render();
+		$pdf->stream('LISTA_DE_ENTRENADORES.pdf', array("Attachment" => false));
+	}
+	
 }
