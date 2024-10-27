@@ -211,7 +211,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
     <!-- Sección del modal 2 -->
     <div class="modal fade" tabindex="-1" id="modal2" aria-labelledby="modal2Label" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
@@ -279,8 +278,6 @@
         </div>
     </div>
     <!-- Fin de sección modal 2 -->
-=======
->>>>>>> e1bf90158442b2a625c8fe38361c8da14bc78ada
     <!--fin de seccion modal-->
     <?php require_once("comunes/modal.php"); ?>
     <script type="text/javascript" src="js/payments.js"></script>
