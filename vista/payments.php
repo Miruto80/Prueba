@@ -41,10 +41,6 @@
             color: #fff;
             /* Color de texto (opcional) */
         }
-<<<<<<< HEAD
-=======
-
->>>>>>> e1bf90158442b2a625c8fe38361c8da14bc78ada
     </style>
     <hr />
     <div class="container">
