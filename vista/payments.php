@@ -17,11 +17,6 @@
             margin: 0;
         }
 
-<<<<<<< HEAD
-
-=======
-        
->>>>>>> e1bf90158442b2a625c8fe38361c8da14bc78ada
         body {
             background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
             background-size: cover;
