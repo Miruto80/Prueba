@@ -279,7 +279,7 @@ class  athletes extends datos
 					$respuesta = $respuesta . "<button type='button'
 							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,1)'
-						    ><i class='fa-solid fa-trash'></i></button><br/>";
+						    ><i class='fa-solid fa-trash'></i></button>";
 				    $respuesta = $respuesta . "<button type='button'
 							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='mostrarImagen2(".$r['cedula'].")'
@@ -461,7 +461,7 @@ class  athletes extends datos
 		$pdf->set_paper("A4", "landscape");  // Cambia a horizontal si hay problemas de espacio
 		$pdf->load_html(utf8_decode($html));
 		$pdf->render();
-		$pdf->stream('LISTA_DE_ENTRENADORES.pdf', array("Attachment" => false));
+		$pdf->stream('LISTA_DE_ATLETAS.pdf', array("Attachment" => false));
 	}
 	
 }
