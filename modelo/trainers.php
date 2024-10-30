@@ -196,7 +196,7 @@ class trainers extends datos
                 // Botón para mostrar imagen
                 $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' 
                                onclick='mostrarImagen2({$row['CedulaE']})'>
-                               <i class='fa-solid fa-camera'></i></button><br/>";
+                               <i class='fa-solid fa-camera'></i></button>";
                 
                 $respuesta .= "</td>";
                 $respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";

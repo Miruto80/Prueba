@@ -40,7 +40,7 @@
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
 				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<button type="button" class="btn btn-warning  id="incluir">ASIGNAR</button>
+					<button type="button" class="btn btn-warning" id="incluir"><b>ASIGNAR</b></button>
 				</div>
 
 				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
@@ -49,7 +49,7 @@
 					</button>
 				</div>
 				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<a href="?pagina=principal" class="btn btn-warning">SALIR</a>
+					<a href="?pagina=principal" class="btn btn-warning"><b>SALIR</b></a>
 				</div>
 			</div>
 		</div>

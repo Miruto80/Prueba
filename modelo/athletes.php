@@ -461,7 +461,7 @@ class  athletes extends datos
 		$pdf->set_paper("A4", "landscape");  // Cambia a horizontal si hay problemas de espacio
 		$pdf->load_html(utf8_decode($html));
 		$pdf->render();
-		$pdf->stream('LISTA_DE_ENTRENADORES.pdf', array("Attachment" => false));
+		$pdf->stream('LISTA_DE_ATLETAS.pdf', array("Attachment" => false));
 	}
 	
 }
