@@ -1,15 +1,42 @@
 var datos = new FormData();
-datos.append('accion','modalclientes');
+datos.append('accion','modalatletas');
 enviaAjax(datos);
-
-$("#listadodeclientes").on("click",function(){
-	$("#modalclientes").modal("show");
+datos.append('accion','modalentrenadores');
+enviaAjax(datos);
+//boton para levantar modal de atletas
+$("#listadodeatletas").on("click",function(){
+	$("#modalatletas").modal("show");
+	
+});
+//boton para levantar modal de entrenadores
+$("#listadodeentrenadores").on("click",function(){
+	$("#modalentrenadores").modal("show");
 	
 });
 
-function colocacliente(linea){
-	$("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#modalclientes").modal("hide");
+function colocaatleta(linea) {
+    $("#cedula").val($(linea).find("td:eq(1)").text());
+    
+    
+    const fechaNac = new Date($(linea).find("td:eq(4)").text()); 
+    const hoy = new Date(); // Obtiene la fecha actual
+    let edad = hoy.getFullYear() - fechaNac.getFullYear(); // Calcula la diferencia de años
+    const mes = hoy.getMonth() - fechaNac.getMonth();
+
+    // Ajuste de la edad si aún no ha pasado el mes o día de cumpleaños de este año
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+        edad--;
+    }
+
+    // Coloca la edad calculada en el campo correspondiente
+    $("#Edad").val(edad);
+    
+    $("#modalatletas").modal("hide");
+}
+
+function colocaentrenador(linea){
+	$("#CedulaE").val($(linea).find("td:eq(1)").text());
+	$("#modalentrenadores").modal("hide");
 }
 
 function pone_fecha(){
@@ -20,7 +47,6 @@ function pone_fecha(){
 	enviaAjax(datos);	
 	
 }
-
 
 function consultar(){
 	var datos = new FormData();
@@ -63,6 +89,21 @@ $(document).ready(function(){
 	//ejecuta una consulta a la base de datos para llenar la tabla
 	consultar();
 	
+	$("#fechadenacimiento").on("input", function() {
+        const fechaNac = new Date($(this).val()); // Obtiene la fecha de nacimiento
+        const hoy = new Date(); // Obtiene la fecha actual
+        let edad = hoy.getFullYear() - fechaNac.getFullYear(); // Calcula la diferencia de años
+        const mes = hoy.getMonth() - fechaNac.getMonth();
+
+        // Ajuste de la edad si aún no ha pasado el mes o día de cumpleaños de este año
+        if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNac.getDate())) {
+            edad--;
+        }
+
+        // Coloca la edad calculada en el campo correspondiente
+        $("#Edad").val(edad);
+    });
+
     //validaciones 	
 	$("#cedula").on("keypress",function(e){
 		validarkeypress(/^[0-9-\b]*$/,e);
@@ -71,6 +112,15 @@ $(document).ready(function(){
 	$("#cedula").on("keyup",function(){
 		validarkeyup(/^[0-9]{7,8}$/,$(this),
 		$("#scedula"),"El formato debe ser 9999999 ");
+	});
+
+	$("#CedulaE").on("keypress",function(e){
+		validarkeypress(/^[0-9-\b]*$/,e);
+	});
+	
+	$("#CedulaE").on("keyup",function(){
+		validarkeyup(/^[0-9]{7,8}$/,$(this),
+		$("#sCedulaE"),"El formato debe ser 9999999 ");
 	});
 	
 	
@@ -99,7 +149,7 @@ $("#proceso").on("click",function(){
 			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
-			datos.append('EntrenadorH',$("#EntrenadorH").val());
+			datos.append('CedulaE',$("#CedulaE").val());
 	
 			enviaAjax(datos);
 		}
@@ -111,7 +161,7 @@ $("#proceso").on("click",function(){
 			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
-			datos.append('EntrenadorH',$("#EntrenadorH").val());
+			datos.append('CedulaE',$("#CedulaE").val());
 			enviaAjax(datos);
 		}
 	}
@@ -130,6 +180,7 @@ $("#proceso").on("click",function(){
 		}
 	}
 });
+
 $("#incluir").on("click",function(){
 	limpia();
 	$("#proceso").text("INCLUIR");
@@ -145,6 +196,13 @@ function validarenvio(){
 	if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
 		$("#scedula"),"El formato debe ser 9999999")==0){
 	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
+						"99999999");	
+		return false;					
+	}	
+
+	if(validarkeyup(/^[0-9]{7,8}$/,$("#CedulaE"),
+		$("#sCedulaE"),"El formato debe ser 9999999")==0){
+	    muestraMensaje("La CedulaE debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		return false;					
 	}	
@@ -227,7 +285,7 @@ function pone(pos,accion){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
 	$("#Edad").val($(linea).find("td:eq(2)").text());
 	$("#Tipodehorario").val($(linea).find("td:eq(3)").text());
-	$("#EntrenadorH").val($(linea).find("td:eq(4)").text());
+	$("#CedulaE").val($(linea).find("td:eq(4)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -278,10 +336,16 @@ function enviaAjax(datos) {
 			   consultar();
 		   }
         }
-		else if (lee.resultado == "modalclientes") {
-			$("#tablaclientes").html(lee.mensaje);
+		else if (lee.resultado == "modalatletas") {
+			$("#tablaatletas").html(lee.mensaje);
 			
 		 }
+
+		else if (lee.resultado == "modalentrenadores") {
+			$("#tablaentrenadores").html(lee.mensaje);
+			
+		 }
+
 		else if (lee.resultado == "error") {
            muestraMensaje(lee.mensaje);
         }
@@ -308,7 +372,7 @@ function enviaAjax(datos) {
 function limpia(){
 	$("#cedula").val("");
 	$("#Edad").val("");
-	$("#EntrenadorH").prop("selectedIndex",0);
+	$("#CedulaE").val("");
 	$("#Tipodehorario").prop("selectedIndex",0);
 
 }

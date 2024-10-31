@@ -85,11 +85,11 @@ CREATE TABLE `tHorarios`(
     `id2` int, 
     `cedula` int,
     `Edad` int NOT NULL,
-    `EntrenadorH` varchar(30) NOT NULL,
+    `CedulaE` varchar(30) NOT NULL,
     PRIMARY KEY (`id2`, `cedula`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `Edad`, `EntrenadorH`) VALUES
+INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `Edad`, `CedulaE`) VALUES
 ('Adulto', 1, 30560144, 23, 'George Kahakajian'),
 ('Juvenil', 2, 30560145, 24,'Elias Hoss'),
 ('Infantil', 3, 30560146, 30, 'Antonio Sabino');

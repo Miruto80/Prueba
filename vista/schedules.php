@@ -92,15 +92,26 @@
 									<label for="cedula">Cedula</label>
 									<input class="form-control" type="text" id="cedula" name="cedula" />
 									<br>
-									<button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Atletas</button>
+									<button type="button" class="btn btn-warning btn-block" id="listadodeatletas" name="listadodeatletas">Listado de Atletas</button>
 									<span id="scedula"></span>
 								</div>
 
-								<div class="col-md-3">
-									<label for="Edad">Edad</label>
-									<input class="form-control" type="text" id="Edad" />
-									<span id="sEdad"></span>
-								</div>
+								<div class="col-md-4">
+									<label for="fechadenacimiento">Fecha de Nacimiento</label>
+								    <input class="form-control" type="date" id="fechadenacimiento" name="fechadenacimiento" required />
+								    <span id="sfechadenacimiento"></span>
+						        </div>
+
+							    <div class="col-md-4">
+								    <label for="Edad">Edad</label>
+                                    <input class="form-control" type="text" id="Edad" name="Edad" readonly />
+                                    <span id="sEdad"></span>
+                                </div>
+
+								<div class="col-md">
+								<br>
+
+
 								<div class="col-md-6">
 									<label for="Tipodehorario">Tipo de Horario</label>
 									<select class="form-select" id="Tipodehorario">
@@ -112,15 +123,18 @@
 
 								<div class="col-md">
 									<br>
-									<label for="EntrenadorH">Entrenador</label>
-									<select class="form-select" id="EntrenadorH">
-										<option value="Entrenador Infantil. Antonio Sabino">Entrenador Infantil. Antonio Sabino</option>
-										<option value="Entrenador Juvenil. Elias Hoss">Entrenador Juvenil. Elias Hoss</option>
-										<option value="Entrenador Adulto. George Kahakajian">Entrenador Adulto. George Kahakajian</option>
-									</select>
+									
+									<div class="row mb-3">
+										<div class="col-md-12">
+											<label for="CedulaE">Entrenador</label>
+                                    		<input class="form-control" type="text" id="CedulaE" name="CedulaE" />
+											<br>
+											<button type="button" class="btn btn-warning btn-block" id="listadodeentrenadores" name="listadodeentrenadores">Listado de Entrenadores</button>
+											<span id="sCedulaE"></span>
+										</div>
+									</div>
 								</div>
 							</div>
-						</div>
 
 						<div class="row mt-3 justify-content-center">
 							<div class="col-md-2">
@@ -138,7 +152,7 @@
 	</div>
 	</div>
 
-	<div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
+	<div class="modal fade" tabindex="-1" role="dialog" id="modalatletas">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-header text-warning bg-dark justify-content-center">
 				<h5 class="modal-title">Listado de Atletas</h5>
@@ -160,7 +174,7 @@
 							<th class="text-center">Cinturon</th>
 						</tr>
 					</thead>
-					<tbody id="tablaclientes">
+					<tbody id="tablaatletas">
 
 					</tbody>
 				</table>
@@ -170,6 +184,36 @@
 			</div>
 		</div>
 	</div>
+
+	<div class="modal fade" tabindex="-1" role="dialog" id="modalentrenadores">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-header text-warning bg-dark justify-content-center">
+                <h5 class="modal-title">Listado de Entrenadores</h5>
+                <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+    <div class="modal-content">
+		<table class="table table-striped table-hover">
+		<thead>
+		  <tr>
+		    <th style="display:none">Id</th>
+			<th class="text-center">Cedula</th>
+				<th class="text-center">Apellidos</th>
+				<th class="text-center">Nombres</th>
+				<th class="text-center">Jerarquia de cinturon</th>
+		  </tr>
+		</thead>
+		<tbody id="tablaentrenadores">
+		  
+		</tbody>
+		</table>
+    </div>
+	<div class="modal-footer bg-light">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+    </div>
+  </div>
+</div>
 	<!-- Sección del modal 2 -->
 	<div class="modal fade" tabindex="-1" id="modal2" aria-labelledby="modal2Label" aria-hidden="true">
 		<div class="modal-dialog modal-lg" role="document">
@@ -182,7 +226,7 @@
 					<form method="post" id="f" autocomplete="off" target="_blank">
 						<div class="row">
 							<div class="col">
-								<label for="cedula">Cédula</label>
+								<label for="cedula">Cedula</label>
 								<input class="form-control" type="text" id="cedula" name="cedula" />
 								<span id="scedula" class="form-text text-muted"></span>
 							</div>
@@ -199,9 +243,9 @@
 							</div>
 
 							<div class="col">
-								<label for="EntrenadorH">Entrenador</label>
-								<input class="form-control" type="text" id="EntrenadorH" name="EntrenadorH" />
-								<span id="sEntrenadorH" class="form-text text-muted"></span>
+								<label for="CedulaE">Entrenador</label>
+                                <input class="form-control" type="text" id="CedulaE" name="CedulaE" />
+								<span id="sCedulaE" class="form-text text-muted"></span>
 							</div>
 						</div>
 						<div class="row">

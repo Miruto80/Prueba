@@ -14,7 +14,7 @@ class schedules extends datos
 	private $cedula;
 	private $Edad;
 	private $Tipodehorario;
-	private $EntrenadorH;
+	private $CedulaE;
 
 
 	// se colocan los atrivutos en funciones set para colocarles valores y manipularlos 
@@ -34,9 +34,9 @@ class schedules extends datos
 		$this->Tipodehorario = $valor;
 	}
 
-	function set_EntrenadorH($valor)
+	function set_CedulaE($valor)
 	{
-		$this->EntrenadorH = $valor;
+		$this->CedulaE = $valor; 
 	}
 
 
@@ -56,114 +56,112 @@ class schedules extends datos
 		return $this->Tipodehorario;
 	}
 
-	function get_EntrenadorH()
+	function get_CedulaE()
 	{
-		return $this->EntrenadorH;
+		return $this->CedulaE;
 	}
 
 
 	//se crean los metodos consultar incluir y eliminar
 
-	function incluir()
-	{
-
+	function incluir(){
+		
 		$r = array();
-		if (!$this->existe($this->cedula)) {
+		if(!$this->existe($this->cedula)){
 			//si cedula no existe 
 			//1 Se llama a la funcion conecta 
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 			//2 Se ejecuta el sql
 			try {
-				$co->query("Insert into thorarios(
+					$co->query("Insert into thorarios(
 						cedula,
 						Edad,
 						Tipodehorario,
-						EntrenadorH
+						CedulaE
 						)
 						Values(
 						'$this->cedula',
 						'$this->Edad',
 						'$this->Tipodehorario',
-						'$this->EntrenadorH'
+						'$this->CedulaE'
 						)");
-				$r['resultado'] = 'incluir';
-				$r['mensaje'] =  'Asignacion exitosa';
-			} catch (Exception $e) {
+						$r['resultado'] = 'incluir';
+			            $r['mensaje'] =  'Asignacion exitosa';
+			} catch(Exception $e) {
 				$r['resultado'] = 'error';
-				$r['mensaje'] =  $e->getMessage();
+			    $r['mensaje'] =  $e->getMessage();
 			}
-		} else {
+		}
+		else{
 			$r['resultado'] = 'incluir';
 			$r['mensaje'] =  'Ya existe la cedula';
 		}
 		return $r;
 	}
 
-	function modificar()
-	{
+	function modificar(){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if($this->existe($this->cedula)){
 			try {
-				$co->query("Update thorarios set 
+					$co->query("Update thorarios set 
 					    cedula = '$this->cedula',
 						Edad = '$this->Edad',
 						Tipodehorario = '$this->Tipodehorario',
-						EntrenadorH = '$this->EntrenadorH'
+						CedulaE = '$this->CedulaE'
 						where
-						cedula = '$this->cedula'
-						");
-				$r['resultado'] = 'modificar';
-				$r['mensaje'] =  'Modificacion exitosa';
-			} catch (Exception $e) {
+						cedula = '$this->cedula' 
+						"); // puede que falte CedulaE aqui ******************************************************************************************************************
+						$r['resultado'] = 'modificar';
+			            $r['mensaje'] =  'Modificacion exitosa';
+			} catch(Exception $e) {
 				$r['resultado'] = 'error';
-				$r['mensaje'] =  $e->getMessage();
+			    $r['mensaje'] =  $e->getMessage();
 			}
-		} else {
+		}
+		else{
 			$r['resultado'] = 'modificar';
 			$r['mensaje'] =  'cedula no registrada';
 		}
 		return $r;
 	}
-
-	function eliminar()
-	{
+	
+	function eliminar(){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if ($this->existe($this->cedula)) {
+		if($this->existe($this->cedula)){
 			try {
-				$co->query("delete from thorarios 
+					$co->query("delete from thorarios 
 						where
 						cedula = '$this->cedula'
-						");
-				$r['resultado'] = 'eliminar';
-				$r['mensaje'] =  'Eliminado exitosamente';
-			} catch (Exception $e) {
+						"); // y puede que aqui tambien LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+						$r['resultado'] = 'eliminar';
+			            $r['mensaje'] =  'Eliminado exitosamente';
+			} catch(Exception $e) {
 				$r['resultado'] = 'error';
-				$r['mensaje'] =  $e->getMessage();
+			    $r['mensaje'] =  $e->getMessage();
 			}
-		} else {
+		}
+		else{
 			$r['resultado'] = 'eliminar';
 			$r['mensaje'] =  'No existe la cedula';
 		}
 		return $r;
 	}
 
-
-	function consultar()
-	{
+	function consultar(){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try {
+		try{
 
 			$resultado = $co->query("select * from thorarios");
-			if ($resultado) {
+			if($resultado){
 				$respuesta = '';
-				foreach ($resultado as $row) {
+				foreach($resultado as $row){
 					$respuesta .= "<tr>";
 					$respuesta .= "<td class='text-center action-column'>";
 					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
@@ -174,7 +172,7 @@ class schedules extends datos
 					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Edad']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Tipodehorario']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['EntrenadorH']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
 					$respuesta .= "</tr>";
 				}
 				$r['resultado'] = 'consultar';
@@ -183,7 +181,7 @@ class schedules extends datos
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  '';
 			}
-		} catch (Exception $e) {
+		} catch(Exception $e){
 			$r['resultado'] = 'error';
 			$r['mensaje'] = $e->getMessage();
 		}
@@ -193,81 +191,85 @@ class schedules extends datos
 
 
 
-	private function existe($cedula)
-	{
+	private function existe($cedula){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		try {
-
+		try{
+			
 			$resultado = $co->query("Select * from thorarios where cedula='$cedula'");
-
-
+			
+			
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
-			if ($fila) {
+			if($fila){
 
 				return true;
-			} else {
-
+			    
+			}
+			else{
+				
 				return false;;
 			}
-		} catch (Exception $e) {
+			
+		}catch(Exception $e){
 			return false;
 		}
 	}
 
-	function listadodeclientes()
-	{
+	function listadodeatletas(){ 
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try {
-
+		try{
+			
 			$resultado = $co->query("Select * from tatletas");
-
-			if ($resultado) {
-
+			
+			if($resultado){
+				
 				$respuesta = '';
-				foreach ($resultado as $r) {
-					$respuesta = $respuesta . "<tr style='cursor:pointer' onclick='colocacliente(this);'>";
-					$respuesta = $respuesta . "<td style='display:none'>";
-					$respuesta = $respuesta . $r['id'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['cedula'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['apellidos'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['nombres'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['fechadenacimiento'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['sexo'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Numerodeaccion'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Cinturon'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "</tr>";
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocaatleta(this);'>";
+						$respuesta = $respuesta."<td style='display:none'>";
+							$respuesta = $respuesta.$r['id'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['apellidos'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['nombres'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['fechadenacimiento'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['sexo'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Numerodeaccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Cinturon'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
 				}
-				$r['resultado'] = 'modalclientes';
+				$r['resultado'] = 'modalatletas';
 				$r['mensaje'] =  $respuesta;
-			} else {
-				$r['resultado'] = 'modalclientes';
+			    
+			}
+			else{
+				$r['resultado'] = 'modalatletas';
 				$r['mensaje'] =  '';
 			}
-		} catch (Exception $e) {
+			
+		}catch(Exception $e){
 			$r['resultado'] = 'error';
 			$r['mensaje'] =  $e->getMessage();
 		}
 		return $r;
 	}
-
+	
 	function obtienefecha()
 	{
 		$r = array();
@@ -281,6 +283,52 @@ class schedules extends datos
 		return $r;
 	}
 
+	function listadodeentrenadores(){ // eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		 $r = array();
+		try{
+		   
+			 $resultado = $co->query("Select * from tentrenadores");
+		   
+			if($resultado){
+			   
+				$respuesta = '';
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocaentrenador(this);'>";
+						$respuesta = $respuesta."<td style='display:none'>";
+							$respuesta = $respuesta.$r['id'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['CedulaE'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Apellido'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Nombre'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['Jerarquiadecinturon'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
+				}
+				$r['resultado'] = 'modalentrenadores';
+				$r['mensaje'] =  $respuesta;
+			   
+			}
+		   else{
+			   $r['resultado'] = 'modalentrenadores';
+			   $r['mensaje'] =  '';
+		   }
+		   
+	   }catch(Exception $e){
+		   $r['resultado'] = 'error';
+		   $r['mensaje'] =  $e->getMessage();
+	   }
+	   return $r;
+	   }
+
 	function generarPDF()
 	{
 		// Conexión a la base de datos y configuración de errores
@@ -289,11 +337,11 @@ class schedules extends datos
 
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND EntrenadorH LIKE :EntrenadorH");
+			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND CedulaE LIKE :CedulaE");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
 			$resultado->bindValue(':Edad', '%' . $this->Edad . '%');
 			$resultado->bindValue(':Tipodehorario', '%' . $this->Tipodehorario . '%');
-			$resultado->bindValue(':EntrenadorH', '%' . $this->EntrenadorH . '%');
+			$resultado->bindValue(':CedulaE', '%' . $this->CedulaE . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
@@ -332,7 +380,7 @@ class schedules extends datos
 							<td>{$f['cedula']}</td>
 							<td>{$f['Edad']}</td>
 							<td>{$f['Tipodehorario']}</td>
-							<td>{$f['EntrenadorH']}</td>
+							<td>{$f['CedulaE']}</td>
 						</tr>";
 				}
 			} else {

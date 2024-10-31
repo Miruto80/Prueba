@@ -15,41 +15,50 @@ if (is_file("vista/".$pagina.".php")) {
 		$o->set_cedula($_POST['cedula']);
 		$o->set_Edad($_POST['Edad']);
 		$o->set_Tipodehorario($_POST['Tipodehorario']);
-		$o->set_EntrenadorH($_POST['EntrenadorH']);
+		$o->set_CedulaE($_POST['CedulaE']);
 		$o->generarPDF();
 	}
 
-	if (!empty($_POST)) {
+	if(!empty($_POST)){
+		// guardamos en schedules los valores con los metodos set
 		$accion = $_POST['accion'];
-		
 		// Condicionales para las diferentes acciones
-		if ($accion == 'consultar') {
-			echo json_encode($o->consultar());  
-		} elseif ($accion == 'obtienefecha') {
-			echo json_encode($o->obtienefecha());
-		} elseif ($accion == 'eliminar') {
-			$o->set_cedula($_POST['cedula']);
-			echo json_encode($o->eliminar());
-		} elseif ($accion == 'modalclientes') {
-			echo json_encode($o->listadodeclientes());
-		} else {
-			// Set valores adicionales para incluir o modificar
+		if($accion=='consultar'){
+		   echo  json_encode($o->consultar());  
+		}
+		else if($accion=='obtienefecha'){
+		  echo json_encode($o->obtienefecha());
+	   }
+		else if($accion=='eliminar'){
+		   $o->set_cedula($_POST['cedula']);
+		   echo  json_encode($o->eliminar());
+		}
+		else if($accion == 'modalatletas'){
+		  echo  json_encode($o->listadodeatletas());
+	   }
+	   else if($accion == 'modalentrenadores'){
+		  echo  json_encode($o->listadodeentrenadores());
+	   }
+		else{		  
 			$o->set_cedula($_POST['cedula']);
 			$o->set_Edad($_POST['Edad']);
 			$o->set_Tipodehorario($_POST['Tipodehorario']);
-			$o->set_EntrenadorH($_POST['EntrenadorH']);
-			
-			if ($accion == 'incluir') {
-				echo json_encode($o->incluir());
-			} elseif ($accion == 'modificar') {
-				echo json_encode($o->modificar());
+			$o->set_CedulaE($_POST['CedulaE']);
+
+			if($accion=='incluir'){
+			  echo  json_encode($o->incluir());
+			}
+			elseif($accion=='modificar'){
+			  echo  json_encode($o->modificar());
 			}
 		}
 		exit;
 	}
-
-	require_once("vista/".$pagina.".php");
-} else {
+	
+	
+	require_once("vista/".$pagina.".php"); 
+}
+else{
 	echo "pagina en construccion";
 }
 ?>
