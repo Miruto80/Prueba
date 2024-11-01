@@ -17,6 +17,7 @@ if (is_file("vista/".$pagina.".php")) {
 		$o->set_Tipodehorario($_POST['Tipodehorario']);
 		$o->set_CedulaE($_POST['CedulaE']);
 		$o->generarPDF();
+		
 	}
 
 	if(!empty($_POST)){
