@@ -115,11 +115,11 @@
 
                                 <div class="col-md-12">
                                     <br>
-                                    <label for="CedulaE">Entrenador</label>
-                                    <input class="form-control" type="text" id="CedulaE" name="CedulaE" disabled />
+                                    <label for="Nombre">Entrenador</label>
+                                    <input class="form-control" type="text" id="Nombre" name="Nombre" disabled />
                                     <br>
                                     <button type="button" class="btn btn-warning btn-block" id="listadodeentrenadores" name="listadodeentrenadores">Listado de Entrenadores</button>
-                                    <span id="sCedulaE"></span>
+                                    <span id="sNombre"></span>
                                 </div>
                             </div>
                         </div>

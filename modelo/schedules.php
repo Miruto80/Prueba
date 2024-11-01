@@ -14,7 +14,7 @@ class schedules extends datos
 	private $cedula;
 	private $Edad;
 	private $Tipodehorario;
-	private $CedulaE;
+	private $Nombre;
 
 
 	// se colocan los atrivutos en funciones set para colocarles valores y manipularlos 
@@ -34,9 +34,9 @@ class schedules extends datos
 		$this->Tipodehorario = $valor;
 	}
 
-	function set_CedulaE($valor)
+	function set_Nombre($valor)
 	{
-		$this->CedulaE = $valor; 
+		$this->Nombre = $valor; 
 	}
 
 
@@ -56,9 +56,9 @@ class schedules extends datos
 		return $this->Tipodehorario;
 	}
 
-	function get_CedulaE()
+	function get_Nombre()
 	{
-		return $this->CedulaE;
+		return $this->Nombre;
 	}
 
 
@@ -78,13 +78,13 @@ class schedules extends datos
 						cedula,
 						Edad,
 						Tipodehorario,
-						CedulaE
+						Nombre
 						)
 						Values(
 						'$this->cedula',
 						'$this->Edad',
 						'$this->Tipodehorario',
-						'$this->CedulaE'
+						'$this->Nombre'
 						)");
 						$r['resultado'] = 'incluir';
 			            $r['mensaje'] =  'Asignacion exitosa';
@@ -110,10 +110,10 @@ class schedules extends datos
 					    cedula = '$this->cedula',
 						Edad = '$this->Edad',
 						Tipodehorario = '$this->Tipodehorario',
-						CedulaE = '$this->CedulaE'
+						Nombre = '$this->Nombre'
 						where
 						cedula = '$this->cedula' 
-						"); // puede que falte CedulaE aqui ******************************************************************************************************************
+						"); 
 						$r['resultado'] = 'modificar';
 			            $r['mensaje'] =  'Modificacion exitosa';
 			} catch(Exception $e) {
@@ -137,7 +137,7 @@ class schedules extends datos
 					$co->query("delete from thorarios 
 						where
 						cedula = '$this->cedula'
-						"); // y puede que aqui tambien LLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL
+						"); 
 						$r['resultado'] = 'eliminar';
 			            $r['mensaje'] =  'Eliminado exitosamente';
 			} catch(Exception $e) {
@@ -172,7 +172,7 @@ class schedules extends datos
 					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Edad']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Tipodehorario']}</td>";
-					$respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
 					$respuesta .= "</tr>";
 				}
 				$r['resultado'] = 'consultar';

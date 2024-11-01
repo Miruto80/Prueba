@@ -15,7 +15,7 @@ if (is_file("vista/".$pagina.".php")) {
 		$o->set_cedula($_POST['cedula']);
 		$o->set_Edad($_POST['Edad']);
 		$o->set_Tipodehorario($_POST['Tipodehorario']);
-		$o->set_CedulaE($_POST['CedulaE']);
+		$o->set_Nombre($_POST['Nombre']);
 		$o->generarPDF();
 		
 	}
@@ -44,7 +44,7 @@ if (is_file("vista/".$pagina.".php")) {
 			$o->set_cedula($_POST['cedula']);
 			$o->set_Edad($_POST['Edad']);
 			$o->set_Tipodehorario($_POST['Tipodehorario']);
-			$o->set_CedulaE($_POST['CedulaE']);
+			$o->set_Nombre($_POST['Nombre']);
 
 			if($accion=='incluir'){
 			  echo  json_encode($o->incluir());

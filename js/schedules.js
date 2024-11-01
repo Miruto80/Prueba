@@ -35,7 +35,7 @@ function colocaatleta(linea) {
 }
 
 function colocaentrenador(linea){
-	$("#CedulaE").val($(linea).find("td:eq(1)").text());
+	$("#Nombre").val($(linea).find("td:eq(3)").text());
 	$("#modalentrenadores").modal("hide");
 }
 
@@ -113,16 +113,6 @@ $(document).ready(function(){
 		validarkeyup(/^[0-9]{7,8}$/,$(this),
 		$("#scedula"),"El formato debe ser 9999999 ");
 	});
-
-	$("#CedulaE").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
-	});
-	
-	$("#CedulaE").on("keyup",function(){
-		validarkeyup(/^[0-9]{7,8}$/,$(this),
-		$("#sCedulaE"),"El formato debe ser 9999999 ");
-	});
-	
 	
 	$("#Edad").on("keypress", function(e) {
 		validarkeypress(/^[0-9\b]*$/, e); 
@@ -149,7 +139,7 @@ $("#proceso").on("click",function(){
 			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
-			datos.append('CedulaE',$("#CedulaE").val());
+			datos.append('Nombre',$("#Nombre").val());
 	
 			enviaAjax(datos);
 		}
@@ -161,7 +151,7 @@ $("#proceso").on("click",function(){
 			datos.append('cedula',$("#cedula").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
-			datos.append('CedulaE',$("#CedulaE").val());
+			datos.append('Nombre',$("#Nombre").val());
 			enviaAjax(datos);
 		}
 	}
@@ -196,13 +186,6 @@ function validarenvio(){
 	if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
 		$("#scedula"),"El formato debe ser 9999999")==0){
 	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
-						"99999999");	
-		return false;					
-	}	
-
-	if(validarkeyup(/^[0-9]{7,8}$/,$("#CedulaE"),
-		$("#sCedulaE"),"El formato debe ser 9999999")==0){
-	    muestraMensaje("La CedulaE debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		return false;					
 	}	
@@ -285,7 +268,7 @@ function pone(pos,accion){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
 	$("#Edad").val($(linea).find("td:eq(2)").text());
 	$("#Tipodehorario").val($(linea).find("td:eq(3)").text());
-	$("#CedulaE").val($(linea).find("td:eq(4)").text());
+	$("#Nombre").val($(linea).find("td:eq(4)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -372,7 +355,7 @@ function enviaAjax(datos) {
 function limpia(){
 	$("#cedula").val("");
 	$("#Edad").val("");
-	$("#CedulaE").val("");
+	$("#Nombre").val("");
 	$("#Tipodehorario").prop("selectedIndex",0);
 
 }
