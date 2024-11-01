@@ -82,7 +82,7 @@
                             <div class="row mb-3">
                                 <div class="col-md-3">
                                     <label for="cedula">Cédula</label>
-                                    <input class="form-control" type="text" id="cedula" name="cedula" />
+                                    <input class="form-control" type="text" id="cedula" name="cedula" disabled />
                                     <br>
                                     <button type="button" class="btn btn-warning btn-block" id="listadodeatletas" name="listadodeatletas">Listado de Atletas</button>
                                     <span id="scedula"></span>
@@ -90,17 +90,21 @@
 
                                 <div class="col-md-4">
                                     <label for="fechadenacimiento">Fecha de Nacimiento</label>
-                                    <input class="form-control" type="date" id="fechadenacimiento" name="fechadenacimiento" required />
+                                    <input class="form-control" type="date" id="fechadenacimiento" name="fechadenacimiento" required disabled />
                                     <span id="sfechadenacimiento"></span>
                                 </div>
 
                                 <div class="col-md-4">
                                     <label for="Edad">Edad</label>
-                                    <input class="form-control" type="text" id="Edad" name="Edad" readonly />
+                                    <input class="form-control" type="text" id="Edad" name="Edad" readonly disabled />
                                     <span id="sEdad"></span>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="row-md">
+								<br>
+                                </div>
+
+                                <div class="col-md-12">
                                     <label for="Tipodehorario">Tipo de Horario</label>
                                     <select class="form-select" id="Tipodehorario">
                                         <option value="INFANTIL de 5:00 PM a 6:00 PM">INFANTIL de 5:00 PM a 6:00 PM</option>
@@ -109,10 +113,10 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md">
+                                <div class="col-md-12">
                                     <br>
                                     <label for="CedulaE">Entrenador</label>
-                                    <input class="form-control" type="text" id="CedulaE" name="CedulaE" />
+                                    <input class="form-control" type="text" id="CedulaE" name="CedulaE" disabled />
                                     <br>
                                     <button type="button" class="btn btn-warning btn-block" id="listadodeentrenadores" name="listadodeentrenadores">Listado de Entrenadores</button>
                                     <span id="sCedulaE"></span>
@@ -204,7 +208,7 @@
                         <div class="row">
                             <div class="col">
                                 <label for="cedula">Cédula</label>
-                                <input class="form-control" type="text" id="cedula" name="cedula" />
+                                <input class="form-control" type="text" id="cedula" name="cedula"  />
                                 <span id="scedula" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
