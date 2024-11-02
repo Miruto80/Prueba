@@ -196,6 +196,9 @@
         </div>
     </div>
 
+
+
+    
     <div class="modal fade" tabindex="-1" id="modal2" aria-labelledby="modal2Label" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
@@ -222,9 +225,9 @@
                                 <span id="sTipodehorario" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
-                                <label for="CedulaE">Entrenador</label>
-                                <input class="form-control" type="text" id="CedulaE" name="CedulaE" />
-                                <span id="sCedulaE" class="form-text text-muted"></span>
+                                <label for="Nombre">Entrenador</label>
+                                <input class="form-control" type="text" id="Nombre" name="Nombre" />
+                                <span id="sNombre" class="form-text text-muted"></span>
                             </div>
                         </div>
                         <div class="row">

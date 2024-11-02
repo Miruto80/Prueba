@@ -337,11 +337,11 @@ class schedules extends datos
 
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND CedulaE LIKE :CedulaE");
+			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND Nombre LIKE :Nombre");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
 			$resultado->bindValue(':Edad', '%' . $this->Edad . '%');
 			$resultado->bindValue(':Tipodehorario', '%' . $this->Tipodehorario . '%');
-			$resultado->bindValue(':CedulaE', '%' . $this->CedulaE . '%');
+			$resultado->bindValue(':Nombre', '%' . $this->Nombre . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 
@@ -380,7 +380,7 @@ class schedules extends datos
 							<td>{$f['cedula']}</td>
 							<td>{$f['Edad']}</td>
 							<td>{$f['Tipodehorario']}</td>
-							<td>{$f['CedulaE']}</td>
+							<td>{$f['Nombre']}</td>
 						</tr>";
 				}
 			} else {
