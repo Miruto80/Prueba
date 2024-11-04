@@ -392,6 +392,145 @@ class  athletes extends datos
 	
 }
 
+class schedules extends datos
+{
+
+	// se declaran los atributos o variables en privado
+	private $cedula;
+	private $Edad;
+	private $Tipodehorario;
+	private $Nombre;
+
+
+	// se colocan los atrivutos en funciones set para colocarles valores y manipularlos 
+	// con get se leen
+	function set_cedula($valor)
+	{
+		$this->cedula = $valor;
+	}
+
+	function set_Edad($valor)
+	{
+		$this->Edad = $valor;
+	}
+
+	function set_Tipodehorario($valor)
+	{
+		$this->Tipodehorario = $valor;
+	}
+
+	function set_Nombre($valor)
+	{
+		$this->Nombre = $valor; 
+	}
+
+
+
+	function get_cedula()
+	{
+		return $this->cedula;
+	}
+
+	function get_Edad()
+	{
+		return $this->Edad;
+	}
+
+	function get_Tipodehorario()
+	{
+		return $this->Tipodehorario;
+	}
+
+	function get_Nombre()
+	{
+		return $this->Nombre;
+	}
+	
+
+	
+
+	function generarPDF()
+	{
+		// Conexión a la base de datos y configuración de errores
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+		try {
+			// Preparación de la consulta SQL
+			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND Nombre LIKE :Nombre");
+			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
+			$resultado->bindValue(':Edad', '%' . $this->Edad . '%');
+			$resultado->bindValue(':Tipodehorario', '%' . $this->Tipodehorario . '%');
+			$resultado->bindValue(':Nombre', '%' . $this->Nombre . '%');
+			$resultado->execute();
+			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+			// Construcción del contenido HTML para el PDF
+			$html = "
+				<html>
+				<head>
+				<style>
+							body { font-family: Arial, sans-serif; }
+							table { width: 100%; border-collapse: collapse; }
+							th, td { border: 1px solid #000; padding: 8px; text-align: center; }
+							th { background-color: #FFD700; color: #000; } /* Amarillo */
+							td { background-color: #FFF; }
+							h1 { text-align: center; }
+							.logo { display: block; margin: 0 auto; width: 150px; } /* Ajusta el tamaño según sea necesario */
+						</style>
+						</head>
+				<body>
+					<h2 style='text-align:center;'>REPORTE DE HORARIOS</h2>
+					<table>
+						<thead>
+							<tr>
+								<th>Cedula</th>
+								<th>Edad</th>
+								<th>Tipo de Horario</th>
+								<th>Entrenador</th>
+							</tr>
+						</thead>
+						<tbody>";
+
+			// Añadiendo filas al HTML
+			if ($fila) {
+				foreach ($fila as $f) {
+					$html .= "
+						<tr>
+							<td>{$f['cedula']}</td>
+							<td>{$f['Edad']}</td>
+							<td>{$f['Tipodehorario']}</td>
+							<td>{$f['Nombre']}</td>
+						</tr>";
+				}
+			} else {
+				$html .= "
+						<tr>
+							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+						</tr>";
+			}
+
+			// Finalización del HTML
+			$html .= "
+						</tbody>
+					</table>
+				</body>
+				</html>";
+		} catch (Exception $e) {
+			// Manejo de errores
+			echo "Error: " . $e->getMessage();
+			exit;
+		}
+
+		// Generación del PDF
+		$pdf = new DOMPDF();
+		$pdf->set_paper("A4", "portrait");
+		$pdf->load_html(utf8_decode($html));
+		$pdf->render();
+		$pdf->stream('ReporteUsuarios.pdf', array("Attachment" => false));
+	}
+}
+
 
 class  payments extends datos
 {

@@ -55,6 +55,16 @@ if (is_file("vista/" . $pagina . ".php")) {
         $record->generarPDF();
     }
 
+    // Procesamiento para horarios
+    elseif (isset($_POST['generar'], $_POST['cedula'], $_POST['Edad'], $_POST['Tipodehorario'], $_POST['Nombre'])) {
+        $schedule = new schedules();
+        $schedule->set_cedula($_POST['cedula']);
+        $schedule->set_Edad($_POST['Edad']);
+        $schedule->set_Tipodehorario($_POST['Tipodehorario']);
+        $schedule->set_Nombre($_POST['Nombre']);
+        $schedule->generarPDF();
+    }
+
     // Incluye la vista correspondiente
     require_once("vista/" . $pagina . ".php");
 
