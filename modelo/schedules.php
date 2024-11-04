@@ -12,6 +12,8 @@ class schedules extends datos
 
 	// se declaran los atributos o variables en privado
 	private $cedula;
+	private $apellidos;
+	private $nombres;
 	private $Edad;
 	private $Tipodehorario;
 	private $Nombre;
@@ -22,6 +24,16 @@ class schedules extends datos
 	function set_cedula($valor)
 	{
 		$this->cedula = $valor;
+	}
+
+	function set_apellidos($valor)
+	{
+		$this->apellidos = $valor;
+	}
+
+	function set_nombres($valor)
+	{
+		$this->nombres = $valor;
 	}
 
 	function set_Edad($valor)
@@ -44,6 +56,16 @@ class schedules extends datos
 	function get_cedula()
 	{
 		return $this->cedula;
+	}
+
+	function get_apellidos()
+	{
+		return $this->apellidos;
+	}
+
+	function get_nombres()
+	{
+		return $this->nombres;
 	}
 
 	function get_Edad()
@@ -76,12 +98,16 @@ class schedules extends datos
 			try {
 					$co->query("Insert into thorarios(
 						cedula,
+						apellidos,
+						nombres,
 						Edad,
 						Tipodehorario,
 						Nombre
 						)
 						Values(
 						'$this->cedula',
+						'$this->apellidos',
+						'$this->nombres',
 						'$this->Edad',
 						'$this->Tipodehorario',
 						'$this->Nombre'
@@ -108,6 +134,8 @@ class schedules extends datos
 			try {
 					$co->query("Update thorarios set 
 					    cedula = '$this->cedula',
+						apellidos = '$this->apellidos',
+						nombres = '$this->nombres',
 						Edad = '$this->Edad',
 						Tipodehorario = '$this->Tipodehorario',
 						Nombre = '$this->Nombre'
@@ -170,6 +198,8 @@ class schedules extends datos
 								   <i class='fa-solid fa-trash'></i></button>";
 					$respuesta .= "</td>";
 					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['apellidos']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['nombres']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Edad']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Tipodehorario']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
@@ -337,8 +367,10 @@ class schedules extends datos
 
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND Nombre LIKE :Nombre");
+			$resultado = $co->prepare("SELECT * FROM thorarios WHERE cedula LIKE :cedula AND apellidos LIKE :apellidos AND nombres LIKE :nombres AND Edad LIKE :Edad AND Tipodehorario LIKE :Tipodehorario AND Nombre LIKE :Nombre");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
+			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
+			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
 			$resultado->bindValue(':Edad', '%' . $this->Edad . '%');
 			$resultado->bindValue(':Tipodehorario', '%' . $this->Tipodehorario . '%');
 			$resultado->bindValue(':Nombre', '%' . $this->Nombre . '%');
@@ -365,6 +397,8 @@ class schedules extends datos
 						<thead>
 							<tr>
 								<th>Cedula</th>
+								<th>apellidos</th>
+								<th>nombres</th>
 								<th>Edad</th>
 								<th>Tipo de Horario</th>
 								<th>Entrenador</th>
@@ -378,6 +412,8 @@ class schedules extends datos
 					$html .= "
 						<tr>
 							<td>{$f['cedula']}</td>
+							<td>{$f['apellidos']}</td>
+							<td>{$f['nombres']}</td>
 							<td>{$f['Edad']}</td>
 							<td>{$f['Tipodehorario']}</td>
 							<td>{$f['Nombre']}</td>

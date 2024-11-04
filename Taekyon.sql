@@ -84,15 +84,19 @@ CREATE TABLE `tHorarios`(
     `Tipodehorario` varchar(30), 
     `id2` int, 
     `cedula` int,
+    `apellidos` varchar(30) NOT NULL,
+    `nombres` varchar(30) NOT NULL,
     `Edad` int NOT NULL,
     `Nombre` varchar(30) NOT NULL,
     PRIMARY KEY (`id2`, `cedula`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `Edad`, `Nombre`) VALUES
-('Adulto', 1, 30560144, 23, 'George Kahakajian'),
-('Juvenil', 2, 30560145, 24,'Elias Hoss'),
-('Infantil', 3, 30560146, 30, 'Antonio Sabino');
+
+INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`) VALUES
+('Adulto', 1, 30560144, 'Smith', 'John', 23, 'George Kahakajian'),
+('Juvenil', 2, 30560145, 'Doe', 'Jane', 24, 'Elias Hoss'),
+('Infantil', 3, 30560146, 'Brown', 'Charlie', 30, 'Antonio Sabino');
+
 
 
 CREATE TABLE `tlogros` (

@@ -55,6 +55,8 @@
                         <tr>
                             <th class="text-center action-column">Acciones</th>
                             <th class="text-center">Cédula</th>
+                            <th class="text-center">Apellidos</th>
+                            <th class="text-center">Nombres</th>
                             <th class="text-center">Edad</th>
                             <th class="text-center">Tipo de Horario</th>
                             <th class="text-center">Entrenador</th>
@@ -87,14 +89,25 @@
                                     <button type="button" class="btn btn-warning btn-block" id="listadodeatletas" name="listadodeatletas">Listado de Atletas</button>
                                     <span id="scedula"></span>
                                 </div>
+							
+								<div class="col-md-3">
+									<label for="nombres">Nombres</label>
+									<input class="form-control" type="text" id="nombres" name="nombres" disabled />
+									<span id="snombres"></span>
+								</div>
+                                <div class="col-md-3">
+									<label for="apellidos">Apellidos</label>
+									<input class="form-control" type="text" id="apellidos" name="apellidos" disabled />
+									<span id="sapellidos"></span>
+								</div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3" style="display: none;">
                                     <label for="fechadenacimiento">Fecha de Nacimiento</label>
                                     <input class="form-control" type="date" id="fechadenacimiento" name="fechadenacimiento" required disabled />
                                     <span id="sfechadenacimiento"></span>
                                 </div>
 
-                                <div class="col-md-4">
+                                <div class="col-md-3">
                                     <label for="Edad">Edad</label>
                                     <input class="form-control" type="text" id="Edad" name="Edad" readonly disabled />
                                     <span id="sEdad"></span>
@@ -213,6 +226,16 @@
                                 <label for="cedula">Cédula</label>
                                 <input class="form-control" type="text" id="cedula" name="cedula"  />
                                 <span id="scedula" class="form-text text-muted"></span>
+                            </div>
+                            <div class="col">
+                                <label for="apellidos">Apellido</label>
+                                <input class="form-control" type="text" id="apellidos" name="apellidos"  />
+                                <span id="sapellidos" class="form-text text-muted"></span>
+                            </div>
+                            <div class="col">
+                                <label for="nombres">Nombre</label>
+                                <input class="form-control" type="text" id="nombres" name="nombres"  />
+                                <span id="snombres" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
                                 <label for="Edad">Edad</label>
