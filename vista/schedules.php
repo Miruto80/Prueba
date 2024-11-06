@@ -55,11 +55,12 @@
                         <tr>
                             <th class="text-center action-column">Acciones</th>
                             <th class="text-center">Cédula</th>
-                            <th class="text-center">Apellidos</th>
                             <th class="text-center">Nombres</th>
+                            <th class="text-center">Apellidos</th>     
                             <th class="text-center">Edad</th>
                             <th class="text-center">Tipo de Horario</th>
-                            <th class="text-center">Entrenador</th>
+                            <th class="text-center">Nombres del entrenador</th>
+                            <th class="text-center">Apellidos del entrenador</th>
                         </tr>
                     </thead>
                     <tbody id="resultadoconsulta">
@@ -126,13 +127,19 @@
                                     </select>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <br>
-                                    <label for="Nombre">Entrenador</label>
+                                    <label for="Nombre">Nombres del entrenador</label>
                                     <input class="form-control" type="text" id="Nombre" name="Nombre" disabled />
                                     <br>
                                     <button type="button" class="btn btn-warning btn-block" id="listadodeentrenadores" name="listadodeentrenadores">Listado de Entrenadores</button>
                                     <span id="sNombre"></span>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <br>
+                                    <label for="Apellido">Apellidos del entrenador</label>
+                                    <input class="form-control" type="text" id="Apellido" name="Apellido" disabled />
                                 </div>
                             </div>
                         </div>
@@ -228,14 +235,14 @@
                                 <span id="scedula" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
-                                <label for="apellidos">Apellido</label>
-                                <input class="form-control" type="text" id="apellidos" name="apellidos"  />
-                                <span id="sapellidos" class="form-text text-muted"></span>
-                            </div>
-                            <div class="col">
                                 <label for="nombres">Nombre</label>
                                 <input class="form-control" type="text" id="nombres" name="nombres"  />
                                 <span id="snombres" class="form-text text-muted"></span>
+                            </div>
+                            <div class="col">
+                                <label for="apellidos">Apellido</label>
+                                <input class="form-control" type="text" id="apellidos" name="apellidos"  />
+                                <span id="sapellidos" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
                                 <label for="Edad">Edad</label>
@@ -248,9 +255,14 @@
                                 <span id="sTipodehorario" class="form-text text-muted"></span>
                             </div>
                             <div class="col">
-                                <label for="Nombre">Entrenador</label>
+                                <label for="Nombre">Nombres del entrenador</label>
                                 <input class="form-control" type="text" id="Nombre" name="Nombre" />
                                 <span id="sNombre" class="form-text text-muted"></span>
+                            </div>
+                            <div class="col">
+                                <label for="Apellido">Apellidos del entrenador</label>
+                                <input class="form-control" type="text" id="Apellido" name="Apellido" />
+                                <span id="sApellido" class="form-text text-muted"></span>
                             </div>
                         </div>
                         <div class="row">

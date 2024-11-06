@@ -16,8 +16,9 @@ $("#listadodeentrenadores").on("click",function(){
 
 function colocaatleta(linea) {
     $("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#apellidos").val($(linea).find("td:eq(2)").text());
 	$("#nombres").val($(linea).find("td:eq(3)").text());
+	$("#apellidos").val($(linea).find("td:eq(2)").text());
+	
     
     
     const fechaNac = new Date($(linea).find("td:eq(4)").text()); 
@@ -38,6 +39,7 @@ function colocaatleta(linea) {
 
 function colocaentrenador(linea){
 	$("#Nombre").val($(linea).find("td:eq(3)").text());
+	$("#Apellido").val($(linea).find("td:eq(2)").text());
 	$("#modalentrenadores").modal("hide");
 }
 
@@ -148,11 +150,12 @@ $("#proceso").on("click",function(){
 			var datos = new FormData();
 			datos.append('accion','incluir');
 			datos.append('cedula',$("#cedula").val());
-			datos.append('apellidos',$("#apellidos").val());
 			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
 			datos.append('Edad',$("#Edad").val());
-			datos.append('Tipodehorario',$("#Tipodehorario").val());
+			datos.append('Tipodehorario',$("#Tipodehorario").val());		
 			datos.append('Nombre',$("#Nombre").val());
+			datos.append('Apellido',$("#Apellido").val());
 	
 			enviaAjax(datos);
 		}
@@ -162,11 +165,12 @@ $("#proceso").on("click",function(){
 			var datos = new FormData();
 			datos.append('accion','modificar');
 			datos.append('cedula',$("#cedula").val());
-			datos.append('apellidos',$("#apellidos").val());
 			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
 			datos.append('Nombre',$("#Nombre").val());
+			datos.append('Apellido',$("#Apellido").val());
 			enviaAjax(datos);
 		}
 	}
@@ -286,11 +290,12 @@ function pone(pos,accion){
 		$("#proceso").text("ELIMINAR");
 	}
 	$("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#apellidos").val($(linea).find("td:eq(2)").text());
-	$("#nombres").val($(linea).find("td:eq(3)").text());
+	$("#nombres").val($(linea).find("td:eq(2)").text());
+	$("#apellidos").val($(linea).find("td:eq(3)").text());
 	$("#Edad").val($(linea).find("td:eq(4)").text());
 	$("#Tipodehorario").val($(linea).find("td:eq(5)").text());
 	$("#Nombre").val($(linea).find("td:eq(6)").text());
+	$("#Apellido").val($(linea).find("td:eq(7)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -376,10 +381,11 @@ function enviaAjax(datos) {
 // muestra los imputs limpios a la hora de asignar
 function limpia(){
 	$("#cedula").val("");
-	$("#apellidos").val("");
 	$("#nombres").val("");
+	$("#apellidos").val("");
 	$("#Edad").val("");
 	$("#Nombre").val("");
+	$("#Apellido").val("");
 	$("#Tipodehorario").prop("selectedIndex",0);
 
 }
