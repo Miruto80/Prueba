@@ -71,6 +71,7 @@
 							<th class="text-center">Fecha del evento</th>
 							<th class="text-center">Logro del evento</th>
 							<th class="text-center">Categoria</th>
+							<th class="text-center">Nombre de atleta</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -107,7 +108,7 @@
 									</div>
 								</div>
 								<div class="row mb-3">
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="Logro_obtenido">Logro obtenido</label>
 										<select class="form-select" id="Logro_obtenido">
 											<option value="1ER LUGAR">1ER LUGAR</option>
@@ -115,13 +116,18 @@
 											<option value="3RO LUGAR">3ER LUGAR</option>
 										</select>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="categoria">Categoria</label>
 										<select class="form-select" id="categoria">
 											<option value="KYORUGUI">KYORUGUI</option>
 											<option value="POOMSAE">POOMSAE</option>
 											<option value="AMBAS">AMBAS</option>
 										</select>
+									</div>
+									<div class="col-md-4">
+										<label for="NombreLA">NombreLA</label>
+										<input type="text" name="NombreLA" id="NombreLA" class="form-control">
+										<span id="sFecha_del_evento"></span>
 									</div>
 								</div>
 								<div class="row justify-content-center">

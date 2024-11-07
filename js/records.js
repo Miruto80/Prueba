@@ -65,6 +65,7 @@ $("#proceso").on("click",function(){
 			datos.append('Fecha_del_evento',$("#Fecha_del_evento").val());
 			datos.append('Logro_obtenido',$("#Logro_obtenido").val());
 			datos.append('categoria',$("#categoria").val());
+			datos.append('NombreLA',$("#NombreLA").val());
 	
 			enviaAjax(datos);
 		}
@@ -77,6 +78,7 @@ $("#proceso").on("click",function(){
 			datos.append('Fecha_del_evento',$("#Fecha_del_evento").val());
 			datos.append('Logro_obtenido',$("#Logro_obtenido").val());
 			datos.append('categoria',$("#categoria").val());
+			datos.append('NombreLA',$("#NombreLA").val());
 			enviaAjax(datos);
 		}
 	}
@@ -174,6 +176,7 @@ function pone(pos,accion){
 	$("#Fecha_del_evento").val($(linea).find("td:eq(2)").text());
 	$("#Logro_obtenido").val($(linea).find("td:eq(3)").text());
 	$("#categoria").val($(linea).find("td:eq(4)").text());
+	$("#NombreLA").val($(linea).find("td:eq(5)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -247,5 +250,6 @@ function limpia(){
 	$("#Fecha_del_evento").val("");
 	$("#Logro_obtenido").prop("selectedIndex",0);
 	$("#categoria").val("selectedIndex",0);
+	$("NombreLA").val("");
 
 }
