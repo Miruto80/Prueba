@@ -84,82 +84,93 @@
     </div>
 
     <!-- Modal 1: Formulario de pagos -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="modal1">
+    <div class="tabla modal fade" tabindex="-1" role="dialog" id="modal1">
         <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-header text-warning bg-dark justify-content-center">
-                <h3 class="modal-title">Formulario de pagos</h3>
-                <button type="button" class="btn-close  bg-light" aria-label="Close"></button>
-            </div>
             <div class="modal-content">
-                <div class="container">
-                    <form method="post" id="f" autocomplete="off">
-                        <input autocomplete="off" type="text" class="form-control" name="accion" id="accion"
-                            style="display: none;">
-                        <div class="container">
-                            <br>
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="cedula">Cedula</label>
-                                    <input class="form-control" type="text" id="cedula" name="cedula" disabled />
-                                    <br>
-                                    <button type="button" class="btn btn-warning btn-block" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
-                                    <span id="scedula"></span>
+                <div class="modal-header justify-content-center bg-dark text-warning" data-bs-theme="dark">
+                    <h3 class="modal-title">Formulario de pagos</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-content">
+                    <div class="container">
+                        <form method="post" id="f" autocomplete="off">
+                            <input autocomplete="off" type="text" class="form-control" name="accion" id="accion"
+                                style="display: none;">
+                            <div class="container">
+                                <br>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="cedula">Cedula</label>
+                                        <input class="form-control" type="text" id="cedula" name="cedula" disabled />
+                                        
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="fechadepago">fecha de pago</label>
+                                        <input class="form-control" type="date" id="fechadepago" name="fechadepago" />
+                                        <span id="sfechadepago"></span>
+                                    </div>
                                 </div>
-                                <div class="col-md-8">
-                                    <label for="fechadepago">fecha de pago</label>
-                                    <input class="form-control" type="date" id="fechadepago" name="fechadepago" />
-                                    <span id="sfechadepago"></span>
+                                <br>
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <button type="button" class="btn btn-outline-warning" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
+                                        <span id="scedula"></span>
+                                    </div>
+
+                                    <div class="col-md-8">
+                                        <label for="nombres">Nombres</label>
+                                        <input class="form-control" type="text" id="nombres" name="nombres" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <div class="col-md-4">
+                                        <label for="Monto">Monto</label>
+                                        <input class="form-control" type="text" id="Monto" name="Monto" />
+                                        <span id="sMonto"></span>
+                                    </div>
+
+
+                                    <div class="col-md-8">
+                                        <label for="Comprobantedepago">Comprobante de Pago</label>
+                                        <input class="form-control" type="text" id="Comprobantedepago"
+                                            name="Comprobantedepago" />
+                                        <span id="sComprobantedepago"></span>
+                                    </div>
+
+
+                                </div>
+                                <!-- en proceso de creacion -->
+                                <div class="row mb-3">
+                                    <div class="col-md-8">
+                                        <label for="tipopago">Tipo de Pago</label>
+                                        <select class="form-select" class="form-control" id="tipopago" name="tipopago">
+                                            <option value="Pago movil">Pago movil</option>
+                                            <option value="tranferencia">Tranferencia</option>
+                                            <option value="Efectivo">Efectivo</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="numeroaccion">Numero de Accion</label>
+                                        <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
+                                        <span id="snumeroaccion"></span>
+                                    </div>
                                 </div>
                             </div>
-
-                            <div class="row mb-3">
-                                <div class="col-md-4">
-                                    <label for="Monto">Monto</label>
-                                    <input class="form-control" type="text" id="Monto" name="Monto" />
-                                    <span id="sMonto"></span>
-                                </div>
-
-
-                                <div class="col-md-8">
-                                    <label for="Comprobantedepago">Comprobante de Pago</label>
-                                    <input class="form-control" type="text" id="Comprobantedepago"
-                                        name="Comprobantedepago" />
-                                    <span id="sComprobantedepago"></span>
-                                </div>
-
-
-                            </div>
-                            <!-- en proceso de creacion -->
-                            <div class="row mb-3">
-                                <div class="col-md-8">
-                                    <label for="tipopago">Tipo de Pago</label>
-                                    <select class="form-select" class="form-control" id="tipopago" name="tipopago">
-                                        <option value="Pago movil">Pago movil</option>
-                                        <option value="tranferencia">Tranferencia</option>
-                                        <option value="Efectivo">Efectivo</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-4">
-                                    <label for="numeroaccion">Numero de Accion</label>
-                                    <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
-                                    <span id="snumeroaccion"></span>
+                            <div class="row mt-3 justify-content-center">
+                                <div class="col-md-2">
+                                    <button type="button" class="btn btn-dark" id="proceso"></button>
                                 </div>
                             </div>
-                        </div>
-                        <div class="row mt-3 justify-content-center">
-                            <div class="col-md-2">
-                                <button type="button" class="btn btn-dark" id="proceso"></button>
-                            </div>
-                        </div>
-                        <br />
-                    </form>
-                </div> <!-- fin de container -->
-            </div>
-            <div class="modal-footer bg-dark">
-                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                            <br />
+                        </form>
+                    </div> <!-- fin de container -->
+                </div>
+                <div class="modal-footer bg-dark">
+                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!-- Modal de pagos -->
@@ -220,7 +231,7 @@
                                 <input class="form-control" type="text" id="Monto" name="Monto" />
                                 <span id="sMonto" class="form-text text-muted"></span>
                             </div>
-
+                        </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="Comprobantedepago">Comprobante de Pago</label>
@@ -241,19 +252,16 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <hr />
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>
                             </div>
                         </div>
+                        <br>
                     </form>
                 </div>
-                
+
                 <div class="modal-footer bg-dark">
                     <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
                 </div>
