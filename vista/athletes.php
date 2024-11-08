@@ -285,49 +285,49 @@
 				<div class="modal-body">
 					<form method="post" id="f" autocomplete="off" target="_blank">
 						<div class="row">
-							<div class="col">
+							<div class="col-md-4">
 								<label for="cedula">Cédula</label>
 								<input class="form-control" type="text" id="cedula" name="cedula" />
 								<span id="scedula" class="form-text text-muted"></span>
 							</div>
-							<div class="col">
+							<div class="col-md-4">
 								<label for="nombres">Nombre</label>
 								<input class="form-control" type="text" id="nombres" name="nombres" />
 								<span id="snombres" class="form-text text-muted"></span>
 							</div>
 
-							<div class="col">
+							<div class="col-md-4">
 								<label for="apellidos">Apellido</label>
 								<input class="form-control" type="text" id="apellidos" name="apellidos" />
 								<span id="sapellidos" class="form-text text-muted"></span>
 							</div>
 
-							<div class="col">
+							<div class="col-md-4">
 								<label for="Telefono">Telefono</label>
 								<input class="form-control" type="text" id="Telefono" name="Telefono" />
 								<span id="sTelefono" class="form-text text-muted"></span>
 							</div>
 
-							<div class="col">
+							<div class="col-md-4">
 								<label for="sexo">Sexo</label>
 								<input class="form-control" type="text" id="sexo" name="sexo" />
 								<span id="ssexo" class="form-text text-muted"></span>
 							</div>
 
 							<div class="row">
-								<div class="col">
+								<div class="col-md-4">
 									<label for="fechadenacimiento">Fecha de Nacimiento</label>
 									<input class="form-control" type="date" id="fechadenacimiento" name="fechadenacimiento" />
 									<span id="sfechadenacimiento"></span>
 								</div>
 
-								<div class="col">
+								<div class="col-md-4">
 									<label for="Participacion">Participacion</label>
 									<input class="form-control" type="text" id="Participacion" name="Participacion" />
 									<span id="sParticipacion" class="form-text text-muted"></span>
 								</div>	
 
-								<div class="col">
+								<div class="col-md-4">
 									<label for="Direccion">Direccion</label>
 									<input class="form-control" type="text" id="Direccion" name="Direccion" />
 									<span id="sDireccion" class="form-text text-muted"></span>
