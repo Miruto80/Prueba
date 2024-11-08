@@ -231,7 +231,7 @@
                                 <input class="form-control" type="text" id="Monto" name="Monto" />
                                 <span id="sMonto" class="form-text text-muted"></span>
                             </div>
-
+                        </div>
                             <div class="row">
                                 <div class="col">
                                     <label for="Comprobantedepago">Comprobante de Pago</label>
@@ -252,16 +252,13 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col">
-                                <hr />
-                            </div>
-                        </div>
+                        
                         <div class="row">
                             <div class="col text-center">
                                 <button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>
                             </div>
                         </div>
+                        <br>
                     </form>
                 </div>
 
