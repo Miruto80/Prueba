@@ -14,6 +14,7 @@ class records extends datos{
 	private $Fecha_del_evento;
 	private $Logro_obtenido;
 	private $categoria;
+	private $NombreLA;
 	
 	
 	
@@ -32,6 +33,9 @@ class records extends datos{
 
 	function set_categoria($valor){
 		$this->categoria = $valor;
+	}
+	function set_NombreLA($valor){
+		$this->NombreLA = $valor;
 	}
 	
 	
@@ -54,6 +58,10 @@ class records extends datos{
 	function get_categoria(){
 		return $this->categoria;
 	}
+
+	function get_NombreLA(){
+		return $this->NombreLA;
+	}
 	
 	
 
@@ -71,13 +79,15 @@ class records extends datos{
 						Nombre_de_evento,
 						Fecha_del_evento,
 						Logro_obtenido,
-						categoria
+						categoria,
+						NombreLA
 						)
 						Values(
 						'$this->Nombre_de_evento',
 						'$this->Fecha_del_evento',
 						'$this->Logro_obtenido',
-						'$this->categoria'
+						'$this->categoria',
+						'$this->NombreLA'
 						)");
 						$r['resultado'] = 'incluir';
 			            $r['mensaje'] =  'Registro Inluido';
@@ -104,7 +114,8 @@ class records extends datos{
 					    Nombre_de_evento = '$this->Nombre_de_evento',
 						Fecha_del_evento = '$this->Fecha_del_evento',
 						Logro_obtenido = '$this->Logro_obtenido',
-						categoria = '$this->categoria'
+						categoria = '$this->categoria',
+						NombreLA = '$this->NombreLA'
 						where
 						Nombre_de_evento = '$this->Nombre_de_evento'
 						");
@@ -167,6 +178,7 @@ class records extends datos{
 					$respuesta .= "<td class='text-center'>{$row['Fecha_del_evento']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Logro_obtenido']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['categoria']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['NombreLA']}</td>";
 					$respuesta .= "</tr>";
 				}
 				$r['resultado'] = 'consultar';
@@ -222,6 +234,7 @@ class records extends datos{
 			$resultado->bindValue(':Fecha_del_evento', '%' . $this->Fecha_del_evento . '%');
 			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');
 			$resultado->bindValue(':categoria', '%' . $this->categoria . '%');
+			$resultado->bindValue(':NombreLA', '%' . $this->NombreLA . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
@@ -247,6 +260,7 @@ class records extends datos{
 								<th>Fecha del Evento</th>
 								<th>Logro Obtenido</th>
 								<th>Categoria</th>
+								<th>Nombre del Atleta</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -260,6 +274,7 @@ class records extends datos{
 							<td>{$f['Fecha_del_evento']}</td>
 							<td>{$f['Logro_obtenido']}</td>
 							<td>{$f['categoria']}</td>
+							<td>{$f['NombreLA']}</td>
 						</tr>";
 				}
 			} else {

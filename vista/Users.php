@@ -117,7 +117,7 @@
 										<select class="form-select" id="Cargo">
 											<option value="Secretaria">Secretaria</option>
 											<option value="Gerente">Gerente</option>
-											<option value="Profesor">Profesor</option>
+											<option value="Entrenador">Entrenador</option>
 										</select>
 									</div>
 

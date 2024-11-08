@@ -84,15 +84,20 @@ CREATE TABLE `tHorarios`(
     `Tipodehorario` varchar(30), 
     `id2` int, 
     `cedula` int,
+    `apellidos` varchar(30) NOT NULL,
+    `nombres` varchar(30) NOT NULL,
     `Edad` int NOT NULL,
     `Nombre` varchar(30) NOT NULL,
+    `Apellido` varchar(30) NOT NULL,
     PRIMARY KEY (`id2`, `cedula`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `Edad`, `Nombre`) VALUES
-('Adulto', 1, 30560144, 23, 'George Kahakajian'),
-('Juvenil', 2, 30560145, 24,'Elias Hoss'),
-('Infantil', 3, 30560146, 30, 'Antonio Sabino');
+
+INSERT INTO `tHorarios` (`Tipodehorario`, `id2`, `cedula`, `nombres`, `apellidos`, `Edad`, `Nombre`, `Apellido`) VALUES
+('Adulto', 1, 30560144, 'John', 'Smith', 23, 'George', 'Kahakajian'),
+('Juvenil', 2, 30560145, 'Jane', 'Doe', 24, 'Elias', 'Hoss'),
+('Infantil', 3, 30560146, 'Charlie', 'Brown', 30, 'Antonio', 'Sabino');
+
 
 
 CREATE TABLE `tlogros` (
@@ -101,14 +106,15 @@ CREATE TABLE `tlogros` (
     `Fecha_del_evento` DATE NOT NULL,
     `Logro_obtenido` VARCHAR(30) NOT NULL,
     `categoria` VARCHAR(30) NOT NULL,
+    `NombreLA` VARCHAR(30) NOT NULL,
     `id3` INT NOT NULL,
     PRIMARY KEY (`Cod_evento`)
 ) ENGINE=InnoDB;
 
-INSERT INTO `tlogros` (Nombre_de_evento, Fecha_del_evento, Logro_obtenido, categoria, id3) VALUES
-('Taekwondo Championship', '2024-05-15', '1ER LUGAR', 'POOMSAE', 1),
-('Copa PAL LI', '2024-06-20', '2DO LUGAR', 'KYORUGUI', 2),
-('Copa UFT', '2024-07-10', '3ER LUGAR', 'AMBAS', 3);
+INSERT INTO `tlogros` (`Nombre_de_evento`, `Fecha_del_evento`, `Logro_obtenido`,`categoria`,`NombreLA`,`id3`) VALUES
+('Taekwondo Championship', '2024-05-15', '1ER LUGAR', 'POOMSAE','Joaquin mendoza', 1),
+('Copa PAL LI', '2024-06-20', '2DO LUGAR', 'KYORUGUI','Miguel torres' , 2),
+('Copa UFT', '2024-07-10', '3ER LUGAR', 'AMBAS','Rhicahrd virguez', 3);
 
 
 CREATE TABLE `tusuarios`(
@@ -121,4 +127,5 @@ CREATE TABLE `tusuarios`(
 
 INSERT INTO `tusuarios`(`CedulaU`, `NombreU`, `Usuario`, `Cargo`,`Contrasena`) VALUES
 (31298123,'George kakajakian','GeorgeK','Gerente','123456789');
+(30955611,'Pedro perez','Pedro1','Entrenador','12345678');
 COMMIT;

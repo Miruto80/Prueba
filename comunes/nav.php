@@ -47,9 +47,15 @@
           <!-- Botones alineados a la derecha -->
           <ul class="navbar-nav ms-auto">
             <li class="nav-item me-2"> <!-- Margen derecho para el primer botón -->
+            <?php
+					  if($nivel=='Gerente' or $nivel=='Secretaria'){
+					   ?>
               <a class="btn btn-outline-secondary" href="?pagina=Users">
                 <img src="img/iconob.png" alt="Icono Usuario" width="30" height="30" class="d-inline-block align-text-top">
               </a>
+              <?php
+					    }
+					    ?>
             </li>
 
             <li class="nav-item"> <!-- Sin margen en el segundo botón -->

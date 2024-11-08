@@ -16,6 +16,9 @@ $("#listadodeentrenadores").on("click",function(){
 
 function colocaatleta(linea) {
     $("#cedula").val($(linea).find("td:eq(1)").text());
+	$("#nombres").val($(linea).find("td:eq(3)").text());
+	$("#apellidos").val($(linea).find("td:eq(2)").text());
+	
     
     
     const fechaNac = new Date($(linea).find("td:eq(4)").text()); 
@@ -36,6 +39,7 @@ function colocaatleta(linea) {
 
 function colocaentrenador(linea){
 	$("#Nombre").val($(linea).find("td:eq(3)").text());
+	$("#Apellido").val($(linea).find("td:eq(2)").text());
 	$("#modalentrenadores").modal("hide");
 }
 
@@ -111,7 +115,7 @@ $(document).ready(function(){
 	
 	$("#cedula").on("keyup",function(){
 		validarkeyup(/^[0-9]{7,8}$/,$(this),
-		$("#scedula"),"El formato debe ser 9999999 ");
+		$("#scedula"),"Ingrese una cedula");
 	});
 	
 	$("#Edad").on("keypress", function(e) {
@@ -128,6 +132,15 @@ $(document).ready(function(){
 		}
 	});
 
+	$("#Nombre").on("keypress",function(e){
+		validarkeypress(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]*$/,e);
+	});
+	
+	$("#Nombre").on("keyup",function(){
+		validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$(this),$("#sNombre"),"Falta rellenar este campo");
+	});
+
 	
 
 //CONTROL DE BOTONES
@@ -137,9 +150,12 @@ $("#proceso").on("click",function(){
 			var datos = new FormData();
 			datos.append('accion','incluir');
 			datos.append('cedula',$("#cedula").val());
+			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
 			datos.append('Edad',$("#Edad").val());
-			datos.append('Tipodehorario',$("#Tipodehorario").val());
+			datos.append('Tipodehorario',$("#Tipodehorario").val());		
 			datos.append('Nombre',$("#Nombre").val());
+			datos.append('Apellido',$("#Apellido").val());
 	
 			enviaAjax(datos);
 		}
@@ -149,15 +165,18 @@ $("#proceso").on("click",function(){
 			var datos = new FormData();
 			datos.append('accion','modificar');
 			datos.append('cedula',$("#cedula").val());
+			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
 			datos.append('Edad',$("#Edad").val());
 			datos.append('Tipodehorario',$("#Tipodehorario").val());
 			datos.append('Nombre',$("#Nombre").val());
+			datos.append('Apellido',$("#Apellido").val());
 			enviaAjax(datos);
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
 		if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
-		$("#scedula"),"El formato debe ser 9999999")==0){
+		$("#scedula"),"El formato debe ser de 7 u 8 numeros")==0){
 	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
 						"99999999");	
 		
@@ -184,9 +203,8 @@ $("#incluir").on("click",function(){
 //Validación de todos los campos antes del envio
 function validarenvio(){
 	if(validarkeyup(/^[0-9]{7,8}$/,$("#cedula"),
-		$("#scedula"),"El formato debe ser 9999999")==0){
-	    muestraMensaje("La cedula debe coincidir con el formato <br/>"+ 
-						"99999999");	
+		$("#scedula"),"Ingrese una cedula")==0){
+	    muestraMensaje("Ingrese una cedula");	
 		return false;					
 	}	
 
@@ -195,6 +213,12 @@ function validarenvio(){
     muestraMensaje("Edad debe ser un número entre 1 y 120");
     return false;
     }
+
+	else if(validarkeyup(/^[A-Za-z\b\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/,
+		$("#Nombre"),$("#sNombre"),"Falta rellenar este campo")==0){
+		muestraMensaje("Nombre <br/>Falta rellenar este campo");
+		return false;
+	}
 
     else {
 		var f1 = new Date(1950,1,1 );
@@ -266,9 +290,12 @@ function pone(pos,accion){
 		$("#proceso").text("ELIMINAR");
 	}
 	$("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#Edad").val($(linea).find("td:eq(2)").text());
-	$("#Tipodehorario").val($(linea).find("td:eq(3)").text());
-	$("#Nombre").val($(linea).find("td:eq(4)").text());
+	$("#nombres").val($(linea).find("td:eq(2)").text());
+	$("#apellidos").val($(linea).find("td:eq(3)").text());
+	$("#Edad").val($(linea).find("td:eq(4)").text());
+	$("#Tipodehorario").val($(linea).find("td:eq(5)").text());
+	$("#Nombre").val($(linea).find("td:eq(6)").text());
+	$("#Apellido").val($(linea).find("td:eq(7)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -354,8 +381,11 @@ function enviaAjax(datos) {
 // muestra los imputs limpios a la hora de asignar
 function limpia(){
 	$("#cedula").val("");
+	$("#nombres").val("");
+	$("#apellidos").val("");
 	$("#Edad").val("");
 	$("#Nombre").val("");
+	$("#Apellido").val("");
 	$("#Tipodehorario").prop("selectedIndex",0);
 
 }

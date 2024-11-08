@@ -13,8 +13,11 @@ if (is_file("vista/".$pagina.".php")) {
 
 	if (isset($_POST['generar'])) {
 		$o->set_cedula($_POST['cedula']);
+		$o->set_apellidos($_POST['apellidos']);
+		$o->set_nombres($_POST['nombres']);
 		$o->set_Edad($_POST['Edad']);
 		$o->set_Tipodehorario($_POST['Tipodehorario']);
+		$o->set_Apellido($_POST['Apellido']);
 		$o->set_Nombre($_POST['Nombre']);
 		$o->generarPDF();
 		
@@ -42,8 +45,11 @@ if (is_file("vista/".$pagina.".php")) {
 	   }
 		else{		  
 			$o->set_cedula($_POST['cedula']);
+			$o->set_apellidos($_POST['apellidos']);
+	    	$o->set_nombres($_POST['nombres']);
 			$o->set_Edad($_POST['Edad']);
 			$o->set_Tipodehorario($_POST['Tipodehorario']);
+			$o->set_Apellido($_POST['Apellido']);
 			$o->set_Nombre($_POST['Nombre']);
 
 			if($accion=='incluir'){
