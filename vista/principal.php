@@ -10,12 +10,13 @@
     <?php require_once('comunes/nav.php'); ?>
     <!-- Clase container todo debe ir dentro de contenedor -->
     <style>
-        body {
+       html,body {
             background-image: url('img/fondo.jpg');
             background-size: cover;
             background-repeat: no-repeat;
             color: white;
             font-family: Arial, sans-serif;
+            height:100%;
         }
 
     
