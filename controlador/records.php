@@ -18,7 +18,7 @@ require_once("modelo/".$pagina.".php");
 		$o->set_Fecha_del_evento($_POST['Fecha_del_evento']);
 		$o->set_Logro_obtenido($_POST['Logro_obtenido']);
 		$o->set_categoria($_POST['categoria']);
-		$o->set_categoria($_POST['NombreLA']);
+		$o->set_NombreLA($_POST['NombreLA']);
 		$o->generarPDF();
 	}
 	

@@ -280,7 +280,7 @@ class records extends datos{
 			} else {
 				$html .= "
 						<tr>
-							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+							<td colspan='5' style='text-align:center; color:red;'>No se encontraron resultados</td>
 						</tr>";
 			}
 	

@@ -127,7 +127,7 @@
 									<div class="col-md-4">
 										<label for="NombreLA">NombreLA</label>
 										<input type="text" name="NombreLA" id="NombreLA" class="form-control">
-										<span id="sFecha_del_evento"></span>
+										<span id="sNombreLA"></span>
 									</div>
 								</div>
 								<div class="row justify-content-center">
@@ -181,6 +181,11 @@
 								<input class="form-control" type="text" id="categoria" name="categoria" />
 								<span id="scategoria" class="form-text text-muted"></span>
 							</div>
+							<div class="col">
+							<label for="NombreLA">NombreLA</label>
+							<input type="text" name="NombreLA" id="NombreLA" class="form-control">
+							<span id="sNombreLA"></span>
+	                         </div>
 						</div>
 						<div class="row">
 							<div class="col">
