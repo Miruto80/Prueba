@@ -64,7 +64,7 @@ CREATE TABLE `tpagos`(
 
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
+INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`,`nombres`,`apellidos`)
 VALUES (22,12.2,'2024/02/24',24351625,'pepe','gomez');
 
 CREATE TABLE `tentrenadores` (
