@@ -58,7 +58,10 @@ CREATE TABLE `tpagos`(
     `Monto` float NOT NULL,
     `Comprobantedepago` int (11) PRIMARY KEY,
     `tipopago` VARCHAR(30) NOT NULL,
-    `numeroaccion` int(15) NOT NULL
+    `numeroaccion` int(15) NOT NULL,
+    `nombres` VARCHAR(20)NOT NULL,
+    `apellidos` VARCHAR(20)NOT NULL 
+
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 INSERT INTO `tpagos` (`Comprobantedepago`, `Monto`,`fechadepago`,`cedula`)
