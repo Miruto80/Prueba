@@ -192,6 +192,7 @@
                 <div class="modal-content">
                     <table class="table table-striped-columns table-hover">
                         <thead>
+                        <input class="form-control" type="text" id="buscador" name="buscador" placeholder="Buscar.." />
                             <tr>
                                 <th style="display:none">Id</th>
                                 <th class="text-center">Cedula</th>
