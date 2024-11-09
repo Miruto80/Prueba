@@ -22,6 +22,8 @@ if (is_file("vista/" . $pagina . ".php")) {
 		$o->set_Comprobantedepago($_POST['Comprobantedepago']);
 		$o->set_tipopago($_POST['tipopago']);
 		$o->set_numeroaccion($_POST['numeroaccion']);
+		$o->set_nombres($_POST['nombres']);
+		$o->set_apellidos($_POST['apellidos']);
 		$o->generarPDF();
 	}
 
@@ -57,6 +59,8 @@ if (is_file("vista/" . $pagina . ".php")) {
 			$o->set_Comprobantedepago($_POST['Comprobantedepago']);
 			$o->set_tipopago($_POST['tipopago']);
 			$o->set_numeroaccion($_POST['numeroaccion']);
+			$o->set_nombres($_POST['nombres']);
+			$o->set_apellidos($_POST['apellidos']);
 
 			if ($accion == 'incluir') {
 				echo  json_encode($o->incluir());

@@ -75,6 +75,8 @@
                         <th class="text-center">Comprobante</th>
                         <th class="text-center">Tipo de Pago</th>
                         <th class="text-center">Nro de Accion</th>
+                        <th class="text-center">Nombres</th>
+                        <th class="text-center">Apellidos</th>
                     </tr>
                 </thead>
                 <tbody id="resultadoconsulta">
@@ -102,7 +104,7 @@
                                     <div class="col-md-4">
                                         <label for="cedula">Cedula</label>
                                         <input class="form-control" type="text" id="cedula" name="cedula" disabled />
-                                        
+
                                     </div>
                                     <div class="col-md-8">
                                         <label for="fechadepago">fecha de pago</label>
@@ -119,7 +121,13 @@
 
                                     <div class="col-md-8">
                                         <label for="nombres">Nombres</label>
-                                        <input class="form-control" type="text" id="nombres" name="nombres" disabled />
+                                        <input class="form-control" type="text" id="nombres" name="nombres" disabled/>
+                                       
+                                    </div>
+                                    <div class="col-md-8">
+                                        <label for="apellidos">Apellidos</label>
+                                        <input class="form-control" type="text" id="apellidos" name="apellidos" disabled/>
+                                        
                                     </div>
                                 </div>
 
@@ -232,42 +240,55 @@
                                 <span id="sMonto" class="form-text text-muted"></span>
                             </div>
                         </div>
-                            <div class="row">
-                                <div class="col">
-                                    <label for="Comprobantedepago">Comprobante de Pago</label>
-                                    <input class="form-control" type="text" id="Comprobantedepago" name="Comprobantedepago" />
-                                    <span id="sComprobantedepago" class="form-text text-muted"></span>
-                                </div>
-
-                                <div class="col">
-                                    <label for="tipopago">Tipo de Pago</label>
-                                    <input class="form-control" type="text" id="tipopago" name="tipopago" />
-                                    <span id="stipopago" class="form-text text-muted"></span>
-                                </div>
-
-                                <div class="col">
-                                    <label for="numeroaccion">Numero de Accion</label>
-                                    <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
-                                    <span id="snumeroaccion" class="form-text text-muted"></span>
-                                </div>
-                            </div>
-                        </div>
-                        
                         <div class="row">
-                            <div class="col text-center">
-                                <button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>
+                            <div class="col">
+                                <label for="Comprobantedepago">Comprobante de Pago</label>
+                                <input class="form-control" type="text" id="Comprobantedepago" name="Comprobantedepago" />
+                                <span id="sComprobantedepago" class="form-text text-muted"></span>
+                            </div>
+
+                            <div class="col">
+                                <label for="tipopago">Tipo de Pago</label>
+                                <input class="form-control" type="text" id="tipopago" name="tipopago" />
+                                <span id="stipopago" class="form-text text-muted"></span>
+                            </div>
+
+                            <div class="col">
+                                <label for="numeroaccion">Numero de Accion</label>
+                                <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" />
+                                <span id="snumeroaccion" class="form-text text-muted"></span>
                             </div>
                         </div>
-                        <br>
-                    </form>
-                </div>
+                            <div class="row">
+                                <div class="col-6">
+                                    <label for="nombres">Nombres</label>
+                                    <input class="form-control" type="text" id="nombres" name="nombres"  />
+                                    <span id="snombres" class="form-text text-muted"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input class="form-control" type="text" id="apellidos" name="apellidos" />
+                                    <span id="sapellidos" class="form-text text-muted"></span>
+                                </div>
+                            </div>
+                        </div>
+                
 
-                <div class="modal-footer bg-dark">
-                    <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+                <div class="row">
+                    <div class="col text-center">
+                        <button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>
+                    </div>
                 </div>
-
+                <br>
+                </form>
             </div>
+
+            <div class="modal-footer bg-dark">
+                <button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+            </div>
+
         </div>
+    </div>
     </div>
 
     <?php require_once("comunes/modal.php"); ?>

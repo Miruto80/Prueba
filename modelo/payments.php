@@ -20,6 +20,8 @@ class  payments extends datos
 	private $Comprobantedepago;
 	private $tipopago;
 	private $numeroaccion;
+	private $nombres;
+	private $apellidos;
 	
 	//Metodos para leer: get metodos para colocar: set 
 
@@ -52,7 +54,16 @@ class  payments extends datos
 	{
 		$this->numeroaccion = $valor;
 	}
-
+	
+	function set_nombres($valor)
+	{
+		$this->nombres = $valor;
+	}
+	function set_apellidos($valor)
+	{
+		$this->apellidos = $valor;
+	}
+////sdddddddssssssssssssssssssssssssssssssssssss
 
 	function get_cedula()
 	{
@@ -81,6 +92,14 @@ class  payments extends datos
 	{
 		return $this->tipopago;
 	}
+	function get_nombres()
+	{
+		return $this->nombres;
+	}
+	function get_apellidos()
+	{
+		return $this->apellidos;
+	}
 
 
 	//Metodos para incluir, consultar y eliminar
@@ -108,7 +127,9 @@ class  payments extends datos
 						Monto,
 						Comprobantedepago,
 						tipopago,
-						numeroaccion
+						numeroaccion,
+						nombres,
+						apellidos
 						)
 						Values(
 						'$this->cedula',
@@ -116,7 +137,9 @@ class  payments extends datos
 						'$this->Monto',
 						'$this->Comprobantedepago',
 						'$this->tipopago',
-						'$this->numeroaccion'
+						'$this->numeroaccion',
+						'$this->nombres',
+						'$this->apellidos'
 						)");
 				$r['resultado'] = 'incluir';
 				$r['mensaje'] =  'Registro Inluido';
@@ -145,7 +168,9 @@ class  payments extends datos
 						Monto = '$this->Monto',
 						Comprobantedepago = '$this->Comprobantedepago',
 						tipopago = '$this->tipopago',
-						numeroaccion = '$this->numeroaccion'
+						numeroaccion = '$this->numeroaccion',
+						nombres = '$this->nombres',
+						apellidos = '$this->apellidos'
 						where
 						cedula = '$this->cedula'
 						");
@@ -227,6 +252,12 @@ function eliminar()
 							$respuesta = $respuesta . "</td>";
 							$respuesta = $respuesta . "<td>";
 							$respuesta = $respuesta . $r['numeroaccion'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['nombres'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['apellidos'];
 							$respuesta = $respuesta . "</td>";
 							$respuesta = $respuesta . "</tr>";
 						}
@@ -339,13 +370,15 @@ function eliminar()
 			// Preparación de la consulta SQL
 			$resultado = $co->prepare("SELECT * FROM tpagos WHERE cedula LIKE :cedula AND fechadepago LIKE :fechadepago 
 			AND Monto LIKE :Monto AND Comprobantedepago LIKE :Comprobantedepago 
-			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion");
+			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion AND nombres LIKE :nombres AND apellidos LIKE :apellidos");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
 			$resultado->bindValue(':fechadepago', '%' . $this->fechadepago . '%');
 			$resultado->bindValue(':Monto', '%' . $this->Monto . '%');
 			$resultado->bindValue(':Comprobantedepago', '%' . $this->Comprobantedepago . '%');
 			$resultado->bindValue(':tipopago', '%' . $this->tipopago . '%');
 			$resultado->bindValue(':numeroaccion', '%' . $this->numeroaccion . '%');
+			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
+			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
@@ -373,6 +406,8 @@ function eliminar()
 								<th>Comprobante de Pago</th>
 								<th>Tipo de Pago</th>
 								<th>Numero de Accion</th>
+								<th>Nombres</th>
+								<th>Apellidos</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -388,6 +423,8 @@ function eliminar()
 							<td>{$f['Comprobantedepago']}</td>
 							<td>{$f['tipopago']}</td>
 							<td>{$f['numeroaccion']}</td>
+							<td>{$f['nombres']}</td>
+							<td>{$f['apellidos']}</td>
 						</tr>";
 				}
 			} else {

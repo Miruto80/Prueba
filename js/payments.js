@@ -10,12 +10,14 @@ $("#listadodeclientes").on("click",function(){
 function colocacliente(linea){
 	$("#cedula").val($(linea).find("td:eq(1)").text());
 	$("#numeroaccion").val($(linea).find("td:eq(4)").text());
+	$("#nombres").val($(linea).find("td:eq(3)").text());
+	$("#apellidos").val($(linea).find("td:eq(2)").text());
+	
 	$("#modalclientes").modal("hide")
 }
 
 function pone_fecha(){
-	
-	
+
 	var datos = new FormData();
 	datos.append('accion','obtienefecha');
 	enviaAjax(datos);	
@@ -117,6 +119,8 @@ $("#proceso").on("click",function(){
 			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
 			datos.append('tipopago',$("#tipopago").val());
 			datos.append('numeroaccion',$("#numeroaccion").val());
+			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
             
 			enviaAjax(datos);
 		}
@@ -131,6 +135,8 @@ $("#proceso").on("click",function(){
 			datos.append('Comprobantedepago',$("#Comprobantedepago").val());
 			datos.append('tipopago',$("#tipopago").val());
 			datos.append('numeroaccion',$("#numeroaccion").val());
+			datos.append('nombres',$("#nombres").val());
+			datos.append('apellidos',$("#apellidos").val());
 			
 			enviaAjax(datos);
 		}
@@ -256,6 +262,8 @@ function pone(pos,accion){
 	$("#Comprobantedepago").val($(linea).find("td:eq(4)").text());
 	$("#tipopago").val($(linea).find("td:eq(5)").text());
 	$("#numeroaccion").val($(linea).find("td:eq(6)").text());
+	$("#nombres").val($(linea).find("td:eq(7)").text());
+	$("#apellidos").val($(linea).find("td:eq(8)").text());
 	
 	$("#modal1").modal("show");
 }
@@ -340,5 +348,7 @@ function limpia(){
 	$("#Monto").val("");
 	$("#Comprobantedepago").val("");
 	$("#tipopago").prop("selectedIndex",0);
-	$("#numeroaccion").val("");	
+	$("#numeroaccion").val("");
+	$("#nombres").val("");
+	$("#apellidos").val("");	
 }
