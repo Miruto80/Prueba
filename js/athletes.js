@@ -144,11 +144,9 @@ $("#proceso").on("click",function(){
 		}
 	}
 	if($(this).text()=="ELIMINAR"){
-		if(validarenvio()){
 		var datos = new FormData($('#f')[0]);
 		datos.append('accion','eliminar');
 		enviaAjax(datos);
-		}
 	}
 });
 $("#incluir").on("click",function(){
@@ -205,6 +203,8 @@ function validarenvio(){
 	}
 	else {
 		var f1 = new Date(1950,1,1 );
+		var hoy = new Date(); // Fecha actual
+        var tresAniosAntes = new Date(hoy.getFullYear() - 3, hoy.getMonth(), hoy.getDate()); // Fecha actual menos 3 años
 		var f2 = new Date($("#fechadenacimiento").val());
 		
 		if(f2 < f1){
@@ -212,6 +212,10 @@ function validarenvio(){
 			return false;
 		}
 		
+		if (f2 > tresAniosAntes) {
+			muestraMensaje("Fecha de Nacimiento <br/>El atleta debe ser mayor de 3 años.");
+			return false;
+		}
 	}
 	
 	return true;
