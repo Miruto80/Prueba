@@ -382,6 +382,9 @@ function eliminar()
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
+			// Obtener la fecha y hora actuales
+			$fechaHoraActual = date('Y-m-d H:i:s');  // Obtén la fecha y hora en formato deseado
+	
 			// Construcción del contenido HTML para el PDF
 			$html = "
 				<html>
@@ -390,13 +393,14 @@ function eliminar()
 						body { font-family: Arial, sans-serif; }
 						table { width: 100%; border-collapse: collapse; }
 						th, td { border: 1px solid #000; padding: 8px; text-align: center; }
-						th { background-color: #FFD700; color: #000; } /* Dorado en encabezado */
+						th { background-color: #FFD700; color: #000; } 
 						td { background-color: #FFF; }
 						h2 { text-align: center; color: #000; }
 					</style>
 				</head>
 				<body>
 					<h2>Reporte de Pagos</h2>
+					<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p> 
 					<table>
 						<thead>
 							<tr>
@@ -430,7 +434,7 @@ function eliminar()
 			} else {
 				$html .= "
 						<tr>
-							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+							<td colspan='8' style='text-align:center; color:red;'>No se encontraron resultados</td>
 						</tr>";
 			}
 	
@@ -440,6 +444,7 @@ function eliminar()
 					</table>
 				</body>
 				</html>";
+	
 		} catch (Exception $e) {
 			// Manejo de errores
 			echo "Error: " . $e->getMessage();
@@ -453,5 +458,4 @@ function eliminar()
 		$pdf->render();
 		$pdf->stream('ReportePagos.pdf', array("Attachment" => false));
 	}
-	
 }
