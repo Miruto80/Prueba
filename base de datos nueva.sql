@@ -212,7 +212,8 @@ CREATE TABLE `tusuarios`(
 )ENGINE=InnoDB;
 
 INSERT INTO `tusuarios`(`CedulaU`, `NombreU`, `Usuario`, `Cargo`,`Contrasena`) VALUES
-(31298123,'George kakajakian','GeorgeK','Gerente','123456789');
+(31298123,'George kakajakian','GeorgeK','Gerente','123456789'),
+(30955611,'Pedro perez','Pedro1','Entrenador','12345678');
 --
 -- Índices para tablas volcadas
 --
