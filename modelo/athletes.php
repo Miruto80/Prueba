@@ -400,11 +400,16 @@ class  athletes extends datos
 			$resultado->bindValue(':Correo', '%' . $this->Correo . '%');
 			$resultado->bindValue(':Numerodeaccion', '%' . $this->Numerodeaccion . '%');
 			$resultado->bindValue(':Cinturon', '%' . $this->Cinturon . '%');
+
+			
+			$fechaHoraActual = date('Y-m-d H:i:s');
 	
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
 	
 			$html = "<html><head>
+
+			 
 						<style>
 							body { font-family: Arial, sans-serif; font-size: 10px; }
 							table { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -416,6 +421,7 @@ class  athletes extends datos
 					 </head><body>";
 	
 			$html .= "<h1>LISTA DE ATLETAS</h1>";
+			$html .= "<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p>";
 			$html .= "<table>";
 			$html .= "<thead><tr>";
 			$html .= "<th style='width:10%'>Cedula</th>";
