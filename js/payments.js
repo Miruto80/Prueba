@@ -8,10 +8,11 @@ $("#listadodeclientes").on("click",function(){
 });
 
 function colocacliente(linea){
-	$("#cedula").val($(linea).find("td:eq(1)").text());
-	$("#numeroaccion").val($(linea).find("td:eq(4)").text());
-	$("#nombres").val($(linea).find("td:eq(3)").text());
-	$("#apellidos").val($(linea).find("td:eq(2)").text());
+	$("#cedula").val($(linea).find("td:eq(0)").text());
+	$("#numeroaccion").val($(linea).find("td:eq(3)").text());
+	$("#nombres").val($(linea).find("td:eq(2)").text());
+	$("#apellidos").val($(linea).find("td:eq(1)").text());
+	$("#id_atleta").val($(linea).find("td:eq(4)").text());
 	
 	$("#modalclientes").modal("hide")
 }
@@ -121,6 +122,7 @@ $("#proceso").on("click",function(){
 			datos.append('numeroaccion',$("#numeroaccion").val());
 			datos.append('nombres',$("#nombres").val());
 			datos.append('apellidos',$("#apellidos").val());
+			datos.append('id_atleta',$("#id_atleta").val());
             
 			enviaAjax(datos);
 		}
@@ -137,6 +139,7 @@ $("#proceso").on("click",function(){
 			datos.append('numeroaccion',$("#numeroaccion").val());
 			datos.append('nombres',$("#nombres").val());
 			datos.append('apellidos',$("#apellidos").val());
+			datos.append('id_atleta',$("#id_atleta").val());
 			
 			enviaAjax(datos);
 		}

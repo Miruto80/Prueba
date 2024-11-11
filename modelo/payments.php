@@ -22,6 +22,7 @@ class  payments extends datos
 	private $numeroaccion;
 	private $nombres;
 	private $apellidos;
+	private $id_atleta;
 	
 	//Metodos para leer: get metodos para colocar: set 
 
@@ -63,6 +64,10 @@ class  payments extends datos
 	{
 		$this->apellidos = $valor;
 	}
+	function set_id_atleta($valor)
+	{
+		$this->id_atleta = $valor;
+	}
 ////sdddddddssssssssssssssssssssssssssssssssssss
 
 	function get_cedula()
@@ -100,6 +105,10 @@ class  payments extends datos
 	{
 		return $this->apellidos;
 	}
+	function get_id_atleta()
+	{
+		return $this->id_atleta;
+	}
 
 
 	//Metodos para incluir, consultar y eliminar
@@ -129,7 +138,8 @@ class  payments extends datos
 						tipopago,
 						numeroaccion,
 						nombres,
-						apellidos
+						apellidos,
+						id_atleta
 						)
 						Values(
 						'$this->cedula',
@@ -139,7 +149,8 @@ class  payments extends datos
 						'$this->tipopago',
 						'$this->numeroaccion',
 						'$this->nombres',
-						'$this->apellidos'
+						'$this->apellidos',
+						'$this->id_atleta'
 						)");
 				$r['resultado'] = 'incluir';
 				$r['mensaje'] =  'Registro Inluido';
@@ -313,9 +324,7 @@ function eliminar()
 				$respuesta = '';
 				foreach($resultado as $r){
 					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
-						$respuesta = $respuesta."<td style='display:none'>";
-							$respuesta = $respuesta.$r['id'];
-						$respuesta = $respuesta."</td>";
+						
 						$respuesta = $respuesta."<td>";
 							$respuesta = $respuesta.$r['cedula'];
 						$respuesta = $respuesta."</td>";
@@ -327,6 +336,9 @@ function eliminar()
 						$respuesta = $respuesta."</td>";
 						$respuesta = $respuesta."<td>";
 						$respuesta = $respuesta.$r['Numerodeaccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['id'];
 						$respuesta = $respuesta."</td>";
 					$respuesta = $respuesta."</tr>";
 				}

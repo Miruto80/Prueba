@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 21-09-2024 a las 00:52:57
+-- Tiempo de generación: 11-11-2024 a las 02:33:00
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `taekyon1`
+-- Base de datos: `taekyonnueva`
 --
 
 -- --------------------------------------------------------
@@ -47,8 +47,7 @@ CREATE TABLE `tatletas` (
 --
 
 INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`, `Direccion`, `Correo`, `Telefono`, `Numerodeaccion`, `Cinturon`) VALUES
-(0, '30231853', 'Miguel Fernando', 'Torres Torres', '2004-08-10', 'M', 'Si','La mata','Mftt@gmail.com','04125889171','95','Blanco'),
-(1, '29418245', 'Daisa', 'Perez', '1976-09-14', 'F', 'Si','Cabudare','dail@gmail.com','04242580141','36','Rojo');
+(2, 2653456, 'pasnn', 'chichi', '2006-07-12', 'M', 'Si', 'vcali 23', 'cahgvkas@hotmail.com', 2147483647, 0, 'Negro VII DAN');
 
 -- --------------------------------------------------------
 
@@ -57,9 +56,9 @@ INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimien
 --
 
 CREATE TABLE `tatletaslogros` (
-  `codEvento` int(15) NOT NULL,
+  `codEvento` int(11) NOT NULL,
   `id_atleta1` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -91,9 +90,9 @@ CREATE TABLE `tclases` (
 --
 
 CREATE TABLE `tclasesatletas` (
-  `id2` int(15) NOT NULL,
+  `id2` int(11) NOT NULL,
   `idclases` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -102,9 +101,9 @@ CREATE TABLE `tclasesatletas` (
 --
 
 CREATE TABLE `tclaseshorarios` (
-  `tipohorarios` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `tipohorarios` varchar(30) NOT NULL,
   `idclases1` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -115,7 +114,7 @@ CREATE TABLE `tclaseshorarios` (
 CREATE TABLE `tclub` (
   `numaccion` int(15) NOT NULL,
   `id_atleta` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -137,11 +136,12 @@ CREATE TABLE `tentrenadores` (
 --
 
 INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, `Jerarquiadecinturon`) VALUES
+(0, 3654225, 'paere', 'quuuan', '0415-2416546', 'V DAN'),
 (1, 30560144, 'Mendoza', 'Joaquin', '0414-5446656', 'VIII DAN'),
 (2, 30678912, 'Ramirez', 'Carlos', '0414-1234567', 'VII DAN'),
 (3, 30765498, 'Perez', 'Ana', '0416-2345678', 'VI DAN'),
 (4, 30876543, 'Gomez', 'Luis', '0412-3456789', 'V DAN'),
-(5, 30987654, 'Diaz', 'Maria', '0412-4567890', 'IV DAN');
+(5, 30987654, 'peres', 'Maria', '0412-4567890', 'I DAN');
 
 -- --------------------------------------------------------
 
@@ -151,8 +151,22 @@ INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, 
 
 CREATE TABLE `thorarios` (
   `Tipodehorario` varchar(30) NOT NULL,
-  `Edad` int(11) NOT NULL
+  `id2` int(11) DEFAULT NULL,
+  `cedula` int(11) DEFAULT NULL,
+  `apellidos` varchar(30) NOT NULL,
+  `nombres` varchar(30) NOT NULL,
+  `Edad` int(11) NOT NULL,
+  `Nombre` varchar(30) NOT NULL,
+  `Apellido` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `thorarios`
+--
+
+INSERT INTO `thorarios` (`Tipodehorario`, `id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`, `Apellido`) VALUES
+('INFANTIL de 5:00 PM a 6:00 PM', NULL, 26451263, 'perez', 'pepe', 17, 'Ana', 'Perez'),
+('JUVENIL de 6:00 PM a 7:00 PM', NULL, 2653456, 'pasnn', 'chichi', 18, 'Ana', 'Perez');
 
 -- --------------------------------------------------------
 
@@ -169,15 +183,6 @@ CREATE TABLE `tlogros` (
   `id3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Volcado de datos para la tabla `tlogros`
---
-
-INSERT INTO `tlogros` (`Cod_evento`, `Nombre_de_evento`, `Fecha_del_evento`, `Logro_obtenido`, `categoria`, `id3`) VALUES
-(1, 'Taekwondo Championship', '2024-05-15', '1ER LUGAR', 'POOMSAE', 1),
-(2, 'Copa PAL LI', '2024-06-20', '2DO LUGAR', 'KYORUGUI', 2),
-(3, 'Copa UFT', '2024-07-10', '3ER LUGAR', 'AMBAS', 3);
-
 -- --------------------------------------------------------
 
 --
@@ -191,29 +196,40 @@ CREATE TABLE `tpagos` (
   `tipopago` varchar(30) NOT NULL,
   `numeroaccion` int(15) NOT NULL,
   `id_atleta` int(11) NOT NULL,
-  `Comprobantedepago` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `Comprobantedepago` int(11) NOT NULL,
+  `nombres` varchar(20) NOT NULL,
+  `apellidos` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tpagos`
 --
 
-INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`) VALUES
-(26532154, '2024-09-21', 20, 'tranferencia', 0, 0, 6254);
+INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`) VALUES
+(2653456, '2024-11-19', 500, 'Pago movil', 0, 2, 6114, 'chichi', 'pasnn');
 
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tusuarios`
+--
 
-CREATE TABLE `tusuarios`(
-`CedulaU` int PRIMARY KEY,
-`NombreU` varchar(30) NOT NULL,
-`Usuario`  varchar(30) NOT NULL,
-`Cargo`  varchar(30) NOT NULL,
-`Contrasena`  varchar(30) NOT NULL
-)ENGINE=InnoDB;
+CREATE TABLE `tusuarios` (
+  `CedulaU` int(11) NOT NULL,
+  `NombreU` varchar(30) NOT NULL,
+  `Usuario` varchar(30) NOT NULL,
+  `Cargo` varchar(30) NOT NULL,
+  `Contrasena` varchar(30) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-INSERT INTO `tusuarios`(`CedulaU`, `NombreU`, `Usuario`, `Cargo`,`Contrasena`) VALUES
-(31298123,'George kakajakian','GeorgeK','Gerente','123456789'),
-(30955611,'Pedro perez','Pedro1','Entrenador','12345678');
+--
+-- Volcado de datos para la tabla `tusuarios`
+--
+
+INSERT INTO `tusuarios` (`CedulaU`, `NombreU`, `Usuario`, `Cargo`, `Contrasena`) VALUES
+(30955611, 'Pedro perez', 'Pedro1', 'Entrenador', '12345678'),
+(31298123, 'George kakajakian', 'GeorgeK', 'Gerente', '123456789');
+
 --
 -- Índices para tablas volcadas
 --
@@ -287,11 +303,23 @@ ALTER TABLE `tlogros`
 -- Indices de la tabla `tpagos`
 --
 ALTER TABLE `tpagos`
-  ADD KEY `id` (`id_atleta`);
+  ADD KEY `id_atleta` (`id_atleta`);
+
+--
+-- Indices de la tabla `tusuarios`
+--
+ALTER TABLE `tusuarios`
+  ADD PRIMARY KEY (`CedulaU`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
+
+--
+-- AUTO_INCREMENT de la tabla `tatletas`
+--
+ALTER TABLE `tatletas`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tentrenadores`
@@ -313,8 +341,8 @@ ALTER TABLE `tlogros`
 -- Filtros para la tabla `tatletaslogros`
 --
 ALTER TABLE `tatletaslogros`
-  ADD CONSTRAINT `codEvento` FOREIGN KEY (`codEvento`) REFERENCES `tlogros` (`Cod_evento`),
-  ADD CONSTRAINT `id_atleta1` FOREIGN KEY (`id_atleta1`) REFERENCES `tatletas` (`id`);
+  ADD CONSTRAINT `tatletaslogros_ibfk_1` FOREIGN KEY (`codEvento`) REFERENCES `tlogros` (`Cod_evento`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tatletaslogros_ibfk_2` FOREIGN KEY (`id_atleta1`) REFERENCES `tatletas` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tclaseentrenadores`
@@ -327,27 +355,27 @@ ALTER TABLE `tclaseentrenadores`
 -- Filtros para la tabla `tclasesatletas`
 --
 ALTER TABLE `tclasesatletas`
-  ADD CONSTRAINT `id2` FOREIGN KEY (`id2`) REFERENCES `tatletas` (`id`),
-  ADD CONSTRAINT `idclases` FOREIGN KEY (`idclases`) REFERENCES `tclases` (`idclases`);
+  ADD CONSTRAINT `tclasesatletas_ibfk_1` FOREIGN KEY (`id2`) REFERENCES `tatletas` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tclasesatletas_ibfk_2` FOREIGN KEY (`idclases`) REFERENCES `tclases` (`idclases`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tclaseshorarios`
 --
 ALTER TABLE `tclaseshorarios`
-  ADD CONSTRAINT `idclases1` FOREIGN KEY (`idclases1`) REFERENCES `tclases` (`idclases`),
-  ADD CONSTRAINT `tipohorarios` FOREIGN KEY (`tipohorarios`) REFERENCES `thorarios` (`Tipodehorario`);
+  ADD CONSTRAINT `tclaseshorarios_ibfk_1` FOREIGN KEY (`idclases1`) REFERENCES `tclases` (`idclases`) ON DELETE CASCADE,
+  ADD CONSTRAINT `tclaseshorarios_ibfk_2` FOREIGN KEY (`tipohorarios`) REFERENCES `thorarios` (`Tipodehorario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tclub`
 --
 ALTER TABLE `tclub`
-  ADD CONSTRAINT `id_atleta` FOREIGN KEY (`id_atleta`) REFERENCES `tatletas` (`id`);
+  ADD CONSTRAINT `tclub_ibfk_1` FOREIGN KEY (`id_atleta`) REFERENCES `tatletas` (`id`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `tpagos`
 --
 ALTER TABLE `tpagos`
-  ADD CONSTRAINT `id` FOREIGN KEY (`id_atleta`) REFERENCES `tatletas` (`id`);
+  ADD CONSTRAINT `tpagos_ibfk_1` FOREIGN KEY (`id_atleta`) REFERENCES `tatletas` (`id`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

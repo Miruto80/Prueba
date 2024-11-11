@@ -129,6 +129,11 @@
                                         <input class="form-control" type="text" id="apellidos" name="apellidos" disabled/>
                                         
                                     </div>
+                                    <div class="col-4">
+                                    <label for="id_atleta">id_atleta</label>
+                                    <input class="form-control" type="text" id="id_atleta" name="id_atleta"  disabled/>
+                                    <span id="sid_atleta" class="form-text text-muted"></span>
+                                </div>
                                 </div>
 
                                 <div class="row mb-3">
@@ -199,6 +204,7 @@
                                 <th class="text-center">Apellidos</th>
                                 <th class="text-center">Nombres</th>
                                 <th class="text-center">Numero de Accion</th>
+                                <th class="text-center">id_atleta</th>
                             </tr>
                         </thead>
                         <tbody id="tablaclientes">
@@ -271,6 +277,7 @@
                                     <input class="form-control" type="text" id="apellidos" name="apellidos" />
                                     <span id="sapellidos" class="form-text text-muted"></span>
                                 </div>
+                               
                             </div>
                         </div>
                 

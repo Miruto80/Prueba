@@ -61,6 +61,7 @@ if (is_file("vista/" . $pagina . ".php")) {
 			$o->set_numeroaccion($_POST['numeroaccion']);
 			$o->set_nombres($_POST['nombres']);
 			$o->set_apellidos($_POST['apellidos']);
+			$o->set_id_atleta($_POST['id_atleta']);
 
 			if ($accion == 'incluir') {
 				echo  json_encode($o->incluir());
