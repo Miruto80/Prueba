@@ -193,7 +193,7 @@ class  payments extends datos
 			}
 		} else {
 			$r['resultado'] = 'modificar';
-			$r['mensaje'] =  'Cedula no registrada';
+			$r['mensaje'] =  'Accion no permitida !!ELIMINE el registro!!';
 		}
 		return $r;
 	}
