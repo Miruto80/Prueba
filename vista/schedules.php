@@ -228,44 +228,49 @@
                 </div>
                 <div class="modal-body">
                     <form method="post" id="f" autocomplete="off" target="_blank">
-                        <div class="row">
-                            <div class="col">
+                    <!-- Primera fila de campos -->
+                    <div class="row">
+                            <div class="col-md-3">
                                 <label for="cedula">Cédula</label>
                                 <input class="form-control" type="text" id="cedula" name="cedula"  />
                                 <span id="scedula" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                            <div class="col-md-3">
                                 <label for="nombres">Nombre</label>
                                 <input class="form-control" type="text" id="nombres" name="nombres"  />
                                 <span id="snombres" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                            <div class="col-md-3">
                                 <label for="apellidos">Apellido</label>
                                 <input class="form-control" type="text" id="apellidos" name="apellidos"  />
                                 <span id="sapellidos" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                            <div class="col-md-3">
                                 <label for="Edad">Edad</label>
                                 <input class="form-control" type="text" id="Edad" name="Edad" />
                                 <span id="sEdad" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                        </div>
+
+                        <div class="row mt-3">
+                            <div class="col-4">
                                 <label for="Tipodehorario">Tipo de horario</label>
                                 <input class="form-control" type="text" id="Tipodehorario" name="Tipodehorario" />
                                 <span id="sTipodehorario" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                            <div class="col-4">
                                 <label for="Nombre">Nombres del entrenador</label>
                                 <input class="form-control" type="text" id="Nombre" name="Nombre" />
                                 <span id="sNombre" class="form-text text-muted"></span>
                             </div>
-                            <div class="col">
+                            <div class="col-4">
                                 <label for="Apellido">Apellidos del entrenador</label>
                                 <input class="form-control" type="text" id="Apellido" name="Apellido" />
                                 <span id="sApellido" class="form-text text-muted"></span>
                             </div>
                         </div>
-                        <div class="row">
+                        
+                        <div class="row mt-3">
                             <div class="col">
                                 <hr />
                             </div>

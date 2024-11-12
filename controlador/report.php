@@ -33,6 +33,18 @@ if (is_file("vista/" . $pagina . ".php")) {
         $athlete->generarPDF();
     }
 
+    // Procesamiento para Horarios
+    elseif (isset($_POST['generar'], $_POST['cedula'], $_POST['nombres'], $_POST['apellidos'], $_POST['Edad'], $_POST['Tipodehorario'], $_POST['Nombre'], $_POST['Apellido'])) {
+        $schedule = new schedules();
+        $schedule->set_cedula($_POST['cedula']);
+        $schedule->set_nombres($_POST['nombres']);
+        $schedule->set_apellidos($_POST['apellidos']);
+        $schedule->set_Edad($_POST['Edad']);
+        $schedule->set_Nombre($_POST['Nombre']);
+        $schedule->set_Apellido($_POST['Apellido']);
+        $schedule->generarPDF();
+    }
+
     // Procesamiento para pagos
     elseif (isset($_POST['generar'], $_POST['cedula'], $_POST['fechadepago'], $_POST['Monto'], $_POST['Comprobantedepago'], $_POST['tipopago'], $_POST['numeroaccion'], $_POST['nombres'], $_POST['apellidos'])) {
         $payment = new payments();
