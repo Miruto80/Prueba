@@ -47,7 +47,7 @@ CREATE TABLE `tatletas` (
 --
 
 INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`, `Direccion`, `Correo`, `Telefono`, `Numerodeaccion`, `Cinturon`) VALUES
-(2, 2653456, 'pasnn', 'chichi', '2006-07-12', 'M', 'Si', 'vcali 23', 'cahgvkas@hotmail.com', 2147483647, 0, 'Negro VII DAN');
+(1, 2653456, 'Perez', 'Roberto', '2006-07-12', 'M', 'Si', 'Cabudare', 'cahgvkas@hotmail.com', 04125789941, 12, 'Negro II DAN');
 
 -- --------------------------------------------------------
 
@@ -165,8 +165,7 @@ CREATE TABLE `thorarios` (
 --
 
 INSERT INTO `thorarios` (`Tipodehorario`, `id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`, `Apellido`) VALUES
-('INFANTIL de 5:00 PM a 6:00 PM', NULL, 26451263, 'perez', 'pepe', 17, 'Ana', 'Perez'),
-('JUVENIL de 6:00 PM a 7:00 PM', NULL, 2653456, 'pasnn', 'chichi', 18, 'Ana', 'Perez');
+('JUVENIL de 6:00 PM a 7:00 PM', NULL, 2653456, 'Perez', 'Roberto', 18, 'Joaquin', 'Mendoza');
 
 -- --------------------------------------------------------
 
@@ -206,7 +205,7 @@ CREATE TABLE `tpagos` (
 --
 
 INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`) VALUES
-(2653456, '2024-11-19', 500, 'Pago movil', 0, 2, 6114, 'chichi', 'pasnn');
+(2653456, '2024-11-19', 500, 'Pago movil', 12, 1, 6114, 'Roberto', 'Perez');
 
 -- --------------------------------------------------------
 
