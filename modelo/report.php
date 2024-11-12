@@ -404,6 +404,8 @@ class  payments extends datos
 	private $Comprobantedepago;
 	private $tipopago;
 	private $numeroaccion;
+	private $nombres;
+	private $apellidos;
 	
 	//Metodos para leer: get metodos para colocar: set 
 
@@ -436,7 +438,17 @@ class  payments extends datos
 	{
 		$this->numeroaccion = $valor;
 	}
-
+	
+	function set_nombres($valor)
+	{
+		$this->nombres = $valor;
+	}
+	function set_apellidos($valor)
+	{
+		$this->apellidos = $valor;
+	}
+	
+////sdddddddssssssssssssssssssssssssssssssssssss
 
 	function get_cedula()
 	{
@@ -465,7 +477,15 @@ class  payments extends datos
 	{
 		return $this->tipopago;
 	}
-
+	function get_nombres()
+	{
+		return $this->nombres;
+	}
+	function get_apellidos()
+	{
+		return $this->apellidos;
+	}
+	
 
 	function generarPDF() {
 		// Conexión a la base de datos y configuración de errores
@@ -476,15 +496,20 @@ class  payments extends datos
 			// Preparación de la consulta SQL
 			$resultado = $co->prepare("SELECT * FROM tpagos WHERE cedula LIKE :cedula AND fechadepago LIKE :fechadepago 
 			AND Monto LIKE :Monto AND Comprobantedepago LIKE :Comprobantedepago 
-			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion");
+			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion AND nombres LIKE :nombres AND apellidos LIKE :apellidos");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
 			$resultado->bindValue(':fechadepago', '%' . $this->fechadepago . '%');
 			$resultado->bindValue(':Monto', '%' . $this->Monto . '%');
 			$resultado->bindValue(':Comprobantedepago', '%' . $this->Comprobantedepago . '%');
 			$resultado->bindValue(':tipopago', '%' . $this->tipopago . '%');
 			$resultado->bindValue(':numeroaccion', '%' . $this->numeroaccion . '%');
+			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
+			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
+	
+			// Obtener la fecha y hora actuales
+			$fechaHoraActual = date('Y-m-d H:i:s');  // Obtén la fecha y hora en formato deseado
 	
 			// Construcción del contenido HTML para el PDF
 			$html = "
@@ -494,13 +519,14 @@ class  payments extends datos
 						body { font-family: Arial, sans-serif; }
 						table { width: 100%; border-collapse: collapse; }
 						th, td { border: 1px solid #000; padding: 8px; text-align: center; }
-						th { background-color: #FFD700; color: #000; } /* Dorado en encabezado */
+						th { background-color: #FFD700; color: #000; } 
 						td { background-color: #FFF; }
 						h2 { text-align: center; color: #000; }
 					</style>
 				</head>
 				<body>
 					<h2>Reporte de Pagos</h2>
+					<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p> 
 					<table>
 						<thead>
 							<tr>
@@ -510,6 +536,8 @@ class  payments extends datos
 								<th>Comprobante de Pago</th>
 								<th>Tipo de Pago</th>
 								<th>Numero de Accion</th>
+								<th>Nombres</th>
+								<th>Apellidos</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -525,12 +553,14 @@ class  payments extends datos
 							<td>{$f['Comprobantedepago']}</td>
 							<td>{$f['tipopago']}</td>
 							<td>{$f['numeroaccion']}</td>
+							<td>{$f['nombres']}</td>
+							<td>{$f['apellidos']}</td>
 						</tr>";
 				}
 			} else {
 				$html .= "
 						<tr>
-							<td colspan='4' style='text-align:center; color:red;'>No se encontraron resultados</td>
+							<td colspan='8' style='text-align:center; color:red;'>No se encontraron resultados</td>
 						</tr>";
 			}
 	
@@ -540,6 +570,7 @@ class  payments extends datos
 					</table>
 				</body>
 				</html>";
+	
 		} catch (Exception $e) {
 			// Manejo de errores
 			echo "Error: " . $e->getMessage();
@@ -553,7 +584,6 @@ class  payments extends datos
 		$pdf->render();
 		$pdf->stream('ReportePagos.pdf', array("Attachment" => false));
 	}
-	
 }
 
 

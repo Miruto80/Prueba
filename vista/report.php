@@ -306,6 +306,19 @@
                                 <span id="snumeroaccion"></span>
                             </div>
                         </div>
+                        <div class="row">
+                                <div class="col-6">
+                                    <label for="nombres">Nombres</label>
+                                    <input class="form-control" type="text" id="nombres" name="nombres"  />
+                                    <span id="snombres" class="form-text text-muted"></span>
+                                </div>
+                                <div class="col-6">
+                                    <label for="apellidos">Apellidos</label>
+                                    <input class="form-control" type="text" id="apellidos" name="apellidos" />
+                                    <span id="sapellidos" class="form-text text-muted"></span>
+                                </div>
+                               
+                            </div>
                         <div class="row mt-3 text-center">
                             <div class="col">
                                 <button type="submit" class="btn btn-warning" id="generar" name="generar">GENERAR PDF</button>

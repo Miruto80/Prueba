@@ -34,7 +34,7 @@ if (is_file("vista/" . $pagina . ".php")) {
     }
 
     // Procesamiento para pagos
-    elseif (isset($_POST['generar'], $_POST['cedula'], $_POST['fechadepago'], $_POST['Monto'], $_POST['Comprobantedepago'], $_POST['tipopago'], $_POST['numeroaccion'])) {
+    elseif (isset($_POST['generar'], $_POST['cedula'], $_POST['fechadepago'], $_POST['Monto'], $_POST['Comprobantedepago'], $_POST['tipopago'], $_POST['numeroaccion'], $_POST['nombres'], $_POST['apellidos'])) {
         $payment = new payments();
         $payment->set_cedula($_POST['cedula']);
         $payment->set_fechadepago($_POST['fechadepago']);
@@ -42,6 +42,8 @@ if (is_file("vista/" . $pagina . ".php")) {
         $payment->set_Comprobantedepago($_POST['Comprobantedepago']);
         $payment->set_tipopago($_POST['tipopago']);
         $payment->set_numeroaccion($_POST['numeroaccion']);
+        $payment->set_nombres($_POST['nombres']);
+		$payment->set_apellidos($_POST['apellidos']);
         $payment->generarPDF();
     }
 
@@ -57,8 +59,6 @@ if (is_file("vista/" . $pagina . ".php")) {
 
     // Incluye la vista correspondiente
     require_once("vista/" . $pagina . ".php");
-
 } else {
     echo "Página en construcción";
 }
-?>
