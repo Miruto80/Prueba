@@ -102,12 +102,11 @@ $(document).ready(function(){
 		$(this),$("#sCorreo"),"El formato debe ser alguien@servidor.com");
 	});
 	$("#Telefono").on("keypress",function(e){
-		validarkeypress(/^[0-9-\b]*$/,e);
+		validarkeypress(/^[0-9\b-]*$/,e);
 	});
 	
 	$("#Telefono").on("keyup",function(){
-		validarkeyup(/^[0-9]{10,11}$/,$(this),
-		$("#sTelefono"),"El formato debe ser de 10 a 11");
+	    validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$(this),$("#sTelefono"),"El formato debe ser 04XX-XXXXXXX");
 	});
 	
 	$("#Numerodeaccion").on("keypress",function(e){
@@ -191,11 +190,10 @@ function validarenvio(){
 		muestraMensaje("Direccion <br/>Solo letras y numeros entre 3 y 30 caracteres");
 		return false;
 	}
-	else if(validarkeyup(/^[0-9]{10,11}$/,$("#Telefono"),
-	$("#Telefono"),"El formato debe ser de 10 a 11")==0){
-	muestraMensaje("El telefono debe coincidir con el formato <br/>"+ 
-					"de 10 a 11");	
-	return false;					
+	else if(validarkeyup(/^[0-9]{4}[-]{1}[0-9]{7,8}$/,$("#Telefono"),
+		 $("#sTelefono"),"El formato debe ser 04XX-XXXXXXX")==0){
+		 muestraMensaje("Telefono <br/>Verifique el Telefono");
+	     return false;
 	}
 	else if(!$("#masculino").is(":checked") && !$("#femenino").is(":checked")) {
 		muestraMensaje("Sexo <br/>Debe seleccionar el sexo");

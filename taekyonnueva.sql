@@ -37,8 +37,8 @@ CREATE TABLE `tatletas` (
   `Participacion` varchar(30) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
   `Correo` varchar(50) NOT NULL,
-  `Telefono` int(20) NOT NULL,
-  `Numerodeaccion` int(30) NOT NULL,
+  `Telefono` varchar(30) NOT NULL,
+  `Numerodeaccion` varchar(30) NOT NULL,
   `Cinturon` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -47,7 +47,8 @@ CREATE TABLE `tatletas` (
 --
 
 INSERT INTO `tatletas` (`id`, `cedula`, `apellidos`, `nombres`, `fechadenacimiento`, `sexo`, `Participacion`, `Direccion`, `Correo`, `Telefono`, `Numerodeaccion`, `Cinturon`) VALUES
-(1, 2653456, 'Perez', 'Roberto', '2006-07-12', 'M', 'Si', 'Cabudare', 'cahgvkas@hotmail.com', 04125789941, 12, 'Negro II DAN');
+(1, 30294852, 'Perez', 'Roberto', '2006-07-12', 'M', 'Si', 'Cabudare', 'cahgvkas@hotmail.com', '0424-1245674', '36', 'Blanco'),
+(2, 31245689, 'Melendez', 'Mariana', '2004-11-14', 'F', 'No', 'La mora', 'Mftt@gmail.com', '0412-2278991', '31', 'Rojo');
 
 -- --------------------------------------------------------
 
@@ -165,7 +166,7 @@ CREATE TABLE `thorarios` (
 --
 
 INSERT INTO `thorarios` (`Tipodehorario`, `id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`, `Apellido`) VALUES
-('JUVENIL de 6:00 PM a 7:00 PM', NULL, 2653456, 'Perez', 'Roberto', 18, 'Joaquin', 'Mendoza');
+('JUVENIL de 6:00 PM a 7:00 PM', NULL, 30294852, 'Perez', 'Roberto', 18, 'Joaquin', 'Mendoza');
 
 -- --------------------------------------------------------
 
@@ -193,9 +194,9 @@ CREATE TABLE `tpagos` (
   `fechadepago` date NOT NULL,
   `Monto` float NOT NULL,
   `tipopago` varchar(30) NOT NULL,
-  `numeroaccion` int(15) NOT NULL,
+  `numeroaccion` varchar(30) NOT NULL,
   `id_atleta` int(11) NOT NULL,
-  `Comprobantedepago` int(11) NOT NULL,
+  `Comprobantedepago` varchar(30) NOT NULL,
   `nombres` varchar(20) NOT NULL,
   `apellidos` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -205,7 +206,7 @@ CREATE TABLE `tpagos` (
 --
 
 INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`) VALUES
-(2653456, '2024-11-19', 500, 'Pago movil', 12, 1, 6114, 'Roberto', 'Perez');
+(30294852, '2024-11-19', 500, 'Pago movil', '36', 1, 6114, 'Roberto', 'Perez');
 
 -- --------------------------------------------------------
 
