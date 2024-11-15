@@ -36,9 +36,9 @@ CREATE TABLE `tatletas` (
   `sexo` varchar(1) NOT NULL,
   `Participacion` varchar(30) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
-  `Correo` varchar(50) NOT NULL,
+  `Correo` varchar(50) NULL,
   `Telefono` varchar(30) NOT NULL,
-  `Numerodeaccion` varchar(30) NOT NULL,
+  `Numerodeaccion` varchar(30) NULL,
   `Cinturon` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
