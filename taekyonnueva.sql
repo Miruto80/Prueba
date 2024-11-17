@@ -180,6 +180,7 @@ CREATE TABLE `tlogros` (
   `Fecha_del_evento` date NOT NULL,
   `Logro_obtenido` varchar(30) NOT NULL,
   `categoria` varchar(30) NOT NULL,
+  `NombreLA` VARCHAR(30) NOT NULL,
   `id3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
