@@ -90,7 +90,7 @@ class records extends datos{
 						'$this->NombreLA'
 						)");
 						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Logro Inluido';
+			            $r['mensaje'] =  'Logro Incluido';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
