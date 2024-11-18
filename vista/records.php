@@ -130,7 +130,7 @@
 										</select>
 									</div>
 									<div class="col-md-4">
-										<label for="NombreLA">NombreLA</label>
+										<label for="NombreLA">Nombre del Atleta</label>
 										<input type="text" name="NombreLA" id="NombreLA" class="form-control">
 										<span id="sNombreLA"></span>
 									</div>
@@ -187,7 +187,7 @@
 								<span id="scategoria" class="form-text text-muted"></span>
 							</div>
 							<div class="col">
-							<label for="NombreLA">NombreLA</label>
+							<label for="NombreLA">Nombre del Atleta</label>
 							<input type="text" name="NombreLA" id="NombreLA" class="form-control">
 							<span id="sNombreLA"></span>
 	                         </div>
