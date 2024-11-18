@@ -90,7 +90,7 @@ class records extends datos{
 						'$this->NombreLA'
 						)");
 						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Registro Inluido';
+			            $r['mensaje'] =  'Logro Inluido';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -98,7 +98,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'incluir';
-			$r['mensaje'] =  'Ya existe la Nombre_de_evento';
+			$r['mensaje'] =  'Este logro ya se encuentra registrado';
 		}
 		return $r;
 		
