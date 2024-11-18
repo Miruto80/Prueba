@@ -164,35 +164,38 @@
 				<div class="modal-body">
 					<form method="post" id="f" autocomplete="off" target="_blank">
 						<div class="row">
-							<div class="col">
+						<div class="col-md-4">
 								<label for="Nombre_de_evento">Nombre del Evento</label>
 								<input class="form-control" type="text" id="Nombre_de_evento" name="Nombre_de_evento" />
 								<span id="sNombre_de_evento" class="form-text text-muted"></span>
 							</div>
-							<div class="col">
+							<div class="col-md-4">
 								<label for="Fecha_del_evento">Fecha del evento</label>
 								<input class="form-control" type="text" id="Fecha_del_evento" name="Fecha_del_evento" />
 								<span id="sFecha_del_evento" class="form-text text-muted"></span>
 							</div>
 
-							<div class="col">
+							<div class="col-md-4">
 								<label for="Logro_obtenido">Logro Obtenido </label>
 								<input class="form-control" type="text" id="Logro_obtenido" name="Logro_obtenido" />
 								<span id="sLogro_obtenido" class="form-text text-muted"></span>
 							</div>
+						</div>
 
-							<div class="col">
+						<div class="row mt-3">
+						    <div class="col-6">
 								<label for="categoria">Categoria</label>
 								<input class="form-control" type="text" id="categoria" name="categoria" />
 								<span id="scategoria" class="form-text text-muted"></span>
 							</div>
-							<div class="col">
-							<label for="NombreLA">Nombre del Atleta</label>
-							<input type="text" name="NombreLA" id="NombreLA" class="form-control">
-							<span id="sNombreLA"></span>
-	                         </div>
+							<div class="col-6">
+							    <label for="NombreLA">Nombre del Atleta</label>
+							    <input type="text" name="NombreLA" id="NombreLA" class="form-control">
+							    <span id="sNombreLA"></span>
+	                        </div>
 						</div>
-						<div class="row">
+						
+						<div class="row mt-3">
 							<div class="col">
 								<hr />
 							</div>

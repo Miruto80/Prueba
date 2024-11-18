@@ -229,7 +229,7 @@ class records extends datos{
 	
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria");
+			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria AND NombreLA LIKE :NombreLA");
 			$resultado->bindValue(':Nombre_de_evento', '%' . $this->Nombre_de_evento . '%');
 			$resultado->bindValue(':Fecha_del_evento', '%' . $this->Fecha_del_evento . '%');
 			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');

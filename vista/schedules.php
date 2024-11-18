@@ -222,7 +222,9 @@
     </div>
 
 
+	<!--fin de seccion modal-->
 
+	<!-- Sección del modal 2 -->
     
     <div class="modal fade" tabindex="-1" id="modal2" aria-labelledby="modal2Label" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
