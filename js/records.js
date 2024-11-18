@@ -205,7 +205,7 @@ function enviaAjax(datos) {
         }
 		else if (lee.resultado == "incluir") {
            muestraMensaje(lee.mensaje);
-		   if(lee.mensaje=='Logro Inluido'){
+		   if(lee.mensaje=='Logro Incluido'){
 			   $("#modal1").modal("hide");
 			   consultar();
 		   }

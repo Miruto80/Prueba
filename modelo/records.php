@@ -120,7 +120,7 @@ class records extends datos{
 						Nombre_de_evento = '$this->Nombre_de_evento'
 						");
 						$r['resultado'] = 'modificar';
-			            $r['mensaje'] =  'Registro Modificado';
+			            $r['mensaje'] =  'Logro Modificado';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -128,7 +128,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'modificar';
-			$r['mensaje'] =  'Nombre_de_evento no registrada';
+			$r['mensaje'] =  'Logro no registrado';
 		}
 		return $r;
 	}
@@ -144,7 +144,7 @@ class records extends datos{
 						Nombre_de_evento = '$this->Nombre_de_evento'
 						");
 						$r['resultado'] = 'eliminar';
-			            $r['mensaje'] =  'Registro Eliminado';
+			            $r['mensaje'] =  'Logro Eliminado';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -152,7 +152,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'eliminar';
-			$r['mensaje'] =  'No existe la Nombre_de_evento';
+			$r['mensaje'] =  'No existe este logro';
 		}
 		return $r;
 	}
