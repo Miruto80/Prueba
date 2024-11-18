@@ -47,17 +47,22 @@
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
+			        <?php
+					  if($nivel=='Gerente' or $nivel=='Secretaria'){
+				     ?>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<button type="button" class="btn btn-warning btn-block" id="incluir"><b>REGISTRAR</b></button>
 				</div>
-
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
+                <?php
+					  }
+				?>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">
 						<b>REPORTE</b>
 					</button>
 				</div>
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<a href="?pagina=principal" class="btn btn-warning btn-block"><b>SALIR</b></a>
 				</div>
 			</div>
 		</div>
