@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 11-11-2024 a las 02:33:00
+-- Tiempo de generación: 19-11-2024 a las 05:56:59
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -36,9 +36,9 @@ CREATE TABLE `tatletas` (
   `sexo` varchar(1) NOT NULL,
   `Participacion` varchar(30) NOT NULL,
   `Direccion` varchar(50) NOT NULL,
-  `Correo` varchar(50) NULL,
+  `Correo` varchar(50) DEFAULT NULL,
   `Telefono` varchar(30) NOT NULL,
-  `Numerodeaccion` varchar(30) NULL,
+  `Numerodeaccion` varchar(30) DEFAULT NULL,
   `Cinturon` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -102,8 +102,8 @@ CREATE TABLE `tclasesatletas` (
 --
 
 CREATE TABLE `tclaseshorarios` (
-  `tipohorarios` varchar(30) NOT NULL,
-  `idclases1` int(11) NOT NULL
+  `idclases1` int(11) NOT NULL,
+  `id2` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -151,22 +151,23 @@ INSERT INTO `tentrenadores` (`id`, `CedulaE`, `Apellido`, `Nombre`, `Telefono`, 
 --
 
 CREATE TABLE `thorarios` (
-  `Tipodehorario` varchar(30) NOT NULL,
-  `id2` int(11) DEFAULT NULL,
+  `id2` int(11) NOT NULL,
   `cedula` int(11) DEFAULT NULL,
   `apellidos` varchar(30) NOT NULL,
   `nombres` varchar(30) NOT NULL,
   `Edad` int(11) NOT NULL,
   `Nombre` varchar(30) NOT NULL,
-  `Apellido` varchar(30) NOT NULL
+  `Apellido` varchar(30) NOT NULL,
+  `Tipodehorario` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `thorarios`
 --
 
-INSERT INTO `thorarios` (`Tipodehorario`, `id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`, `Apellido`) VALUES
-('JUVENIL de 6:00 PM a 7:00 PM', NULL, 30294852, 'Perez', 'Roberto', 18, 'Joaquin', 'Mendoza');
+INSERT INTO `thorarios` (`id2`, `cedula`, `apellidos`, `nombres`, `Edad`, `Nombre`, `Apellido`, `Tipodehorario`) VALUES
+(1, 31245689, 'Melendez', 'Mariana', 20, 'Carlos', 'Ramirez', 'INFANTIL de 5:00 PM a 6:00 PM'),
+(2, 30294852, 'Perez', 'Roberto', 18, 'Luis', 'Gomez', 'INFANTIL de 5:00 PM a 6:00 PM');
 
 -- --------------------------------------------------------
 
@@ -180,7 +181,7 @@ CREATE TABLE `tlogros` (
   `Fecha_del_evento` date NOT NULL,
   `Logro_obtenido` varchar(30) NOT NULL,
   `categoria` varchar(30) NOT NULL,
-  `NombreLA` VARCHAR(30) NOT NULL,
+  `NombreLA` varchar(30) NOT NULL,
   `id3` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -197,17 +198,10 @@ CREATE TABLE `tpagos` (
   `tipopago` varchar(30) NOT NULL,
   `numeroaccion` varchar(30) NOT NULL,
   `id_atleta` int(11) NOT NULL,
-  `Comprobantedepago` varchar(30) NOT NULL,
+  `Comprobantedepago` varchar(30) DEFAULT NULL,
   `nombres` varchar(20) NOT NULL,
   `apellidos` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Volcado de datos para la tabla `tpagos`
---
-
-INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`) VALUES
-(30294852, '2024-11-19', 500, 'Pago movil', '36', 1, 6114, 'Roberto', 'Perez');
 
 -- --------------------------------------------------------
 
@@ -273,7 +267,7 @@ ALTER TABLE `tclasesatletas`
 --
 ALTER TABLE `tclaseshorarios`
   ADD KEY `idclases1` (`idclases1`),
-  ADD KEY `tipohorarios` (`tipohorarios`);
+  ADD KEY `id2` (`id2`);
 
 --
 -- Indices de la tabla `tclub`
@@ -292,7 +286,7 @@ ALTER TABLE `tentrenadores`
 -- Indices de la tabla `thorarios`
 --
 ALTER TABLE `thorarios`
-  ADD PRIMARY KEY (`Tipodehorario`);
+  ADD PRIMARY KEY (`id2`);
 
 --
 -- Indices de la tabla `tlogros`
@@ -327,6 +321,12 @@ ALTER TABLE `tatletas`
 --
 ALTER TABLE `tentrenadores`
   MODIFY `CedulaE` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30987655;
+
+--
+-- AUTO_INCREMENT de la tabla `thorarios`
+--
+ALTER TABLE `thorarios`
+  MODIFY `id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tlogros`
@@ -364,7 +364,7 @@ ALTER TABLE `tclasesatletas`
 --
 ALTER TABLE `tclaseshorarios`
   ADD CONSTRAINT `tclaseshorarios_ibfk_1` FOREIGN KEY (`idclases1`) REFERENCES `tclases` (`idclases`) ON DELETE CASCADE,
-  ADD CONSTRAINT `tclaseshorarios_ibfk_2` FOREIGN KEY (`tipohorarios`) REFERENCES `thorarios` (`Tipodehorario`) ON DELETE CASCADE;
+  ADD CONSTRAINT `tclaseshorarios_ibfk_2` FOREIGN KEY (`id2`) REFERENCES `thorarios` (`id2`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
 -- Filtros para la tabla `tclub`
