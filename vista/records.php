@@ -76,7 +76,7 @@
 							<th class="text-center">Fecha del evento</th>
 							<th class="text-center">Logro del evento</th>
 							<th class="text-center">Categoria</th>
-							<th class="text-center">Nombre de atleta</th>
+							<th class="text-center">Nombre del atleta</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
