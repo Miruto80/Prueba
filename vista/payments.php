@@ -101,39 +101,42 @@
                             <div class="container">
                                 <br>
                                 <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label for="cedula">Cedula</label>
-                                        <input class="form-control" type="text" id="cedula" name="cedula" disabled />
+
+
+                                    <div class="col-md-6">
+                                        <div class="input-group mb-3">
+                                            <button class="btn btn-outline-warning" type="button" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
+                                            <input placeholder="Cedula" type="text" class="form-control" aria-label="Example text with button addon" aria-describedby="button-addon1" id="cedula" name="cedula" disabled>
+                                        </div>
 
                                     </div>
-                                    <div class="col-md-8">
-                                        <label for="fechadepago">fecha de pago</label>
+                                    <div class="col-md-6">
+                                        
                                         <input class="form-control" type="date" id="fechadepago" name="fechadepago" />
                                         <span id="sfechadepago"></span>
                                     </div>
                                 </div>
-                                <br>
+                                
+
                                 <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <button type="button" class="btn btn-outline-warning" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
-                                        <span id="scedula"></span>
-                                    </div>
 
                                     <div class="col-md-8">
                                         <label for="nombres">Nombres</label>
-                                        <input class="form-control" type="text" id="nombres" name="nombres" disabled/>
-                                       
+                                        <input class="form-control" type="text" id="nombres" name="nombres" disabled />
+
+                                    </div>
+
+                                    <div class="col-4">
+                                        <label for="id_atleta">id_atleta</label>
+                                        <input class="form-control" type="text" id="id_atleta" name="id_atleta" disabled />
+                                        <span id="sid_atleta" class="form-text text-muted"></span>
                                     </div>
                                     <div class="col-md-8">
                                         <label for="apellidos">Apellidos</label>
-                                        <input class="form-control" type="text" id="apellidos" name="apellidos" disabled/>
-                                        
+                                        <input class="form-control" type="text" id="apellidos" name="apellidos" disabled />
+
                                     </div>
-                                    <div class="col-4">
-                                    <label for="id_atleta">id_atleta</label>
-                                    <input class="form-control" type="text" id="id_atleta" name="id_atleta"  disabled/>
-                                    <span id="sid_atleta" class="form-text text-muted"></span>
-                                </div>
+
                                 </div>
 
                                 <div class="row mb-3">
@@ -197,7 +200,7 @@
                 <div class="modal-content">
                     <table class="table table-striped-columns table-hover">
                         <thead>
-                        <input class="form-control" type="text" id="buscador" name="buscador" placeholder="Buscar.." />
+                            <input class="form-control" type="text" id="buscador" name="buscador" placeholder="Buscar.." />
                             <tr>
                                 <th style="display:none">Id</th>
                                 <th class="text-center">Cedula</th>
@@ -266,21 +269,21 @@
                                 <span id="snumeroaccion" class="form-text text-muted"></span>
                             </div>
                         </div>
-                            <div class="row">
-                                <div class="col-6">
-                                    <label for="nombres">Nombres</label>
-                                    <input class="form-control" type="text" id="nombres" name="nombres"  />
-                                    <span id="snombres" class="form-text text-muted"></span>
-                                </div>
-                                <div class="col-6">
-                                    <label for="apellidos">Apellidos</label>
-                                    <input class="form-control" type="text" id="apellidos" name="apellidos" />
-                                    <span id="sapellidos" class="form-text text-muted"></span>
-                                </div>
-                               
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="nombres">Nombres</label>
+                                <input class="form-control" type="text" id="nombres" name="nombres" />
+                                <span id="snombres" class="form-text text-muted"></span>
                             </div>
+                            <div class="col-6">
+                                <label for="apellidos">Apellidos</label>
+                                <input class="form-control" type="text" id="apellidos" name="apellidos" />
+                                <span id="sapellidos" class="form-text text-muted"></span>
+                            </div>
+
                         </div>
-                
+                </div>
+
 
                 <div class="row">
                     <div class="col text-center">
