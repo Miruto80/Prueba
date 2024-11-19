@@ -9,7 +9,6 @@ require_once('modelo/datos.php');
 
 class records extends datos{
 	
-	
 	private $Nombre_de_evento; 
 	private $Fecha_del_evento;
 	private $Logro_obtenido;
@@ -69,7 +68,7 @@ class records extends datos{
 	function incluir(){
 		
 		$r = array();
-		if(!$this->existe($this->Nombre_de_evento)){
+		if(!$this->existe($this->Fecha_del_evento)){
 			
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -108,7 +107,7 @@ class records extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Nombre_de_evento)){
+		if($this->existe($this->Fecha_del_evento)){
 			try {
 					$co->query("Update tlogros set 
 					    Nombre_de_evento = '$this->Nombre_de_evento',
@@ -117,7 +116,7 @@ class records extends datos{
 						categoria = '$this->categoria',
 						NombreLA = '$this->NombreLA'
 						where
-						Nombre_de_evento = '$this->Nombre_de_evento'
+						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
 						$r['resultado'] = 'modificar';
 			            $r['mensaje'] =  'Logro Modificado';
@@ -137,11 +136,11 @@ class records extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Nombre_de_evento)){
+		if($this->existe($this->Fecha_del_evento)){
 			try {
 					$co->query("delete from tlogros 
 						where
-						Nombre_de_evento = '$this->Nombre_de_evento'
+						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
 						$r['resultado'] = 'eliminar';
 			            $r['mensaje'] =  'Logro Eliminado';
@@ -197,12 +196,12 @@ class records extends datos{
 	
 	
 	
-	private function existe($Nombre_de_evento){
+	private function existe($Fecha_del_evento){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try{
 			
-			$resultado = $co->query("Select * from tlogros where Nombre_de_evento='$Nombre_de_evento'");
+			$resultado = $co->query("Select * from tlogros where Fecha_del_evento='$Fecha_del_evento'");
 			
 			
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
