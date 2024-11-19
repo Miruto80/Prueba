@@ -54,6 +54,15 @@ $(document).ready(function(){
         
         validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $(this), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada);
     });
+
+    // Validación del Nombre del Atleta
+    $("#NombreLA").on("keypress", function (e) {
+        validarkeypress(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]$/, e); // Permitir solo letras y espacios
+    });
+    
+    $("#NombreLA").on("keyup", function () {
+        validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $(this), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres");
+    });
     
     $("#proceso").on("click", function(){
         if ($(this).text() == "INCLUIR") {
@@ -107,6 +116,10 @@ function validarenvio() {
     var fechaFormateada = partesFecha[2] + "/" + partesFecha[1] + "/" + partesFecha[0];
 
     if (validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $("#Fecha_del_evento"), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada) == 0) {
+        return false;
+    }
+
+    if (validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#NombreLA"), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres") == 0) {
         return false;
     }
 
