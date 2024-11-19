@@ -315,9 +315,14 @@
 							</div>
 
 							<div class="col-md-4">
-								<label for="sexo">Sexo</label>
-								<input class="form-control" type="text" id="sexo" name="sexo" />
-								<span id="ssexo" class="form-text text-muted"></span>
+								<label class="" for="masculino">
+										Masculino
+										<input class="form-check-input" type="radio" value="M" id="masculino" name="sexo" />
+									</label>
+									<label class="" for="femenino">
+										Femenino
+										<input class="form-check-input" type="radio" value="F" id="femenino" name="sexo" />
+									</label>
 							</div>
 
 							<div class="row">
