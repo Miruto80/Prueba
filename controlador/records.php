@@ -37,7 +37,7 @@ require_once("modelo/".$pagina.".php");
 			 echo  json_encode($o->consultar());  
 		  }
 		  elseif($accion=='eliminar'){
-			 $o->set_Nombre_de_evento($_POST['Nombre_de_evento']);
+			 $o->set_Fecha_del_evento($_POST['Fecha_del_evento']);
 			 echo  json_encode($o->eliminar());
 		  }
 		  else{		  
