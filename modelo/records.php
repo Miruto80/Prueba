@@ -9,7 +9,6 @@ require_once('modelo/datos.php');
 
 class records extends datos{
 	
-	
 	private $Nombre_de_evento; 
 	private $Fecha_del_evento;
 	private $Logro_obtenido;
@@ -69,7 +68,7 @@ class records extends datos{
 	function incluir(){
 		
 		$r = array();
-		if(!$this->existe($this->Nombre_de_evento)){
+		if(!$this->existe($this->Fecha_del_evento)){
 			
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -90,7 +89,7 @@ class records extends datos{
 						'$this->NombreLA'
 						)");
 						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Registro Inluido';
+			            $r['mensaje'] =  'Logro Incluido';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -98,7 +97,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'incluir';
-			$r['mensaje'] =  'Ya existe la Nombre_de_evento';
+			$r['mensaje'] =  'Este logro ya se encuentra registrado';
 		}
 		return $r;
 		
@@ -108,7 +107,7 @@ class records extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Nombre_de_evento)){
+		if($this->existe($this->Fecha_del_evento)){
 			try {
 					$co->query("Update tlogros set 
 					    Nombre_de_evento = '$this->Nombre_de_evento',
@@ -117,10 +116,10 @@ class records extends datos{
 						categoria = '$this->categoria',
 						NombreLA = '$this->NombreLA'
 						where
-						Nombre_de_evento = '$this->Nombre_de_evento'
+						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
 						$r['resultado'] = 'modificar';
-			            $r['mensaje'] =  'Registro Modificado';
+			            $r['mensaje'] =  'Logro Modificado';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -128,7 +127,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'modificar';
-			$r['mensaje'] =  'Nombre_de_evento no registrada';
+			$r['mensaje'] =  'Logro no registrado';
 		}
 		return $r;
 	}
@@ -137,14 +136,14 @@ class records extends datos{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Nombre_de_evento)){
+		if($this->existe($this->Fecha_del_evento)){
 			try {
 					$co->query("delete from tlogros 
 						where
-						Nombre_de_evento = '$this->Nombre_de_evento'
+						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
 						$r['resultado'] = 'eliminar';
-			            $r['mensaje'] =  'Registro Eliminado';
+			            $r['mensaje'] =  'Logro Eliminado';
 			} catch(Exception $e) {
 				$r['resultado'] = 'error';
 			    $r['mensaje'] =  $e->getMessage();
@@ -152,7 +151,7 @@ class records extends datos{
 		}
 		else{
 			$r['resultado'] = 'eliminar';
-			$r['mensaje'] =  'No existe la Nombre_de_evento';
+			$r['mensaje'] =  'No existe este logro';
 		}
 		return $r;
 	}
@@ -197,12 +196,12 @@ class records extends datos{
 	
 	
 	
-	private function existe($Nombre_de_evento){
+	private function existe($Fecha_del_evento){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try{
 			
-			$resultado = $co->query("Select * from tlogros where Nombre_de_evento='$Nombre_de_evento'");
+			$resultado = $co->query("Select * from tlogros where Fecha_del_evento='$Fecha_del_evento'");
 			
 			
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
@@ -229,7 +228,7 @@ class records extends datos{
 	
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria");
+			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria AND NombreLA LIKE :NombreLA");
 			$resultado->bindValue(':Nombre_de_evento', '%' . $this->Nombre_de_evento . '%');
 			$resultado->bindValue(':Fecha_del_evento', '%' . $this->Fecha_del_evento . '%');
 			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');

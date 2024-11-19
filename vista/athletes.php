@@ -60,10 +60,16 @@
 	<div class="container"> <!-- todo el contenido ira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
+			<?php
+					  if($nivel=='Gerente' or $nivel=='Secretaria'){
+					   ?>
 				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning btn-block" id="incluir"><b>INSCRIBIR</b></button>
 				</div>
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
+				<?php
+					  }
+				?>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal3">
 						<b>REPORTE</b>
 					</button>

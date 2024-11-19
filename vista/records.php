@@ -47,17 +47,22 @@
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<button type="button" class="btn btn-warning btn-block" id="incluir">REGISTRAR</button>
+			        <?php
+					  if($nivel=='Gerente' or $nivel=='Secretaria'){
+				     ?>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<button type="button" class="btn btn-warning btn-block" id="incluir"><b>REGISTRAR</b></button>
 				</div>
-
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
+                <?php
+					  }
+				?>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">
 						<b>REPORTE</b>
 					</button>
 				</div>
-				<div class="col-12 col-md-2 d-flex justify-content-center mb-2">
-					<a href="?pagina=principal" class="btn btn-warning btn-block">SALIR</a>
+				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+					<a href="?pagina=principal" class="btn btn-warning btn-block"><b>SALIR</b></a>
 				</div>
 			</div>
 		</div>
@@ -71,7 +76,7 @@
 							<th class="text-center">Fecha del evento</th>
 							<th class="text-center">Logro del evento</th>
 							<th class="text-center">Categoria</th>
-							<th class="text-center">Nombre de atleta</th>
+							<th class="text-center">Nombre del atleta</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -153,41 +158,44 @@
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
 				<div class="modal-header bg-dark text-warning">
-					<h5 class="modal-title" id="modal2Label">Modal 2</h5>
+					<h5 class="modal-title" id="modal2Label">Reporte de Logros</h5>
 					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 				</div>
 				<div class="modal-body">
 					<form method="post" id="f" autocomplete="off" target="_blank">
 						<div class="row">
-							<div class="col">
+						<div class="col-md-4">
 								<label for="Nombre_de_evento">Nombre del Evento</label>
 								<input class="form-control" type="text" id="Nombre_de_evento" name="Nombre_de_evento" />
 								<span id="sNombre_de_evento" class="form-text text-muted"></span>
 							</div>
-							<div class="col">
+							<div class="col-md-4">
 								<label for="Fecha_del_evento">Fecha del evento</label>
 								<input class="form-control" type="text" id="Fecha_del_evento" name="Fecha_del_evento" />
 								<span id="sFecha_del_evento" class="form-text text-muted"></span>
 							</div>
 
-							<div class="col">
+							<div class="col-md-4">
 								<label for="Logro_obtenido">Logro Obtenido </label>
 								<input class="form-control" type="text" id="Logro_obtenido" name="Logro_obtenido" />
 								<span id="sLogro_obtenido" class="form-text text-muted"></span>
 							</div>
+						</div>
 
-							<div class="col">
+						<div class="row mt-3">
+						    <div class="col-6">
 								<label for="categoria">Categoria</label>
 								<input class="form-control" type="text" id="categoria" name="categoria" />
 								<span id="scategoria" class="form-text text-muted"></span>
 							</div>
-							<div class="col">
-							<label for="NombreLA">Nombre del Atleta</label>
-							<input type="text" name="NombreLA" id="NombreLA" class="form-control">
-							<span id="sNombreLA"></span>
-	                         </div>
+							<div class="col-6">
+							    <label for="NombreLA">Nombre del Atleta</label>
+							    <input type="text" name="NombreLA" id="NombreLA" class="form-control">
+							    <span id="sNombreLA"></span>
+	                        </div>
 						</div>
-						<div class="row">
+						
+						<div class="row mt-3">
 							<div class="col">
 								<hr />
 							</div>
