@@ -87,8 +87,8 @@
 					<tr>
 						<th class="text-center">Acciones</th>
 						<th class="text-center">Cedula</th>
-						<th class="text-center">Apellidos</th>
-						<th class="text-center">Nombres</th>
+						<th class="text-center">Apellido</th>
+						<th class="text-center">Nombre</th>
 						<th class="text-center">Fecha Nac</th>
 						<th class="text-center"><i class="fa-solid fa-venus-mars"></i></th>
 						<th class="text-center">Part</th>
@@ -125,7 +125,7 @@
 									<span id="scedula"></span>
 								</div>
 								<div class="col-md-8">
-									<label for="apellidos">Apellidos</label>
+									<label for="apellidos">Apellido</label>
 									<input class="form-control" type="text" id="apellidos" name="apellidos" />
 									<span id="sapellidos"></span>
 								</div>
@@ -133,7 +133,7 @@
 
 							<div class="row mb-3">
 								<div class="col-md-8">
-									<label for="nombres">Nombres</label>
+									<label for="nombres">Nombre</label>
 									<input class="form-control" type="text" id="nombres" name="nombres" />
 									<span id="snombres"></span>
 								</div>
