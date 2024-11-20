@@ -125,24 +125,25 @@
 
                                 <div class="row mb-3">
 
-                                    <div class="col-md-8">
+                                    <div class="col-md-6">
                                         <label for="nombres">Nombres</label>
                                         <input class="form-control" type="text" id="nombres" name="nombres" disabled />
 
                                     </div>
+                                    <div class="col-md-6">
+                                        <label for="apellidos">Apellidos</label>
+                                        <input class="form-control" type="text" id="apellidos" name="apellidos" disabled />
 
+                                    </div> 
+                                </div>
                                     <div class="col-4">
                                         <label for="id_atleta">id_atleta</label>
                                         <input class="form-control" type="text" id="id_atleta" name="id_atleta" disabled />
                                         <span id="sid_atleta" class="form-text text-muted"></span>
                                     </div>
-                                    <div class="col-md-8">
-                                        <label for="apellidos">Apellidos</label>
-                                        <input class="form-control" type="text" id="apellidos" name="apellidos" disabled />
+                                   
 
-                                    </div>
-
-                                </div>
+                               
 
                                 <div class="row mb-3">
                                     <div class="col-md-4">
