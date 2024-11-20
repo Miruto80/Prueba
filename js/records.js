@@ -1,3 +1,12 @@
+
+var datos = new FormData();
+datos.append("accion", "modalclientes");
+enviaAjax(datos);
+
+$("#listadodeclientes").on("click", function () {
+  $("#modalclientes").modal("show");
+});
+
 function consultar(){
 	var datos = new FormData();
 	datos.append('accion','consultar');
@@ -9,6 +18,17 @@ function destruyeDT(){
             $("#tablapersona").DataTable().destroy();
     }
 }
+
+
+function colocacliente(linea) {
+
+  $("#NombreLA").val($(linea).find("td:eq(2)").text());
+  $("#cedula").val($(linea).find("td:eq(0)").text());
+  $("#apellidos").val($(linea).find("td:eq(1)").text());
+
+  $("#modalclientes").modal("hide");
+}
+
 function crearDT(){
 
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
@@ -74,6 +94,8 @@ $(document).ready(function(){
                 datos.append('Logro_obtenido', $("#Logro_obtenido").val());
                 datos.append('categoria', $("#categoria").val());
                 datos.append('NombreLA', $("#NombreLA").val());
+                datos.append('cedula', $("#cedula").val());
+                datos.append('apellidos', $("#apellidos").val());
                 enviaAjax(datos);
             }
         } else if ($(this).text() == "MODIFICAR") {
@@ -85,6 +107,8 @@ $(document).ready(function(){
                 datos.append('Logro_obtenido', $("#Logro_obtenido").val());
                 datos.append('categoria', $("#categoria").val());
                 datos.append('NombreLA', $("#NombreLA").val());
+                datos.append('cadula', $("#cedula").val());
+                datos.append('apellidos', $("apellidos").val());
                 enviaAjax(datos);
             }
         } else if ($(this).text() == "ELIMINAR") {
@@ -167,6 +191,8 @@ function pone(pos, accion) {
     $("#Logro_obtenido").val($(linea).find("td:eq(3)").text());
     $("#categoria").val($(linea).find("td:eq(4)").text());
     $("#NombreLA").val($(linea).find("td:eq(5)").text());
+    $("#cedula").val($(linea).find("td:eq(6)").text());
+    $("#apellidos").val($(linea).find("td:eq(7)").text());
     
     $("#modal1").modal("show");
 }
@@ -207,7 +233,10 @@ function enviaAjax(datos) {
                         $("#modal1").modal("hide");
                         consultar();
                     }
-                } else if (lee.resultado == "error") {
+                } else if (lee.resultado == "modalclientes") {
+                    $("#tablaclientes").html(lee.mensaje);
+                  } 
+                else if (lee.resultado == "error") {
                     muestraMensaje(lee.mensaje);
                 }
             } catch (e) {
@@ -229,6 +258,8 @@ function limpia() {
     $("#Nombre_de_evento").val("");
     $("#Fecha_del_evento").val("");
     $("#NombreLA").val("");
+    $("#cedula").val("");
+    $("#apellidos").val("");
     $("#Logro_obtenido").prop("selectedIndex", 0);
     $("#categoria").val("selectedIndex", 0);
 }

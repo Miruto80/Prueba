@@ -14,6 +14,8 @@ class records extends datos{
 	private $Logro_obtenido;
 	private $categoria;
 	private $NombreLA;
+	private $cedula;
+	private $apellidos;
 	
 	
 	
@@ -36,9 +38,18 @@ class records extends datos{
 	function set_NombreLA($valor){
 		$this->NombreLA = $valor;
 	}
+	function set_cedula($valor){
+		$this->cedula = $valor;
+	}
+	function set_apellidos($valor){
+		$this->apellidos = $valor;
+	}
 	
 	
-	
+	//0000000000000000
+
+
+
 	function get_Nombre_de_evento(){
 		return $this->Nombre_de_evento;
 	}
@@ -61,6 +72,12 @@ class records extends datos{
 	function get_NombreLA(){
 		return $this->NombreLA;
 	}
+	function get_cedula(){
+		return $this->cedula;
+	}
+	function get_apellidos(){
+		return $this->apellidos;
+	}
 	
 	
 
@@ -79,14 +96,18 @@ class records extends datos{
 						Fecha_del_evento,
 						Logro_obtenido,
 						categoria,
-						NombreLA
+						NombreLA,
+						cedula,
+						apellidos
 						)
 						Values(
 						'$this->Nombre_de_evento',
 						'$this->Fecha_del_evento',
 						'$this->Logro_obtenido',
 						'$this->categoria',
-						'$this->NombreLA'
+						'$this->NombreLA',
+						'$this->cedula',
+						'$this->apellidos'
 						)");
 						$r['resultado'] = 'incluir';
 			            $r['mensaje'] =  'Logro Incluido';
@@ -115,6 +136,8 @@ class records extends datos{
 						Logro_obtenido = '$this->Logro_obtenido',
 						categoria = '$this->categoria',
 						NombreLA = '$this->NombreLA'
+						cedula = '$this->cedula'
+						apellidos = '$this->apellidos'
 						where
 						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
@@ -178,6 +201,8 @@ class records extends datos{
 					$respuesta .= "<td class='text-center'>{$row['Logro_obtenido']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['categoria']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['NombreLA']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['apellidos']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
 					$respuesta .= "</tr>";
 				}
 				$r['resultado'] = 'consultar';
@@ -193,6 +218,47 @@ class records extends datos{
 		return $r;
 	}
 	
+	function listadodeclientes(){
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r = array();
+		try{
+			
+			$resultado = $co->query("Select * from tatletas");
+			
+			if($resultado){
+				
+				$respuesta = '';
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
+						
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['apellidos'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['nombres'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
+				}
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  $respuesta;
+			    
+			}
+			else{
+				$r['resultado'] = 'modalclientes';
+				$r['mensaje'] =  '';
+			}
+			
+		}catch(Exception $e){
+			$r['resultado'] = 'error';
+			$r['mensaje'] =  $e->getMessage();
+		}
+		return $r;
+	}
+
 	
 	
 	
@@ -234,6 +300,8 @@ class records extends datos{
 			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');
 			$resultado->bindValue(':categoria', '%' . $this->categoria . '%');
 			$resultado->bindValue(':NombreLA', '%' . $this->NombreLA . '%');
+			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
+			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
@@ -260,6 +328,8 @@ class records extends datos{
 								<th>Logro Obtenido</th>
 								<th>Categoria</th>
 								<th>Nombre del Atleta</th>
+								<th>Cedula del Atleta</th>
+								<th>Apellidos del Atleta</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -274,6 +344,8 @@ class records extends datos{
 							<td>{$f['Logro_obtenido']}</td>
 							<td>{$f['categoria']}</td>
 							<td>{$f['NombreLA']}</td>
+							<td>{$f['cedula']}</td>
+							<td>{$f['apellidos']}</td>
 						</tr>";
 				}
 			} else {

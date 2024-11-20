@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 19-11-2024 a las 05:56:59
+-- Tiempo de generación: 20-11-2024 a las 16:31:12
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -182,8 +182,18 @@ CREATE TABLE `tlogros` (
   `Logro_obtenido` varchar(30) NOT NULL,
   `categoria` varchar(30) NOT NULL,
   `NombreLA` varchar(30) NOT NULL,
-  `id3` int(11) NOT NULL
+  `id3` int(11) NOT NULL,
+  `cedula` int(11) NOT NULL,
+  `apellidos` varchar(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tlogros`
+--
+
+INSERT INTO `tlogros` (`Cod_evento`, `Nombre_de_evento`, `Fecha_del_evento`, `Logro_obtenido`, `categoria`, `NombreLA`, `id3`, `cedula`, `apellidos`) VALUES
+(10, 'ppaa', '2024-11-17', '1ER LUGAR', 'POOMSAE', 'Perez', 0, 30294852, 'Roberto'),
+(11, 'oaosd', '2024-11-22', '1ER LUGAR', 'POOMSAE', 'Mariana', 0, 31245689, 'Melendez');
 
 -- --------------------------------------------------------
 
@@ -200,8 +210,18 @@ CREATE TABLE `tpagos` (
   `id_atleta` int(11) NOT NULL,
   `Comprobantedepago` varchar(30) DEFAULT NULL,
   `nombres` varchar(20) NOT NULL,
-  `apellidos` varchar(20) NOT NULL
+  `apellidos` varchar(20) NOT NULL,
+  `idpago` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `tpagos`
+--
+
+INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`, `idpago`) VALUES
+(30294852, '2024-11-06', 23, 'transferencia', '36', 1, '2323', 'Roberto', 'Perez', 14),
+(30294852, '2024-11-23', 50, 'transferencia', '36', 1, '4561', 'Roberto', 'Perez', 24),
+(30294852, '2024-11-16', 56, 'Pago movil', '36', 1, '1563', 'Roberto', 'Perez', 25);
 
 -- --------------------------------------------------------
 
@@ -298,6 +318,7 @@ ALTER TABLE `tlogros`
 -- Indices de la tabla `tpagos`
 --
 ALTER TABLE `tpagos`
+  ADD PRIMARY KEY (`idpago`),
   ADD KEY `id_atleta` (`id_atleta`);
 
 --
@@ -332,7 +353,13 @@ ALTER TABLE `thorarios`
 -- AUTO_INCREMENT de la tabla `tlogros`
 --
 ALTER TABLE `tlogros`
-  MODIFY `Cod_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `Cod_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT de la tabla `tpagos`
+--
+ALTER TABLE `tpagos`
+  MODIFY `idpago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas

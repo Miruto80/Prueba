@@ -47,14 +47,14 @@
 	<div class="container"> <!-- todo el contenido ttttira dentro de esta etiqueta-->
 		<div class="container">
 			<div class="row mt-4 justify-content-center">
-			        <?php
-					  if($nivel=='Gerente' or $nivel=='Secretaria'){
-				     ?>
-				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
-					<button type="button" class="btn btn-warning btn-block" id="incluir"><b>REGISTRAR</b></button>
-				</div>
-                <?php
-					  }
+				<?php
+				if ($nivel == 'Gerente' or $nivel == 'Secretaria') {
+				?>
+					<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
+						<button type="button" class="btn btn-warning btn-block" id="incluir"><b>REGISTRAR</b></button>
+					</div>
+				<?php
+				}
 				?>
 				<div class="col-12 col-md-4 d-flex justify-content-center mb-2">
 					<button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">
@@ -77,6 +77,8 @@
 							<th class="text-center">Logro del evento</th>
 							<th class="text-center">Categoria</th>
 							<th class="text-center">Nombre del atleta</th>
+							<th class="text-center">Apellido del atleta</th>
+							<th class="text-center">Cedula</th>
 						</tr>
 					</thead>
 					<tbody id="resultadoconsulta">
@@ -101,15 +103,18 @@
 							<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 							<div class="container">
 								<div class="row mb-3">
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="Nombre_de_evento">Nombre del evento</label>
 										<input class="form-control" type="text" id="Nombre_de_evento" />
 										<span id="sNombre_de_evento"></span>
 									</div>
-									<div class="col-md-6">
+									<div class="col-md-4">
 										<label for="Fecha_del_evento">Fecha del evento</label>
 										<input class="form-control" type="date" id="Fecha_del_evento" />
 										<span id="sFecha_del_evento"></span>
+									</div>
+									<div class="col-md-4">
+										<button class="btn btn-outline-warning" type="button" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
 									</div>
 								</div>
 								<div class="row mb-3">
@@ -134,6 +139,20 @@
 										<input type="text" name="NombreLA" id="NombreLA" class="form-control">
 										<span id="sNombreLA"></span>
 									</div>
+								</div>
+
+								<div class="row">
+									<div class="col-md-6">
+										<label for="cedula">cedula del Atleta</label>
+										<input type="text" name="cedula" id="cedula" class="form-control">
+										<span id="scedula"></span>
+									</div>
+									<div class="col-md-6">
+										<label for="apellidos">apellido del Atleta</label>
+										<input type="text" name="apellidos" id="apellidos" class="form-control">
+										<span id="sapellidos"></span>
+									</div>
+
 								</div>
 								<div class="row justify-content-center">
 									<div class="col-md-2">
@@ -164,7 +183,7 @@
 				<div class="modal-body">
 					<form method="post" id="f" autocomplete="off" target="_blank">
 						<div class="row">
-						<div class="col-md-4">
+							<div class="col-md-4">
 								<label for="Nombre_de_evento">Nombre del Evento</label>
 								<input class="form-control" type="text" id="Nombre_de_evento" name="Nombre_de_evento" />
 								<span id="sNombre_de_evento" class="form-text text-muted"></span>
@@ -183,18 +202,32 @@
 						</div>
 
 						<div class="row mt-3">
-						    <div class="col-6">
+							<div class="col-6">
 								<label for="categoria">Categoria</label>
 								<input class="form-control" type="text" id="categoria" name="categoria" />
 								<span id="scategoria" class="form-text text-muted"></span>
 							</div>
 							<div class="col-6">
-							    <label for="NombreLA">Nombre del Atleta</label>
-							    <input type="text" name="NombreLA" id="NombreLA" class="form-control">
-							    <span id="sNombreLA"></span>
-	                        </div>
+								<label for="NombreLA">Nombre del Atleta</label>
+								<input type="text" name="NombreLA" id="NombreLA" class="form-control">
+								<span id="sNombreLA"></span>
+							</div>
 						</div>
-						
+
+						<div class="row">
+							<div class="col-md-6">
+								<label for="cedula">cedula del Atleta</label>
+								<input type="text" name="cedula" id="cedula" class="form-control">
+								<span id="scedula"></span>
+							</div>
+							<div class="col-md-6">
+								<label for="apellidos">apellido del Atleta</label>
+								<input type="text" name="apellidos" id="apellidos" class="form-control">
+								<span id="sapellidos"></span>
+							</div>
+
+						</div>
+
 						<div class="row mt-3">
 							<div class="col">
 								<hr />
@@ -209,6 +242,36 @@
 				</div>
 				<div class="modal-footer bg-dark">
 					<button type="button" class="btn btn-warning" data-bs-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal de pagos -->
+	<div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
+		<div class="modal-dialog modal-lg modal-dialog-scrollable">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-header text-warning bg-dark justify-content-center">
+					<h5 class="modal-title">Listado de Atletas</h5>
+
+				</div>
+				<div class="modal-content">
+					<table class="table table-striped-columns table-hover">
+						<thead>
+							<tr>
+								<th style="display:none">Id</th>
+								<th class="text-center">Cedula</th>
+								<th class="text-center">Apellidos</th>
+								<th class="text-center">Nombres</th>
+							</tr>
+						</thead>
+						<tbody id="tablaclientes">
+
+						</tbody>
+					</table>
+				</div>
+				<div class="modal-footer bg-dark">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
 				</div>
 			</div>
 		</div>
