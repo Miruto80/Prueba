@@ -139,8 +139,7 @@
                   </div>
 
                       <div class="form-check my-2 d-flex justify-content-center">
-                        <input class="form-check-input" type="checkbox" id="connected" />
-                        <label class="form-check-label ms-2 text-white" for="connected">Mantener sesión</label>
+                     
                       </div>
 
                   </div>
