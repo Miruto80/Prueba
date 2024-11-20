@@ -122,7 +122,15 @@ class  payments extends datos
 		//en el caso de los atletas la cedula, para ello se creo la funcion existe
 		//que retorna true en caso de exitir el registro
 		$r = array();
-		if (!$this->existe($this->Comprobantedepago)) {
+
+		if (($this->tipopago == 'transferencia' || $this->tipopago == 'Pago movil') && $this->Comprobantedepago == '') {
+			$r['resultado'] = 'error';
+			$r['mensaje'] = 'El comprobante de pago no puede estar vacío para Transferencia o Pago movil';
+			return $r;
+		}
+
+		// if (!$this->existe($this->Comprobantedepago)) {
+		 if (!$this->existe($this->Comprobantedepago)) {
 			//Si estamos aca es porque la cedula no existe es decir se puede incluir
 			
 			//Se llama a la funcion conecta 
@@ -197,6 +205,7 @@ class  payments extends datos
 		}
 		return $r;
 	}
+	
 function eliminar()
 	{
 		$co = $this->conecta();
@@ -220,6 +229,8 @@ function eliminar()
 		}
 		return $r;
 	}
+
+
 
 
 	function consultar()
@@ -309,6 +320,7 @@ function eliminar()
 			return false;
 		}
 	}
+	
 
 
 	function listadodeclientes(){

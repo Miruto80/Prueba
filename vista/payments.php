@@ -46,15 +46,15 @@
 
     <div class="container">
         <div class="row mt-4 justify-content-center">
-        <?php
-					  if($nivel=='Gerente' or $nivel=='Secretaria'){
-					   ?>
-            <div class="col-6 col-md-4 d-flex justify-content-center mb-2">
-                <button type="button" class="btn btn-warning btn-block" id="incluir"><b>Incluir un Pago</b></button>
-            </div>
             <?php
-				}
-			 ?>
+            if ($nivel == 'Gerente' or $nivel == 'Secretaria') {
+            ?>
+                <div class="col-6 col-md-4 d-flex justify-content-center mb-2">
+                    <button type="button" class="btn btn-warning btn-block" id="incluir"><b>Incluir un Pago</b></button>
+                </div>
+            <?php
+            }
+            ?>
             <div class="col-12 col-md-4 d-flex justify-content-center mb-2">
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modal2">
                     <b>REPORTE</b>
@@ -116,12 +116,12 @@
 
                                     </div>
                                     <div class="col-md-6">
-                                        
+
                                         <input class="form-control" type="date" id="fechadepago" name="fechadepago" />
                                         <span id="sfechadepago"></span>
                                     </div>
                                 </div>
-                                
+
 
                                 <div class="row mb-3">
 
@@ -129,55 +129,48 @@
                                         <label for="nombres">Nombres</label>
                                         <input class="form-control" type="text" id="nombres" name="nombres" disabled />
 
-                                    </div>
-                                    <div class="col-md-6">
                                         <label for="apellidos">Apellidos</label>
                                         <input class="form-control" type="text" id="apellidos" name="apellidos" disabled />
 
-                                    </div> 
-                                </div>
-                                    <div class="col-4">
+
                                         <label for="id_atleta">id_atleta</label>
                                         <input class="form-control" type="text" id="id_atleta" name="id_atleta" disabled />
                                         <span id="sid_atleta" class="form-text text-muted"></span>
+
+                                        
+                                        <label for="numeroaccion">Numero de Accion</label>
+                                        <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
+                                        <span id="snumeroaccion"></span>
+                                  
                                     </div>
-                                   
-
-                               
-
-                                <div class="row mb-3">
-                                    <div class="col-md-4">
-                                        <label for="Monto">Monto</label>
+                                    <div class="col-md-6">
+                                    <label for="Monto">Monto</label>
                                         <input class="form-control" type="text" id="Monto" name="Monto" />
                                         <span id="sMonto"></span>
-                                    </div>
-
-
-                                    <div class="col-md-8">
+                                        
+                                        
+                                    
                                         <label for="Comprobantedepago">Comprobante de Pago</label>
                                         <input class="form-control" type="text" id="Comprobantedepago"
                                             name="Comprobantedepago" />
                                         <span id="sComprobantedepago"></span>
-                                    </div>
 
-
-                                </div>
-                                <!-- en proceso de creacion -->
-                                <div class="row mb-3">
-                                    <div class="col-md-8">
+                                        
                                         <label for="tipopago">Tipo de Pago</label>
                                         <select class="form-select" class="form-control" id="tipopago" name="tipopago">
                                             <option value="Pago movil">Pago movil</option>
-                                            <option value="tranferencia">Tranferencia</option>
+                                            <option value="transferencia">Transferencia</option>
                                             <option value="Efectivo">Efectivo</option>
                                         </select>
+                                    
+                                  
                                     </div>
-                                    <div class="col-md-4">
-                                        <label for="numeroaccion">Numero de Accion</label>
-                                        <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
-                                        <span id="snumeroaccion"></span>
-                                    </div>
+                                  
                                 </div>
+
+
+                                <!-- en proceso de creacion -->
+                              
                             </div>
                             <div class="row mt-3 justify-content-center">
                                 <div class="col-md-2">
