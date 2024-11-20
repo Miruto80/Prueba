@@ -31,7 +31,7 @@ $(document).ready(function(){
         
         $("#CedulaU").on("keyup",function(){
             validarkeyup(/^[0-9]{7,8}$/,$(this),
-            $("#sCedulaU"),"El formato debe ser 9999999 ");
+            $("#sCedulaU"),"El formato debe cumplir con el requisito numérico: 9999999999");
         });
         
         $("#Contrasena").on("keypress",function(e){
@@ -72,7 +72,7 @@ $(document).ready(function(){
     //Validación de todos los campos antes del envio
     function validarenvio(){
         if(validarkeyup(/^[0-9]{3,8}$/,$("#CedulaU"),
-            $("#sCedulaU"),"El formato debe ser 9999999")==0){
+            $("#sCedulaU"),"El formato debe cumplir con el requisito numérico: 9999999999")==0){
             muestraMensaje("La CedulaU debe coincidir con el formato <br/>"+ 
                             "99999999");	
             return false;					
@@ -130,16 +130,6 @@ $(document).ready(function(){
             return 0;
         }
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
     
     

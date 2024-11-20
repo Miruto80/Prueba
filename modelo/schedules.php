@@ -328,7 +328,7 @@ class schedules extends datos
 		return $r;
 	}
 
-	function listadodeentrenadores(){ // eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+	function listadodeentrenadores(){ 
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		 $r = array();
@@ -461,6 +461,6 @@ class schedules extends datos
 		$pdf->set_paper("A4", "portrait");
 		$pdf->load_html(utf8_decode($html));
 		$pdf->render();
-		$pdf->stream('ReporteUsuarios.pdf', array("Attachment" => false));
+		$pdf->stream('ReporteHorarios.pdf', array("Attachment" => false));
 	}
 }
