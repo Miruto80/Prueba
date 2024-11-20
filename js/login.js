@@ -31,7 +31,7 @@ $(document).ready(function(){
         
         $("#CedulaU").on("keyup",function(){
             validarkeyup(/^[0-9]{7,8}$/,$(this),
-            $("#sCedulaU"),"El formato debe ser 9999999 ");
+            $("#sCedulaU"),"El formato debe ser 9999999");
         });
         
         $("#Contrasena").on("keypress",function(e){
