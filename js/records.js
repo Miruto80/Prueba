@@ -64,15 +64,10 @@ $(document).ready(function(){
         validarkeyup(/^[A-Za-z0-9\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $(this), $("#sNombre"), "Solo letras y números entre 3 y 30 caracteres");
     });
 
-    // Validación de la Fecha del Evento
-    $("#Fecha_del_evento").on("change", function () {
-        var valorFecha = $(this).val(); // Captura la fecha en formato AAAA-MM-DD
-        
-        // Convertir la fecha al formato DD/MM/AAAA
-        var partesFecha = valorFecha.split("-");
-        var fechaFormateada = partesFecha[2] + "/" + partesFecha[1] + "/" + partesFecha[0];
-        
-        validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $(this), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada);
+    // Validación de la Fecha del Evento (por keyup)
+    $("#Fecha_del_evento").on("keyup", function () {
+        validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.))(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+        $(this),$("#sFecha_del_evento"),"Ingrese una fecha valida");
     });
 
     // Validación del Nombre del Atleta
@@ -84,6 +79,7 @@ $(document).ready(function(){
         validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $(this), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres");
     });
     
+    // Control de Botones
     $("#proceso").on("click", function(){
         if ($(this).text() == "INCLUIR") {
             if (validarenvio()) {
@@ -107,7 +103,7 @@ $(document).ready(function(){
                 datos.append('Logro_obtenido', $("#Logro_obtenido").val());
                 datos.append('categoria', $("#categoria").val());
                 datos.append('NombreLA', $("#NombreLA").val());
-                datos.append('cadula', $("#cedula").val());
+                datos.append('cedula', $("#cedula").val());
                 datos.append('apellidos', $("apellidos").val());
                 enviaAjax(datos);
             }
@@ -132,19 +128,29 @@ function validarenvio() {
     }
 
     if (validarkeyup(/^[A-Za-z0-9\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#Nombre_de_evento"), $("#sNombre"), "Solo letras y números entre 3 y 30 caracteres") == 0) {
+        muestraMensaje("Nombre del Evento <br/>Solo letras y números entre 3 y 30 caracteres");
         return false;
     }
-
-    var valorFecha = $("#Fecha_del_evento").val();
-    var partesFecha = valorFecha.split("-");
-    var fechaFormateada = partesFecha[2] + "/" + partesFecha[1] + "/" + partesFecha[0];
-
-    if (validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $("#Fecha_del_evento"), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada) == 0) {
-        return false;
+    else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.))(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+        $("#Fecha_del_evento"),$("#sFecha_del_evento"),"Ingrese una fecha valida")==0){
+        muestraMensaje("Fecha del evento <br/>Ingrese una fecha valida");
+        return false;    
     }
 
     if (validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#NombreLA"), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres") == 0) {
+        muestraMensaje("Nombre del Atleta <br/>Solo letras entre 3 y 30 caracteres");
         return false;
+    }
+    else {
+        var hoy = new Date(); // Fecha actual
+        hoy.setHours(0, 0, 0, 0); // Ajustar para comparar solo fechas sin tiempos
+        var f2 = new Date($("#Fecha_del_evento").val());
+        f2.setHours(0, 0, 0, 0); // Ajustar para comparar solo fechas sin tiempos
+        
+        if (f2 > hoy) {
+            muestraMensaje("Fecha del evento <br/>El evento no puede ser en una fecha futura.");
+            return false;
+        }
     }
 
     return true;
@@ -235,8 +241,7 @@ function enviaAjax(datos) {
                     }
                 } else if (lee.resultado == "modalclientes") {
                     $("#tablaclientes").html(lee.mensaje);
-                  } 
-                else if (lee.resultado == "error") {
+                } else if (lee.resultado == "error") {
                     muestraMensaje(lee.mensaje);
                 }
             } catch (e) {
@@ -261,5 +266,5 @@ function limpia() {
     $("#cedula").val("");
     $("#apellidos").val("");
     $("#Logro_obtenido").prop("selectedIndex", 0);
-    $("#categoria").val("selectedIndex", 0);
+    $("#categoria").prop("selectedIndex", 0);
 }

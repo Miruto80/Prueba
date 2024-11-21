@@ -103,22 +103,22 @@
 							<input autocomplete="off" type="text" class="form-control" name="accion" id="accion" style="display: none;">
 							<div class="container">
 								<div class="row mb-3">
-									<div class="col-md-4">
+									<div class="col-md-6">
 										<label for="Nombre_de_evento">Nombre del evento</label>
 										<input class="form-control" type="text" id="Nombre_de_evento" />
 										<span id="sNombre_de_evento"></span>
 									</div>
-									<div class="col-md-4">
+									<div class="col-md-6">
 										<label for="Fecha_del_evento">Fecha del evento</label>
 										<input class="form-control" type="date" id="Fecha_del_evento" />
 										<span id="sFecha_del_evento"></span>
 									</div>
-									<div class="col-md-4">
-										<button class="btn btn-outline-warning" type="button" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
-									</div>
+
 								</div>
+
 								<div class="row mb-3">
-									<div class="col-md-4">
+									
+									<div class="col-md-6">
 										<label for="Logro_obtenido">Logro obtenido</label>
 										<select class="form-select" id="Logro_obtenido">
 											<option value="1ER LUGAR">1ER LUGAR</option>
@@ -126,7 +126,8 @@
 											<option value="3RO LUGAR">3ER LUGAR</option>
 										</select>
 									</div>
-									<div class="col-md-4">
+
+									<div class="col-md-6">
 										<label for="categoria">Categoria</label>
 										<select class="form-select" id="categoria">
 											<option value="KYORUGUI">KYORUGUI</option>
@@ -134,26 +135,36 @@
 											<option value="AMBAS">AMBAS</option>
 										</select>
 									</div>
-									<div class="col-md-4">
-										<label for="NombreLA">Nombre del Atleta</label>
-										<input type="text" name="NombreLA" id="NombreLA" class="form-control">
-										<span id="sNombreLA"></span>
-									</div>
 								</div>
 
-								<div class="row">
-									<div class="col-md-6">
-										<label for="cedula">cedula del Atleta</label>
-										<input type="text" name="cedula" id="cedula" class="form-control">
-										<span id="scedula"></span>
-									</div>
-									<div class="col-md-6">
-										<label for="apellidos">apellido del Atleta</label>
-										<input type="text" name="apellidos" id="apellidos" class="form-control">
-										<span id="sapellidos"></span>
-									</div>
+								<div class="row mb-3">
+									
+								     <div class="col-md-12">
+                                        <div class="input-group mb-2">
+                                            <button class="btn btn-outline-warning" type="button" id="listadodeclientes" name="listadodeclientes">Listado de Cedulas</button>
+                                            <input placeholder="Cedula" type="text" class="form-control" aria-label="Example text with button addon" aria-describedby="button-addon1" id="cedula" name="cedula" disabled>
+                                        </div>
+                                    </div>
 
 								</div>
+
+
+								<div class="row mb-3">
+
+								   <div class="col-md-6">
+									   <label for="NombreLA">Nombre del Atleta</label>
+									   <input type="text" name="NombreLA" id="NombreLA" class="form-control" readonly disabled>
+									   <span id="sNombreLA"></span>
+								   </div>
+
+								   <div class="col-md-6">
+									   <label for="apellidos">apellido del Atleta</label>
+									   <input type="text" name="apellidos" id="apellidos" class="form-control" readonly disabled>
+									   <span id="sapellidos"></span>
+								   </div>
+							   </div>
+
+
 								<div class="row justify-content-center">
 									<div class="col-md-2">
 										<button type="button" class="btn btn-dark" id="proceso">Procesar</button>
@@ -247,17 +258,16 @@
 		</div>
 	</div>
 
-	<!-- Modal de pagos -->
 	<div class="modal fade" tabindex="-1" role="dialog" id="modalclientes">
-		<div class="modal-dialog modal-lg modal-dialog-scrollable">
-			<div class="modal-dialog modal-lg" role="document">
-				<div class="modal-header text-warning bg-dark justify-content-center">
-					<h5 class="modal-title">Listado de Atletas</h5>
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-header text-warning bg-dark justify-content-center">
+                <h5 class="modal-title">Listado de Atletas</h5>
+                <button type="button" class="btn-close bg-light" aria-label="Close"></button>
+            </div>
 
-				</div>
 				<div class="modal-content">
-					<table class="table table-striped-columns table-hover">
-						<thead>
+                  <table class="table table-striped table-hover">
+                    <thead>
 							<tr>
 								<th style="display:none">Id</th>
 								<th class="text-center">Cedula</th>
