@@ -239,7 +239,7 @@ function eliminar()
 
 
 
-	function consultar()
+	function consultar($nivelUsuario)
 	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -253,6 +253,7 @@ function eliminar()
 				$respuesta = '';
 				foreach ($resultado as $r) {
 					$respuesta = $respuesta . "<tr>";
+					if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
 					$respuesta = $respuesta . "<td class='text-center action-row'>";
 					$respuesta = $respuesta . "<button type='button'
 					class='btn btn-warning btn-sm mx-1 my-1' 
@@ -263,6 +264,7 @@ function eliminar()
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
 							$respuesta = $respuesta . "</td>";
+					}
 							$respuesta = $respuesta . "<td>";
 							$respuesta = $respuesta . $r['cedula'];
 							$respuesta = $respuesta . "</td>";

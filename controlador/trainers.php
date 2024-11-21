@@ -32,7 +32,7 @@ require_once("modelo/".$pagina.".php");
 			$o->generarPDF();
 		}
 	  
-	  
+		$nivelUsuario = $_SESSION['nivel'];
 	  if(!empty($_POST)){
 		$o = new trainers();   
 		  //como ya sabemos si estamos aca es //porque se recibio alguna informacion
@@ -41,7 +41,7 @@ require_once("modelo/".$pagina.".php");
 		  $accion = $_POST['accion'];
 		  
 		  if($accion=='consultar'){
-			 echo  json_encode($o->consultar());  
+			echo json_encode($o->consultar($nivelUsuario));
 		  }
 		  elseif($accion=='eliminar'){
 			 $o->set_CedulaE($_POST['CedulaE']);

@@ -1,4 +1,3 @@
-
 var datos = new FormData();
 datos.append("accion", "modalclientes");
 enviaAjax(datos);
@@ -34,11 +33,11 @@ function crearDT(){
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable({
               language: {
-                lengthMenu: "Mostrar _MENU_ por página",
+                lengthMenu: "Mostrar MENU por página",
                 zeroRecords: "No se encontraron entrenadores",
-                info: "Mostrando página _PAGE_ de _PAGES_",
+                info: "Mostrando página PAGE de PAGES",
                 infoEmpty: "No hay entrenadores registradas",
-                infoFiltered: "(filtrado de _MAX_ registros totales)",
+                infoFiltered: "(filtrado de MAX registros totales)",
                 search: "Buscar:",
                 paginate: {
                   first: "Primera",
@@ -64,15 +63,10 @@ $(document).ready(function(){
         validarkeyup(/^[A-Za-z0-9\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $(this), $("#sNombre"), "Solo letras y números entre 3 y 30 caracteres");
     });
 
-    // Validación de la Fecha del Evento
-    $("#Fecha_del_evento").on("change", function () {
-        var valorFecha = $(this).val(); // Captura la fecha en formato AAAA-MM-DD
-        
-        // Convertir la fecha al formato DD/MM/AAAA
-        var partesFecha = valorFecha.split("-");
-        var fechaFormateada = partesFecha[2] + "/" + partesFecha[1] + "/" + partesFecha[0];
-        
-        validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $(this), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada);
+    // Validación de la Fecha del Evento (por keyup)
+    $("#Fecha_del_evento").on("keyup", function () {
+        validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+        $(this),$("#sFecha_del_evento"),"Ingrese una fecha valida");
     });
 
     // Validación del Nombre del Atleta
@@ -84,6 +78,7 @@ $(document).ready(function(){
         validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $(this), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres");
     });
     
+    // Control de Botones
     $("#proceso").on("click", function(){
         if ($(this).text() == "INCLUIR") {
             if (validarenvio()) {
@@ -107,7 +102,7 @@ $(document).ready(function(){
                 datos.append('Logro_obtenido', $("#Logro_obtenido").val());
                 datos.append('categoria', $("#categoria").val());
                 datos.append('NombreLA', $("#NombreLA").val());
-                datos.append('cadula', $("#cedula").val());
+                datos.append('cedula', $("#cedula").val());
                 datos.append('apellidos', $("apellidos").val());
                 enviaAjax(datos);
             }
@@ -132,19 +127,29 @@ function validarenvio() {
     }
 
     if (validarkeyup(/^[A-Za-z0-9\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#Nombre_de_evento"), $("#sNombre"), "Solo letras y números entre 3 y 30 caracteres") == 0) {
+        muestraMensaje("Nombre del Evento <br/>Solo letras y números entre 3 y 30 caracteres");
         return false;
     }
-
-    var valorFecha = $("#Fecha_del_evento").val();
-    var partesFecha = valorFecha.split("-");
-    var fechaFormateada = partesFecha[2] + "/" + partesFecha[1] + "/" + partesFecha[0];
-
-    if (validarkeyup(/^\d{2}\/\d{2}\/\d{4}$/, $("#Fecha_del_evento"), $("#sFecha_del_evento"), "La fecha debe tener el formato correcto (DD/MM/AAAA)", fechaFormateada) == 0) {
-        return false;
+    else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+        $("#Fecha_del_evento"),$("#sFecha_del_evento"),"Ingrese una fecha valida")==0){
+        muestraMensaje("Fecha del evento <br/>Ingrese una fecha valida");
+        return false;    
     }
 
     if (validarkeyup(/^[A-Za-z\s\u00f1\u00d1\u00E0-\u00FC]{3,30}$/, $("#NombreLA"), $("#sNombreLA"), "Solo letras entre 3 y 30 caracteres") == 0) {
+        muestraMensaje("Nombre del Atleta <br/>Solo letras entre 3 y 30 caracteres");
         return false;
+    }
+    else {
+        var f1 = new Date(1950,0,1 );
+        var hoy = new Date(); // Fecha actual
+        var f2 = new Date($("#Fecha_del_evento").val());
+        
+
+        if (f2 > hoy) {
+            muestraMensaje("Fecha del evento <br/>La fecha del evento no es valida.");
+            return false;
+        }
     }
 
     return true;
@@ -196,6 +201,7 @@ function pone(pos, accion) {
     
     $("#modal1").modal("show");
 }
+
 
 function enviaAjax(datos) {
     $.ajax({

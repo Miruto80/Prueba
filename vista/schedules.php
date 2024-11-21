@@ -58,7 +58,9 @@
                 <table class="table table-striped table-dark table-hover" id="tablapersona">
                     <thead>
                         <tr>
-                            <th class="text-center action-column">Acciones</th>
+                        <?php if ($nivel === 'Gerente' || $nivel === 'Secretaria'){ ?>
+                        <th class="text-center action-column">Acciones</th>
+                    <?php } ?>
                             <th class="text-center">Cédula</th>
                             <th class="text-center">Nombres</th>
                             <th class="text-center">Apellidos</th>     

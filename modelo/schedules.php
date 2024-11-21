@@ -194,7 +194,7 @@ class schedules extends datos
 		return $r;
 	}
 
-	function consultar(){
+	function consultar($nivelUsuario){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
@@ -205,12 +205,14 @@ class schedules extends datos
 				$respuesta = '';
 				foreach($resultado as $row){
 					$respuesta .= "<tr>";
+					if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
 					$respuesta .= "<td class='text-center action-column'>";
 					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
 								   <i class='fa-solid fa-pen-to-square'></i></button>";
 					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
 								   <i class='fa-solid fa-trash'></i></button>";
 					$respuesta .= "</td>";
+					}
 					$respuesta .= "<td class='text-center'>{$row['cedula']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['nombres']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['apellidos']}</td>";
