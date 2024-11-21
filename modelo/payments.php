@@ -3,6 +3,7 @@ require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
 use Dompdf\Dompdf;
+use Dompdf\Options;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -400,6 +401,22 @@ function eliminar()
 		// Conexión a la base de datos y configuración de errores
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		function imgToBase64($imgPath)
+		{
+			// Verifica si la imagen existe
+			if (file_exists($imgPath)) {
+				// Obtiene el contenido de la imagen
+				$imgData = file_get_contents($imgPath);
+
+				// Codifica la imagen a base64
+				$base64 = base64_encode($imgData);
+
+				// Retorna el formato base64 con el prefijo correspondiente para imágenes
+				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
+			} else {
+				return ''; // Si la imagen no existe, retorna una cadena vacía
+			}
+		}
 	
 		try {
 			// Preparación de la consulta SQL
@@ -415,11 +432,15 @@ function eliminar()
 			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
 			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->bindValue(':concepto', '%' . $this->concepto . '%');
+
+			$imageBase64 = imgToBase64('img/logo.png');
+			$fechaHoraActual = date('Y-m-d H:i:s'); 
+
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
 			// Obtener la fecha y hora actuales
-			$fechaHoraActual = date('Y-m-d H:i:s');  // Obtén la fecha y hora en formato deseado
+			 // Obtén la fecha y hora en formato deseado
 	
 			// Construcción del contenido HTML para el PDF
 			$html = "
@@ -436,6 +457,7 @@ function eliminar()
 				</head>
 				<body>
 					<h2>Reporte de Pagos</h2>
+					<center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>
 					<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p> 
 					<table>
 						<thead>
@@ -488,6 +510,11 @@ function eliminar()
 			echo "Error: " . $e->getMessage();
 			exit;
 		}
+
+		$options = new Options();
+		$options->set('isHtml5ParserEnabled', true);
+		$options->set('isPhpEnabled', true);
+		$pdf = new Dompdf($options);
 	
 		// Generación del PDF
 		$pdf = new DOMPDF();

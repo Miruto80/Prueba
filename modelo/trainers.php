@@ -3,6 +3,7 @@ require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
 use Dompdf\Dompdf;
+use Dompdf\Options;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -175,48 +176,48 @@ class trainers extends datos
 
 
 	function consultar($nivelUsuario)
-{
-    $co = $this->conecta();
-    $co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    $r = array();
-    try {
-        $resultado = $co->query("SELECT * FROM tentrenadores");
-        if ($resultado) {
-            $respuesta = '';
-            foreach ($resultado as $row) {
-                $respuesta .= "<tr>";
-				if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
-                $respuesta .= "<td class='text-center action-column'>";
-                
-                // Botones de editar y eliminar
-                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
+	{
+		$co = $this->conecta();
+		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		$r = array();
+		try {
+			$resultado = $co->query("SELECT * FROM tentrenadores");
+			if ($resultado) {
+				$respuesta = '';
+				foreach ($resultado as $row) {
+					$respuesta .= "<tr>";
+					if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
+						$respuesta .= "<td class='text-center action-column'>";
+
+						// Botones de editar y eliminar
+						$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
                                <i class='fa-solid fa-pen-to-square'></i></button>";
-                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
+						$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
                                <i class='fa-solid fa-trash'></i></button>";
-                
-                // Botón para mostrar imagen
-               
-                $respuesta .= "</td>";
+
+						// Botón para mostrar imagen
+
+						$respuesta .= "</td>";
+					}
+					$respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Telefono']}</td>";
+					$respuesta .= "<td class='text-center'>{$row['Jerarquiadecinturon']}</td>";
+					$respuesta .= "</tr>";
 				}
-                $respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
-                $respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
-                $respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";
-                $respuesta .= "<td class='text-center'>{$row['Telefono']}</td>";
-                $respuesta .= "<td class='text-center'>{$row['Jerarquiadecinturon']}</td>";
-                $respuesta .= "</tr>";
-            }
-            $r['resultado'] = 'consultar';
-            $r['mensaje'] =  $respuesta;
-        } else {
-            $r['resultado'] = 'consultar';
-            $r['mensaje'] =  '';
-        }
-    } catch (Exception $e) {
-        $r['resultado'] = 'error';
-        $r['mensaje'] = $e->getMessage();
-    }
-    return $r;
-}
+				$r['resultado'] = 'consultar';
+				$r['mensaje'] =  $respuesta;
+			} else {
+				$r['resultado'] = 'consultar';
+				$r['mensaje'] =  '';
+			}
+		} catch (Exception $e) {
+			$r['resultado'] = 'error';
+			$r['mensaje'] = $e->getMessage();
+		}
+		return $r;
+	}
 
 
 
@@ -249,6 +250,22 @@ class trainers extends datos
 		// Conectar a la base de datos
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		function imgToBase64($imgPath)
+		{
+			// Verifica si la imagen existe
+			if (file_exists($imgPath)) {
+				// Obtiene el contenido de la imagen
+				$imgData = file_get_contents($imgPath);
+
+				// Codifica la imagen a base64
+				$base64 = base64_encode($imgData);
+
+				// Retorna el formato base64 con el prefijo correspondiente para imágenes
+				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
+			} else {
+				return ''; // Si la imagen no existe, retorna una cadena vacía
+			}
+		}
 		try {
 			// Preparar la consulta SQL con los filtros necesarios
 			$resultado = $co->prepare("SELECT * FROM tentrenadores WHERE 
@@ -265,6 +282,7 @@ class trainers extends datos
 
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
+			$imageBase64 = imgToBase64('img/logo.png');
 
 			// Comienza a construir el contenido HTML para el PDF
 			$html = "<html><head>
@@ -281,6 +299,8 @@ class trainers extends datos
 
 			// Título del PDF
 			$html .= "<h1>LISTA DE ENTRENADORES</h1>";
+			$html .= "<center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>";
+			$html .= "<br>";
 			$html .= "<table>";
 			$html .= "<thead>";
 			$html .= "<tr>";
@@ -315,6 +335,11 @@ class trainers extends datos
 			// Manejo de excepciones (opcional)
 			return "Error al generar el PDF: " . $e->getMessage();
 		}
+
+		$options = new Options();
+		$options->set('isHtml5ParserEnabled', true);
+		$options->set('isPhpEnabled', true);
+		$pdf = new Dompdf($options);
 
 		// Instanciamos un objeto de la clase DOMPDF
 		$pdf = new DOMPDF();

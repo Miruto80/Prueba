@@ -3,95 +3,113 @@ require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
 use Dompdf\Dompdf;
+use Dompdf\Options;
+
 require_once('modelo/datos.php');
 
 
 
-class records extends datos{
-	
-	private $Nombre_de_evento; 
+class records extends datos
+{
+
+	private $Nombre_de_evento;
 	private $Fecha_del_evento;
 	private $Logro_obtenido;
 	private $categoria;
 	private $NombreLA;
 	private $cedula;
 	private $apellidos;
-	
-	
-	
-	function set_Nombre_de_evento($valor){
-		$this->Nombre_de_evento = $valor; 
+
+
+
+	function set_Nombre_de_evento($valor)
+	{
+		$this->Nombre_de_evento = $valor;
 	}
-	
-	
-	function set_Fecha_del_evento($valor){
+
+
+	function set_Fecha_del_evento($valor)
+	{
 		$this->Fecha_del_evento = $valor;
 	}
-	
-	function set_Logro_obtenido($valor){
+
+	function set_Logro_obtenido($valor)
+	{
 		$this->Logro_obtenido = $valor;
 	}
 
-	function set_categoria($valor){
+	function set_categoria($valor)
+	{
 		$this->categoria = $valor;
 	}
-	function set_NombreLA($valor){
+	function set_NombreLA($valor)
+	{
 		$this->NombreLA = $valor;
 	}
-	function set_cedula($valor){
+	function set_cedula($valor)
+	{
 		$this->cedula = $valor;
 	}
-	function set_apellidos($valor){
+	function set_apellidos($valor)
+	{
 		$this->apellidos = $valor;
 	}
-	
-	
+
+
 	//0000000000000000
 
 
 
-	function get_Nombre_de_evento(){
+	function get_Nombre_de_evento()
+	{
 		return $this->Nombre_de_evento;
 	}
-	
-	
-	function get_Fecha_del_evento(){
+
+
+	function get_Fecha_del_evento()
+	{
 		return $this->Fecha_del_evento;
 	}
-	
-	
-	
-	function get_Logro_obtenido(){
+
+
+
+	function get_Logro_obtenido()
+	{
 		return $this->Logro_obtenido;
 	}
 
-	function get_categoria(){
+	function get_categoria()
+	{
 		return $this->categoria;
 	}
 
-	function get_NombreLA(){
+	function get_NombreLA()
+	{
 		return $this->NombreLA;
 	}
-	function get_cedula(){
+	function get_cedula()
+	{
 		return $this->cedula;
 	}
-	function get_apellidos(){
+	function get_apellidos()
+	{
 		return $this->apellidos;
 	}
-	
-	
 
-	
-	function incluir(){
-		
+
+
+
+	function incluir()
+	{
+
 		$r = array();
-		if(!$this->existe($this->Fecha_del_evento)){
-			
+		if (!$this->existe($this->Fecha_del_evento)) {
+
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			
+
 			try {
-					$co->query("Insert into tlogros(
+				$co->query("Insert into tlogros(
 						Nombre_de_evento,
 						Fecha_del_evento,
 						Logro_obtenido,
@@ -109,28 +127,27 @@ class records extends datos{
 						'$this->cedula',
 						'$this->apellidos'
 						)");
-						$r['resultado'] = 'incluir';
-			            $r['mensaje'] =  'Logro Incluido';
-			} catch(Exception $e) {
+				$r['resultado'] = 'incluir';
+				$r['mensaje'] =  'Logro Incluido';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'incluir';
 			$r['mensaje'] =  'Este logro ya se encuentra registrado';
 		}
 		return $r;
-		
 	}
-	
-	function modificar(){
+
+	function modificar()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Fecha_del_evento)){
+		if ($this->existe($this->Fecha_del_evento)) {
 			try {
-					$co->query("Update tlogros set 
+				$co->query("Update tlogros set 
 					    Nombre_de_evento = '$this->Nombre_de_evento',
 						Fecha_del_evento = '$this->Fecha_del_evento',
 						Logro_obtenido = '$this->Logro_obtenido',
@@ -141,62 +158,62 @@ class records extends datos{
 						where
 						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
-						$r['resultado'] = 'modificar';
-			            $r['mensaje'] =  'Logro Modificado';
-			} catch(Exception $e) {
+				$r['resultado'] = 'modificar';
+				$r['mensaje'] =  'Logro Modificado';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'modificar';
 			$r['mensaje'] =  'Logro no registrado';
 		}
 		return $r;
 	}
-	
-	function eliminar(){
+
+	function eliminar()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		if($this->existe($this->Fecha_del_evento)){
+		if ($this->existe($this->Fecha_del_evento)) {
 			try {
-					$co->query("delete from tlogros 
+				$co->query("delete from tlogros 
 						where
 						Fecha_del_evento = '$this->Fecha_del_evento'
 						");
-						$r['resultado'] = 'eliminar';
-			            $r['mensaje'] =  'Logro Eliminado';
-			} catch(Exception $e) {
+				$r['resultado'] = 'eliminar';
+				$r['mensaje'] =  'Logro Eliminado';
+			} catch (Exception $e) {
 				$r['resultado'] = 'error';
-			    $r['mensaje'] =  $e->getMessage();
+				$r['mensaje'] =  $e->getMessage();
 			}
-		}
-		else{
+		} else {
 			$r['resultado'] = 'eliminar';
 			$r['mensaje'] =  'No existe este logro';
 		}
 		return $r;
 	}
-	
-	
-	function consultar($nivelUsuario){
+
+
+	function consultar($nivelUsuario)
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try{
+		try {
 			$resultado = $co->query("SELECT * FROM tlogros");
-			if($resultado){
+			if ($resultado) {
 				$respuesta = '';
-				foreach($resultado as $row){
+				foreach ($resultado as $row) {
 					$respuesta .= "<tr>";
 					if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
-					$respuesta .= "<td class='text-center action-column'>";
-					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
+						$respuesta .= "<td class='text-center action-column'>";
+						$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,0)'>
 								   <i class='fa-solid fa-pen-to-square'></i></button>";
-					$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
+						$respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' onclick='pone(this,1)'>
 								   <i class='fa-solid fa-trash'></i></button>";
-					$respuesta .= "</td>";
+						$respuesta .= "</td>";
 					}
 					$respuesta .= "<td class='text-center'>{$row['Nombre_de_evento']}</td>";
 					$respuesta .= "<td class='text-center'>{$row['Fecha_del_evento']}</td>";
@@ -213,90 +230,104 @@ class records extends datos{
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  '';
 			}
-		} catch(Exception $e){
+		} catch (Exception $e) {
 			$r['resultado'] = 'error';
 			$r['mensaje'] = $e->getMessage();
 		}
 		return $r;
 	}
-	
-	function listadodeclientes(){
+
+	function listadodeclientes()
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try{
-			
+		try {
+
 			$resultado = $co->query("Select * from tatletas");
-			
-			if($resultado){
-				
+
+			if ($resultado) {
+
 				$respuesta = '';
-				foreach($resultado as $r){
-					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
-						
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['cedula'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['apellidos'];
-						$respuesta = $respuesta."</td>";
-						$respuesta = $respuesta."<td>";
-							$respuesta = $respuesta.$r['nombres'];
-						$respuesta = $respuesta."</td>";
-					$respuesta = $respuesta."</tr>";
+				foreach ($resultado as $r) {
+					$respuesta = $respuesta . "<tr style='cursor:pointer' onclick='colocacliente(this);'>";
+
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['cedula'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['apellidos'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "<td>";
+					$respuesta = $respuesta . $r['nombres'];
+					$respuesta = $respuesta . "</td>";
+					$respuesta = $respuesta . "</tr>";
 				}
 				$r['resultado'] = 'modalclientes';
 				$r['mensaje'] =  $respuesta;
-			    
-			}
-			else{
+			} else {
 				$r['resultado'] = 'modalclientes';
 				$r['mensaje'] =  '';
 			}
-			
-		}catch(Exception $e){
+		} catch (Exception $e) {
 			$r['resultado'] = 'error';
 			$r['mensaje'] =  $e->getMessage();
 		}
 		return $r;
 	}
 
-	
-	
-	
-	private function existe($Fecha_del_evento){
+
+
+
+	private function existe($Fecha_del_evento)
+	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		try{
-			
+		try {
+
 			$resultado = $co->query("Select * from tlogros where Fecha_del_evento='$Fecha_del_evento'");
-			
-			
+
+
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
-			if($fila){
+			if ($fila) {
 
 				return true;
-			    
-			}
-			else{
-				
+			} else {
+
 				return false;;
 			}
-			
-		}catch(Exception $e){
+		} catch (Exception $e) {
 			return false;
 		}
 	}
 
 
-	function generarPDF() {
+	function generarPDF()
+	{
 		// Conexión a la base de datos y configuración de errores
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-	
+
+		function imgToBase64($imgPath)
+		{
+			// Verifica si la imagen existe
+			if (file_exists($imgPath)) {
+				// Obtiene el contenido de la imagen
+				$imgData = file_get_contents($imgPath);
+
+				// Codifica la imagen a base64
+				$base64 = base64_encode($imgData);
+
+				// Retorna el formato base64 con el prefijo correspondiente para imágenes
+				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
+			} else {
+				return ''; // Si la imagen no existe, retorna una cadena vacía
+			}
+		}
+
 		try {
 			// Preparación de la consulta SQL
-			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria AND NombreLA LIKE :NombreLA");
+			$resultado = $co->prepare("SELECT * FROM tlogros WHERE Nombre_de_evento LIKE :Nombre_de_evento AND Fecha_del_evento LIKE :Fecha_del_evento AND Logro_obtenido LIKE :Logro_obtenido AND categoria LIKE :categoria AND NombreLA LIKE :NombreLA AND cedula LIKE :cedula AND apellidos LIKE :apellidos");
 			$resultado->bindValue(':Nombre_de_evento', '%' . $this->Nombre_de_evento . '%');
 			$resultado->bindValue(':Fecha_del_evento', '%' . $this->Fecha_del_evento . '%');
 			$resultado->bindValue(':Logro_obtenido', '%' . $this->Logro_obtenido . '%');
@@ -306,11 +337,15 @@ class records extends datos{
 			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
-	
+
+			$imageBase64 = imgToBase64('img/logo.png');
+
 			// Construcción del contenido HTML para el PDF
 			$html = "
 				<html>
+				
 				<head>
+				
 					<style>
 						body { font-family: Arial, sans-serif; }
 						table { width: 100%; border-collapse: collapse; }
@@ -322,6 +357,7 @@ class records extends datos{
 				</head>
 				<body>
 					<h2>Reporte de Logros</h2>
+					<center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>
 					<table>
 						<thead>
 							<tr>
@@ -335,7 +371,7 @@ class records extends datos{
 							</tr>
 						</thead>
 						<tbody>";
-	
+
 			// Añadiendo filas al HTML
 			if ($fila) {
 				foreach ($fila as $f) {
@@ -356,7 +392,7 @@ class records extends datos{
 							<td colspan='5' style='text-align:center; color:red;'>No se encontraron resultados</td>
 						</tr>";
 			}
-	
+
 			// Finalización del HTML
 			$html .= "
 						</tbody>
@@ -368,7 +404,11 @@ class records extends datos{
 			echo "Error: " . $e->getMessage();
 			exit;
 		}
-	
+		$options = new Options();
+		$options->set('isHtml5ParserEnabled', true);
+		$options->set('isPhpEnabled', true);
+		$pdf = new Dompdf($options);
+
 		// Generación del PDF
 		$pdf = new DOMPDF();
 		$pdf->set_paper("A4", "portrait");
@@ -376,8 +416,4 @@ class records extends datos{
 		$pdf->render();
 		$pdf->stream('ReportePagos.pdf', array("Attachment" => false));
 	}
-	
-	
-	
 }
-?>
