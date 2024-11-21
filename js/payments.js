@@ -130,6 +130,7 @@ $(document).ready(function () {
         datos.append("nombres", $("#nombres").val());
         datos.append("apellidos", $("#apellidos").val());
         datos.append("id_atleta", $("#id_atleta").val());
+        datos.append("concepto", $("#concepto").val());
 
         enviaAjax(datos);
       }
@@ -146,6 +147,7 @@ $(document).ready(function () {
         datos.append("nombres", $("#nombres").val());
         datos.append("apellidos", $("#apellidos").val());
         datos.append("id_atleta", $("#id_atleta").val());
+        datos.append("concepto", $("#concepto").val());
 
         enviaAjax(datos);
       }
@@ -287,6 +289,7 @@ function pone(pos, accion) {
   $("#numeroaccion").val($(linea).find("td:eq(6)").text());
   $("#nombres").val($(linea).find("td:eq(7)").text());
   $("#apellidos").val($(linea).find("td:eq(8)").text());
+  $("#concepto").val($(linea).find("td:eq(9)").text());
 
   $("#modal1").modal("show");
 }
@@ -365,4 +368,5 @@ function limpia() {
   $("#numeroaccion").val("");
   $("#nombres").val("");
   $("#apellidos").val("");
+  $("#concepto").val("");
 }

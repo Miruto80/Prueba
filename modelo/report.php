@@ -591,6 +591,7 @@ class  payments extends datos
 	private $numeroaccion;
 	private $nombres;
 	private $apellidos;
+	private $concepto;
 	
 	//Metodos para leer: get metodos para colocar: set 
 
@@ -632,6 +633,10 @@ class  payments extends datos
 	{
 		$this->apellidos = $valor;
 	}
+	function set_concepto($valor)
+	{
+		$this->concepto = $valor;
+	}
 	
 ////sdddddddssssssssssssssssssssssssssssssssssss
 
@@ -670,6 +675,10 @@ class  payments extends datos
 	{
 		return $this->apellidos;
 	}
+	function get_concepto()
+	{
+		return $this->concepto;
+	}
 	
 
 	function generarPDF() {
@@ -681,7 +690,7 @@ class  payments extends datos
 			// Preparación de la consulta SQL
 			$resultado = $co->prepare("SELECT * FROM tpagos WHERE cedula LIKE :cedula AND fechadepago LIKE :fechadepago 
 			AND Monto LIKE :Monto AND Comprobantedepago LIKE :Comprobantedepago 
-			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion AND nombres LIKE :nombres AND apellidos LIKE :apellidos");
+			AND tipopago LIKE :tipopago AND numeroaccion LIKE :numeroaccion AND nombres LIKE :nombres AND apellidos LIKE :apellidos AND concepto LIKE :concepto");
 			$resultado->bindValue(':cedula', '%' . $this->cedula . '%');
 			$resultado->bindValue(':fechadepago', '%' . $this->fechadepago . '%');
 			$resultado->bindValue(':Monto', '%' . $this->Monto . '%');
@@ -690,6 +699,7 @@ class  payments extends datos
 			$resultado->bindValue(':numeroaccion', '%' . $this->numeroaccion . '%');
 			$resultado->bindValue(':nombres', '%' . $this->nombres . '%');
 			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
+			$resultado->bindValue(':concepto', '%' . $this->concepto . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
 	
@@ -701,13 +711,13 @@ class  payments extends datos
 				<html>
 				<head>
 					<style>
-						body { font-family: Arial, sans-serif; }
-						table { width: 100%; border-collapse: collapse; }
-						th, td { border: 1px solid #000; padding: 8px; text-align: center; }
-						th { background-color: #FFD700; color: #000; } 
-						td { background-color: #FFF; }
-						h2 { text-align: center; color: #000; }
-					</style>
+							body { font-family: Arial, sans-serif; font-size: 10px; }
+							table { width: 100%; border-collapse: collapse; table-layout: fixed; }
+							th, td { border: 1px solid #000; padding: 4px; text-align: center; word-wrap: break-word; }
+							th { background-color: #FFD700; color: #000; }
+							td { background-color: #FFF; }
+							h1 { text-align: center; font-size: 16px; }
+						</style>
 				</head>
 				<body>
 					<h2>Reporte de Pagos</h2>
@@ -723,6 +733,7 @@ class  payments extends datos
 								<th>Numero de Accion</th>
 								<th>Nombres</th>
 								<th>Apellidos</th>
+								<th>concepto</th>
 							</tr>
 						</thead>
 						<tbody>";
@@ -740,6 +751,7 @@ class  payments extends datos
 							<td>{$f['numeroaccion']}</td>
 							<td>{$f['nombres']}</td>
 							<td>{$f['apellidos']}</td>
+							<td>{$f['concepto']}</td>
 						</tr>";
 				}
 			} else {

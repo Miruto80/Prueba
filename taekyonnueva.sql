@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 20-11-2024 a las 16:31:12
+-- Tiempo de generación: 21-11-2024 a las 04:19:44
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.0.30
 
@@ -211,17 +211,17 @@ CREATE TABLE `tpagos` (
   `Comprobantedepago` varchar(30) DEFAULT NULL,
   `nombres` varchar(20) NOT NULL,
   `apellidos` varchar(20) NOT NULL,
-  `idpago` int(10) NOT NULL
+  `concepto` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `tpagos`
 --
 
-INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`, `idpago`) VALUES
-(30294852, '2024-11-06', 23, 'transferencia', '36', 1, '2323', 'Roberto', 'Perez', 14),
-(30294852, '2024-11-23', 50, 'transferencia', '36', 1, '4561', 'Roberto', 'Perez', 24),
-(30294852, '2024-11-16', 56, 'Pago movil', '36', 1, '1563', 'Roberto', 'Perez', 25);
+INSERT INTO `tpagos` (`cedula`, `fechadepago`, `Monto`, `tipopago`, `numeroaccion`, `id_atleta`, `Comprobantedepago`, `nombres`, `apellidos`, `concepto`) VALUES
+(30294852, '2024-11-20', 50, 'Efectivo', '36', 1, '0001', 'Roberto', 'Perez', 'inscripcion'),
+(31245689, '2024-11-22', 60, 'Efectivo', '31', 2, '0002', 'Mariana', 'Melendez', 'inscripcion'),
+(30294852, '2024-11-20', 50, 'Efectivo', '36', 1, '0001', 'Roberto', 'Perez', 'inscripcion');
 
 -- --------------------------------------------------------
 
@@ -318,7 +318,6 @@ ALTER TABLE `tlogros`
 -- Indices de la tabla `tpagos`
 --
 ALTER TABLE `tpagos`
-  ADD PRIMARY KEY (`idpago`),
   ADD KEY `id_atleta` (`id_atleta`);
 
 --
@@ -354,12 +353,6 @@ ALTER TABLE `thorarios`
 --
 ALTER TABLE `tlogros`
   MODIFY `Cod_evento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-
---
--- AUTO_INCREMENT de la tabla `tpagos`
---
-ALTER TABLE `tpagos`
-  MODIFY `idpago` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- Restricciones para tablas volcadas

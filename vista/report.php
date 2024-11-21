@@ -354,15 +354,20 @@
                             </div>
                         </div>
                         <div class="row">
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="nombres">Nombres</label>
                                     <input class="form-control" type="text" id="nombres" name="nombres"  />
                                     <span id="snombres" class="form-text text-muted"></span>
                                 </div>
-                                <div class="col-6">
+                                <div class="col-4">
                                     <label for="apellidos">Apellidos</label>
                                     <input class="form-control" type="text" id="apellidos" name="apellidos" />
                                     <span id="sapellidos" class="form-text text-muted"></span>
+                                </div>
+                                <div class="col-4">
+                                    <label for="concepto">Concepto</label>
+                                    <input class="form-control" type="text" id="concepto" name="concepto" />
+                                    <span id="sconcepto" class="form-text text-muted"></span>
                                 </div>
                                
                             </div>

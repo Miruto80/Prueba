@@ -21,6 +21,7 @@
             background-image: linear-gradient(rgba(5, 7, 12, 0.75), rgba(5, 7, 12, 0.5)), url('img/fondo.jpg');
             background-size: cover;
             background-repeat: no-repeat;
+            
         }
 
         .table th,
@@ -82,6 +83,7 @@
                         <th class="text-center">Nro de Accion</th>
                         <th class="text-center">Nombres</th>
                         <th class="text-center">Apellidos</th>
+                        <th class="text-center">Concepto</th>
                     </tr>
                 </thead>
                 <tbody id="resultadoconsulta">
@@ -137,40 +139,43 @@
                                         <input class="form-control" type="text" id="id_atleta" name="id_atleta" disabled />
                                         <span id="sid_atleta" class="form-text text-muted"></span>
 
-                                        
+
                                         <label for="numeroaccion">Numero de Accion</label>
                                         <input class="form-control" type="text" id="numeroaccion" name="numeroaccion" disabled />
                                         <span id="snumeroaccion"></span>
-                                  
+
                                     </div>
                                     <div class="col-md-6">
-                                    <label for="Monto">Monto</label>
+                                        <label for="Monto">Monto</label>
                                         <input class="form-control" type="text" id="Monto" name="Monto" />
                                         <span id="sMonto"></span>
-                                        
-                                        
-                                    
+
+
+
                                         <label for="Comprobantedepago">Comprobante de Pago</label>
                                         <input class="form-control" type="text" id="Comprobantedepago"
                                             name="Comprobantedepago" />
                                         <span id="sComprobantedepago"></span>
 
-                                        
+
                                         <label for="tipopago">Tipo de Pago</label>
                                         <select class="form-select" class="form-control" id="tipopago" name="tipopago">
                                             <option value="Pago movil">Pago movil</option>
                                             <option value="transferencia">Transferencia</option>
                                             <option value="Efectivo">Efectivo</option>
                                         </select>
-                                    
-                                  
+
+                                        <label for="concepto">Concepto de Pago</label>
+                                        <input class="form-control" type="text" id="concepto" name="concepto" />
+                                        <span id="sconcepto"></span>
+
                                     </div>
-                                  
+
                                 </div>
 
 
                                 <!-- en proceso de creacion -->
-                              
+
                             </div>
                             <div class="row mt-3 justify-content-center">
                                 <div class="col-md-2">
@@ -269,16 +274,23 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="nombres">Nombres</label>
                                 <input class="form-control" type="text" id="nombres" name="nombres" />
                                 <span id="snombres" class="form-text text-muted"></span>
                             </div>
-                            <div class="col-6">
+                            <div class="col-4">
                                 <label for="apellidos">Apellidos</label>
                                 <input class="form-control" type="text" id="apellidos" name="apellidos" />
                                 <span id="sapellidos" class="form-text text-muted"></span>
                             </div>
+
+                            <div class="col-4">
+                                <label for="concepto">Concepto de Pago</label>
+                                <input class="form-control" type="text" id="concepto" name="concepto" />
+                                <span id="sconcepto"></span>
+                            </div>
+
 
                         </div>
                 </div>

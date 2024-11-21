@@ -56,6 +56,7 @@ if (is_file("vista/" . $pagina . ".php")) {
         $payment->set_numeroaccion($_POST['numeroaccion']);
         $payment->set_nombres($_POST['nombres']);
 		$payment->set_apellidos($_POST['apellidos']);
+        $payment->set_concepto($_POST['concepto']);
         $payment->generarPDF();
     }
 
