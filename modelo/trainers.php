@@ -174,7 +174,7 @@ class trainers extends datos
 	}
 
 
-	function consultar()
+	function consultar($nivelUsuario)
 {
     $co = $this->conecta();
     $co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -185,6 +185,7 @@ class trainers extends datos
             $respuesta = '';
             foreach ($resultado as $row) {
                 $respuesta .= "<tr>";
+				if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
                 $respuesta .= "<td class='text-center action-column'>";
                 
                 // Botones de editar y eliminar
@@ -194,11 +195,9 @@ class trainers extends datos
                                <i class='fa-solid fa-trash'></i></button>";
                 
                 // Botón para mostrar imagen
-                $respuesta .= "<button type='button' class='btn btn-warning btn-sm mx-1 my-1' 
-                               onclick='mostrarImagen2({$row['CedulaE']})'>
-                               <i class='fa-solid fa-camera'></i></button>";
-                
+               
                 $respuesta .= "</td>";
+				}
                 $respuesta .= "<td class='text-center'>{$row['CedulaE']}</td>";
                 $respuesta .= "<td class='text-center'>{$row['Apellido']}</td>";
                 $respuesta .= "<td class='text-center'>{$row['Nombre']}</td>";

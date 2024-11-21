@@ -71,7 +71,9 @@
 				<table class="table table-striped table-dark table-hover" id="tablapersona">
 					<thead>
 						<tr>
-							<th class="text-center action-column">Acciones</th>
+						<?php if ($nivel === 'Gerente' || $nivel === 'Secretaria'){ ?>
+                        <th class="text-center action-column">Acciones</th>
+                    <?php } ?>
 							<th class="text-center">Nombre de evento</th>
 							<th class="text-center">Fecha del evento</th>
 							<th class="text-center">Logro del evento</th>

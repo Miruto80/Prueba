@@ -22,13 +22,13 @@ if (is_file("vista/".$pagina.".php")) {
 		$o->generarPDF();
 		
 	}
-
+	$nivelUsuario = $_SESSION['nivel'];
 	if(!empty($_POST)){
 		// guardamos en schedules los valores con los metodos set
 		$accion = $_POST['accion'];
 		// Condicionales para las diferentes acciones
 		if($accion=='consultar'){
-		   echo  json_encode($o->consultar());  
+			echo json_encode($o->consultar($nivelUsuario));
 		}
 		else if($accion=='obtienefecha'){
 		  echo json_encode($o->obtienefecha());

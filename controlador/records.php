@@ -24,14 +24,14 @@ require_once("modelo/".$pagina.".php");
 		$o->generarPDF();
 	}
 	
-	  
+	$nivelUsuario = $_SESSION['nivel'];
 	  if(!empty($_POST)){
 		$o = new records();   
 	
 		  $accion = $_POST['accion'];
 		  
 		  if($accion=='consultar'){
-			 echo  json_encode($o->consultar());  
+			echo json_encode($o->consultar($nivelUsuario));
 		  }
 		  elseif($accion=='eliminar'){
 			 $o->set_Fecha_del_evento($_POST['Fecha_del_evento']);

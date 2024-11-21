@@ -30,7 +30,7 @@ if (is_file("vista/" . $pagina . ".php")) {
 	
 
 
-
+    $nivelUsuario = $_SESSION['nivel'];
 	if (!empty($_POST)) {
 		$o = new payments();   //instancia de clase payments
 
@@ -40,7 +40,7 @@ if (is_file("vista/" . $pagina . ".php")) {
 		$accion = $_POST['accion'];
 
 		if ($accion == 'consultar') {
-			echo  json_encode($o->consultar());
+			echo json_encode($o->consultar($nivelUsuario));
 
 		} else if ($accion == 'obtienefecha') {
 			echo json_encode($o->obtienefecha());
