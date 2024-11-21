@@ -1,4 +1,3 @@
-
 var datos = new FormData();
 datos.append("accion", "modalclientes");
 enviaAjax(datos);
@@ -34,11 +33,11 @@ function crearDT(){
     if (!$.fn.DataTable.isDataTable("#tablapersona")) {
             $("#tablapersona").DataTable({
               language: {
-                lengthMenu: "Mostrar _MENU_ por página",
+                lengthMenu: "Mostrar MENU por página",
                 zeroRecords: "No se encontraron entrenadores",
-                info: "Mostrando página _PAGE_ de _PAGES_",
+                info: "Mostrando página PAGE de PAGES",
                 infoEmpty: "No hay entrenadores registradas",
-                infoFiltered: "(filtrado de _MAX_ registros totales)",
+                infoFiltered: "(filtrado de MAX registros totales)",
                 search: "Buscar:",
                 paginate: {
                   first: "Primera",
@@ -66,7 +65,7 @@ $(document).ready(function(){
 
     // Validación de la Fecha del Evento (por keyup)
     $("#Fecha_del_evento").on("keyup", function () {
-        validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.))(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+        validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
         $(this),$("#sFecha_del_evento"),"Ingrese una fecha valida");
     });
 
@@ -131,7 +130,7 @@ function validarenvio() {
         muestraMensaje("Nombre del Evento <br/>Solo letras y números entre 3 y 30 caracteres");
         return false;
     }
-    else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.))(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
+    else if(validarkeyup(/^(?:(?:1[6-9]|[2-9]\d)?\d{2})(?:(?:(\/|-|\.)(?:0?[13578]|1[02])\1(?:31))|(?:(\/|-|\.)(?:0?[13-9]|1[0-2])\2(?:29|30)))$|^(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00)))(\/|-|\.)0?2\3(?:29)$|^(?:(?:1[6-9]|[2-9]\d)?\d{2})(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:0?[1-9]|1\d|2[0-8])$/,
         $("#Fecha_del_evento"),$("#sFecha_del_evento"),"Ingrese una fecha valida")==0){
         muestraMensaje("Fecha del evento <br/>Ingrese una fecha valida");
         return false;    
@@ -142,13 +141,13 @@ function validarenvio() {
         return false;
     }
     else {
+        var f1 = new Date(1950,0,1 );
         var hoy = new Date(); // Fecha actual
-        hoy.setHours(0, 0, 0, 0); // Ajustar para comparar solo fechas sin tiempos
         var f2 = new Date($("#Fecha_del_evento").val());
-        f2.setHours(0, 0, 0, 0); // Ajustar para comparar solo fechas sin tiempos
         
+
         if (f2 > hoy) {
-            muestraMensaje("Fecha del evento <br/>El evento no puede ser en una fecha futura.");
+            muestraMensaje("Fecha del evento <br/>La fecha del evento no es valida.");
             return false;
         }
     }
@@ -203,6 +202,7 @@ function pone(pos, accion) {
     $("#modal1").modal("show");
 }
 
+
 function enviaAjax(datos) {
     $.ajax({
         async: true,
@@ -241,7 +241,8 @@ function enviaAjax(datos) {
                     }
                 } else if (lee.resultado == "modalclientes") {
                     $("#tablaclientes").html(lee.mensaje);
-                } else if (lee.resultado == "error") {
+                  } 
+                else if (lee.resultado == "error") {
                     muestraMensaje(lee.mensaje);
                 }
             } catch (e) {
@@ -266,5 +267,5 @@ function limpia() {
     $("#cedula").val("");
     $("#apellidos").val("");
     $("#Logro_obtenido").prop("selectedIndex", 0);
-    $("#categoria").prop("selectedIndex", 0);
+    $("#categoria").val("selectedIndex", 0);
 }
