@@ -51,27 +51,27 @@
         <!-- Botones para abrir los modales -->
         <div class="col-12 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-sm w-75" data-bs-toggle="modal" data-bs-target="#modal1">
-                <b>ATLETAS</b>
+                <b>GENERAR REPORTE DE ATLETAS</b>
             </button>
         </div>
         <div class="col-12 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-sm w-75" data-bs-toggle="modal" data-bs-target="#modal2">
-                <b>ENTRENADORES</b>
+                <b>GENERAR REPORTE DE ENTRENADORES</b>
             </button>
         </div>
         <div class="col-12 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-sm w-75" data-bs-toggle="modal" data-bs-target="#modal3">
-                <b>HORARIOS</b>
+                <b>GENERAR REPORTE DE HORARIOS</b>
             </button>
         </div>
         <div class="col-12 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-sm w-75" data-bs-toggle="modal" data-bs-target="#modal4">
-                <b>PAGOS</b>
+                <b>GENERAR REPORTE DE PAGOS</b>
             </button>
         </div>
         <div class="col-12 d-flex justify-content-center mb-2">
             <button type="button" class="btn btn-warning btn-sm w-75" data-bs-toggle="modal" data-bs-target="#modal5">
-                <b>LOGROS</b>
+                <b>GENERAR REPORTE DE LOGROS</b>
             </button>
         </div>
         <div class="col-12 d-flex justify-content-center mb-2">

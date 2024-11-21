@@ -39,10 +39,22 @@
                 <li><a class="dropdown-item" href="?pagina=schedules">Gestionar Horarios</a></li>
                 <li><a class="dropdown-item" href="?pagina=payments">Gestionar Pagos</a></li>
                 <li><a class="dropdown-item" href="?pagina=records">Gestionar Logros</a></li>
-                <li><a class="dropdown-item" href="?pagina=report">Reportes</a></li>
+                <li><a class="dropdown-item" href="?pagina=report">Generar Reportes</a></li>
+              </ul>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Gestionar Reportes
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="?pagina=report">Generar Reportes</a></li>
               </ul>
             </li>
           </ul>
+
+          
+        
 
           <!-- Botones alineados a la derecha -->
           <ul class="navbar-nav ms-auto">
