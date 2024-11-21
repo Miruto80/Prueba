@@ -2,9 +2,7 @@
 require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones de la 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
-
 use Dompdf\Dompdf;
-use Dompdf\Options;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -13,10 +11,10 @@ require_once('modelo/datos.php');
 
 class  payments extends datos
 {
-
+	
 	//Declararacion de los atributos
-
-	private $cedula;
+	
+	private $cedula; 
 	private $fechadepago;
 	private $Monto;
 	private $Comprobantedepago;
@@ -26,14 +24,14 @@ class  payments extends datos
 	private $apellidos;
 	private $id_atleta;
 	private $concepto;
-
+	
 	//Metodos para leer: get metodos para colocar: set 
 
 	function set_cedula($valor)
 	{
-		$this->cedula = $valor;
+		$this->cedula = $valor; 
 	}
-
+	
 	function set_fechadepago($valor)
 	{
 		$this->fechadepago = $valor;
@@ -48,16 +46,17 @@ class  payments extends datos
 	{
 		$this->Comprobantedepago = $valor;
 	}
-
+    
 	function set_tipopago($valor)
 	{
 		$this->tipopago = $valor;
+
 	}
 	function set_numeroaccion($valor)
 	{
 		$this->numeroaccion = $valor;
 	}
-
+	
 	function set_nombres($valor)
 	{
 		$this->nombres = $valor;
@@ -74,8 +73,7 @@ class  payments extends datos
 	{
 		$this->concepto = $valor;
 	}
-
-	////sssssssssssssssssssssssssssssssssssss
+////sdddddddssssssssssssssssssssssssssssssssssss
 
 	function get_cedula()
 	{
@@ -91,11 +89,11 @@ class  payments extends datos
 	{
 		return $this->Monto;
 	}
-	function get_Comprobantedepago()
+		function get_Comprobantedepago()
 	{
 		return $this->Comprobantedepago;
 	}
-
+	
 	function get_numeroaccion()
 	{
 		return $this->numeroaccion;
@@ -122,11 +120,11 @@ class  payments extends datos
 	}
 
 
-
+	
 
 	function incluir()
 	{
-
+		
 		$r = array();
 
 		if (($this->tipopago == 'transferencia' || $this->tipopago == 'Pago movil' || $this->tipopago == 'Efectivo') && $this->Comprobantedepago == '') {
@@ -136,11 +134,11 @@ class  payments extends datos
 		}
 
 		// if (!$this->existe($this->Comprobantedepago)) {
-		if (!$this->existe($this->Comprobantedepago)) {
-
+		 if (!$this->existe($this->Comprobantedepago)) {
+			
 			$co = $this->conecta();
 			$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
+			
 			try {
 				$co->query("Insert into tpagos(
 						cedula,
@@ -168,7 +166,7 @@ class  payments extends datos
 						
 						)");
 				$r['resultado'] = 'incluir';
-				$r['mensaje'] =  'Pago Inluido';
+				$r['mensaje'] =  'Registro Inluido';
 			} catch (Exception $e) {
 				$r['resultado'] = 'error';
 				$r['mensaje'] =  $e->getMessage();
@@ -178,6 +176,7 @@ class  payments extends datos
 			$r['mensaje'] =  'Ya existe el pago';
 		}
 		return $r;
+
 	}
 
 	function modificar()
@@ -201,7 +200,7 @@ class  payments extends datos
 						cedula = '$this->cedula'
 						");
 				$r['resultado'] = 'modificar';
-				$r['mensaje'] =  'Pago Modificado';
+				$r['mensaje'] =  'Registro Modificado';
 			} catch (Exception $e) {
 				$r['resultado'] = 'error';
 				$r['mensaje'] =  $e->getMessage();
@@ -212,8 +211,8 @@ class  payments extends datos
 		}
 		return $r;
 	}
-
-	function eliminar()
+	
+function eliminar()
 	{
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -225,7 +224,7 @@ class  payments extends datos
 						Comprobantedepago = '$this->Comprobantedepago'
 						");
 				$r['resultado'] = 'eliminar';
-				$r['mensaje'] =  'Pago Eliminado';
+				$r['mensaje'] =  'Registro Eliminado';
 			} catch (Exception $e) {
 				$r['resultado'] = 'error';
 				$r['mensaje'] =  $e->getMessage();
@@ -236,6 +235,9 @@ class  payments extends datos
 		}
 		return $r;
 	}
+
+
+
 
 	function consultar($nivelUsuario)
 	{
@@ -252,46 +254,46 @@ class  payments extends datos
 				foreach ($resultado as $r) {
 					$respuesta = $respuesta . "<tr>";
 					if ($nivelUsuario === 'Gerente' || $nivelUsuario === 'Secretaria') {
-						$respuesta = $respuesta . "<td class='text-center action-row'>";
-						$respuesta = $respuesta . "<button type='button'
+					$respuesta = $respuesta . "<td class='text-center action-row'>";
+					$respuesta = $respuesta . "<button type='button'
 					class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,0)'
 						    ><i class='fa-solid fa-pen-to-square'></i></button>";
-						$respuesta = $respuesta . "<button type='button'
+					$respuesta = $respuesta . "<button type='button'
 							class='btn btn-warning btn-sm mx-1 my-1' 
 							onclick='pone(this,1)'
 						    ><i class='fa-solid fa-trash'></i></button><br/>";
-						$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "</td>";
 					}
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['cedula'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['fechadepago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Monto'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Comprobantedepago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['tipopago'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['numeroaccion'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['nombres'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['apellidos'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['concepto'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "</tr>";
-				}
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['cedula'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['fechadepago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['Monto'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['Comprobantedepago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['tipopago'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['numeroaccion'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['nombres'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['apellidos'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "<td>";
+							$respuesta = $respuesta . $r['concepto'];
+							$respuesta = $respuesta . "</td>";
+							$respuesta = $respuesta . "</tr>";
+						}
 
 				$r['resultado'] = 'consultar';
 				$r['mensaje'] =  $respuesta;
@@ -305,12 +307,11 @@ class  payments extends datos
 		}
 		return $r;
 	}
+		
+	
+	private function existe($Comprobantedepago){
 
-
-	private function existe($Comprobantedepago)
-	{
-
-
+	
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		try {
@@ -330,48 +331,50 @@ class  payments extends datos
 			return false;
 		}
 	}
+	
 
 
-
-	function listadodeclientes()
-	{
+	function listadodeclientes(){
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 		$r = array();
-		try {
-
+		try{
+			
 			$resultado = $co->query("Select * from tatletas");
-
-			if ($resultado) {
-
+			
+			if($resultado){
+				
 				$respuesta = '';
-				foreach ($resultado as $r) {
-					$respuesta = $respuesta . "<tr style='cursor:pointer' onclick='colocacliente(this);'>";
-
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['cedula'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['apellidos'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['nombres'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['Numerodeaccion'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "<td>";
-					$respuesta = $respuesta . $r['id'];
-					$respuesta = $respuesta . "</td>";
-					$respuesta = $respuesta . "</tr>";
+				foreach($resultado as $r){
+					$respuesta = $respuesta."<tr style='cursor:pointer' onclick='colocacliente(this);'>";
+						
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['cedula'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['apellidos'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['nombres'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+						$respuesta = $respuesta.$r['Numerodeaccion'];
+						$respuesta = $respuesta."</td>";
+						$respuesta = $respuesta."<td>";
+							$respuesta = $respuesta.$r['id'];
+						$respuesta = $respuesta."</td>";
+					$respuesta = $respuesta."</tr>";
 				}
 				$r['resultado'] = 'modalclientes';
 				$r['mensaje'] =  $respuesta;
-			} else {
+			    
+			}
+			else{
 				$r['resultado'] = 'modalclientes';
 				$r['mensaje'] =  '';
 			}
-		} catch (Exception $e) {
+			
+		}catch(Exception $e){
 			$r['resultado'] = 'error';
 			$r['mensaje'] =  $e->getMessage();
 		}
@@ -393,30 +396,11 @@ class  payments extends datos
 		return $r;
 	}
 
-
-	function generarPDF()
-	{
+	function generarPDF() {
 		// Conexión a la base de datos y configuración de errores
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-		function imgToBase64($imgPath)
-		{
-			// Verifica si la imagen existe
-			if (file_exists($imgPath)) {
-				// Obtiene el contenido de la imagen
-				$imgData = file_get_contents($imgPath);
-
-				// Codifica la imagen a base64
-				$base64 = base64_encode($imgData);
-
-				// Retorna el formato base64 con el prefijo correspondiente para imágenes
-				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
-			} else {
-				return ''; // Si la imagen no existe, retorna una cadena vacía
-			}
-		}
-
+	
 		try {
 			// Preparación de la consulta SQL
 			$resultado = $co->prepare("SELECT * FROM tpagos WHERE cedula LIKE :cedula AND fechadepago LIKE :fechadepago 
@@ -432,19 +416,15 @@ class  payments extends datos
 			$resultado->bindValue(':apellidos', '%' . $this->apellidos . '%');
 			$resultado->bindValue(':concepto', '%' . $this->concepto . '%');
 			$resultado->execute();
-			
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
-
-			$imageBase64 = imgToBase64('img/logo.png');
-
+	
 			// Obtener la fecha y hora actuales
 			$fechaHoraActual = date('Y-m-d H:i:s');  // Obtén la fecha y hora en formato deseado
-
+	
 			// Construcción del contenido HTML para el PDF
 			$html = "
 				<html>
 				<head>
-				
 					<style>
 							body { font-family: Arial, sans-serif; font-size: 10px; }
 							table { width: 100%; border-collapse: collapse; table-layout: fixed; }
@@ -455,10 +435,7 @@ class  payments extends datos
 						</style>
 				</head>
 				<body>
-					<center><h2>Reporte de Pagos</h2></center>
-					 
-                <center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>
-
+					<h2>Reporte de Pagos</h2>
 					<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p> 
 					<table>
 						<thead>
@@ -475,7 +452,7 @@ class  payments extends datos
 							</tr>
 						</thead>
 						<tbody>";
-
+	
 			// Añadiendo filas al HTML
 			if ($fila) {
 				foreach ($fila as $f) {
@@ -498,24 +475,20 @@ class  payments extends datos
 							<td colspan='8' style='text-align:center; color:red;'>No se encontraron resultados</td>
 						</tr>";
 			}
-
+	
 			// Finalización del HTML
 			$html .= "
 						</tbody>
 					</table>
 				</body>
 				</html>";
+	
 		} catch (Exception $e) {
 			// Manejo de errores
 			echo "Error: " . $e->getMessage();
 			exit;
 		}
-
-		$options = new Options();
-		$options->set('isHtml5ParserEnabled', true);
-		$options->set('isPhpEnabled', true);
-		$pdf = new Dompdf($options);
-
+	
 		// Generación del PDF
 		$pdf = new DOMPDF();
 		$pdf->set_paper("A4", "portrait");
