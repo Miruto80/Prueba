@@ -96,7 +96,7 @@ $(document).ready(function () {
       /^(?:[$]|Bs)?\d{1,3}(?:,\d{3})*(?:\.\d{2})?$/,
       $(this),
       $("#sMonto"),
-      "Ingrese un monto válido en el formato: $1,000.00 o Bs1000.00"
+      "Ingrese un monto válido en el formato: 1,000.00 o 1000.00"
     );
   });
 
@@ -206,10 +206,10 @@ function validarenvio() {
       /^^(?:[$]|Bs)?\d{1,3}(?:,\d{3})*(?:\.\d{2})?$/,
       $("#Monto"),
       $("#sMonto"),
-      "Ingrese un monto válido en el formato: $1,000.00 o Bs1000.00"
+      "Ingrese un monto válido en el formato: 1,000.00 o Bs1000.00"
     ) == 0
   ) {
-    muestraMensaje("Ingrese un monto válido en el formato: <br/>" + "$1,000.00 o Bs1000.00");
+    muestraMensaje("Ingrese un monto válido en el formato: <br/>" + "$1,000.00 o 1000.00");
     return false;
   } else {
     var f1 = new Date(1950, 1, 1);
