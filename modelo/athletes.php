@@ -3,6 +3,7 @@ require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
 use Dompdf\Dompdf;
+use Dompdf\Options;
 //llamda al archivo que contiene la clase
 //datos
 require_once('modelo/datos.php');
@@ -375,9 +376,27 @@ class  athletes extends datos
 		return $r;
 	}
 
+
 	function generarPDF() {
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		function imgToBase64($imgPath)
+		{
+			// Verifica si la imagen existe
+			if (file_exists($imgPath)) {
+				// Obtiene el contenido de la imagen
+				$imgData = file_get_contents($imgPath);
+
+				// Codifica la imagen a base64
+				$base64 = base64_encode($imgData);
+
+				// Retorna el formato base64 con el prefijo correspondiente para imágenes
+				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
+			} else {
+				return ''; // Si la imagen no existe, retorna una cadena vacía
+			}
+		}
+
 		try {
 			$resultado = $co->prepare("SELECT * FROM tatletas WHERE 
 										cedula LIKE :cedula AND 
@@ -405,6 +424,8 @@ class  athletes extends datos
 
 			
 			$fechaHoraActual = date('Y-m-d H:i:s');
+
+			$imageBase64 = imgToBase64('img/logo.png');
 	
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_BOTH);
@@ -423,6 +444,7 @@ class  athletes extends datos
 					 </head><body>";
 	
 			$html .= "<h1>LISTA DE ATLETAS</h1>";
+			$html .= "<center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>";
 			$html .= "<p><strong>Fecha y Hora de Expedicion: </strong>{$fechaHoraActual}</p>";
 			$html .= "<table>";
 			$html .= "<thead><tr>";
@@ -464,6 +486,10 @@ class  athletes extends datos
 		} catch (Exception $e) {
 			return "Error al generar el PDF: " . $e->getMessage();
 		}
+		$options = new Options();
+		$options->set('isHtml5ParserEnabled', true);
+		$options->set('isPhpEnabled', true);
+		$pdf = new Dompdf($options);
 	
 		$pdf = new DOMPDF();
 		$pdf->set_paper("A4", "landscape");  // Cambia a horizontal si hay problemas de espacio
