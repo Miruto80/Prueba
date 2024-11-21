@@ -3,6 +3,7 @@ require_once('dompdf/vendor/autoload.php'); //archivo para cargar las funciones 
 //libreria DOMPDF
 // lo siguiente es hacer rerencia al espacio de trabajo
 use Dompdf\Dompdf;
+use Dompdf\Options;
 // llamada al archivo que cntiene clase datos
 require_once('modelo/datos.php');
 
@@ -381,6 +382,22 @@ class schedules extends datos
 		// Conexión a la base de datos y configuración de errores
 		$co = $this->conecta();
 		$co->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+		function imgToBase64($imgPath)
+		{
+			// Verifica si la imagen existe
+			if (file_exists($imgPath)) {
+				// Obtiene el contenido de la imagen
+				$imgData = file_get_contents($imgPath);
+
+				// Codifica la imagen a base64
+				$base64 = base64_encode($imgData);
+
+				// Retorna el formato base64 con el prefijo correspondiente para imágenes
+				return 'data:img/logo.png;base64,' . $base64; // Si la imagen es PNG
+			} else {
+				return ''; // Si la imagen no existe, retorna una cadena vacía
+			}
+		}
 
 		try {
 			// Preparación de la consulta SQL
@@ -394,6 +411,9 @@ class schedules extends datos
 			$resultado->bindValue(':Apellido', '%' . $this->Apellido . '%');
 			$resultado->execute();
 			$fila = $resultado->fetchAll(PDO::FETCH_ASSOC);
+
+			
+			$imageBase64 = imgToBase64('img/logo.png');
 
 			// Construcción del contenido HTML para el PDF
 			$html = "
@@ -411,6 +431,8 @@ class schedules extends datos
 						</head>
 				<body>
 					<h2 style='text-align:center;'>REPORTE DE HORARIOS</h2>
+					<center><img src='{$imageBase64}' style='display:block; margin: 0 auto;' width='100' /></center>
+					<br>
 					<table>
 						<thead>
 							<tr>
@@ -457,6 +479,10 @@ class schedules extends datos
 			echo "Error: " . $e->getMessage();
 			exit;
 		}
+		$options = new Options();
+		$options->set('isHtml5ParserEnabled', true);
+		$options->set('isPhpEnabled', true);
+		$pdf = new Dompdf($options);
 
 		// Generación del PDF
 		$pdf = new DOMPDF();
