@@ -48,7 +48,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" target="_blank" href="Manual de usuario.docx">
+              <a class="nav-link" target="_blank" href="Manual de usuario.pdf">
                 Ayuda
               </a>
             </li>
