@@ -42,7 +42,7 @@
     <?php require_once('comunes/nav.php'); ?>
 
     <div class="container text-center h2 text-warning mt-3">
-        Gestionar Reportes
+        Generar Reportes
         <hr />
     </div>
 
