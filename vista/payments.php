@@ -168,8 +168,11 @@
                                         </select>
 
                                         <label for="concepto">Concepto de Pago</label>
-                                        <input class="form-control" type="text" id="concepto" name="concepto" />
-                                        <span id="sconcepto"></span>
+                                        <select class="form-select" class="form-control" id="concepto" name="concepto">
+                                            <option value="Inscripcion">Inscripcion</option>
+                                            <option value="Mensualidad">Mensualidad</option>
+                                            <option value="Abono de Mensualidad">Abono de Mensualidad</option>
+                                        </select>
 
                                     </div>
 

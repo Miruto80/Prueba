@@ -368,5 +368,5 @@ function limpia() {
   $("#numeroaccion").val("");
   $("#nombres").val("");
   $("#apellidos").val("");
-  $("#concepto").val("");
+  $("#concepto").prop("selectedIndex", 0);
 }
